@@ -1,0 +1,149 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Mar 05 21:12:52 EST 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:42 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set on Less Than Immediate</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass18_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap18-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+
+<p>
+<b>A.</b> After the following code executes, what value is in register <code class="register">$7</code> ?
+</p>
+
+<pre>
+addiu    $5,$0,-25
+addiu    $6,$0,25
+slt      $7,$5,$6
+</pre>
+
+<blockquote>
+Register <code class="register">$7</code> will be set to <b>1</b>, because
+(when the patterns in registers <code class="register">$5</code> and <code class="register">$6</code> are regarded as <b>signed</b> values)
+<code class="register">$5</code> &lt; <code class="register">$6</code>.
+</blockquote>
+
+<p>
+<b>B.</b> After the following code executes, what value is in register <code class="register">$7</code> ?
+</p>
+
+<pre>
+addiu    $5,$0,-25
+addiu    $6,$0,25
+sltu     $7,$5,$6
+</pre>
+
+<blockquote>
+Register <code class="register">$7</code> will be set to <b>0</b>, because
+(when the patterns in registers <code class="register">$5</code> and <code class="register">$6</code> are regarded as <b>unsigned</b> values)
+<code class="register">$5</code> is <u>not</u> less than <code class="register">$6</code>.
+If the bit pattern in register <code class="register">$5</code> is regarded as unsigned, it looks like a
+large positive value.
+</blockquote>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Set on Less Than Immediate</h1>
+<!-- ../Audio/chap18-04.mp3 -->
+
+<a id="slti_(instruction)"> </a>
+<a id="sltiu_(instruction)"> </a>
+
+<div class="left">
+<p><span class="highlight">
+The
+ other two set instructions compare an operand
+register with an immediate value in the instruction.</span>
+There is a version for two's complement:
+</p>
+
+<pre class="code">
+                   #  $s and imm contain two's comp. integers
+                   #  -32768 &lt;= imm &lt;= 32767
+                   #
+slti  d,s,imm      #  if ( $s &lt; imm )
+                   #    d = 1
+                   #  else
+                   #    d = 0
+</pre> 
+
+<p>
+And a version for unsigned integers:
+</p>
+
+<pre class="code">
+                   #  $s and imm contain unsigned integers
+                   #  0 &lt;= imm &lt;= 32767
+                   #
+sltiu  d,s,imm     #  if ( $s &lt; imm )
+                   #    d = 1
+                   #  else
+                   #    d = 0
+                   #
+</pre> 
+
+<p>
+In both, the immediate field of the machine instruction is 16 bits wide.
+However, the <code>sltiu</code> instruction  can only be used with
+small integers 0 &lt;= imm &lt;= 32767  (and another range which is
+not important for this course.)
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+
+<p>
+After the following code executes, what value is in register <code class="register">$7</code> ?
+</p>
+
+<pre>
+addiu    $6,$0,25
+slti     $7,$6,37
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass18_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:43 GMT -->
+</html>

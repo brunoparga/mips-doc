@@ -1,0 +1,187 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:42 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table of Set Instructions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-11.mp3 -->
+
+
+<h3>Answer:</h3>
+<p>
+Yes
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Table of Set Instructions</h1>
+
+<a id="set_instructions_(table)"> </a>
+
+<div class="left">
+ 
+<p>
+Here
+is a table of set instructions.
+Most of them are pseudoinstructions.
+</p>
+
+<p> <span class="highlight">
+The <code>t</code> operand can be
+an immediate operand.
+The <code>Imm</code> operand must
+be an immediate operand.</span>
+</p>
+
+<p>
+The extended assembler outputs the
+correct basic instructions depending on
+the mnemonic and the operands.
+Sometimes there are several ways in
+which the same basic instructions can
+be specified.
+</p>
+</div>
+
+<div class="right">
+<p>
+Some of the instructions are
+intended for integers expressed in unsigned binary,
+other instructions are for integers in two's complement,
+and for others it makes no difference.
+</p>
+
+</div>
+<br style="clear:both"> 
+
+<br style="clear:both"> 
+
+<table class="center" style="width:80%;">
+
+<tr style="height:30px">
+<th>Mnemonic</th> <th>Operands</th> <th>Description</th> <th>signed or<br>unsigned?</th> 
+</tr>
+
+<tr style="height:30px">
+<td>seq</td><td>d,s,t</td><td>set d if s==t</td><td>  &nbsp; </td>
+</tr>
+
+<tr style="height:30px">
+<td>sge</td><td>d,s,t</td><td>set d if s&gt;=t</td><td> signed </td>
+</tr>
+
+<tr style="height:30px">
+<td>sgeu</td><td>d,s,t</td><td>set d if s&gt;=t</td><td> unsigned </td>
+</tr>
+
+<tr style="height:30px">
+<td>sgt</td><td>d,s,t</td><td>set d if s&gt; t</td><td> signed </td>
+</tr>
+
+<tr style="height:30px">
+<td>sgtu</td><td>d,s,t</td><td>set d if s&gt; t</td><td> unsigned </td>
+</tr>
+
+<tr style="height:30px">
+<td>sle</td><td>d,s,t</td><td>set d if s&lt;=t</td><td> signed </td>
+</tr>
+
+<tr style="height:30px">
+<td>sleu</td><td>d,s,t</td><td>set d if s&lt;=t</td><td> unsigned </td>
+</tr>
+
+<tr style="height:30px">
+<td>slt</td><td>d,s,t</td><td>set d if s&lt; t</td><td> signed </td>
+</tr>
+
+<tr style="height:30px">
+<td>slti</td><td>d,s,Imm</td><td>set d if s&lt; Imm</td><td> signed </td>
+</tr>
+
+<tr style="height:30px">
+<td>sltu</td><td>d,s,t</td><td>set d if s&lt; t</td><td> unsigned </td>
+</tr>
+
+<tr style="height:30px">
+<td>sltiu</td><td>d,s,Imm</td><td>set d if s&lt; Imm</td><td> unsigned </td>
+</tr>
+
+<tr style="height:30px">
+<td>sne</td><td>d,s,t</td><td>set d if s != t</td><td>  &nbsp;</td>
+</tr>
+
+</table>
+
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+Do you think that the following two pseudoinstructions
+translate into the same basic instructions?
+</p>
+
+<blockquote>
+<code>
+sltu   $t4,$v0,45
+</code>
+</blockquote>
+<p>
+and
+</p>
+<blockquote>
+
+<code>
+sltui   $t4,$v0,45
+</code>
+</blockquote>
+
+<br style="clear:both">
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:43 GMT -->
+</html>

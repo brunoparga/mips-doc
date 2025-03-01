@@ -1,0 +1,130 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Aug 31 19:18:25 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_01.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:36 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>  CHAPTER 3 &#8212; Bits and Bit Patterns </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+
+<p class="revisions">
+created: 06/25/96; 2<sup>nd</sup> edition: 05/13/01; 
+little bitty changes: 09/01/01; audio 12/06/03; slightly revised: 05/17/15, 01/23/20 
+</p>
+
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_02.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap03-01.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1><span class="chapterTitle"> CHAPTER 3 &#8212; Bits and Bit Patterns</span></h1>
+<!-- ../Audio/chap03-01.mp3 -->
+
+<script src="../../ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+var sound;
+
+$(document).ready(function() {
+    sound = document.createElement("audio");
+    sound.src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/click.mp3";
+    sound.volume=0.40;
+    sound.autoPlay=false;
+    sound.preLoad=true;       
+})
+
+var currentImage = 1;
+var my_images = new Array(2);
+my_images[0] = "toggleOn.gif";
+my_images[1] = "toggleOff.gif";
+
+function loadImage()
+{
+  if ( currentImage==0 ) currentImage=1;
+  else                   currentImage=0;
+  document.images[4].src = my_images[currentImage];
+  sound.play();
+}
+</script>
+ 
+
+<img src="toggleOff.gif" class="rightimage" height="212" width="145" onMouseOver="loadImage()" onClick="loadImage()" alt="Toggle">
+
+<div class="left">
+<p>
+<span class="highlight">Computers
+represent 
+data and instructions
+with patterns of bits.</span>
+You must become
+familiar with bit patterns!
+This chapter will help you.
+It discusses the fundamentals of bit patterns.
+</p>
+
+<p>
+<b>Chapter Topics:</b></p>
+     
+<ul>
+<li>Patterns of bits.</li>
+<li><span class="highlight">The number of patterns that can be formed for N bits.</span></li>
+<li>How to systematically list all the patterns for N bits.</li>
+<li>Multiplying powers of two.</li>
+<li>Bytes, kilobytes, megabytes, and gigabytes.</li>
+<li>Names for four-bit patterns.</li>
+<li><span class="highlight">Hexadecimal names for bit patterns.</span></li>
+<li>Octal names for bit patterns.</li>
+</ul>
+
+
+<a id="byte"> </a>
+<p>
+In most computer documentation,
+8 contiguous bits are called a <b>byte</b>.
+A bit holds a zero or a one,
+possibly representing the on/off condition of
+a switch.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 1:</h3>
+<p>
+How many patterns can be formed with a single bit? (Hint: click on the switch!)
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_02.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_01.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:40 GMT -->
+</html>

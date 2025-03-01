@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:38 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Objects</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-20.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Of course.
+This is how Java
+constructs objects.
+In Java,
+an object does not exist
+until it is constructed at run time.
+</p>
+
+<p>
+Other languages have static objects,
+much as implemented above.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Dynamic Objects</h1>
+<!-- ../Audio/chap36-20.mp3 -->
+
+<div class="left">
+
+<p>
+Let
+us write an assembly language program
+that is roughly equivalent to the following
+program in a Java-like language:
+</p>
+
+<pre>
+begin
+  object1 = new object();
+  object1.read();
+  object1.print();
+end;
+</pre>
+
+<p>
+<span class="highlight">The assembly program 
+will be similar to what a compiler
+might output if it compiled the Java-like
+program into MIPS assembly.</span>
+</p>
+
+<p> 
+With a compiler,
+the design of an object 
+and its methods
+is in a class definition.
+With assembly programming,
+there needs to be a design for the objects
+but the design is not part of the program.
+</p>
+
+<p>
+Here is a new design for the objects:
+</p>
+
+<pre>
+byte 0- 3: address of print()         # jump table
+byte 4- 7: address of read()
+byte 8-31: null terminated string     # 24 bytes (fixed size)
+</pre>
+
+<p>
+<span class="highlight">To simplify things,
+our objects have a fixed size.</span>
+The string is contained 
+in a fixed block of 24 bytes.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 20:</h3>
+<p>
+Do objects in real programs  have a fixed size?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:39 GMT -->
+</html>

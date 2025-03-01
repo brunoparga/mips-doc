@@ -1,0 +1,167 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_23.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:59 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overflow Detection in 2's Complement</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_22.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_24.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08merge3435.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+ First note that the "sign bit" is set, so the integer is negative.
+ Then find the positive integer:
+ 1001 1111   &nbsp;reflect <span style="font-size:200%">&#8594;</span>   0110 0000   &nbsp;add one <span style="font-size:200%">&#8594;</span>  0110 0001<br>
+ convert to decimal   <span style="font-size:200%">&#8594;</span>  2<sup>6</sup> +2<sup>5</sup> + 1  =  97<sub>10</sub> <br>
+ put sign in front    <span style="font-size:200%">&#8594;</span>  -97<sub>10</sub>
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Overflow Detection in 2's Complement</h1>
+<!-- ../Audio/chap08merge3435.mp3 -->
+
+<p>
+<span class="highlight">The 
+binary addition algorithm
+can be applied to any pair of bit patterns.</span>
+The electronics inside the microprocessor
+performs this operation with any two
+bit patterns you send it.
+You send it bit patterns.
+It does its job.
+It is up to you (as the writer of the program)
+to be sure that the operation makes sense.
+</p>
+
+<p>
+<span class="highlight">Overflow is detected in a different way
+for each representation scheme.</span>
+In the following exhibit the
+binary addition algorithm is applied to two
+bit patterns.
+Then the results are looked at as
+unsigned binary and then as two's complement:
+</p>
+
+<table>
+
+<tr>
+<th>Algorithm applied to <br>bit patterns </th> 
+<th>Interpretation of the patterns<br/> as unsigned binary<br /> (shown in base 10)</th> 
+<th> Interpretation of the patterns<br/> as 2's complement<br /> (shown in base 10)</th>
+</tr>
+
+<tr>
+<td>
+<img src="addition01.gif" alt="carry bits in blue" />
+</td>
+
+<td>
+<img src="addition02.gif" alt="patterns as decimal" />
+</td>
+
+<td>
+<img src="addition03.gif" alt="patterns as decimal" />
+</td>
+
+</tr>
+</table>
+
+<p>
+The
+binary addition algorithm was performed
+on the operands.
+The result is either correct or incorrect depending
+on how the bit patterns are interpreted.
+If the bit patterns are regarded as
+unsigned binary integers,
+then overflow happened.
+If the bit patterns are regarded as two's comp integers,
+then the result is correct.
+</p>
+
+<a id="two's_complement,_overflow"> </a>
+<a id="overflow,_two's_complement"> </a>
+
+<table>
+<tr><th>Correct Two's Complement Addition</th></tr>
+
+<tr>
+  <td>
+
+  <p>
+  <a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-36.mp3" target="audioPlayer">W</a>hen the binary addition algorithm is used with
+  operands in two's complement representation:
+  </p>
+
+  <p><span class="highlight">
+  The result is correct if <b>the carry INTO</b> the
+  high order column equals <b>the carry OUT OF</b> the
+  high order column.</span>
+  <p>
+
+  <p>
+  <span class="highlight">The carry bits can both be zero or both be one.</span>
+  </p>
+  </td>
+</tr>
+
+</table>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 23:</h3>
+<p>
+If the bit patterns in the above addition problem
+are regarded as two's complement,
+is the result correct?
+</p>
+
+<ul>
+<li>(correct result: &nbsp;) The carry into the left column is the SAME as the carry out.</li>
+<li>(incorrect result:) The carry into the left column is DIFFERENT from the carry out.</li>
+</ul>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_22.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_24.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_23.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:03 GMT -->
+</html>

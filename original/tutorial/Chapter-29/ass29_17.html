@@ -1,0 +1,120 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Nov 04 19:28:58 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:39 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hidden Infinite Loop</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass29_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass29_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap29-22.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Over and over.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Hidden Infinite Loop</h1>
+<!-- ../Audio/chap29-22.mp3 -->
+
+
+<pre class="code">
+float x;
+
+for ( x = 0.0; x != 10.0; x += 0.1 )
+{
+  System.out.println("Crimson and Clover");
+}
+</pre>
+
+<div class="left">
+<p>
+If
+we were using base 10 arithmetic, 0.1 would be added to <code>x</code> 
+100 times until <code>x</code> reached exactly 10.0.
+But the program uses base-two floating point
+which does not represent 0.1 exactly.
+The variable   <code>x</code>  might not hit  10.0 exactly and the
+program would then loop indefinitely.
+</p>
+
+
+<p><span class="highlight">
+It is not just binary fixed point representation that cannot
+represent one tenth precisely.  
+The usual floating point of programming languages has the same problem.</span>
+</p>
+</div>
+
+<div class="right">
+<p>
+Smart compilers look out for this problem,
+  and may fix it,
+  so this loop might actually work as intended.
+  But is not wise to use it.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+ 
+<p>
+Fix the code.
+</p>
+
+<blockquote>
+<textarea name="program" rows="8" cols="60">
+float x;
+
+for ( x = 0.0; x != 10.0; x += 0.1 )
+{
+  System.out.println("Crimson and Clover");
+}
+</textarea>
+</blockquote>
+
+ 
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass29_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass29_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:40 GMT -->
+</html>

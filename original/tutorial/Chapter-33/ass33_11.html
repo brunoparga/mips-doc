@@ -1,0 +1,156 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:40 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print Struct Subroutine</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap33-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre class="program">         
+        # write out the second struct    
+        <u>la</u>       $a0,agest         # print "age:"
+        <u>li</u>       $v0,4             # print string service
+        syscall
+        <u>lw</u>       $a0,0($s2)        # print age
+        <u>li</u>       $v0,1             # print int service
+        syscall
+
+        <u>li</u>       $v0,10            # return to OS
+        syscall       
+
+        .data
+pay:    .word   24000              # rate of pay, in static memory
+agest:  .asciiz "age:   "
+</pre>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Print Struct Subroutine</h1>
+<!-- ../Audio/chap33-11.mp3 -->
+
+<a id="address,_as_subroutine_argument"> </a>
+
+<pre class="program">
+# Subroutine PStruct: print a struct
+#
+# Registers on entry: $a0 --- address of the struct
+#                     $ra --- return address
+#
+# Registers:          $s0 --- address of the struct
+#
+        .text
+
+PStruct:
+        sub     $sp,$sp,4         # push $s0
+        sw      $s0,($sp)         # onto the stack
+        
+        move    $s0,$a0           # make a safe copy 
+                                  # of struct address
+        la      $a0,agest         # print "age:"
+        li      $v0,4
+        syscall
+        lw      $a0,0($s0)        # print age
+        li      $v0,1
+        syscall
+
+        add     $sp,$sp,4         # restore $s0 of caller 
+        lw      $s0,($sp)
+        jr      $ra               # return to caller        
+
+        .data
+agest:  .asciiz "age:   "
+</pre>
+
+
+<div class="left">
+<p>
+Data in a struct is treated as a whole.
+In Object Oriented terms, it is treated like an object.
+<span class="highlight">Here is a subroutine that takes a
+struct as a parameter and prints it out.</span>
+The subroutine  uses the
+<em>Stack-based Calling Convention</em> of Chapter 27.
+(It might not hurt you to review that chapter.)
+</p>
+
+<p>
+For now, the subroutine prints only
+the <code>age</code> field of the struct.
+It uses register <code class="register">$s0</code> so it must first push the
+value in that register on the stack.
+It does not call any other subroutine so it does not
+push <code class="register">$ra</code>.
+(The SPIM service requests do not change <code class="register">$ra</code>.)
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">The argument is the <b>address</b> of the struct.</span>
+A large struct can be passed as an argument to a
+subroutine by calling the subroutine with the address of the struct.
+The various fields of the struct are accessed using
+displacements from the address.
+</p>
+
+<p>
+For example, the age field of our struct is a displacement of
+zero off of the struct's base address.
+<span class="highlight">The code gets the integer age using the statement
+<code>lw $a0,0($s0)</code>.</span>
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+Why is register <code class="register">$s0</code> used in this routine?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:41 GMT -->
+</html>

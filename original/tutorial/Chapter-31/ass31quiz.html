@@ -1,0 +1,606 @@
+<!DOCTYPE HTML>
+
+<!-- 05/30/2015 bpk HTML5 validation. Moved answer box into table. -->
+
+
+<html>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:10 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="B. Kjell">
+<meta name="robots" content="noindex,nofollow">
+<title>
+Quiz on MIPS Floating Point
+</title>
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/QUIZstyle.css">
+
+<script>
+function gradeQuiz( reportForm ) 
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+    {
+      document.forms[ count ].correct.style.background = "#80FF80" ;
+      totalRight++ ;
+    }
+   else
+      document.forms[ count ].correct.style.background = "#FF8080" ;
+       
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+</script>
+
+
+</head>
+
+<body>
+<p class="revisions">Created 12/09/02; edited: 05/30/15</p>
+<hr/>
+
+<h1  style="text-align:center"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/quizPencil.gif" alt="Quiz" > on MIPS Floating Point </h1> 
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br>
+
+
+<hr/>
+<form name="question1">
+<p>
+1.
+
+What advantage does 64-bit double precision have over 32-bit single precision?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+Increased precision.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+A greater range of values is covered.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Greater speed.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Increased precision and a greater range of values.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question2">
+<p>
+2.
+
+How many single precision floating point registers does MIPS have?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+8
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+16
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+32
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+64
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question3">
+<p>
+3.
+
+What is special about register <b>$f0</b>?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+It always holds a floating point zero.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+It always holds an integer zero.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+It gets the results of a multiply operation.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Nothing is special about it.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question4">
+<p>
+4.
+
+With actual hardware is there a load delay associated
+with loading a floating point register from memory?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+No.  Only integers cause a load delay.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+No.  Load delays do not apply to coprocessor 0.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes.  To main memory a floating point representation
+is just a bit pattern like any other.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes.  Floating point bits take longer to move.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question5">
+<p>
+5.
+Does each possible 32-bit pattern  
+represent a single precision float?
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+No.  Most 32-bit patterns represent only integers.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+No.  Some 32-bit patterns put illegal values in the
+fields of the float.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes. Each possible 32-bit patterns represents a particular float.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes. But some numbers are represented by several 32-bit patterns.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question6">
+<p>
+6.
+
+Which of the following program fragments copies
+a floating point value from <b>spotA</b> to <b>spotB</b>?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+l.s $f4,spotA
+s.s $f4,spotB
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+s.s $f4,spotB
+l.s $f4,spotA
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+lf $f4,spotA
+sf $f4,spotB
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li.f $f4,spotA
+si.f $f4,spotB
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question7">
+<p>
+7.
+
+Can a general purpose register be used with
+a floating point instruction?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes, as long as the bit pattern in it represents a float.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes, as long as at least one other operand is in a floating point register.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+No.  It can hold a floating point representation, but can't be used in
+a floating point operation.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+No.  General purpose registers can't hold floating point representations.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question8">
+<p>
+8.
+
+A single precision float has 24 bits of precision.
+This is equivalent to how many digits in a decimal representation?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+7 or 8
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+9 or 10
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+12
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+24 or 25
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question9">
+<p>
+9.
+
+Which of the following code fragments subtracts <b>valB</b> from <b>valA</b>,
+ensures that the result is positive, and stores the result in <b>result</b>?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+l.s   $f6,valA
+l.s   $f8,valB
+sub.s $f4,$f6,$f8
+abs.s $f4
+s.s   $f4,result
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+l.s   $f6,valA
+l.s   $f8,valB
+sub.s $f4,$f6,$f8
+abs.s $f4,$f4
+s.s   $f4,result
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li.s   $f6,valA
+li.s   $f8,valB
+sub.s $f4,$f6,$f8
+abs.s $f4,$f4
+sf.s   $f4,result
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+l.s   $f6,valB
+l.s   $f8,valA
+sub.s $f4,$f6,$f8
+abs.s $f4,$f4
+s.s   $f4,result
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question10">
+<p>
+10.
+
+Here is a polynomial <code>ax<sup>3</sup> + bx<sup>2</sup> + cx + d</code>.
+Factor this polynomial to show how it would be evaluated using Horner's method.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>x( x( ax + b) + c) + d</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>cx + d + ax<sup>3</sup> + bx<sup>2</sup></code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>x<sup>3</sup>( a + bx<sup>-1</sup>) + cx<sup>-2</sup>) + d</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>(a + b + c + d)(x<sup>3</sup> + x<sup>2</sup> + x<sup>1</sup> + 1)</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr>
+<form name="evaluateQuest">
+
+
+<p  style="text-align:center">
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</p>
+
+
+<p  style="text-align:center">
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+<p  style="text-align:center">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/homeIcon.gif" alt="Click here" > </a>
+</p>
+
+<p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:10 GMT -->
+</html>

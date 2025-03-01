@@ -1,0 +1,267 @@
+<!doctype html> 
+
+<!-- 07/25/2015  bpk  HTML5 validation;  -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:50 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 06/20/2003; modified 06/06/2009, 07/25/15</p>
+<hr />
+
+<h1> 
+Chapter 12 Programming Exercises
+</h1>
+
+<hr />
+ 
+<p>
+For these programming exercises,
+use only those instructions that have been
+discussed so far in these notes:
+</p>
+
+
+<table style="width:50%"> 
+
+<tr>
+<td>and</td> 
+<td>andi</td>	
+<td>nor</td>	
+<td>or</td>	  
+<td>ori</td>	
+<td>sll</td>
+<td>srl</td>
+<td>xor</td>
+<td>xori</td>
+</tr>
+
+</table>
+
+
+<p>
+In the <em> Simulator/Settings/MIPS</em> menu of SPIM set
+Bare Machine ON, Accept Pseudo Instructions OFF,
+Enable Delayed Branches ON,
+Enable Delayed Loads ON,
+Enable Mapped I/O OFF, 
+Load Exception Handler OFF.
+</p>
+
+<p>
+Run the programs by 
+single stepping (pushing F10).
+Observing the results in the SPIM Int Regs window.
+Check the <em>Registers</em> menu that the registers are displayed in HEX.
+</p>
+
+
+<hr />
+
+<h2>*Exercise 1</h2>
+
+<p>
+Put the following bit pattern into register <code>$1</code> :
+</p>
+
+<pre class="code">
+DEADBEEF
+</pre>
+
+<p>
+<b>A.</b> <em>Easy program:</em> do this using just three instructions.
+</p>
+
+<p>
+<b>B.</b> <em>Somewhat harder:</em> do this one letter at a time, using <code>ori</code> to load each
+letter (each nibble) into a register, then shifting it into position.
+You will need to use <code>ori</code>, <code>or</code>, and <code>sll</code>   
+instructions.
+Look at the contents of register <code>$1</code> as you push F10 to single step the program.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+
+
+<hr />
+
+<h2>*Exercise 2</h2>
+
+<p>
+In each register <code>$1</code> through <code>$7</code> set the corresponding bit.
+That is, in register 1 set bit 1 (and clear the rest to zero), in <code>$2</code>
+set bit 2  (and clear the rest to zero), and so on.
+Use only one <code>ori</code>  instruction in your program,
+to set the bit in register <code>$1</code>. 
+</p>
+
+<pre class="code">
+ori   $1,$0,0x01
+</pre>
+
+<p>
+Don't
+use any <code>ori</code>  instructions other than that one.
+Note: bit 1 of a register is the second from the right, the one
+that (in unsigned binary) corresponds to the first power of two.
+</p>
+
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+
+
+<hr />
+
+
+<h2>*Exercise 3</h2>
+
+<p>
+Start a program with the instruction
+that puts a single one-bit into register one:
+</p>
+
+<pre class="code">
+ori   $1,$0,0x01
+</pre>
+
+<p>
+Now, 
+by using only shift instructions and register to register logic
+instructions, put the pattern <code>0xFFFFFFFF</code> into
+register $1.
+Don't use another <code>ori</code> after the first.
+You will need to use more registers than <code>$1</code>.
+See how few instructions you can do this in.
+My program has 11 instructions.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<h2>*Exercise 4</h2>
+
+<p>
+Put the bit pattern <code>0x55555555</code> in register <code>$1</code>.
+(Do this with three instructions.)
+</p>
+
+<p>
+Now shift the pattern left one position into register <code>$2</code>
+(leave  <code>$1</code> unchanged).
+</p>
+
+<p>
+Put the the bit-wise OR of <code>$1</code> and  <code>$2</code> into register  <code>$3</code>.
+Put the the bit-wise AND of <code>$1</code> and  <code>$2</code> into register  <code>$4</code>.
+Put the the bit-wise XOR of <code>$1</code> and  <code>$2</code> into register  <code>$5</code>.
+</p>
+
+
+<p>
+Examine the results.
+</p>
+
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+
+
+<hr />
+
+<h2>**Exercise 5</h2>
+
+<p>
+Put the bit pattern <code>0x0000FACE</code> into register <code>$1</code>.
+This is just an example pattern; assume that <code>$1</code> can start out
+with any pattern at all in the low 16 bits
+(but assume that the high 16 bits are all zero).
+</p>
+
+<p>
+Now, using only register-to-register logic and
+shift instructions, rearrange the bit pattern so
+that register <code>$2</code> gets the bit pattern <code>0x0000CAFE</code>.
+</p>
+
+<p>
+Write this program so that after the low 16 bits of <code>$1</code> have been
+set up with any bit pattern, no matter what bit
+pattern it is, the nibbles in <code>$2</code> are the same rearrangement
+of the nibbles of <code>$1</code> shown with the example pattern.
+For example,
+if <code>$1</code> starts out with <code>0x00003210</code>
+it will end up with the pattern    <code>0x00001230</code>
+</p>
+
+<p>
+<b>A.</b> <em>Moderately Easy program:</em> do this using <code>ori</code>
+instructions to create masks, then use <code>and</code> and <code>or</code>
+instructions to mask in and mask out the various nibbles.
+You will also need shift instructions.
+</p>
+
+
+<p>
+<b>B.</b> <em>Somewhat Harder program:</em> 
+Use only <code>and</code>, <code>or</code>, and shift instructions.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+
+
+<hr />
+
+<h2>***Exercise 6</h2>
+
+<p>
+Start out register <code>$1</code> with any 32-bit pattern, such as <code>0x76543210</code>.
+Now, put the reverse of that pattern into register  <code>$2</code>,
+for the example,  <code>0x01234567</code>.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+
+
+<hr />
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<p>
+<b>End of Exercises</b>
+</p>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:50 GMT -->
+</html>
+

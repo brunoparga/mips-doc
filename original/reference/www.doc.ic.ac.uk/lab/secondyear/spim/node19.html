@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node19.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:46 GMT -->
+<HEAD>
+<TITLE>Data Movement Instructions</TITLE>
+<META NAME="description" CONTENT="Data Movement Instructions">
+<META NAME="keywords" CONTENT="spim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="spim.css">
+
+<LINK REL="next" HREF="node20.html">
+<LINK REL="previous" HREF="node18.html">
+<LINK REL="up" HREF="node9.html">
+<LINK REL="next" HREF="node20.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html248"
+  HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html246"
+  HREF="node9.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html240"
+  HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html249"
+  HREF="node20.html">Floating Point Instructions</A>
+<B> Up:</B> <A NAME="tex2html247"
+  HREF="node9.html">Description of the MIPS</A>
+<B> Previous:</B> <A NAME="tex2html241"
+  HREF="node18.html">Store Instructions</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000210000000000000000">
+Data Movement Instructions</A>
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>move Rdest, Rsrc</TT>Move <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Move the contents of <TT>Rsrc</TT> to <TT>Rdest</TT>.
+
+<P>
+
+<P><P>
+<BR>
+
+<P>
+The multiply and divide unit produces its result in two additional
+registers, hi and lo.  These instructions move values to and from
+these registers.  The multiply, divide, and remainder instructions
+described above are pseudoinstructions that make it appear as if this
+unit operates on the general registers and detect error conditions
+such as divide by zero or overflow.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>mfhi Rdest</TT>Move From hi
+<BR></EM>
+<EM><TT>mflo Rdest</TT>Move From lo
+<BR></EM>
+Move the contents of the hi (lo) register to register <TT>Rdest</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>mthi Rdest</TT>Move To hi
+<BR></EM>
+<EM><TT>mtlo Rdest</TT>Move To lo
+<BR></EM>
+Move the contents register <TT>Rdest</TT> to the hi (lo) register.
+
+<P>
+
+<P><P>
+<BR>
+
+<P>
+Coprocessors have their own register sets.  These instructions move
+values between these registers and the CPU's registers.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>mfc<EM>z</EM> Rdest, CPsrc</TT>Move From Coprocessor <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$z$"></SPAN>
+<BR></EM>
+Move the contents of coprocessor <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$z$"></SPAN>'s register <TT>CPsrc</TT> to CPU
+register <TT>Rdest</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>mfc1.d Rdest, FRsrc1</TT>Move Double From Coprocessor 1 <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Move the contents of floating point registers <TT>FRsrc1</TT> and
+<TT>FRsrc1 + 1</TT> to CPU registers <TT>Rdest</TT> and <TT>Rdest + 1</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>mtc<EM>z</EM> Rsrc, CPdest</TT>Move To Coprocessor <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$z$"></SPAN>
+<BR></EM>
+Move the contents of CPU register <TT>Rsrc</TT> to coprocessor <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$z$"></SPAN>'s
+register <TT>CPdest</TT>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html248"
+  HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html246"
+  HREF="node9.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html240"
+  HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html249"
+  HREF="node20.html">Floating Point Instructions</A>
+<B> Up:</B> <A NAME="tex2html247"
+  HREF="node9.html">Description of the MIPS</A>
+<B> Previous:</B> <A NAME="tex2html241"
+  HREF="node18.html">Store Instructions</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Ian Moor
+2009-03-11
+</ADDRESS>
+</BODY>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node19.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:46 GMT -->
+</HTML>

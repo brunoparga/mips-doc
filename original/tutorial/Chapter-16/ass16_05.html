@@ -1,0 +1,143 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 13 19:19:52 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:22 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tape Writer</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass16_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap16-07.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+lui  $8,0x1000      # $8 is base register
+sb   $9,3($8)       # least significant byte
+srl  $9,$9,8        # move next byte to low order
+sb   $9,2($8)       # bits 8-15 
+srl  $9,$9,8        # move next byte to low order
+sb   $9,1($8)       # bits 16-23 
+srl  $9,$9,8        # move next byte to low order
+sb   $9,0($8)       # most significant byte
+</pre>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Tape Writer</h1>
+<!-- ../Audio/chap16-07.mp3 -->
+
+<a id=".space_(directive)"> </a>
+
+<pre class="program">
+## endian.asm
+##
+## copy $9 to memory in big-endian order
+##
+## Register Use:
+## $8  --- first byte of the tape buffer
+## $9  --- 4-byte integer
+
+      .text
+      .globl  main
+
+main: 
+      lui  $9,0x1234      # put data in $9
+      ori  $9,0x5678      #
+      lui  $8,0x1000      # $8 is base register
+      sb   $9,3($8)       # least significant byte
+      srl  $9,$9,8        # move next byte to low order
+      sb   $9,2($8)       # bits 8-15 
+      srl  $9,$9,8        # move next byte to low order
+      sb   $9,1($8)       # bits 16-23 
+      srl  $9,$9,8        # move next byte to low order
+      sb   $9,0($8)       # most significant byte
+
+      .data
+tape:                     # base register points here
+      .space 1024         # tape buffer (1K bytes)
+         
+</pre>
+
+<div class="left">
+<p>
+<span class="highlight">The <u>least significant</u> byte of the register
+is written to memory first</span> 
+because its location in the register is where
+<code>sb</code>
+instruction needs it.
+The data in the buffer should be in big-endian order, so this (little end) goes into offset 3 from the base address.
+</p>
+
+<p>
+Now the remaining bytes of <code class="register">$9</code> 
+are shifted into the right-most byte one by
+one and written to memory.
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">The <code>.space</code>
+directive reserves bytes in memory, in this case 1024<sub><sub>10</sub></sub> bytes.</span>
+Pretend this is the buffer from which a tape record will be written.
+The example program deals with just the first four bytes,
+but in a real program all 1K bytes of the buffer would be collected
+before the buffer was written to tape.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+
+<p>
+What is the <em>symbolic address</em> of the first byte
+of the <code>.data</code> section?
+What main storage address will it have at run time?
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass16_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:23 GMT -->
+</html>

@@ -1,0 +1,158 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Aug 31 19:18:25 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:58 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Many Patterns from N Bits?</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass03_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap03-06.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Twice the number of patterns that can be formed from (N-1) bits.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>How Many Patterns from N Bits?</h1>
+<!-- ../Audio/chap03-06.mp3 -->
+
+<a id="bit_patterns,_number_per_N_bits"> </a>
+
+<div class="left">
+<p>
+The
+ list of patterns for three bits has 8 lines (patterns).
+To form the list of patterns for 4 bits, 
+make two copies of the list for 8 bits.
+This gives you 16 lines.
+Each line is made unique by prefixing the first
+half with "0" and the second half with "1".
+</p>
+
+<p>
+Of course, the trick can be repeated as many times as you like.
+<span class="highlight">Adding one more bit doubles the number of patterns.</span>
+The table shows the number of patterns for 1, 2, 3 and 4 bits.
+</p>
+
+ 
+
+<p>
+How many patterns with 5 bits?
+Make two copies of the 4-bit patterns 
+(16 patterns per copy).
+Make the patterns unique by prefixing "0" to
+the first 16 patterns and "1" to the second 16.
+You now have 16&#215;2 = 2<sup>5</sup> unique patterns.
+This demonstrates the following:
+</p>
+
+ 
+<table>
+<tr><td>
+<b><span class="highlight">Number of possible patterns of N bits &nbsp;=&nbsp; 2<sup>N</sup></span></b>
+</td></tr>
+</table>
+ 
+
+<p>
+Memorize this fact.
+Better yet, make lists of patterns
+(as above)
+and play around until you
+understand.
+Do this now.
+This is an essential fact.
+If you allow yourself to get muddled on it,
+you will waste much time in this and future courses.
+</p>
+
+<a id="kilobyte"> </a>
+<p>
+How many patterns can be formed with 10 bits?
+Use the formula:
+</p>
+
+<pre class="code">
+2<sup>10</sup> = 1024
+</pre>
+
+
+<a id="K"> </a>
+<p>
+This number occurs often in computer science.
+1024 bytes is called a <b>kilobyte</b>, abbreviated <b>KB</b>.
+</p>
+
+<p>
+However, with the International System of Units (SI) the prefix kilo means 1000. 
+In this system, one kilobyte is 1000 bytes,  abbreviated <b>kB</b>.
+The SI kB has fewer bytes than the binary KB, so the "k" is small.
+</p>
+
+</div>
+
+<div class="right">
+<table>
+<tr><th> Number of Bits </th><th>Number of Patterns</th> <th>Number of Patterns<br>as power of two</th></tr>
+<tr><td>1</td><td>2</td><td>2<sup>1</sup></td></tr>
+<tr><td>2</td><td>4</td><td>2<sup>2</sup></td></tr>
+<tr><td>3</td><td>8</td><td>2<sup>3</sup></td></tr>
+<tr><td>4</td><td>16</td><td>2<sup>4</sup></td></tr>
+</table>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+In the past, some computers used 16 bits 
+to form memory addresses.
+Assuming no special tricks 
+(which such limited machines often used),
+how many bytes maximum could be held in main storage?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass03_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:59 GMT -->
+</html>

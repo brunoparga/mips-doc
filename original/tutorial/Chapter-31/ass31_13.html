@@ -1,0 +1,127 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:39 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Single Precision Arithmetic</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+The answer is the same for both: 7 or 8 places, same as MIPS.
+All three use the same IEEE standard for single precision float.
+(But be careful: some C compilers allow you to specify how many
+bits of precision you want for various data types.
+Also, C implemented on a weird machine might be non-standard).
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Single Precision Arithmetic</h1>
+<!-- ../Audio/chap31-13.mp3 -->
+
+<a id="arithmetic,_single_precision"> </a>
+<a id="add,_single_precision"> </a>
+<a id="subtract,_single_precision"> </a>
+<a id="multiply,_single_precision"> </a>
+<a id="divide,_single_precision"> </a>
+
+
+<table style="height:2em; width:30em;margin-left:auto; margin-right:auto; ">
+<tr><th>Instruction</th><th>Operation</th></tr>
+<tr><td>abs.s fd,fs</td><td>$fd = |$fs|</td></tr>
+<tr><td>add.s fd,fs,ft</td><td>$fd = $fs + $ft</td></tr>
+<tr><td>sub.s fd,fs,ft</td><td>$fd = $fs - $ft</td></tr>
+<tr><td>mul.s fd,fs,ft</td><td>$fd = $fs * $ft</td></tr>
+<tr><td>div.s fd,fs,ft</td><td>$fd = $fs / $ft</td></tr>
+<tr><td>neg.s fd,fs</td><td>$fd = -$fs</td></tr>
+<tr><td>mov.s fd,fs</td><td>$fd = $fs</td></tr>
+</table>
+
+<div class="left">
+
+<p>
+Here are some single precision arithmetic instructions.
+Each of these corresponds to one machine instruction.
+<span class="highlight">The two operand registers and the result register must all be floating point registers.</span>
+For SPIM, they can be any floating point register, 
+but some actual hardware uses only the even numbered floating point registers.
+</p>
+
+<p>
+There is a double precision version of each instruction
+that has a
+"d" in place of the "s".
+So <code>add.s</code> becomes  <code>add.d</code> and
+corresponds to the machine code that adds 
+two double precision registers.
+</p>
+</div>
+
+<div class="right">
+
+<p>
+The first instruction computes the absolute value
+(makes a positive value) of the value in register <code class="register">$fs</code>
+</p>
+
+<p>
+If the data in an operand register is illegal or an
+illegal operation is performed (such as division by zero)
+an exception is raised.
+The IEEE 754 standard describes what is done in these
+situations.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+<p>
+(Thought Question: ) How does the <code>abs.s</code> instruction
+alter the 32-bit pattern of the float?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:40 GMT -->
+</html>

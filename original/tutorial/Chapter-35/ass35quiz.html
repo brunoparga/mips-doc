@@ -1,0 +1,530 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:14 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="B. P. Kjell">
+<meta name="robots" content="noindex,nofollow">
+<title>
+Quiz on Linked Lists
+</title>
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/QUIZstyle.css">
+
+<script>
+function gradeQuiz( reportForm ) 
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+    {
+      document.forms[ count ].correct.style.background = "#80FF80" ;
+      totalRight++ ;
+    }
+   else
+      document.forms[ count ].correct.style.background = "#FF8080" ;
+       
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+</script>
+
+</head>
+
+<body>
+<p class="revisions">Created 07/09/03; edited 06/20/2015</p>
+
+<hr/>
+<h1 style="text-align:center">
+<img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Chapter-35/quizList.gif" alt="Quiz" />
+ on Linked Lists
+</h1> 
+ 
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, 
+the correct answers will appear in the box after each question.
+</p>
+ 
+<hr/>
+<form name="question1">
+<p>
+1.
+
+Here is a description of one node of a
+linked list (using the language C):
+</p>
+
+<pre>
+struct size
+{
+  int width;
+  int height;
+  struct size *next;  // this means a pointer to
+                      // the next node.
+} ;
+</pre>
+
+<p>
+This describes a node that consists of two integers
+followed by an address.
+</p>
+
+<p>
+Which of the following code fragments
+dynamically allocates enough memory for
+the node and puts its address in <code class="register">$s0</code> ?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li      $v0,9
+li      $a0,12
+syscall
+move    $s1,$v0
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li      $v0,12
+li      $a0,8
+syscall
+move    $s1,$v0
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li      $v0,12
+li      $a0,8
+syscall
+move    $v0,$s1
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li      $v0,12
+li      $a0,8
+syscall
+move    $a0,$s1
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question2">
+<p>
+2.
+
+Here  (again) is a description of one node of a
+linked list:
+</p>
+
+<pre>
+struct size
+{
+  int width;
+  int height;
+  struct size *next;  // this means a pointer to
+                      // the next node.
+} ;
+</pre>
+
+<p>
+Assume that the address of a node is
+in <code class="register">$v0</code>.
+Which of the following puts a width of 12
+and a height of 17 into the node?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,17
+sw    $t0,0($v0)
+li    $t0,12
+sw    $t0,4($v0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,12
+sw    $t0,4($v0)
+li    $t0,17
+sw    $t0,0($v0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,12
+sw    $t0,0($v0)
+li    $t0,17
+sw    $t0,4($v0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,12
+sw    $v0,0($t0)
+li    $t0,17
+sw    $v0,4($t0)
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question3">
+<p>
+3.
+
+Here is a description of one node of a
+linked list:
+</p>
+
+<pre>
+struct size
+{
+  int width;
+  int height;
+  struct size *next;  // this means a pointer to
+                      // the next node.
+} ;
+</pre>
+
+<p>
+Assume that <code class="register">$s1</code> points at node 1 and that <code class="register">$s2</code>
+points at node 2.
+Which of the following makes node 2 the successor of node 1?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sw  $s2,4($s1)</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sw  $s2,8($s1)</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sw  $s1,0($s2)</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sw  $s1,4($s2)</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question4">
+<p>
+4.
+
+Here is a description of one node of a
+linked list:
+</p>
+
+<pre>
+struct size
+{
+  int width;
+  int height;
+  struct size *next;  // this means a pointer to
+                      // the next node.
+} ;
+</pre>
+
+<p>
+The field <code>head</code> contains the
+address of a linked list of such nodes.
+Which of the following segments visits each
+node of the list?
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+        lw     $s0,done
+loop:   beqz   $s0,head
+        . . .              # do something
+        lw     $s0,4($s0)
+        b      loop
+        
+done:
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+        lw     $s0,head
+loop:   beqz   $s0,done
+        . . .              # do something
+        lw     $s0,$s0
+        b      loop        
+done:
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+        lw     $s0,head
+loop:   beqz   $s0,done
+        . . .              # do something
+        lw     $s0,8($s0)
+        b      loop        
+done:
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+        lw     $s0,head
+loop:   beqz   $s0,done
+        . . .              # do something
+        sw     $s0,4($s0)
+        b      loop        
+done:
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question5">
+<p>
+5.
+
+Here is a description of one node of a
+linked list:
+</p>
+
+<pre>
+struct size
+{
+  int width;
+  int height;
+  struct size *next;  // this means a pointer to
+                      // the next node.
+} ;
+</pre>
+
+<p>
+Assume that <code class="register">$s0</code> is pointing to the last node of a linked list.
+Which of the following code segments
+attaches one more node to the list
+and points <code class="register">$s0</code> to it?
+
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+       li      $v0,9
+       li      $a0,12
+       syscall
+       sw      $v0,8($s0)
+       move    $s0,$v0
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+       li      $v0,9
+       li      $a0,12
+       syscall
+       sw      $v0,8($v0)
+       move    $s0,$v0
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+       li      $v0,9
+       li      $a0,8
+       syscall
+       sw      $v0,4($v0)
+       move    $s0,$v0
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+       li      $v0,12
+       li      $a0,8
+       syscall
+       sw      $v0,8($v0)
+       move    $s0,$v0
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr>
+
+
+<hr>
+<form name="evaluateQuest">
+
+
+<p  style="text-align:center">
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</p>
+
+<p  style="text-align:center"> 
+&nbsp;&nbsp;
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+<p  style="text-align:center">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/homeIcon.gif" alt="Click here" > </a>
+</p>
+
+<p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:14 GMT -->
+</html>

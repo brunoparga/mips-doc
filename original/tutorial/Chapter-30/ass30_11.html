@@ -1,0 +1,109 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Apr 28 18:51:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:34 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IEEE 754 Floating Point</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass30_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap30-15.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+How many possible mantissas can be represented in single precision?
+</p>
+<h3>Answer:</h3>
+<p>
+A mantissa has 23 bits so there are <code>2<sup>23</sup></code>
+patterns possible.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>IEEE 754 Floating Point</h1>
+<!-- ../Audio/chap30-15.mp3 -->
+
+
+<a id="IEEE_754_Floating_Point_Standard"> </a>
+ 
+<img src="IEEE754.jpg" class="center" alt="IEEE 754 format">
+
+<div class="left">
+
+<p>
+An
+IEEE 754 single-precision floating point value is 32 bits long.
+The bits are divided into fixed-sized fields as above.
+</p>
+ 
+
+<p>
+Bits 0 through 22 are for the mantissa; 
+bits 23 through 30 are for the exponent;
+and bit 31 is the sign bit.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+The mantissa and exponent fields work like the similar parts in
+scientific notation</span> (details follow).
+The sign bit gives the sign of the entire expression:
+a 0 bit means positive and a 1 bit means negative.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+You have seen the MIPS instruction <code>bltz</code> which
+branches if the 32-bit integer in a register is less than zero
+(negative).
+It does this by looking at bit 31 of the two's complement integer
+and branching if it is set.
+</p>
+
+<p>
+Does this instruction work with  single precision values?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass30_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:36 GMT -->
+</html>

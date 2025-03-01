@@ -1,0 +1,119 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 26 20:00:27 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:45 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Implementing Alternation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass19_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap19-19.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Sure.  It might involve many assembly statements
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Implementing Alternation</h1>
+<!-- ../Audio/chap19-19.mp3 -->
+
+<img src="ifExample.gif"  class="rightimage" alt="IF example" />
+
+<div class="left">
+
+<p><span class="highlight">
+There
+is no explicit support for alternation in
+assembly language.</span>
+You must do it in pieces,
+as in the following.
+</p>
+
+<p>
+Say that registers <code class="register">$8</code> and <code class="register">$9</code> 
+hold the values a and b.
+</p>
+
+<pre>
+        ...                #   
+if:     beq  $8,$9,yes     # is a==b ?
+        nop                #    no
+        ...                #    false block
+        ...                #    
+        ...                #  
+        j    endif
+        nop
+yes:    ...                #   yes
+        ...                #   true block
+        ...                #
+endif:  nop                # always executed
+</pre>
+
+<p><span class="highlight">
+Notice that the order of the true block and the
+false block is the opposite of what is usual
+in high level languages.</span>
+</p>
+
+<p>
+This is not the only way alternation can be implemented.
+You can put the true block first if you want (but then the branch statement
+must be changed).
+Also, testing the condition might be complicated and
+might involve several branches and other instructions
+that the flowchart does not show.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+
+<p>
+Is an <b>if-endif</b> (single alternative) structured?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass19_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:47 GMT -->
+</html>

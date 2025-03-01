@@ -1,0 +1,125 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:24 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiplication</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-06.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-06.mp3 -->
+
+<h3>Answer:</h3>
+<pre class="code">
+negu $v2,$s3
+</pre>
+
+<p>
+Translates into:
+</p>
+
+<pre class="code">
+sub  $v2,$0,$s3
+</pre>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Multiplication</h1>
+
+<div class="left">
+<p>
+The     
+ <code>mult</code>
+and the <code>multu</code>
+instructions (which you have seen before)
+put the result into MIPS registers <b>hi</b> and <b>lo</b>.
+The results may be moved out of these registers
+using <code>mfhi</code> and
+<code>mflo</code>.
+</p>
+
+<p>
+The three operand pseudoinstruction
+<span class="highlight"><code>mul d,s,t</code></span>
+uses those basic instructions.
+It is used when the product of registers 
+<code class="register">$s</code>  and <code class="register">$t</code> is
+<span class="highlight">a value that fits into the 32 bits of <b>lo</b>.</span>
+</p>
+
+<pre class="code">
+mul d,s,t  # d = s*t         
+</pre>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+
+<form>
+<p>
+Finish the translation:
+</p>
+
+<pre class="code">
+mul $v2,$s3,$t0
+</pre>
+
+<p>
+Translates into:
+</p>
+<pre class="code">
+mult   <input type="text" size="7">, <input type="text" size="7">
+
+mflo   <input type="text" size="7"> 
+</pre>
+<p>
+(Use mnemonic register names.)
+</p>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:25 GMT -->
+</html>

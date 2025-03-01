@@ -1,0 +1,133 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:24 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculation Section</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-11.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+Pseudoinstructions are highlighted below.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Calculation Section</h1>
+
+
+<p>
+After 
+reading the food cost, 
+the program can calculate.
+</p>
+ 
+<pre  class="program">
+
+## rest.asm
+##
+## Total restaurant bill calculator
+##
+## Register Use:
+##
+##    $s0 meal cost 
+##    $s1 tip rate
+##    $s2 tax rate
+##    $s3 total rate
+##    $s4 tax+tip dollars
+##    $s5 total bill
+
+        .globl  main
+
+        # Get meal cost
+main:   <img src="li.gif" style="align:middle" alt="li">    $v0,4       # print a prompt (code 4 put in $v0)
+        <img src="la.gif" style="align:middle" alt="li">    $a0,prompt  # address of prompt put in $a0
+        syscall
+
+        <img src="li.gif" style="align:middle" alt="li">    $v0,5       # input an integer  (code 5 put in $v0)
+        syscall             # 32-bit result returned in $v0
+        <img src="move.gif" style="align:middle" alt="move">  $s0,$v0     # save it in $s0
+
+        # Calculations
+        lw      $s1,<input type="text" size="7">        # get tip rate
+
+        lw      $s2,<input type="text" size="7">        # get tax rate
+        
+        nop
+
+        addu    $s3,$s1,$s2      # total rate in percent
+
+        <input type="text" size="7">   $s4,$s0,$s3      # mealcost*(total rate)
+
+        <input type="text" size="7">   $s4,$s4,100      # mealcost*(total rate)/100  
+
+        <input type="text" size="7">   $s5,$s0,$s4      # total bill
+
+       . . . . .
+
+        .data
+tip:    .word   15          # tip rate in percent
+tax:    .word    8          # tax rate in percent
+
+prompt: .asciiz "Enter food cost: "
+head1 : .asciiz "   Tax plus tip: "
+head2 : .asciiz "     Total cost: "
+
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+
+
+<p>
+Fill in the blanks to complete the calculation section.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:28 GMT -->
+</html>

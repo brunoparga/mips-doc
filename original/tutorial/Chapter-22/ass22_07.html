@@ -1,0 +1,114 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 27 19:53:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:11 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Output</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass22_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes, but now the code that starts at 0x00400000 
+initializes exception handling and
+is not what you wrote.
+So you would single step over many instructions before you get to your program.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Output</h1>
+
+ 
+<img src="helloOut.gif" class="centerimage" alt="SPIM display" >
+ 
+
+<div class="left">
+
+<p>
+Here
+is SPIM with the example "hello.asm" program.
+When an exception file is loaded along with your program
+(when the <em>Load exception file</em> setting is checked),<span class="highlight">
+SPIM loads some initialization code starting at address
+0x400000, and loads some data starting at 0x10000000.
+So now you no longer know exactly where your
+code and data are  in memory, so you must use symbolic addresses in your code.</span>
+</p>
+</div>
+
+<div class="right">
+<p>
+For example, in previous chapters you could set up a base register
+to point at your data by doing something like this:
+<code>lui $10,0x1000</code>.
+This will no longer work, since you data does not start at 0x10000000.
+</p>
+
+<p>
+Instead, do something like this 
+<code>la  $s0,mydata</code>
+to use <code class="register">$s0</code> as a base.
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+
+<p>
+What happens if the program were slightly modified, as follows:
+</p>
+
+<pre>
+main:
+        li      $v0,4       # code 4 == print string
+        la      $a0,string  # $a0 == address of the string
+        <span class="red">addiu   $a0,1       # add one to the address</span>
+        syscall             # Invoke the operating system.
+        . . .
+        .data
+string: .asciiz      "Hello SPIM!\n"
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass22_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:13 GMT -->
+</html>

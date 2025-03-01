@@ -1,0 +1,164 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 11:48:16 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:17 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Files</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass05_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap05-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.  The book contains patterns of letters
+but their context is different than
+what you  (the "English Language Application") can process.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Text Files</h1>
+<!-- ../Audio/chap05-09.mp3 -->
+
+<div class="left">
+<p>
+<span class="highlight">A computer application (a program) is the context
+for the bit patterns of the input and output files it uses.</span>
+Without a context, the bit patterns are just abstract patterns.
+</p>
+
+<p> 
+Although there are some standard contexts 
+(such as for text files),
+many applications use a context that is their own.
+For example, a new image format would be a new context and
+would require programs  written to process data in that format.
+</p>
+
+<p> 
+If you could somehow inspect the surface of a disk
+and see the bit patterns stored in a particular file, 
+you would not know what
+they represented without additional knowledge.
+</p>
+
+<p>
+Often people talk of "text files" and "MS Word files"
+and "executable files" as if these were completely
+different things.
+But these are just sloppy, 
+shorthand phrases.
+</p>
+
+
+</div>
+
+<div class="right">
+<p> 
+For example,
+when someone says "text file" they
+really mean:
+</p>
+
+<a id="text_file"> </a>
+<a id="file,_text"> </a>
+
+<blockquote>
+<span class="highlight"><b>Text File:</b> 
+A file containing a sequence 
+of bytes that encode characters.</span>
+Bytes hold  bit patterns  
+that represent characters
+or control characters
+using a character encoding scheme such as ASCII or UTF-8.
+</blockquote>
+
+<p>
+A text file can be used with software
+such as a text editor
+that has been written to use the particular
+character encoding scheme.
+Some software (such as web browsers)
+can be used with several encoding schemes.
+</p>
+
+<p>
+Files containing bytes that encode
+printable characters according to the ASCII convention
+have about half of the possible patterns.
+Software that expects text files can work
+with the ASCII patterns,
+but often can't deal with the other patterns.
+</p>
+
+<p>
+Web pages are text files that (usually) use UTF-8 to
+encode characters.
+Some of the characters are instructions to the web
+browswer about how to display the web page.
+To see the characters in this web page, type control-U.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+A <b>file compressor</b> is a program that
+inputs a file and outputs a smaller file 
+that uses bit patterns more efficiently 
+that in the original file.
+A decompressor restores the compressed file 
+to the original version.
+</p>
+
+<p>
+(Thought Question: ) When an ASCII file
+is compressed, does the resulting file
+contain ASCII characters?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass05_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:18 GMT -->
+</html>

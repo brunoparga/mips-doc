@@ -1,0 +1,158 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Apr 28 18:51:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:35 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>-0.1</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass30_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap30-30.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. Remember from the last chapter that <code>0.1</code> can't
+be represented precisely in binary.
+Using floating point representation does not change anything.
+It does not matter that the number is negative.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>-0.1</h1>
+<!-- ../Audio/chap30-30.mp3 -->
+
+
+<a id="-0.1_(floating_point)"> </a>
+
+<div class="left">
+<p>
+But
+let us proceed to see how <code>-0.1</code> is (imprecisely)
+represented.
+</p>
+</div>
+<br style="clear:both"> 
+
+<ul style="line-height:2em">
+<li>The sign bit of -0.1 is  1 (for negative).</li>
+<li>The binary fraction for 0.1 (from the previous chapter is)<br/>
+    <code>0.0001100110011001100110011001100...</code>
+<li>The mantissa of 0.1 is:
+    <ul>
+    <li>Shift the leading bit into the one's place: <code>1.100110011001100110011001100...</code></li>
+    <li>The shift was 4 places left, for an exponent of -4</li>
+    <li>Drop the one bit in the one's place: <code>.100110011001100110011001100...</code></li>
+    <li>Retain 23 bits: <code>100 1100 1100 1100 1100 1100</code></li>
+    </ul></li>
+<li>The actual exponent is  -4</li>
+<li>The biased exponent is <code>127-4 = 123 = 0111 1011</code></li>
+</ul>
+
+<p>
+Here are the bits written out:
+</p>
+
+
+<br style="clear:both"> 
+
+<table>
+<tr><th>+-</th><th colspan="8">exponent</th><th colspan="23">Mantissa</th></tr>
+<tr>
+<td>1</td>
+
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td colspan="4"><input type="text"  size="5" name="t10" value=""></td>
+<td colspan="4"><input type="text"  size="5" name="t11" value=""></td>
+<td colspan="4"><input type="text"  size="5" name="t12" value=""></td>
+<td colspan="4"><input type="text"  size="5" name="t13" value=""></td>
+<td colspan="4"><input type="text"  size="5" name="t14" value=""></td>
+<td colspan="4"><input type="text"  size="5" name="t15" value=""></td>
+<td colspan="4"><input type="text"  size="5" name="t16" value=""></td>
+<td colspan="4"><input type="text"  size="5" name="t17" value=""></td>
+</tr>
+</table>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 20:</h3>
+
+<p>
+Write out the bit pattern as hexadecimal.
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass30_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:36 GMT -->
+</html>

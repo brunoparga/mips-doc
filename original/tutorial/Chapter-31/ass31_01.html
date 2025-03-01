@@ -1,0 +1,97 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_01.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:09 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHAPTER  31 &#8212; Floating Point Arithmetic on MIPS</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<p class="revisions">
+created: 05/29/2002; revised: 11/16/2002, 12/04/2003, 11/23/2014, 06/02/2016, 08/06/2020, 05/03/21
+</p>
+
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_02.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-01.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>CHAPTER  31 &#8212; Floating Point Arithmetic on MIPS</h1>
+<!-- ../Audio/chap31-01.mp3 -->
+<div class="right">
+<p><span class="highlight">
+MIPS
+chips use the IEEE 754 floating point standard,</span>
+both the 32 bit and the 64 bit versions.
+However these notes cover only the 32 bit instructions.
+The 64 bit versions are similar.
+</p>
+
+<p>
+SPIM Settings for this chapter: set SPIM to allow pseudoinstructions,
+disable branch delays, and disable load delays.
+</p>
+
+</div>
+
+<div class="left">
+
+<h4>Chapter Topics:</h4>
+<ul>
+<li>Floating point registers </li>
+<li>Loading and storing floating point registers </li>
+<li>Single and (some) double precision arithmetic </li>
+<li>Data movement instructions </li>
+<li>Reading and writing floating point </li>
+</ul>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 1:</h3>
+<p>
+The 64 bit (double precision) floating point numbers are better than
+32 bit (single precision).
+But how are they better?
+</p>
+
+<ul>
+<li>Increased Precision?</li>
+<li>Greater Range of values covered?</li>
+<li>Both?</li>
+</ul>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_02.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_01.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:10 GMT -->
+</html>

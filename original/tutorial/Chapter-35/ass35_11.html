@@ -1,0 +1,152 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Jun 03 18:01:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:42 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass35_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass35_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap35-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.  The second node can be reached by starting at <code>first</code>
+and following the links.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Program</h1>
+<!-- ../Audio/chap35-12.mp3 -->
+
+
+<pre class="program">
+# threenodeList.asm
+#
+        .text
+        .globl  main
+
+main:    
+        # create the first node 
+        li      $v0,9             # allocate memory
+        li      $a0,8             # 8 bytes
+        syscall                   # $v0 &lt;-- address
+        move    $s1,$v0           # $s1 = &amp;(first node)
+        
+        # copy the pointer to first
+        sw      $s1,first
+        
+        # initialize the first node
+        li      $t0,1             # store 1
+        sw      $t0,0($s1)        # at displacement 0
+
+        # create the second node 
+        li      $v0,9             # allocate memory
+        li      $a0,8             # 8 bytes
+        syscall                   # $v0 &lt;-- address
+        
+        # link the second node to the first
+        sw      $v0,4($s1)        # copy address of second node
+                                  # into the first node
+        
+        # make the new node the current node
+        move    $s1,$v0           # $s1 = &amp;(second node)
+
+        # initialize the second node
+        li      $t0,2             # store 2
+        sw      $t0,0($s1)        # at displacement 0
+
+        # create the third node 
+        li      $v0,9             # allocate memory
+        li      $a0,8             # 8 bytes
+        syscall                   # $v0&lt;-- address
+        
+        # link the third node to the second
+        sw      $v0,4($s1)        # copy address of third node
+                                  # into the second node
+        
+        # make the new node the current node
+        move    $s1,$v0           # $s1 = &amp;(third node)
+
+        # initialize the third node
+        li      $t0,3             # store 3
+        sw      $t0,0($s1)        # at displacement 0
+
+        # end the list
+        sw      $0,4($s1)         # put null in the link field
+                                             
+        li      $v0,10            # return to OS
+        syscall       
+
+        .data
+first:  .word   0
+</pre>
+
+<div class="left">
+
+<p>
+<span class="highlight">In a linked list, you need a pointer to the
+head node (in our field  <code>first</code>).</span>
+</p>
+
+<p>
+Then you can follow the links from node to node to reach any node.
+</p>
+</div>
+
+<div class="right">
+<p>
+Here is the complete program.
+Run it with SPIM and  look at the display of memory to see
+that the list has been built correctly.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+Where in memory will the linked list be located?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass35_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass35_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:43 GMT -->
+</html>

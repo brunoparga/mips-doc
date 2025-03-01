@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:10 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two's Complement Integers</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_18.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_20.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-28.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<table>
+<tr><td> &nbsp; </td><td>&nbsp; reflect &nbsp;                     </td><td> &nbsp;   </td><td>add one </td><td>&nbsp;</td></tr>
+<tr><td> 0100 0111   <td><span style="font-size:200%">&#8594;</span></td><td>1011 1000 </td><td><span style="font-size:200%">&#8594;</span></td><td> 1011 1001</td></tr>
+</table>
+
+<p>
+It is always a good idea to check your results:
+</p>
+
+<pre class="code">
+  11111 111
+   0100 0111
+ +<u> 1011 1001 </u>
+   0000 0000
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Two's Complement Integers</h1>
+<!-- ../Audio/chap08-28.mp3 -->
+
+<p>
+What 
+is the two's complement of zero?
+</p>
+
+<pre class="code">
+      zero =  0000 0000
+   reflect =  1111 1111
+   add one =  0000 0000
+</pre>
+
+<p>
+<span class="highlight">Using the algorithm with the representation for
+zero  results in the representation for zero.</span>
+This is good.
+In mathematics, "minus zero" is the same thing as "zero".
+It is good to have just one representation of zero.
+Recall that with the sign-magnitude method of representing
+integers there where both "plus" and "minus" zero.
+</p>
+
+<p>
+What integers can be represented in 8-bit two's complement?
+Two's complement   
+represents both positive and negative integers.
+So one way to answer this question is to start with
+zero, check that it can be represented,
+then check one, then check minus one, then check two,
+then check minus two ...
+Let's skip most of those steps and check 127<sub>10</sub>:
+</p>
+
+<pre class="code">
+       127 =  0111 1111            check:   0111 1111
+   reflect =  1000 0000                    <u> 1000 0001 </u>
+   add one =  1000 0001                     0000 0000 
+                                            
+      -127 =  1000 0001
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 19:</h3>
+
+<form>
+<p>
+Now try to compute the negative of 128<sub>ten</sub>.
+</p>
+
+<pre class="code">
+       128  =  1000 0000
+
+   reflect  =  <input type="text" size="15" name="reflect" />
+
+   add one  =  <input type="text" size="15" name="addOne" />
+</pre>
+</form>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_18.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_20.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:11 GMT -->
+</html>

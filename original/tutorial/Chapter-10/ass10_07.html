@@ -1,0 +1,154 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Sep 19 21:41:21 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:55 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Use Conventions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass10_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap10-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<pre class="code">
+000000 01000  01001 <span class="blue">0 1 0 1 1</span> 00000 100001
+
+ALUop   $8    $9    <span class="blue">$11</span>             addu
+       op1   op2    <span class="blue">dest</span>
+</pre> 
+
+
+<p>
+Congratulations! 
+(if you correctly answered the question).
+You have just done some machine language programming.
+Who needs that old assembler, anyway?
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Register Use Conventions</h1>
+<!-- ../Audio/chap10-14.mp3 -->
+
+
+<a id="register,_naming_conventions"> </a>
+
+
+<table class="center">
+<tr> <th>Register<br> Number</th> <th>Mnemonic<br> Name</th> 
+<th>Conventional Use</th></tr>
+
+<tr> <td>$0</td> <td>zero</td> <td style="text-align:left">Permanently 0</td> </tr>
+<tr> <td>$1</td> <td>$at</td> <td style="text-align:left">Assembler Temporary (reserved)</td> </tr>
+<tr> <td>$2, $3</td> <td>$v0, $v1</td> 
+                  <td style="text-align:left">Value returned by a subroutine</td> </tr>
+<tr> <td>$4-$7</td> <td>$a0-$a3</td> <td style="text-align:left">Arguments to a subroutine</td> </tr>
+<tr> <td>$8-$15</td> <td>$t0-$t7</td> 
+                <td style="text-align:left">Temporary<br> (not preserved across a function call)</td> </tr>
+<tr> <td>$16-$23</td> <td>$s0-$s7</td> <td style="text-align:left">Saved registers<br> (preserved across a function call)</td> </tr>
+<tr> <td>$24, $25</td> <td>$t8, $t9</td> <td style="text-align:left">Temporary</td> </tr>
+<tr> <td>$26, $27</td> <td>$k0, $k1</td> <td style="text-align:left">Kernel (reserved for OS)</td> </tr>
+<tr> <td>$28</td> <td>$gp</td> <td style="text-align:left">Global Pointer</td> </tr>
+<tr> <td>$29</td> <td>$sp</td> <td style="text-align:left">Stack Pointer</td> </tr>
+<tr> <td>$30</td> <td>$fp</td> <td style="text-align:left">Frame Pointer</td> </tr>
+<tr> <td>$31</td> <td>$ra</td> <td style="text-align:left">Return Address<br>(Automatically used in some instructions)</td> </tr>
+
+</table>
+
+<div class="left">
+
+
+<a id="register,_general_purpose"> </a>
+<p><span class="highlight">
+<b>General purpose registers</b> are those that assembly language
+programs work with (other than floating point registers).</span>
+The general purpose registers are numbered <code class="register"> $0</code> through <code class="register">$31</code>.
+However, by convention (and sometimes by hardware) 
+different registers are used for different purposes.
+</p>
+
+<p>
+In addition to a number <code class="register">$0</code> through <code class="register">$31</code>,
+<span class="highlight">registers have a mnemonic name 
+(a name that reminds you of its use).</span>
+For example register <code class="register">$0</code> has the mnemonic name <em>zero</em>.
+The table shows the 32 registers and their conventional use.
+</p>
+</div>
+
+<div class="right">
+<p>
+Registers <code class="register">$0</code>  and <code class="register">$31</code> are the only two that
+behave differently from the others.
+</p>
+
+<p>
+<span class="highlight">Register <code class="register">$0</code> is permanently wired to contain zero bits.</span>
+</p>
+
+<p>
+<span class="highlight">Register <code class="register">$31</code> 
+is automatically used by subroutine linkage
+instructions to hold the return address.</span>
+</p>
+
+<p>
+If this looks totally cryptic, don't worry.
+Don't try to memorize this.
+You will get used to what you need to know
+after writing a few programs.
+</p>
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+A program has just calculated an important value which is
+contained in register <code class="register">$8</code>.
+It copies this value to register <code class="register">$0</code>. Is this wise?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass10_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:56 GMT -->
+</html>

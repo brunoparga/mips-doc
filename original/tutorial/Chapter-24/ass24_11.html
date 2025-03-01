@@ -1,0 +1,149 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:28 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indexed Addressing</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-12.mp3 -->
+
+<blockquote>
+<code>
+sltu   $t4,$v0,45
+</code>
+
+and
+
+<code>
+sltui   $t4,$v0,45
+</code>
+</blockquote>
+
+<h3>Answer:</h3>
+<p>
+Yes. The first translates  into the second.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Indexed Addressing</h1>
+
+<a id="indexed_addressing"> </a>
+
+<div class="left">
+<p>
+In
+addition to implementing new instructions,
+the extended assembler implements a new
+addressing mode.<span class="highlight">
+This is <b>indexed addressing</b>, 
+a mode of addressing useful for arrays.</span>
+</p>
+
+<p>
+Here is an example:
+</p>
+</div>
+
+<br style="clear:both"> 
+<pre class="code">
+      li    $t1,2                 # index 2
+      lb    $v0,data($t1)         # $v0 = data[$t1]
+      . . . 
+      
+data: .byte  6,34,12,-32, 90      # index zero is first
+</pre>
+<br style="clear:both">
+
+<div class="left">
+<p>
+Think of <code>data</code> as an array
+of five bytes.<span class="highlight">
+Then the <code>lb</code> instruction loads the  element
+of the array at index 2 (the byte that contains 12)
+into <code class="register">$v0</code>.</span>
+</p>
+ 
+<p>
+The
+extended assembler does this the same way we have
+done in past programs:
+basic instructions are used to add the index value in
+<code class="register">$t1</code> to the address symbolized by <code>data</code>.
+Here is what the assembler generates for the above code.
+Assume that <code>data</code> is at address <code>0x10000000</code>.
+(This might not be true if the exception handler is loaded.)
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="program">
+      ori   $t1,$0,2           # index 2
+      lui   $at,0x1000         # $at register gets address "data"
+      addu  $at,$at,$t1        # add index to $at
+      lb    $v0,0($at)         # $v0 = data[$t1]
+      . . . 
+      
+data: .byte  6,34,12,-32, 90   
+</pre>
+
+<div class="left"> 
+<p>
+The assembler generates code that uses register
+<code class="register">$at</code> to calculate the address of the correct byte.
+Then, using that address, the byte is loaded into <code class="register">$v0</code>.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+When does the actual address calculation take place?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:29 GMT -->
+</html>

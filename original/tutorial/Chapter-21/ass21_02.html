@@ -1,0 +1,141 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 06 15:47:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:52 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Mnemonics</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass21_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap21-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+A register is an electronic device that holds bit patterns.
+A general purpose register is a register that is visible to
+assembly language.
+The <em>floating point registers</em>,
+although visible to assembly language,
+are not regarded as general purpose registers.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Register Mnemonics</h1>
+<!-- ../Audio/chap21-02.mp3 -->
+
+<a id="Register_Table"> </a>
+
+
+<table class="center">
+<tr> <th>Register<br> Number</th> <th>Mnemonic<br> Name</th> <th>Conventional Use</th><th> </th> 
+                <th>Register<br> Number</th> <th>Mnemonic<br> Name</th> <th>Conventional Use</th></tr>
+
+<tr> <td>$0</td> <td>$zero</td> <td>Permanently 0</td><th></th> 
+                <td>$24, $25</td> <td>$t8, $t9</td> <td>Temporary</td></tr> 
+
+<tr> <td>$1</td> <td>$at</td> <td>Assembler Temporary</td><th></th>  
+                <td>$26, $27</td> <td>$k0, $k1</td> <td>Kernel</td> </tr> 
+
+<tr> <td>$2, $3</td> <td>$v0, $v1</td> 
+                  <td>Value returned <br>by a subroutine</td><th></th>  
+                <td>$28</td> <td>$gp</td> <td>Global Pointer</td> </tr>
+
+<tr> <td>$4-$7</td> <td>$a0-$a3</td> <td>Subroutine Arguments</td><th></th>  
+                <td>$29</td> <td>$sp</td> <td>Stack Pointer</td> </tr>
+
+<tr> <td>$8-$15</td> <td>$t0-$t7</td> 
+                <td>Temporary<br></td><th></th>  
+                <td>$30</td> <td>$fp</td> <td>Frame Pointer</td> </tr>
+
+<tr> <td>$16-$23</td> <td>$s0-$s7</td> <td>Saved registers<br></td><th></th>  
+                <td>$31</td> <td>$ra</td> <td>Return Address</td> </tr>
+</table>
+
+
+<div class="left">
+<p>
+Although 
+the registers are called "general purpose",<span class="highlight">
+it is conventional in software 
+to use specific registers for specific purposes.</span>
+This is not required by hardware.
+It is just a way for programmers to avoid confusion
+by establishing conventions.<span class="highlight">
+The <em>extended assembler</em> allows you to use 
+mnemonic  names for registers that show
+how they are conventionally used.</span>
+</p>
+
+
+<p>
+For example, registers <code class="register">$8</code> 
+through <code class="register">$15</code> are conventionally used to
+hold temporary values.
+Mnemonic names for these registers are 
+<code class="register">$t0</code> through <code class="register">$t7</code>.
+</p>
+</div>
+
+
+<div class="right">
+<p>
+As
+far as <em>hardware</em> is concerned, 
+only registers <code class="register">$0</code> and <code class="register">$31</code>
+are different from the rest
+(<code class="register">$0</code> is always full of zeros and <code class="register">$31</code> is automatically used 
+by some subroutine linkage instructions to hold the return address).
+The remaining registers are electronically identical.
+It is a <em>software convention</em> to use different sets
+of registers for different purposes.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+<p>
+Are programs written in extended assembly code executed on the same MIPS processor we have been looking at?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass21_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:53 GMT -->
+</html>

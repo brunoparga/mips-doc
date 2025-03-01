@@ -1,0 +1,114 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 07 17:30:04 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:31 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditional Branches</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass17_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap17-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+No. You can build unending loops (infinite loops)
+with it.
+But additional instructions are needed for  
+<code>while</code> loops
+and for <code>if-then-else</code> structures.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Conditional Branches</h1>
+<!-- ../Audio/chap17-13.mp3 -->
+
+<a id="conditional_branch"> </a>
+<a id="beq_(instruction)"> </a>
+
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+beq  u,v,addr   # if register $u == register $v
+                #     PC  <span style="font-size: 30px;">&larr;</span> addr 
+                #     (after a delay of one machine cycle.)
+                # else
+                #     no effect.
+</pre>
+
+
+<div class="left">
+<p><span class="highlight">
+A
+<b>conditional branch</b> instruction
+branches to a new address only if a
+certain condition is true.</span>
+Usually the condition
+is about the values in two registers.
+The
+&nbsp;<b><code>beq</code></b>&nbsp;
+(branch on equal) instruction
+branches if the bit patterns in two registers are identical.
+</p>
+
+</div>
+
+<div class="right">
+<p>
+The bit patterns in two registers are compared.
+If the bit patterns are the same, 
+the PC will be changed to the branch address after 
+a one machine cycle delay.
+Otherwise, nothing happens.
+A branch delay slot follows this instruction,
+just as for a jump instruction.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+
+<p>
+Do the bit patterns in the two registers represent integers?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass17_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:32 GMT -->
+</html>

@@ -1,0 +1,153 @@
+<!doctype html> 
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:48 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 05/17/2016</p>
+<hr />
+
+<h1> 
+Chapter 10 Programming Exercises
+</h1>
+
+<hr />
+ 
+<p>
+For these programming exercises,
+use only those instructions that have been
+discussed so far in these notes:
+</p>
+
+
+<table style="width:50%"> 
+
+<tr> 
+<td>ori</td>	
+<td>addu</td>
+</tr>
+
+</table>
+
+
+<p>
+In the <em> Simulator/Settings/MIPS</em> menu of SPIM set
+Bare Machine ON, Accept Pseudo Instructions OFF,
+Enable Delayed Branches ON,
+Enable Delayed Loads ON,
+Enable Mapped I/O OFF, 
+Load Exception Handler OFF.
+</p>
+
+<p>
+Run the programs by 
+single stepping (pushing F10).
+Observing the results in the SPIM Int Regs window.
+Check the <em>Registers</em> menu that the registers are displayed in HEX.
+</p>
+
+
+<hr />
+
+<h2>*Exercise 1</h2>
+
+<p>
+Start with the source file for the program discussed in this and the previous chapter:
+</p>
+
+<pre>
+## Program to add two plus three 
+        .text
+        .globl  main
+
+main:
+        ori     $8,$0,0x2       # put two's comp. two into register 8
+        ori     $9,$0,0x3       # put two's comp. three into register 9
+        addu    $10,$8,$9       # add register 8 and 9, put result in 10
+</pre>
+
+<p>
+Modify the program so that it puts a 1 in register <code>$1</code>, a 2 in register <code>$2</code>, a 3 in register <code>$3</code>, 
+and so on up to register <code>$12</code> (or higher if you wish).
+Run the program by pushing F10 to single step.
+Check the register display after each step.
+</p>
+
+<p>
+Notice that in the QtSpim display the machine instructions of this program are loaded into memory starting at address 0x400000,
+the beginning of the text segment of memory.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part3"> Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+
+<h2>*Exercise 2</h2>
+
+<p>
+Create a source program containing the following lines.
+</p>
+
+<pre>
+##  Put data into the data segment
+ 
+        .data
+
+data:
+        .word   0               # put two's comp.  zero into beginning of data segment.
+        .word   1               # put two's comp.  one into data segment.
+        .word   2               # put two's comp.  two into data segment.
+        .word   3               # put two's comp.  three into data segment.
+        .word   4               # put two's comp.  four into data segment.
+</pre>
+
+<p>
+Load the program into QtSpim and look at the data segment starting at address 0x10000000.
+There are no machine instructions in this program so there is nothing to run.
+Notice that fullwords (4 bytes) are used for each integer.
+QtSpim memory can be displayed using binary, decimal, or hex using the menu under the "Data Segment" tab at the top.
+Choosing a display option merely changes the characters used to display what is in memory. Of course, the contents of memory remains unchanged. 
+</p>
+
+<p>
+Change several of the data in your program to large decimal values (say, 2435681).  
+Load the program.  If memory is displayed in hex, the hex equivalent of the decimal values will be displayed.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part3"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<p>
+<b>End of Exercises</b>
+</p>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:48 GMT -->
+</html>
+

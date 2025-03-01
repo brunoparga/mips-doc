@@ -1,0 +1,117 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:47 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete C Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. The compiler supplies the machine code for this automatically.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete C Program</h1>
+ 
+
+<p>
+Here is a complete C program, roughly the equivalent of the assembly
+language program:
+</p>
+
+<pre class="program">
+#include &lt;stdlib.h&gt;    /* include a header file of standard definitions */
+
+struct EMPLOYEE              /* Declaration of a type of struct */
+{                            /* This does not allocate any memory */
+  int age;
+  int pay;
+  int class;
+};
+
+main()
+{
+  struct EMPLOYEE *empA;     /* declaration of the pointer variable empA */
+
+  empA = (struct EMPLOYEE *)malloc( sizeof( struct EMPLOYEE) );
+
+  empA-&gt;age = 34;
+  empA-&gt;pay = 24000;
+  empA-&gt;class = 12;
+  
+  struct EMPLOYEE *empB;     /* declaration of a second pointer variable empB */
+
+  empB = (struct EMPLOYEE *)malloc( sizeof( struct EMPLOYEE) );
+
+  empB-&gt;age = empA-&gt;age;
+  empB-&gt;pay = empA-&gt;pay;
+  empB-&gt;class = empA-&gt;class;
+  
+  PStruct( empA );  /* Write out the first struct */
+  PStruct( empB );  /* Write out the second struct */
+  
+  system("pause");
+}
+
+void PStruct( struct EMPLOYEE *emp )
+{
+  printf("age: %d  ", emp-&gt;age );
+  printf("pay: %d  ", emp-&gt;pay );
+  printf("class: %d\n", emp-&gt;class );
+}
+
+</pre>
+
+<p>
+The print subroutine has been expanded to print out all the fields of the struct.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 21:</h3>
+<p>
+Think of some interesting things to do with these   programs.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:48 GMT -->
+</html>

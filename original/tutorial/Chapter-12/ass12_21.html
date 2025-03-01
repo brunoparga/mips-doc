@@ -1,0 +1,155 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 07:54:16 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:40 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee.org">
+<!-- <meta name="copyright" content="2009"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destination Register and Const</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass12_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap12-21.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+Would this instruction have worked as well?
+</p>
+
+<pre>
+or    $25,$0,$12     # move s into target register
+</pre> 
+
+<h3>Answer:</h3>
+<p>
+No &#8212; the 32-bit result ($0 OR $12) is moved into <code class="register">$25</code>,
+destroying the opcode already there.
+</p>
+
+<pre>
+$25 <code>&lt;&#8212;&#8212;</code> ($0  OR $12)   # wrong
+$25 <code>&lt;&#8212;&#8212;</code> ($25 OR $12)   # right
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Destination Register and Const</h1>
+<!-- ../Audio/chap12-21.mp3 -->
+
+
+<div class="middle">
+<table>
+<tr> <td colspan="4"><code>ori &nbsp; &nbsp; $8,$9,0x004A</code></td> </tr>
+<tr> <td>31....26</td> <td>25...21</td>  <td>20...16</td> <td>15...................0</td> </tr>
+<tr> <td>opcode  </td> <td>s      </td>  <td>d      </td> <td>unsigned const        </td> </tr>
+<tr> <td>0xD     </td> <td>0x9    </td>  <td>0x8    </td> <td>0x004A                </td> </tr>
+</table>
+</div>
+
+<div class="left">
+<p>
+
+The
+ same method 
+ of shifting and oring is used with 
+the bit pattern that designates the destination register.
+The <b><code>const</code></b> part of the instruction
+is in register <code class="register">$13</code>, and it is in the correct field.
+It can be copied into <code class="register">$25</code> using an <code>or</code> instruction.
+The complete program follows.
+The comments on each line have been improved.
+</div>
+
+<div class="right">
+<p>
+Comments should describe the
+steps done in solving the problem.
+They should <b>not</b> just repeat what the instruction does.
+However, when these notes explain a new
+instruction the comment may describe the details of the instruction.
+But that is a poor style, in general.
+</p>
+
+<p>
+The following can be copied into the clipboard and 
+pasted into your program editor,
+then saved to a file and run with SPIM.
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="program">
+## Program to assemble the instruction ori  $8,$9,0x004A
+##
+        .text
+        .globl  main
+
+main:
+        or    $25,$0,$0        # clear $25
+        ori   $11,$0,0xD       # opcode
+        ori   $12,$0,0x9       # operand $s
+        ori   $13,$0,0x8       # dest. $d
+        ori   $14,$0,0x004A    # immediate operand
+        
+        sll   $11,$11,26       # shift opcode into position
+        or    $25,$25,$11      # or it into the instruction
+        
+        sll   $12,$12,21       # shift operand $s into position
+        or    $25,$25,$12      # or it into the instruction
+        
+        sll   $13,$13,16       # shift dest $d into position
+        or    $25,$25,$13      # or it into the instruction
+        
+        or    $25,$25,$14      # or const into the instruction
+        
+        ori   $8,$9,0x004A     # The actual assembler
+                               # should create the same machine
+                               # instruction as we now have in $25
+
+## end of file
+</pre>  
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 21:</h3>
+<p>
+Would it be possible to <em>dis-assemble</em> the
+instruction in <code class="register">$25</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass12_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:41 GMT -->
+</html>

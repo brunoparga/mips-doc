@@ -1,0 +1,156 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 26 20:00:27 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:19 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CISC</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass19_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap19-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+
+<ul>
+<li>Faster machine cycle (500 MHz to 1000 MHz). 
+<ul><li><span class="green"><b>Yes. More instructions done per second.</b></span></li></ul>
+</li>
+<li>More bits on the system bus (32 bits to 64 bits). 
+<ul><li><span class="green"><b>Yes. More data moved per transfer operation.</b></span></li></ul>
+</li>
+<li>More main memory (128 Meg to 512 Meg). 
+<ul><li><span class="green"><b>Yes.  Data can be kept in fast main memory rather than slow disk memory.</b></span></li></ul>
+</li>
+<li>Larger hard disk (20 Gig to 40 Gig). 
+<ul><li><span class="red"><b>No,</b></span> assuming that all data and software fit on the smaller size.</li></ul>
+</li>
+<li>Faster data transfer rate of hard disk (40 MBps to 80 MBps). 
+<ul><li><span class="green"><b>Yes. Processor spends less time waiting for data.</b></span></li></ul>
+</li>
+<li>Bigger monitor (17" to 21"). 
+<ul><li><span class="red"><b>No.</b> </span> </li></ul>
+</li>
+<li>Many,  complex machine instructions. 
+<ul><li><span class="blue"><b>Maybe, maybe not.</b></span></li></ul>
+</li>
+</ul>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>CISC</h1>
+<!-- ../Audio/chap19-10.mp3 -->
+
+
+<a id="CISC"> </a>
+
+<div class="left">
+<p><span class="highlight">
+A  <b>CISC</b> (Complex Instruction Set Computer)
+processor has many instructions,</span>
+some of them complex instructions
+that do a lot per machine cycle.
+The Intel processors are CISC.
+</p>
+
+<p><span class="highlight">
+A <b>RISC</b> (Reduced Instruction Set Computer)
+processor has few instructions,</span>
+most of them simple.
+It may take several instructions
+to do the equivalent of a CISC instruction.
+The MIPS processors are RISC.
+</p>
+
+<p>
+If  everything else were the same,
+CISC would have greater throughput.
+However, a larger
+silicon chip is needed to implement 
+the many complex instructions. 
+This means that data must move through greater distances,
+and that takes more time.
+So the machine cycle must be slower.
+Also, the instructions themselves take more time
+to execute (usually more than several RISC instructions).
+Fine tuning
+the chip for speed is difficult when there
+are many instruction types.
+The simple instructions are compromised
+by the complex ones.
+But the simple instructions are the
+most frequently executed!
+</p>
+</div>
+
+<div class="right">
+<p>
+Worse, it is hard to write a compiler that makes use
+of complex instructions.
+Compilers frequently compile programs into machine language
+programs that use only simple instructions.
+The MMX (multi-media extension) instructions 
+added to Intel chips (in 1997)
+are not output by any compiler.
+(In 2015 compilers still don't use these instructions.)
+</p>
+
+<p>
+These instructions are used in specialized functions written in assembly language.
+The functions are assembled into machine code and put into libraries
+which applications programs can call.
+Systems software can put everything together into an executable.
+(See chapter one page 13 if this is unclear.)
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+
+<p>
+If you are writing a computer game and wish to
+use MMX instructions, what must you do?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass19_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:20 GMT -->
+</html>

@@ -1,0 +1,106 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:55 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branch Equal to Zero</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-02.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+A conditional branch
+tests a condition then changes the PC if the condition is true, for example: <br> <br> 
+<code>beq $t1,$t2,label</code>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Branch Equal to Zero</h1>
+
+<a id="beqz_(instruction)"> </a>
+
+
+<div class="left">
+<p><span class="highlight">
+The
+extended assembler implements several conditional 
+branch instructions beyond the basic ones.</span>
+For example:
+</p>
+</div>
+<br style="clear:both">
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+beqz     s,label          # branch to label if register  s == 0
+                          # (pseudoinstruction)
+</pre>
+
+<div class="left">
+<p>
+The hardware does not have a machine instruction for this
+operation.
+It does, however, have a zero register and the
+<code>beq</code> instruction (branch equal).
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<form>
+<p>
+Fill in the blanks so the branch is taken if <code class="register">$s1</code> is zero.
+</p>
+
+<pre class="code">
+<input type="text" size="6" name="T1"/>   $s1,<input type="text" size="6" name="T2"/>,label   # branch to label if register $s1 == 0
+</pre>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:56 GMT -->
+</html>

@@ -1,0 +1,140 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:15 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alternate Sequence</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+lui $13, 0x0060
+ori $13, $13, 0x5000
+lw  $12, 0xC($13)
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Alternate Sequence</h1>
+<!-- ../Audio/chap15-14.mp3 -->
+
+
+<p>
+
+The
+ above <code>ori</code> instruction "fills in" the
+lower 16 bits of register <code class="register">$13</code> by doing the following:
+</p>
+
+<pre>
+$13 after lui           :  <span style="color:red">0000 0000 0110 0000</span> 0000 0000 0000 0000
+zero-extended imm. op.  :  0000 0000 0000 0000 <span style="color:blue">0101 0000 0000 0000</span>
+result of bitwise OR    :  <span style="color:red">0000 0000 0110 0000</span> <span style="color:blue">0101 0000 0000 0000</span>
+</pre>
+
+<div class="left">
+<p>
+Other sequences of instructions also will work.
+Choose whichever method works best in the context of
+the rest of the program.
+</p>
+
+<p> <span class="highlight">
+Because the "upper half" of an address is 16 bits and
+the offset of the <code>lw</code> can hold the 16 bit "lower half,"
+the two in combination can
+address any byte of memory.</span>
+</p>
+
+<p>
+The problem was to load <code class="register">$12</code> with the word at address
+0x0060500C.
+Here is another way to do it:
+Split the address into halves: 0x0060 and 0x500C.
+Load the top half into <code class="register">$13</code> and use the bottom half
+as the offset.
+</p>
+
+<pre>
+lui $13, 0x0060
+lw  $12, 0x500C($13)
+</pre>
+</div>
+
+<div class="right">
+ 
+<p>
+Since the <code>ori</code> instruction is used often with
+the destination register as one of the operands,
+there is a 
+<span class="highlight">shorthand instruction
+in assembly language.</span>
+</p>
+
+<pre>
+ori $d,const  # assembles to 
+              # the same machine
+              # instruction as 
+              # ori $d,$d,const
+</pre>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+Do the following two assembly instructions assemble to the
+same machine instruction?
+</p>
+
+<pre>
+ori  $10,$10,0x00C4
+
+ori  $10,$0, 0x00C4
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:16 GMT -->
+</html>

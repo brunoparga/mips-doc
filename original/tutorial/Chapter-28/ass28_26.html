@@ -1,0 +1,139 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:41 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_26.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:23 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More   fact()  </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_25.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_27.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-37.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-37.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>More <code> fact() </code></h1>
+
+<form>
+<pre class="program">
+#  int fact( int n )
+#  {
+#    if ( n&lt;=1)
+#      return 1;
+#    else
+#      return n*fact(n-1);
+#  }
+         .text
+         .globl  fact
+fact:
+                                  # prolog        
+         . . . . . .
+                                  # body of subroutine
+         move    $s1,$a0          # save argument in $s1
+         li      $t1,1            # get a 1
+         bgt     $s1,$t1,recurse  # if ( n&lt;=1)
+         li      $v0,1            #   return 1
+         b       <span style="color:blue">epilog</span>  
+
+recurse:                          # else
+                                  #   return n*fact(<span style="color:red">n-1</span>);
+         sub     <span style="color:red">$a0</span>,$s1,1        #     argument0 = <span style="color:red">n-1</span>
+                       
+                                  # subroutine call
+                                  #   1. No T registers to push
+                                  #   2. Argument is in <span style="color:red">$a0</span> 
+         jal     fact             #   3. Jump and link to subroutine
+                                  #
+                                  #   value is returned in $v0
+
+         mul     <input type="text" size="5" style="font-size:100%;" /> , <input type="text" size="5" style="font-size:100%;" /> , <input type="text" size="5" style="font-size:100%;" />   # n*fact(n-1)
+
+epilog:                           # epilog
+                                  #   1. Return value is already in $v0        
+         . . . . . .
+         jr      $ra              #
+</pre>
+</form>
+
+<div class="left">
+
+<p><span class="highlight">
+The
+alternate branch of the <code>if</code> statement
+(at symbolic address <code>recurse</code>)
+has the job of calculating <code>n*fact(n-1)</code>.</span>
+It does this by first calculating the argument 
+<span style="color:red"><code>n-1</code></span>.
+</p>
+
+<p>
+Then it calls the subroutine <code>fact()</code> in the normal way.
+It does not hurt for <code>fact()</code> to call <code>fact()</code> because
+each activation has its own data on the stack.
+</p>
+</div>
+
+<div class="right">
+<p>
+On return from the (inner) call to <code>fact()</code>, 
+register <code class="register">$v0</code> has the returned value, and
+register <code class="register">$s1</code> has the argument <code>n</code>.
+Now the return value from the current activation must be
+placed in  <code class="register">$v0</code> to be returned to the caller.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 26:</h3>
+<p>
+Fill in the blanks. (Hint: study the last paragraph).
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_25.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_27.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_26.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:24 GMT -->
+</html>

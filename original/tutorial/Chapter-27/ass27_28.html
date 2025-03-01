@@ -1,0 +1,135 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_28.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:31 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subroutine   convert  </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_27.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_29.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap27-24.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. It does not call a subroutine 
+and so can leave the return address in <code class="register">$ra</code>.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Subroutine <code> convert </code></h1>
+<!-- ../Audio/chap27-24.mp3 -->
+
+<p>
+After 
+reading in a line,
+<code>doLines</code> calls
+<code>convert</code> 
+to convert the entire line to upper case.
+<code>convert</code> 
+calls <code>conChar</code> for each character in the line.
+</p>
+
+<p>
+<code>convert</code> 
+needs a register to hold a character pointer that moves through the line.
+It can't use a T register for this because it calls another subroutine.
+So it uses an S register.
+But it must restore the S register to its original state
+when it returns to its caller.
+</p>
+
+<p>
+This is the situation that calls for pushing an S register on the
+stack, using it in the subroutine body, and then popping it from
+the stack before returning to the caller.  
+</p>
+
+<pre class="program">
+<img src="convert.gif" class="rightimage" alt="Flowchart for convert"/>
+# convert -- convert a line to all capitals
+#
+# on entry:
+#    $a0 -- address of input buffer
+#    $a1 -- length of input buffer
+#
+# register use:
+#    <span style="color:red">$s0 -- pointer into character buffer</span>
+#
+# on exit:
+#    no return values
+
+         .text
+         .globl  convert
+convert:   
+         sub     $sp,$sp,4        # push the return address
+         sw      $ra,($sp)
+         <input type="text" size="20" />       <span style="color:red"># What should be done HERE?? </span>
+         <input type="text" size="20" />
+
+                                  # for ( p=buffer; *p!=0; p++ )
+         move    $s0,$a0          # p=buffer
+
+cloop:   lbu     $a0,(<span style="color:red">$s0</span>)        # get a char from the string
+         beqz    $a0,endC         # exit if null byte
+                                  # argument a0: char to convert
+         <span style="color:blue">jal     conChar</span>          # convert character
+         sb      $v0,(<span style="color:red">$s0</span>)        # put converted char into string                 
+         addu    <span style="color:red">$s0</span>,<span style="color:red">$s0</span>,1        # p++
+         b       cloop         
+ 
+endC:   
+         <input type="text" size="20" />       <span style="color:red"># And what should be done HERE??</span>
+         <input type="text" size="20" />
+         lw      $ra,($sp)        # pop return address
+         add     $sp,$sp,4         
+         jr      $ra              # return to caller 
+</pre>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 28:</h3>
+<p>
+Fill in the missing code.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_27.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_29.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_28.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:33 GMT -->
+</html>

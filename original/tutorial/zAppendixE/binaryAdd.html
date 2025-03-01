@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- July 06, 2015 bpk  replaced Java applet with html table and JavaScript -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixE/binaryAdd.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:16 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Binary Addition Algorithm</title>
+<link rel="stylesheet" type="text/css" href="../AssemblyStyleRev3.css">
+
+<script>
+function toggle( but )
+{
+  if ( but.value == "0" )
+    but.value = "1" ;
+  else
+    but.value = "0" ;
+    
+  addAll( );
+}
+
+function addAll()
+{
+  add( document.getElementById( "carry0" ), document.getElementById( "x0" ), document.getElementById( "y0" ),  document.getElementById( "sum0" ), document.getElementById( "carry1" ) ); 
+  add( document.getElementById( "carry1" ), document.getElementById( "x1" ), document.getElementById( "y1" ),  document.getElementById( "sum1" ), document.getElementById( "carry2" ) ); 
+  add( document.getElementById( "carry2" ), document.getElementById( "x2" ), document.getElementById( "y2" ),  document.getElementById( "sum2" ), document.getElementById( "carry3" ) ); 
+  add( document.getElementById( "carry3" ), document.getElementById( "x3" ), document.getElementById( "y3" ),  document.getElementById( "sum3" ), document.getElementById( "carry4" ) ); 
+  add( document.getElementById( "carry4" ), document.getElementById( "x4" ), document.getElementById( "y4" ),  document.getElementById( "sum4" ), document.getElementById( "carry5" ) ); 
+  add( document.getElementById( "carry5" ), document.getElementById( "x5" ), document.getElementById( "y5" ),  document.getElementById( "sum5" ), document.getElementById( "carry6" ) ); 
+  add( document.getElementById( "carry6" ), document.getElementById( "x6" ), document.getElementById( "y6" ),  document.getElementById( "sum6" ), document.getElementById( "carry7" ) ); 
+  add( document.getElementById( "carry7" ), document.getElementById( "x7" ), document.getElementById( "y7" ),  document.getElementById( "sum7" ), document.getElementById( "carry8" ) ); 
+}
+
+function add( carryIn, x, y, sum, carryOut )
+{
+  var ci, xx, yy ;
+  ci = Number( carryIn.value );
+  xx = Number( x.value );
+  yy = Number( y.value );
+  
+  var result = ci+xx+yy;
+  if ( result == 0 )
+  {
+    sum.value = "0" ; carryOut.value = "0";
+  }
+  else if ( result == 1 )
+  {
+    sum.value = "1" ; carryOut.value = "0";
+  }
+  else if ( result == 2 )
+  {
+    sum.value = "0" ; carryOut.value = "1";
+  }
+  else 
+  {
+    sum.value = "1" ; carryOut.value = "1";
+  }
+}
+
+</script>
+
+<style>
+#additionTable td
+{
+  border-style: none;
+  padding: 5px;
+}
+
+#additionTable
+{
+  padding: 15px;
+  font-size:larger;
+  
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nonClick
+{
+  background: #FFFFFF;
+  border: none;
+}
+</style>
+
+</head>
+
+
+<body>
+<p><small>
+created Jan 2, 1997; revised Dec 13, 2008, July 07, 2015
+</small></p>
+
+<hr>
+
+<div class="lesson">
+
+<h1>Binary Addition Algorithm</h1>
+
+<hr>
+
+<p>
+The <b>binary addition algorithm</b> operates on two bit patterns 
+and results in a bit pattern.
+Usually all three patterns are the same size,
+and all three represent unsigned integers or all three represent signed integers.
+</p>
+
+<p>
+Addition of one-bit binary operands is easy:
+</p>
+
+
+<pre class="program" style="font-size:larger">
+       0    0    1    1
+      +0   +1   +0   +1
+     ---  ---  ---  ---
+      00   01   01   10
+</pre>
+
+
+<p>
+These sums show one-bit operands and two-bit results.
+For multi-bit operands,
+the above sums are used for each column.
+The left-most
+bit of the one-bit result is used for the <b>carry</b> into the next column.
+For example, here is the sum of two four-bit integers:
+</p>
+
+
+<pre class="program"  style="font-size:larger">
+     0 1 1 0      <img src="leftArrow.gif" alt="<--">  the carry into each column
+       0 1 1 0    <img src="leftArrow.gif" alt="<--">  first operand
+       0 1 1 1    <img src="leftArrow.gif" alt="<--">  second operand
+       -------
+       1 1 0 1    <img src="leftArrow.gif" alt="<--">  the result
+</pre>
+
+
+<p>
+Adding the bits in one column 
+produces a carry bit that is placed at the top of the next column to the left.
+This is called the <b>carry out</b> for this column and the <b>carry in</b> for next column left.
+Every column but the right-most
+includes a carry bit that comes from the column to its right.
+(Think of the right-most column as having a carry-in of zero.)
+Now columns have three bits to be added, and the addition rules
+must be extended:
+</p>
+
+
+ 
+<pre class="program"  style="font-size:larger">
+       0    0    0    0    1    1    1    1
+       0    0    1    1    0    0    1    1
+      +0   +1   +0   +1   +0   +1   +0   +1
+     ---  ---  ---  ---  ---  ---  ---  ---
+      00   01   01   10   01   10   10   11
+</pre>
+ 
+
+<p>
+Of course, you don't have to memorize these rules.
+Just count the number of 1's in each column
+and write that count in binary.
+</p>
+
+<p>
+Computers (usually) add two N-bit integers
+together to produce an N-bit result and
+a carry-out of the left-most column.
+Every bit of the result must have a value.
+The following shows an 8-bit addition:
+</p>
+
+ 
+<pre class="program"  style="font-size:larger">
+        0 0 0 0 1 1 0 0
+          0 0 0 0 1 1 1 0
+          0 0 0 0 0 1 0 1
+          ---------------
+          0 0 0 1 0 0 1 1 
+</pre>
+ 
+
+
+<p>
+The result is an N-bit pattern and a carry bit.
+The carry out from the left-most column might be zero or one.
+Each input pattern can be any pattern at all,
+and the algorithm will always produce an output pattern.
+However if the inputs are regarded as positive integers,
+some output patterns don't correspond to a correct sum.
+This is called overflow. Computer hardware looks at the carry into and out of the
+left-most column to determine if overflow happened.
+</p>
+
+<p>
+Here is an implementation of this algorithm
+for 8-bit operands.
+Click on the bits of the operands X and Y
+to toggle the bits from 0 to 1 and back.
+</p>
+
+<hr>
+<br>
+ 
+
+<table id="additionTable">
+<tr><td>Carry: &nbsp; &nbsp; </td> 
+    <td><input type="button" value="0" id="carry8" class="nonClick"></td> 
+    <td><input type="button" value="0" id="carry7" class="nonClick"></td> 
+    <td><input type="button" value="0" id="carry6" class="nonClick"></td> 
+    <td><input type="button" value="0" id="carry5" class="nonClick"></td> 
+    <td><input type="button" value="0" id="carry4" class="nonClick"></td> 
+    <td><input type="button" value="0" id="carry3" class="nonClick"></td> 
+    <td><input type="button" value="0" id="carry2" class="nonClick"></td> 
+    <td><input type="button" value="0" id="carry1" class="nonClick"></td> 
+    <td><input type="hidden" value="0" id="carry0"></td> 
+</tr>
+    
+<tr><td>X: &nbsp; &nbsp;</td> 
+    <td>&nbsp;</td>
+    <td><input type="button" id="x7" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="x6" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="x5" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="x4" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="x3" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="x2" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="x1" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="x0" value="0" onclick="toggle( this )"></td>
+</tr>
+
+<tr><td>Y: &nbsp; &nbsp;</td> 
+    <td>&nbsp;</td>
+    <td><input type="button" id="y7" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="y6" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="y5" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="y4" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="y3" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="y2" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="y1" value="0" onclick="toggle( this )"></td>
+    <td><input type="button" id="y0" value="0" onclick="toggle( this )"></td>
+</tr>
+
+<tr><td>&nbsp;</td><td colspan="9"> <hr> </td></tr>
+<tr><td>Sum: &nbsp; &nbsp; </td> 
+    <td><input type="hidden"   id="sum8" value="0" ></td> 
+    <td><input type="button"   id="sum7" value="0"  class="nonClick"></td> 
+    <td><input type="button"   id="sum6" value="0"  class="nonClick"></td> 
+    <td><input type="button"   id="sum5" value="0"  class="nonClick"></td> 
+    <td><input type="button"   id="sum4" value="0"  class="nonClick"></td> 
+    <td><input type="button"   id="sum3" value="0"  class="nonClick"></td> 
+    <td><input type="button"   id="sum2" value="0"  class="nonClick"></td> 
+    <td><input type="button"   id="sum1" value="0"  class="nonClick"></td> 
+    <td><input type="button"   id="sum0" value="0"  class="nonClick"></td>
+</tr>
+
+</table>
+
+<hr>
+
+<p>
+Puzzles:
+</p>
+
+<p>
+Find two non-zero operands that add up to a result of all one bits.  
+</p>
+
+
+<p>
+Find two non-zero operands that add up to a result of all zero bits.  
+</p>
+ 
+
+<hr>
+
+ 
+<p>
+ <a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page" /></a> Return to Home Page
+ </p>
+ 
+</div>
+
+<hr>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixE/binaryAdd.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:17 GMT -->
+</html>

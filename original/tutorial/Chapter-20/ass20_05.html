@@ -1,0 +1,140 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 26 18:18:41 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:28 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loop Body</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass20_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap20-05.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+The answer is below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Loop Body</h1>
+<!-- ../Audio/chap20-05.mp3 -->
+
+
+<pre class="program"> 
+<img src="strlen.gif" class="rightimage" alt="string length flow chart" />
+
+## strlen.asm
+##
+## Count the characters in a string
+##
+## Registers:
+##  $8 -- count
+##  $9 -- pointer to the char
+## $10 -- the char (in low order byte)
+
+        .text
+        .globl  main
+		
+# Initialize
+main:    ori      $8,$0,0       #  count = 0
+         lui      $9,0x1000     #  point at first char
+
+# while not ch==null do
+loop:    lbu   $10,<span class="red">0</span>($9)        # get the char
+         sll   $0,$0,0          # load delay
+           
+         <span class="red">beq </span>  $10,$0,done      # exit loop if char == null
+         sll   $0,$0,0          # branch delay
+
+         addiu    <input type="text" size="4" />,<input type="text" size="4" />,<input type="text" size="4" />   # count++
+
+         addiu    <input type="text" size="4" />,<input type="text" size="4" />,<input type="text" size="4" />   # point at the next char
+
+         j       loop
+         sll   $0,$0,0          # branch delay slot
+         
+# finish
+done:    sll   $0,$0,0           # target for branch
+
+         .data
+string:  .asciiz  "Time is the ghost of space."
+
+</pre>
+
+
+<div class="left">
+<p> 
+    The
+ address of the byte in the <code>lbu</code> instruction 
+  is computed by (displacement + <code class="register">$9</code>). 
+  Since the base, <code class="register">$9</code>, has the address of (points 
+  at) the character, the displacement is zero. 
+  <span class="highlight">The <code>lbu</code> loads the 
+  character into the low-order byte of <code class="register">$10</code>. </span>
+  The upper three bytes are zero. 
+</div>  
+  
+<div class="right">
+<p><span class="highlight">
+  The 
+  <code>beq </code> instruction tests 
+  if the entire register is zero,
+   but, of course,
+   that also tests if the low-order byte is zero. </span>
+  </p>
+  
+<p>
+Next, the program must increment the count, then move
+the base register (the character pointer) to the next
+byte of the string.
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass20_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:29 GMT -->
+</html>

@@ -1,0 +1,125 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:51 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store Word Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre>lw $12, 0x10($13)</pre>
+
+<p>
+The original value in <code class="register">$12</code>  is irrelevant; it is replaced with
+a value from memory (memory remains unchanged).
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Store Word Instruction</h1>
+<!-- ../Audio/chap15-11.mp3 -->
+
+<a id="sw"> </a>
+
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+sw   t,off(b)       # Word at memory address (b+off) <span style="font-size: 40px;">&larr;</span> $t 
+                    # b is a register. off is 16-bit two's complement.
+</pre>
+
+
+<div class="left">
+<p>
+<span class="highlight">
+The
+ store word instruction, <code>sw</code>,
+copies data from a register <u>to</u> memory.</span>
+The register is not changed.
+The memory address is specified using a base/register pair.
+</p>
+</div>
+
+<div class="right">
+<p>
+As with the <code>lw</code> instruction,
+<span class="highlight">the memory address must be word aligned (a multiple of four).</span>
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+
+<img src="lwProblem.gif" class="rightimage" alt="Picture of the Problem" />
+
+
+<div class="left">
+
+<p>
+Look at registers <code class="register">$12</code> and <code class="register">$13</code> and memory (at right).
+Write the instruction that puts the word 0xFFFFFFFF into
+memory location 0x0004000C.
+</p>
+
+<ul>
+ <li>Register $12 contains <code>0xFFFFFFFF</code></li>
+ <li>Register $13 contains <code>0x00040014</code></li>
+</ul>
+
+<blockquote>
+<pre>sw $<input type="text" name="T10" size="6" /> ,<input type="text" name="T11" size="6" />($<input type="text"  size="6" />)</pre>
+</blockquote>
+
+
+<p>
+Hint: it is OK to specify the 16-bit offset as a signed decimal integer.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:52 GMT -->
+</html>

@@ -1,0 +1,125 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:11 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handy ANDI Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+An assembler.
+</p>
+
+<p> 
+An assembler  uses bit manipulation to put
+together (to "assemble") the bit patterns of each machine instruction. 
+This is a typical assignment in a systems programming course.
+Of course, you will likely write your assembler in C 
+and will use its bitwise operators.
+But they ultimately become the processor's bitwise operations.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Handy ANDI Instruction</h1>
+<!-- ../Audio/chap11-11.mp3 -->
+
+
+<a id="andi_instruction"> </a>
+
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+andi d,s,const     # register d loaded with
+                   # bitwise AND of zero-extended immediate operand <code>const</code>
+                   # and the contents of register $s.
+                   # <code>const</code> is a 16-bit pattern, so
+                   # 0x0000 ... <code>const</code> ... 0xFFFF
+</pre> 
+
+
+
+<div class="left">
+
+
+
+<p><span class="highlight">
+The <code><b>andi</b></code> instruction does a bitwise AND of two 32-bit
+patterns. At run time the 16-bit
+immediate operand is padded on the left with zero bits to make it a 32-bit operand.</span>
+</p>
+
+<p>
+The three operands of the instruction must appear in the correct order,
+and <code>const</code> must be within the specified range.
+The immediate operand in the source instruction always specifies sixteen bits
+although the zeros on the left can be omitted (such as 0x2).
+</p>
+</div>
+
+<div class="right">
+<table>
+  <tr><th colspan="5">AND Operation on Bits</th></tr>
+  <tr><td> first operand </td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+  <tr><td> second operand </td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+  <tr><td colspan="5"> <hr /></td></tr>
+  <tr><td> result </td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+</table>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+
+<p>
+Is the following instruction correct? What does it do?
+</p>
+<pre>
+andi $8,$0,0xFFFF
+</pre> 
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:12 GMT -->
+</html>

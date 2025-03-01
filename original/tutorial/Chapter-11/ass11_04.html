@@ -1,0 +1,126 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:35 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OR Immediate Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+After the instruction
+<code>ori $8,$0,0x2</code>
+executes, what is in <code class="register">$8</code>?
+</p>
+
+<h3>Answer:</h3>
+<p>
+The 16-bit 0x2 
+immediate operand has been zero-extended and copied into register <code class="register">$8</code>.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>OR Immediate Instruction</h1>
+<!-- ../Audio/chap11-04.mp3 -->
+
+
+<a id="ori_instruction"> </a>
+<a id="load_register"> </a>
+
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+ori  d,$0,const    # register d &lt;-- <code>const</code>.
+                   # <code>const</code> is 16-bits, so
+                   # 0x0000 ... <code>const</code> ... 0xFFFF
+</pre> 
+
+<div class="left">
+<p><span class="highlight">
+If the OR operation is done with the zeros in register <code class="register">$0</code>,
+the result is a copy of the zero-extended immediate operand
+into the result register.</span>
+</p>
+
+<p>
+Copying a bit pattern into a register is usually called 
+<b>loading</b> the register.
+Register <code class="register">$8</code> was <em>loaded</em> with 
+a 32-bit pattern.
+The pattern could represent a positive two.
+If so, register <code class="register">$8</code> was loaded with positive two.
+</p>
+
+
+</div>
+
+<div class="right"> 
+
+
+<p>
+If <code>const</code> represents an integer, 
+then 0 &le; <code>const</code> &le; 65535. 
+</p>
+
+<p>
+Of course, the operation is pure bit manipulation
+and the bits might represent something other than an integer.
+</p>
+
+<p> <span class="highlight">
+The three operands of the assembly instruction 
+d, <code class="register">$0</code>, and <code>const</code> 
+must appear in that order.</span>
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+<p>
+Can the immediate operand 
+of an <code>ori</code> be regarded as a <b>signed</b> integer?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:36 GMT -->
+</html>

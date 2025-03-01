@@ -1,0 +1,134 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 11:48:16 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:25 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Files</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass05_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap05-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre class="code">
+41 20 42 00
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Files</h1>
+<!-- ../Audio/chap05-08.mp3 -->
+
+<a id="DIR_(of_DOS)"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">Files
+consist 
+of blocks of bytes 
+holding bit patterns.</span>
+Usually the patterns are
+recorded on magnetic 
+media such as hard disks or tape.
+Although the actual physical arrangement varies,
+you can think of a file as a contiguous
+block of bytes.
+The "DIR" command 
+of   DOS lists the number of bytes
+in each file (along with other information).
+</p>
+
+<p>
+Ignoring implementation details 
+(which vary from one operating system to the next),
+<span class="highlight">a file is a sequence of bytes on magnetic media.</span>
+What can each byte contain?
+A byte on a magnetic disk can hold
+one of 2<sup>8</sup> (256) possible patterns, 
+the same as a byte in main storage.
+Reading a byte from disk into a byte of main
+storage copies the pattern from one byte to another.
+</p>
+</div>
+
+<div class="right">
+<p>
+(Actually, for efficiency, disk reads and writes are always done in
+blocks of 128 bytes or more at a time).
+</p>
+
+<p>
+<span class="highlight">So a file contains only bit patterns, as does main memory.</span>
+What is represented by the bit patterns of a file
+depends on how they are used.
+For example, often a file  contains bytes
+that represent characters according to
+the ASCII convention.
+Such a file is called a <b>text file</b>,
+or sometimes an <b>ASCII file</b>.
+What makes the file a text file is the
+knowledge about how the file was created and
+how it is to be used.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+You (acting as an "English Language Application") find
+a battered old book in a stall outside a bookshop.
+You open the book to a random page and see:
+</p>
+
+<blockquote>
+Non sum qualis eram bonae sub regno Cynarae.
+</blockquote>
+
+<p>
+Is this book suitable for you 
+(in your role as an English application)?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass05_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:26 GMT -->
+</html>

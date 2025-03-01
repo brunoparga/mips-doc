@@ -1,0 +1,147 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 13 19:19:52 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:44 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storing a Single Byte</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass16_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap16-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+<code class="register">$10</code>  = <code>0xFFFFFFA4</code>
+</p>
+
+<p>
+Bit 7 of 0xA4 is 1,  so
+<code>lb</code> extends
+that bit to all high order three bytes of <code class="register">$10</code>. 
+</p>
+
+<p>
+<code class="register">$12</code>  = <code>0x000000A4</code>
+</p>
+
+<p>
+<code>lbu</code> zero-extends the byte from memory.
+</p>
+
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Storing a Single Byte</h1>
+<!-- ../Audio/chap16-04.mp3 -->
+
+
+<a id="sb_(instruction)"> </a>
+
+<div class="left">
+
+<p>
+<span class="highlight">There is an instruction for storing a byte:</span>
+</p>
+
+<pre>
+sb t,off(b)   
+
+# The byte at off+b <span style="font-size: 30px;">&larr;</span>  <u>low-order</u>
+# byte from register $t.
+# b is a base register. 
+# off is 16-bit two's complement.
+</pre>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">There is no need for two store byte instructions.</span>
+Whatever is in the low-order byte of the register
+is copied to memory.
+The rest of the register is ignored.
+Of course, the register does not change.
+</p>
+<p>
+Loading 
+and storing bytes is used
+for processing text and for
+systems programs
+(such as assemblers, compilers, and operating systems).
+Graphics programs, also, make frequent use
+of these operations.
+Both operations could be done using
+<code>lw</code> and
+<code>sw</code>
+along
+with bit manipulation instructions,
+but it is convenient to have byte-length load and store.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+
+<form>
+<ul>
+<li>Memory at 0x10000519 contains the byte 0x44</li>
+<li>Register <code class="register">$8</code> contains  0x10000400</li>
+<li>Register <code class="register">$10</code> contains 0xFA034183</li>
+</ul>
+
+<p>
+Write the instruction that replaces the "0x44" in memory
+with "0x83".
+</p>
+
+<pre>
+<code>sb  <input type="text" size="5" name="T1" />, <input type="text" size="5" name="T2" /> ( <input type="text" size="5" name="T3" /> )</code>
+</pre>
+</form>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass16_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:45 GMT -->
+</html>

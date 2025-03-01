@@ -1,0 +1,127 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 26 18:18:41 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:14 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running the Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass20_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap20-16.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+<code class="register">$11</code> &#8212; sum of all: <code class="register">0</code>
+</p>
+
+<p>
+<code class="register">$12</code> &#8212; sum of negative: <code class="register">-3</code>
+</p>
+
+<p>
+<code class="register">$13</code> &#8212; sum of positive: <code class="register">3</code>
+</p>
+
+<p>
+When testing a program, it is convenient to use data
+for which the correct results are obvious.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Running the Program</h1>
+<!-- ../Audio/chap20-16.mp3 -->
+
+
+<div style="text-align: center;"> 
+<img src="continueMenu.gif"  alt="SPIM continue menu" />
+</div>
+
+<div class="left">
+<p>
+  You
+ can run the program by initializing the PC
+(to 0x00400000) and repeatedly pushing single step (F10).
+But when the array has many entries this is tedious.
+On the version of SPIM for windows you can do
+the following to start the program and run it to
+completion:
+</p>
+
+<ol>
+<li>Initialize the PC (as usual).</li>
+<li>Hit F10 once (or more, if you want).</li>
+<li>Click on "Continue" in the "<u>S</u>imulator" menu.</li>
+<li>The program will execute until the PC goes beyond the end of the program.</li>
+<li>The simulator halts.</li>
+</ol>
+</div>
+
+<div class="right">
+<p>
+This procedure is not very elegant.
+Set a breakpoint at the last instruction if you want.
+Or set a breakpoint at the top of the loop so that
+the loop body executes once per "Continue".
+</p>
+
+<p>
+If you click "<u>G</u>o" in the menu,
+the simulator tries to start with some code
+that is not there and halts.
+"Bare Machine" is set in the options menu,
+so the extra code is not there.
+Keep things this way for now, unless you
+want to experiment.
+</p>
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 16:</h3>
+
+<p>
+Is a single run of the program enough to be certain
+that it is correct?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass20_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:16 GMT -->
+</html>

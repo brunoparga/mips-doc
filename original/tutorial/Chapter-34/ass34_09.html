@@ -1,0 +1,122 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon May 31 12:11:38 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:03 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Dump</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass34_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap34-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes. The new arrangement of memory implements the logical structure
+of the linked list,
+although now the nodes are not sequential in memory.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Memory Dump</h1>
+<!-- ../Audio/chap34-09.mp3 -->
+
+
+<div class="left">
+
+<p>
+ Here
+ is the code fragment (again).
+ Notice how 
+ <span class="highlight">the address is put into the link field of
+ each node by using the symbolic address of the node's successor.</span>
+</p>
+
+<pre>
+          .data
+elmnt01:  .word  1
+          .word  <span  style="color:blue;">elmnt02</span>
+
+elmnt02:  .word  2
+          .word  <span  style="color:blue;">elmnt03</span>
+
+elmnt03:  .word  3
+          .word  <span  style="color:blue;">elmnt04</span>
+
+elmnt04:  .word  5
+          .word  <span  style="color:blue;">elmnt05</span>
+
+elmnt05:  .word  7
+          .word  <span  style="color:blue;">0</span>
+</pre>
+
+<p>
+And here is how it is assembled by SPIM:
+</p>
+
+ 
+<img src="coreDump.gif" class="center" alt="core dump" />
+ 
+
+<p>
+Each node consists of two words of data:   
+the integer followed by the address of the next node.
+In this memory dump the nodes follow each other in order.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+At what address is the first node in the linked list?
+</p>
+
+<p>
+What is the address in its link field?
+</p>
+
+<p>
+What is the address of the second node in the linked list?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass34_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:05 GMT -->
+</html>

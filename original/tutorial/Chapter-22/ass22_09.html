@@ -1,0 +1,133 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 27 19:53:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:51 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass22_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap22-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+
+<p>
+The code is in error.  The print string service 4 would send the bytes
+starting at <code>result</code> to the monitor.
+But these bytes encode 35 using 32-bit two's complement.
+They are not the bytes for ASCII characters.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+<!-- ../Audio/chap22-09.mp3 -->
+
+
+<pre class="program">
+# ounces.asm
+#
+# Convert ounces to pounds and ounces.
+
+        .text
+        .globl  main
+
+main:   li      $v0,4       # print prompt
+        la      $a0,prompt  #
+        syscall
+        li      $v0,5       # read in ounces
+        syscall
+
+        li      $t1,16      # 16 oz. per pound
+        divu    $v0,$t1     # lo = pound; hi = oz.
+
+        mflo    $a0
+        li      $v0,1       # print
+        syscall             # pounds
+        li      $v0,4       # print "pounds"
+        la      $a0,pout
+        syscall
+
+        mfhi    $a0         # print
+        li      $v0,1       # ounces
+        syscall             # 
+        li      $v0,4       # print
+        la      $a0,ozout   # "ounces"
+        syscall
+
+        li      $v0,10      # exit
+        syscall
+
+        .data
+prompt: .asciiz "Enter ounces: "
+pout:   .asciiz " Pounds\n"
+ozout:  .asciiz " Ounces\n"
+
+</pre>
+
+<div class="left">
+<p>
+<span class="highlight">The example program reads in an integer,
+presumed to be a number of ounces, then writes out
+the equivalent number of pounds and ounces.</span>
+</p>
+</div>
+
+<div class="right">
+<p>
+As is often the case, input and output
+dominate the program.
+The actual calculation is hard to find.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+
+<p>
+The program prints "Pounds" and "Ounces" on separate lines.
+Change the program so that they are printed on one line.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass22_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:52 GMT -->
+</html>

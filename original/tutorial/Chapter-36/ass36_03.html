@@ -1,0 +1,124 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:13 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Dump</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+<code>0x00400000</code>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Memory Dump</h1>
+<!-- ../Audio/chap36-03.mp3 -->
+
+
+<img src="dump01.gif" class="center" alt="memory dump" />
+<br style="clear:both">
+
+<div class="left">
+
+<p>
+This display of memory shows part of the first subroutine
+and the start of the data section.
+<span class="highlight">The address of the entry point of the first subroutine is circled in red.
+This corresponds to the symbolic address <code>sub1</code></span>
+</p>
+
+<p>
+The data section at address <code>0x1000010</code> contains <code>0x00400000</code> the address <code>sub1</code>
+followed by the address of the second subroutine, <code>sub2</code>.
+</p>
+
+<p>
+Note Carefully:  The top of the picture shows the contents of the text section of memory.
+<span class="highlight">The contents of address <code>0x00400000</code> is the bit pattern <code>0x34020004</code>.</span>
+</p>
+
+<p>
+The bottom of the picture shows the contents of the data section of memory.
+<span class="highlight">The contents of address <code>0x1000010</code> is the bit pattern <code>0x00400000</code>.</span>
+</p> 
+
+</div>
+
+<div class="right">
+<p>
+The assembler and loader put all strings in memory 
+in the data section.
+Note that the strings of the subroutines are not stored with
+the code of the subroutines.
+The subroutines are put in memory in the text section.
+</p>
+
+<p>
+The symbolic address <code>sub1</code> 
+stands for the value <code>0x00400000</code>, 
+the entry point of the first subroutine.
+This address is shown in the first red circle.
+</p>
+
+<p>
+The symbolic address <code>sub1add</code> stands for an address
+in the data section.
+The value that is  <u>stored</u> at that address
+is the value <code>0x00400000</code>, the entry point of the first subroutine.
+This value is shown in the second red circle.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+What is the address of the second subroutine?
+(Hint: look at the program and at the above memory dump.)
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:15 GMT -->
+</html>

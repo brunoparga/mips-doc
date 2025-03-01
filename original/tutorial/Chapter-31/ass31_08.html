@@ -1,0 +1,121 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:08 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full-Word Aligned</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes.  A general purpose register can hold any 32-bit pattern.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Full-Word Aligned</h1>
+<!-- ../Audio/chap31-08.mp3 -->
+
+<a id="alignment,_full_word"> </a>
+
+<pre class="program">
+## swap.asm
+##
+## Exchange the values in valA and valB
+
+        .text
+        .globl  main
+
+main:
+        lw      $t0,valA        # $t0  &lt;-- valA
+        lw      $t1,valB        # $t1  &lt;-- valB
+        sw      $t0,valB        # $t0  --&gt; valB
+        sw      $t1,valA        # $t1  --&gt; valA
+
+        li      $v0,10          # code 10 == exit
+        syscall                 # Return to OS.
+                
+        .data
+valA:   .float  8.32            # 32 bit floating point value
+valB:   .float  -0.6234e4       # 32 bit floating point value
+                                # small 'e' only
+</pre>
+
+<div class="left">
+<p><span class="highlight">
+If you want to perform floating point
+arithmetic, then the floating point number must be in
+a floating point register.</span>
+</p>
+
+<p>
+The previous program exchanged the bit patterns held at two memory locations.  
+<span class="highlight">Of course, memory can hold all possible bit patterns and general purpose registers can hold all possible bit patterns.</span>
+The program could just as easily been written using general
+purpose registers since no arithmetic was done with the bit patterns in the registers:
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+For both single precision load and store instructions</span> 
+(as with the general purpose load and store instructions)
+<span class="highlight">the memory
+address must be full-word aligned.</span>
+It must be a multiple of four.
+Ordinarily this is not a problem.
+The assembler takes care of this.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+Do you think that the SPIM service that prints an <em>integer</em>
+can be used for <em>floating point</em> values?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:09 GMT -->
+</html>

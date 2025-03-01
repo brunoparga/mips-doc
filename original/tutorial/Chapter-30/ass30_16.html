@@ -1,0 +1,136 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Apr 28 18:51:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:20 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exponent Practice</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass30_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap30-26.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+What is the mantissa when the entire float is zero?
+</p>
+<h3>Answer:</h3>
+<p>
+Zero.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Exponent Practice</h1>
+<!-- ../Audio/chap30-26.mp3 -->
+
+
+<a id="zero,_floating_point"> </a>
+
+<div class="left">
+
+<p><span class="highlight">
+The
+sign bit is zero when the
+number is zero.</span>
+A <b>floating point zero</b> consists of 32 zero bits.
+The MIPS instructions that test for integer zero
+can test for floating point zero.
+</p>
+
+<p>
+IEEE floating point also represents "negative zero",
+where the sign bit is set (to one), and all other bits are zero.
+In mathematics, negative zero is the same as zero.
+But floating point calculations sometimes give different results
+for "positive zero" and "negative zero".
+For these chapters assume that zero is represented with 32 zero bits.
+</p>
+</div>
+
+<div class="right">
+<p>
+In the following chart,
+first convert the actual exponent to a biased exponent,
+then write the biased exponent as an eight bit binary.
+</p>
+</div>
+<br style="clear:both"> 
+
+<form>
+<table class="center">
+<tr><th colspan="4">Biased 127 Exponent</th></tr>
+<tr><th>actual exponent</th><th>&nbsp;</th><th>biased exponent<br>(in decimal)</th><th>eight bit exponent</th></tr>
+<tr><th>0              </th><td><input type="button" value=" ? " onclick="t1.value='127';t2.value='0111 1111'">  </td>
+                            <td><input type="text"  size="15" name="t1" value=""></td>
+                            <td><input type="text"  size="15" name="t2" value=""></td>
+</tr>
+<tr><th>1              </th><td><input type="button" value=" ? " onclick="t3.value='128';t4.value='1000 0000'">  </td>
+                            <td><input type="text"  size="15" name="t3" value=""></td>
+                            <td><input type="text"  size="15" name="t4" value=""></td>
+</tr>
+
+<tr><th>10             </th><td><input type="button" value=" ? " onclick="t5.value='137';t6.value='1000 1001'">  </td>
+                            <td><input type="text"  size="15" name="t5" value=""></td>
+                            <td><input type="text"  size="15" name="t6" value=""></td>
+</tr>
+
+<tr><th>-10             </th><td><input type="button" value=" ? " onclick="t11.value='117';t12.value='0111 0101'">  </td>
+                            <td><input type="text"  size="15" name="t11" value=""></td>
+                            <td><input type="text"  size="15" name="t12" value=""></td>
+
+<tr><th>127             </th><td><input type="button" value=" ? " onclick="t7.value='254';t8.value='1111 1110'">  </td>
+                            <td><input type="text"  size="15" name="t7" value=""></td>
+                            <td><input type="text"  size="15" name="t8" value=""></td>
+
+<tr><th>-126             </th><td><input type="button" value=" ? " onclick="t9.value='1';t10.value='0000 0001'">  </td>
+                            <td><input type="text"  size="15" name="t9" value=""></td>
+                            <td><input type="text"  size="15" name="t10" value=""></td>
+
+</table>
+</form>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 16:</h3>
+<p>
+How is the exponent -127 represented?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass30_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:21 GMT -->
+</html>

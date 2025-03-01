@@ -1,0 +1,120 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:48 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allocating Memory for an Object</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-21.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Usually not.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Allocating Memory for an Object</h1>
+<!-- ../Audio/chap36-21.mp3 -->
+
+<a id="object,_dynamic"> </a>
+
+<div class="left">
+
+<p>
+Object
+one is built out of dynamically
+allocated memory.
+Here is the start of the program
+that allocates the memory for one
+object.
+<span class="highlight">The address of the newly allocated
+memory is saved at
+<code>object1</code>.
+(this is roughly equivalent
+to a reference variable in Java.)</span>
+</p>
+</div>
+
+<div class="right">
+<p>
+The symbolic address <code>object1</code>
+corresponds to just one word of 4 bytes.
+The object it references will be in dynamic
+memory, in the heap.
+</p>
+</div>
+
+<br style="clear:both">
+
+<form>
+<pre class="program">
+          .globl   main
+          .text
+main:                                 # object1 = new object(); 
+          li       $v0,<input type="text" size="8" name="T1" />           #   allocate 32 bytes
+          
+          li       $a0,<input type="text" size="8" name="T2" />           #  
+          
+          syscall                     #   $v0 = address of allocated block of memory
+          sw       $v0,<input type="text" size="8" name="T3" />           #
+
+          . . . . . .
+
+          .data
+object1:  .word    0
+object2:  .word    0
+</pre>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 21:</h3>
+<p>
+Fill in the blanks.
+(Hint: the code for the dynamic memory allocation
+service is 9.  The argument for the service is the number of bytes to allocate.)
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:49 GMT -->
+</html>

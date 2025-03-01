@@ -1,0 +1,142 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:59 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-17.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Floating point constants.
+</p>
+
+<p>
+Even if you think of them as integers, they need to be
+data type float if they are to work with floating point arithmetic.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Evaluation</h1>
+<!-- ../Audio/chap31-17.mp3 -->
+
+
+<pre class="program">
+        # Register Use Chart
+        # $f0 -- x
+        # $f2 -- sum of terms
+        . . . . . 
+        
+        # evaluate the quadratic
+        l.s     $f2,a               # sum = a
+        mul.s   $f2,$f2,$f0         # sum = ax
+        
+        l.s     $f4,bb              # get b
+        add.s   $f2,$f2,$f4         # sum = ax + b
+        mul.s   $f2,$f2,$f0         # sum = (ax+b)x = ax^2 + bx
+        
+        l.s     $f4,c               # get c
+        add.s   $f2,$f2,$f4         # sum = ax^2 + bx + c
+        . . . . . .
+
+        .data
+a:      .float  1.0
+bb:     .float  1.0
+c:      .float  1.0
+</pre>
+
+<div class="left">
+
+<p>
+Here
+is the part of the code that evaluates
+the polynomial.
+<code>x</code> is in  <code class="register">$f0</code>.
+</p>
+
+
+<p>
+The polynomial is evaluated from left to right.
+First <code>ax + b</code> is calculated.
+Then that is multiplied by  <code>x</code>
+giving <code>axx + bx</code>.
+Then
+<code>c</code> is added in, giving
+<code>axx + bx + c</code>.
+</p>
+</div>
+
+
+<a id="Horner's_method"> </a>
+
+<div class="right">
+<p>
+The value  <code>x<sup>2</sup></code> is not
+explicitly calculated.<span class="highlight">
+This way of calculating a polynomial is called
+<b>Horner's Method</b>.</span>
+It is useful to have in your bag of tricks.
+</p>
+
+<p>
+SPIM objects to the symbolic address "b" 
+(because there is a mnemonic "b", for branch)
+so use "bb" instead.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+<p>
+Why (do you suppose) are the constants
+<code>a</code>,  <code>b</code>, and  <code>c</code> 
+set to  <code>1.0</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:00 GMT -->
+</html>

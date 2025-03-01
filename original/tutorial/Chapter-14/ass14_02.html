@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Feb 20 17:09:31 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:42 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twice the Number of Places</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass14_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap14-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Multiply 99<sub>10</sub> times 99<sub>10</sub> : 
+<span class="blue"><code>9801</code></span>
+</p>
+
+<p>
+How many decimal places does each operand (99) have: 
+<span class="blue"><code>2</code></span>.
+</p>
+
+<p>
+How many decimal places does the result have: 
+<span class="blue"><code>4</code></span>.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Twice the Number of Places</h1>
+<!-- ../Audio/chap14-02.mp3 -->
+
+
+<a id="multiplication,_integer"> </a>
+<a id="multiplication,_places_in_result"> </a>
+
+ 
+<pre class="program">
+Binary Multiplication  Hex Multiplication  Decimal Multiplication
+
+        10110111            B7              183 
+        10100010            A2              162 
+        &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;            &mdash;&mdash;              &mdash;&mdash;&mdash;
+        00000000           16E              366
+       10110111.          726             1098
+      00000000..                          183
+     00000000...
+    00000000....
+   10110111.....
+  00000000......
+ 10110111.......
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;          &mdash;&mdash;&mdash;&mdash;            &mdash;&mdash;&mdash;&mdash;&mdash;
+ 111001111001110          73CE            29646 
+</pre>
+<br style="clear:both"> 
+
+<div class="left">
+<p>
+<span class="highlight">
+The 
+product of two N-place decimal integers may need 2N places.</span>
+This is true for numbers expressed in any base.
+In particular, 
+the product of two integers expressed with N-bit binary
+may need 2N bits.
+</p>
+
+<p>
+For example,
+in the picture, two 8-bit unsigned integers are multiplied
+using the usual paper-and-pencil multiplication
+algorithm (but using binary arithmetic).
+</p>
+
+<p>
+The two 8-bit operands result in a 15-bit product.
+Also shown is the same product done with base 16 and base 10 notation.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<p>
+Is a 32-bit general register always able to hold the result of
+multiplying two 32-bit integers?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass14_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:43 GMT -->
+</html>

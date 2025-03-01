@@ -1,0 +1,681 @@
+<!doctype html> 
+
+<!-- 07/25/2015  bpk  HTML5 validation; added color to answer box; put answer box in table -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:50 GMT -->
+<head>
+<meta charset="utf-8">
+
+<meta name="copyright" content="2003">
+<meta name="author" content="Bradley Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+
+<title>
+Quiz on Extended Assembler
+</title>
+
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/QUIZstyle.css">
+
+<script type="text/javascript">
+function gradeQuiz( reportForm ) 
+{
+  var totalRight = 0;
+  
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == '' ) { alert("Question " + (count+1) + " has not been answered" ); return; }
+  }
+  
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+    {
+      document.forms[ count ].correct.style.background = "#80FF80" ;
+      totalRight++ ;
+    }
+   else
+      document.forms[ count ].correct.style.background = "#FF8080" ;
+       
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+</script>
+
+<style>
+table
+{
+  padding: 15px;
+}
+
+td
+{
+  padding: 5px;
+}
+</style>
+
+</head>
+
+<body>
+<p class="revisions">Created 06/18/03; edits: 07/25/15</p>
+<hr/>
+
+
+<h1  style="text-align:center" >
+<img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/quizPencil.gif" alt="Quiz"/>
+ on Shift Instructions 
+</h1> 
+ 
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, 
+the correct answers will appear in the box after each question.
+</p>
+<br>
+
+
+<hr/>
+<form name="question1">
+<p>
+1.
+
+Shift left logical the following bit pattern
+by one position:
+</p>
+
+<pre>
+0011 1111
+</pre>
+
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+0111 1110
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+0111 1111
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+0011 1110
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+1011 1111
+</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question2">
+<p>
+2.
+
+Shift left logical the following bit pattern
+by <b>two</b> positions:
+</p>
+
+<pre>
+0011 1111
+</pre>
+
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+0111 1111
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+1111 1110
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+1111 1100
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+1011 1111
+</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question3">
+<p>
+3.
+
+Shift <b>right</b> logical the following bit pattern
+by <b>one</b> position:
+</p>
+
+<pre>
+0011 1111
+</pre>
+
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+0000 1111
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+1111 1110
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+0001 1110
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+0001 1111
+</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question4">
+<p>
+4.
+
+Here is a program that loads register
+$5 with a bit pattern.
+Complete the program
+so that register $4 receives the pattern in register $5
+shifted left logical by three positions.
+</p>
+
+<pre>
+    ori      $5, $0, 0x92AF     # put a bit pattern into register $5
+    sll      ___, ___, ___      # shift left logical by three, put
+                                # result in register $4
+</pre>
+ 
+
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sll  $5, $3, $4</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sll  3, $5, $4</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sll  5, 3, 4</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sll  $4, $5, 3</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question5">
+<p>
+5.
+
+What is the bit-wise OR of the following patterns:
+</p>
+
+<pre>
+0110 1101
+0100 1010
+</pre>
+
+
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0110 1111</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0111 0110</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0110 1001</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>1110 0110</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question6">
+<p>
+6.
+
+What is the bit-wise AND of the following patterns:
+</p>
+
+<pre>
+0110 1101
+0100 1010
+</pre>
+
+
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0110 0110</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0100 1000</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0110 1001</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>1110 0110</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question7">
+<p>
+7.
+
+What is the bit-wise XOR of the following patterns:
+</p>
+
+<pre>
+0110 1101
+0100 1010
+</pre>
+
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0110 0110</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0010 0111</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0110 1001</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>1110 0110</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question8">
+<p>
+8.
+
+What is the bit-wise NOR of the following patterns:
+</p>
+
+<pre>
+0110 1101
+0100 1010
+</pre>
+
+
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0110 1111</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>1001 0000</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>1110 1011</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>1110 1110</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question9">
+<p>
+9.
+
+Write the assembly language statement that
+will reverse the values of each bit in register $5
+and put the result in register $8.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>nori   $8,$5,$0</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>nor   $8,$5,$0</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>xor   $8,$5,$0</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>nor   $5,$8,$0</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr/>
+<form name="question10">
+<p>
+10.
+
+Write the assembly language instruction that
+copies the bit pattern in register $13 to
+register $15.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>ori   $15,$13,$0</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>andi  $13,$15,$15</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>and   $13,$15,$15</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>or    $15,$13,$0</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr>
+<form name="evaluateQuest">
+
+
+<p  style="text-align:center">
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</p>
+
+
+<p  style="text-align:center">
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+<p  style="text-align:center">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part3"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/homeIcon.gif" alt="Click here" > </a>
+</p>
+
+<p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:50 GMT -->
+</html>

@@ -1,0 +1,101 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:30 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. This means that routines should not
+look at each other's memory.
+In terms of the assembly language source code,
+this means that subroutines and main should not
+use each other's symbolic addresses.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+<!-- ../Audio/chap26-14.mp3 -->
+
+<p>
+Let
+us write a program that uses the <em>Simple Linkage</em>
+convention.
+<span class="highlight">The program  reads three integers from the user and computes the sum.</span>
+The outline of the program is:
+</p>
+
+<pre class="code">
+# read first integer
+
+# read second integer
+
+# read third integer
+
+# compute the sum
+
+# write out the result
+</pre>
+
+<p>
+Of course, the user will enter integers as characters from
+the keyboard.
+The program uses the exception handler service number five to read
+the characters and convert them into a 32-bit integer.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+Examine the outline for the program.
+What do you think would be a useful subroutine?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:31 GMT -->
+</html>

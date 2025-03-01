@@ -1,0 +1,127 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:45 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Behavior of Object's Methods</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-17.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+object1:
+          .word    print             # entry point for print
+          .word    cancel            # entry point for cancel
+          .asciiz  "Hello World"     # string data
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Behavior of Object's Methods</h1>
+<!-- ../Audio/chap36-17.mp3 -->
+
+<p>
+<span class="highlight">The 
+<code>cancel()</code> method must affect
+only the data of the object it is called with.</span>
+</p>
+
+<p>
+Here is a hypothetical program written in
+an object oriented language:
+</p>
+
+
+<pre class="program"> 
+main()
+{
+  MyClass object1("Hello World");
+  MyClass object2("Silly Example");
+  
+  object1.print();
+  object1.cancel();
+  
+  object1.print();
+  object2.print();
+}
+</pre>
+<br style="clear:both">
+<div class="left">
+
+<p>
+The first activation of 
+<code>print()</code>
+works with the data of
+<code>object1.</code>
+Then,
+the activation of 
+<code>cancel()</code>
+causes it to alter just the data of that object.
+</p>
+
+<p>
+The second activation of 
+<code>print()</code>
+causes it to print the altered data of
+<code>object1.</code>
+The data of <code>object2</code>
+has not been affected by all this:
+</p>
+
+<pre>
+Hello World
+xxxxxxxxxxx
+Silly Example
+</pre>
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+<p>
+(Review: ) 
+How does a method
+access the data of an object?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:46 GMT -->
+</html>

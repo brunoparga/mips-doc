@@ -1,0 +1,122 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 07:54:16 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:37 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee.org">
+<!-- <meta name="copyright" content="2009"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shifty Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass12_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap12-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<table>
+<tr><th>Original</th><th>Shift Left Two</th></tr>
+<tr><td>0110 1111</td><td>1011 1100</td></tr>
+<tr><td>0x6F</td><td>0xBC</td></tr>
+</table>
+
+<p>
+If the original 8-bit pattern represented an integer,
+then shifting left by two positions is probably a mistake
+because a significant bit has been lost.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Shifty Program</h1>
+<!-- ../Audio/chap12-03.mp3 -->
+
+<pre class="program">
+## shiftTwo.asm
+## 
+## Program to logical shift left a pattern
+        .text
+        .globl  main
+
+main:
+        ori      $8, $0, 0x6F       # put bit pattern into register $8
+        sll      $9, $8, 2          # shift left logical by two
+
+## End of file
+</pre>
+
+
+<p>
+<span class="highlight">This 
+program does the shift you just performed in the question.
+It does it with 32-bit patterns, but for the right-most eight
+bits the result is the same.</span>
+Running the program does the following. Since this
+time the shift was done with 32 bits, the high order one-bit
+was not lost.
+</p>
+
+<img src="shiftTwo.gif" class="center" alt="Output of Shift Left Two Program">
+
+
+<p>
+The register display in SPIM has been set to "binary" in the above.
+High-order zero bits are not shown.
+This program set the bit patterns only in registers
+<code class="register">$8</code> and <code class="register">$9</code>.
+The other registers contain bit patterns not set by this program.
+If a processor is running,
+then all registers contain bit patterns whether or not your program is using them.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+Do you think it would be OK to shift the contents of register <code class="register">$8</code> and put the
+result back in register <code class="register">$8</code> :
+</p>
+
+<pre>
+        ori      $8, $0, 0x6F       # put bit pattern into register $8
+        sll      <span class="red">$8, $8,</span> 2          # shift left logical by two
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass12_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:39 GMT -->
+</html>

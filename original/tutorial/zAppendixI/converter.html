@@ -1,0 +1,294 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixI/converter.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:18 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell ieee.org ">
+
+
+<meta name="robots" content="index,follow">
+<title> Decimal to Binary</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+
+<!--
+<style>
+body 
+{
+    background-color: linen;
+    font-size:20px;
+}
+
+h1 
+{
+    color: maroon;
+    margin-left: 40px;
+} 
+
+input
+{
+    font-size:20px;
+}
+-->
+<style>
+button
+{
+    font-size:20px;
+}
+</style>
+
+
+<script>
+ var bitCount = 0;
+ var currentNumber = 0;
+ 
+ function divideOnce()
+ { 
+   document.getElementById("divideButton").disabled = true;
+   document.getElementById("repeatButton").disabled = false;
+     
+   var result = Math.floor( currentNumber / 2 );
+   var bit    = currentNumber % 2 ;
+   currentNumber = result;
+   
+   document.getElementById("workingDivTwo").value = result;
+   document.getElementById("workingModTwo").value = bit;   
+   document.getElementById("bitString")    .value = bit + document.getElementById("bitString").value ;
+   
+   bitCount++ ;
+   if ( bitCount%4 == 0 ) 
+     document.getElementById("bitString").value = " " + document.getElementById("bitString").value ;
+ }
+
+ function repeat()
+ {
+    document.getElementById("repeatButton").disabled = true;
+    document.getElementById("divideButton").disabled = false;
+    document.getElementById("number").value = document.getElementById("workingDivTwo").value;  
+    document.getElementById("workingDivTwo").value = "";
+    document.getElementById("workingModTwo").value = "";
+ }
+ 
+ function newProblem()
+ {
+   
+    document.getElementById("divideButton").disabled = false;
+    document.getElementById("repeatButton").disabled = true;
+ 
+    document.getElementById("workingDivTwo") .value  = "";  
+    document.getElementById("workingModTwo") .value  = "";  
+    document.getElementById("bitString")     .value  = "";  
+    bitCount = 0;
+           
+   if ( document.getElementById("original").value == "" || isNaN   ( document.getElementById("original").value ) 
+                                                        || parseInt( document.getElementById("original").value ) < 0 ) 
+   {
+     alert("Enter a positive integer in the box");
+     return;
+   }
+
+   currentNumber = parseInt(document.getElementById("original").value);
+   if ( parseInt( ""+currentNumber) != currentNumber ) {alert("Your number is too big"); return; }
+   document.getElementById("number").value = currentNumber ;  
+ }
+ 
+</script>
+
+
+<script>
+ var placeCount = 0;
+ var scale = 1000000;
+ var fraction;
+ 
+ function newFraction()
+ {
+    document.getElementById("multButton")  .disabled = false;
+    document.getElementById("againButton") .disabled = true;
+ 
+    document.getElementById("numTimesTwo") .value  = "";  
+    document.getElementById("truncate")    .value  = "";  
+    document.getElementById("bitFraction") .value  = ".";  
+    placeCount = 0;
+           
+    if ( document.getElementById("origFrac").value == "" || isNaN( document.getElementById("origFrac").value ) 
+                                                         || parseFloat(document.getElementById("origFrac").value) > 1 
+                                                         || parseFloat(document.getElementById("origFrac").value) < 0 ) 
+    {
+      alert("Enter a positive decimal fraction in the box");
+      return;
+    }
+
+   fraction = parseFloat(document.getElementById("origFrac").value)*scale;
+   document.getElementById("fraction").value = fraction/scale ;  
+ }
+ 
+ function multiply()
+ { 
+   document.getElementById("multButton").disabled = true;
+   document.getElementById("againButton").disabled = false;
+     
+   var result = fraction*2;
+   var bit    = Math.floor( result/scale );
+    
+   document.getElementById("numTimesTwo")  .value = result/scale;
+   document.getElementById("truncate")     .value = bit;   
+   document.getElementById("bitFraction")  .value = document.getElementById("bitFraction").value + bit ;
+   
+   placeCount++ ;
+   if ( placeCount%4 == 0 ) 
+     document.getElementById("bitFraction").value =  document.getElementById("bitFraction").value + " ";
+ }
+
+ function again()
+ {
+    document.getElementById("againButton").disabled = true;
+    document.getElementById("multButton").disabled = false;
+    
+    fraction = (fraction*2) % scale;  
+    document.getElementById("fraction").value =  fraction/scale ;  
+    document.getElementById("truncate").value = "";
+    document.getElementById("numTimesTwo").value = "";
+ }
+ </script>
+ 
+
+</head>
+
+<body>
+ 
+<p class="revisions">
+&nbsp; &nbsp;created: 07/15/2015; improved 04/10/16; improved again 04/22/23
+</p>
+ 
+<div class="lesson"> 
+<h1> Decimal Integer to Binary Integer</h1>
+
+<p>
+The algorithm is:
+</p>
+
+<pre style="text-align: left;">
+number = positive integer ;
+bitstring = ""
+
+while (number > 0 )
+{
+  bit = number mod 2 ;
+  append bit to the left of bitstring;
+  quotient = number div 2 ;
+  number = quotient ;
+}
+
+mod means remainder after integer division.
+div means quotient  after integer division.
+</pre>
+
+<div style="max-width:60%; float:left;">
+<table>
+<tr><th>Positive Integer:          </th><td><input   id="original" type="text" size="25"></td></tr>
+<tr><th>&nbsp;                    </th><td><button  id="initialize" onclick="newProblem()">Initialize</button></td></tr>
+<tr><th>Number:                    </th><td><input type="text" size="25" disabled id="number"></td></tr>
+<tr><th>&nbsp;                    </th><td><button  id="divideButton" disabled onclick="divideOnce()">Divide by Two</button></td></tr>
+<tr><th>bit = Number Mod Two       </th><td><input type="text" size="25" id="workingModTwo" disabled></td></tr>
+<tr><th>Bit String                 </th><td><input type="text" size="25" id="bitString" disabled></td></tr>
+<tr><th>quotient = Number Div Two  </th><td><input type="text" size="25" id="workingDivTwo" disabled></td></tr>
+<tr><th>number = quotient          </th><td><button  id="repeatButton" disabled onclick="repeat()">Repeat</button></td></tr>
+
+</table>
+</div>
+
+<div style="max-width:40%; float:right;">
+<p>
+<b>To start:</b> Enter a decimal representation of a not too big positive integer in the <em>Positive Integer</em> box.
+</p>
+
+<p>
+<b>Then:</b> Click <em>Initialize</em> to  assign the integer to <em>number</em>.
+</p>
+
+<p>
+<b>Then:</b> Click <em>Divide by Two</em> to compute the quotient and remainder.  The remainder will be 0 or 1. That bit is copied to the left of the bit string.
+</p>
+
+<p>
+<b>Click</b> <em>Repeat</em> to go through the cycle again.  Quit when the number has been reduced to zero.
+</p>
+
+</div>
+ 
+
+<br class="clearfloats"> 
+
+<hr>
+
+<h1> Decimal Fraction to Binary Fraction</h1>
+<p>
+&nbsp;
+</p>
+
+<p>
+The algorithm is:
+</p>
+
+<pre style="text-align: left;">
+number = decimal fraction ;
+bitstring = "."
+
+while ( number &gt; 0 )
+{
+  number   = number * 2 ;
+  bit      = 1 or 0 left of the decimal point ;
+  append bit to the right of bitstring ;
+  number   =  digits right of the decimal point ;
+}
+</pre>
+
+<div style="max-width:60%; float:left;">
+<table>
+<tr><th>Positive Decimal Fraction:     </th><td><input   id="origFrac"    type="text" size="25" ></td></tr>
+<tr><th>&nbsp;                        </th><td><button  id="init"        onclick="newFraction()">Initialize</button></td></tr>
+<tr><th>Number:                        </th><td><input   id="fraction"    type="text" size="25" disabled></td></tr>
+<tr><th>&nbsp;                        </th><td><button  id="multButton"  disabled    onclick="multiply()">Multiply by Two</button></td></tr>
+<tr><th>Number = Number * 2           </th><td><input    id="numTimesTwo" type="text" size="25" disabled></td></tr>
+<tr><th>bit = bit in 1's place      </th><td><input    id="truncate"    type="text" size="25" disabled></td></tr>
+<tr><th>bit String = bit String + bit  </th><td><input   id="bitFraction" type="text" size="25" disabled></td></tr>
+<tr><th>number = digits right of point   </th><td><button  id="againButton" disabled    onclick="again()">Repeat</button></td></tr>
+
+</table>
+</div>
+
+<div style="max-width:40%; float:right;">
+<p>
+<b>To start:</b> Enter a decimal representation of a fraction in the <em>Positive Decimal Fraction</em> box.
+</p>
+
+<p>
+<b>Then:</b> Click <em>Initialize</em> to  assign the fraction to <em>number</em>.
+</p>
+
+<p>
+<b>Then:</b> Click <em>Multiply by Two</em> .  A bit will appear in the 1's place. That bit will be 0 or 1. Copy it to the right of the bit string.
+</p>
+
+<p>
+<b>Click</b> <em>Repeat</em> to go through the cycle again.  Quit when the fraction is zero or you have enough bits.
+</p>
+
+</div>
+
+ 
+
+<br class="clearfloats"> 
+
+<br>
+<hr>
+<br>
+<p style="text-align:center">
+<a href="../index-2.html#Appendix"><img src="../homeIcon.gif" alt="go to home page" /> &nbsp; &nbsp; Return to Home</a> &nbsp;
+</p>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixI/converter.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:18 GMT -->
+</html>

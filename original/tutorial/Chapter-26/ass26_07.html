@@ -1,0 +1,118 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:16 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calling Convention</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Calling Convention</h1>
+<!-- ../Audio/chap26-10.mp3 -->
+
+
+<a id="calling_convention"> </a>
+
+ 
+<img src="subManyCorrect.gif" class="rightimage" alt="Correct Subroutine Linkage" />
+ 
+
+<div class="left">
+
+<p>
+The
+diagram shows the subroutine <code>sub</code> being
+called from three different points in the main routine.
+Each time the subroutine is called it returns to the
+appropriate return address.
+</p>
+
+<p><span class="highlight">
+A <b>calling convention</b> is an agreement 
+about how subroutines are called and how
+control is returned to the caller.</span>
+Mostly (as we will later see) this is an agreement
+about how software will work.
+In processors (like MIPS) that have hardware features that support subroutines,
+the convention says how those features are used.
+</p>
+
+<p>
+Different languages 
+and different operating systems 
+for the same processor
+usually have different calling conventions.
+A C program compiled for Linux on a MIPS processor
+will not work correctly with Irix on a MIPS processor.
+This is largely because the calling conventions are different.
+These chapters discuss several calling conventions
+that show what calling conventions are about, 
+but are not the calling convention of
+any particular operating system.
+</p>
+
+<p>
+There is more to a calling convention than how to
+pass control, as the next question shows:
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+Is subroutine <code>sub</code>
+free to use any of the 32 registers? 
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:18 GMT -->
+</html>

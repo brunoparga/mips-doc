@@ -1,0 +1,133 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:31 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Third Term</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-20.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+All blanks filled, as below:
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Third Term</h1>
+<!-- ../Audio/chap15-20.mp3 -->
+
+<form>
+<pre class="program">
+## poly.asm  
+##
+## evaluate  5x^2 -12x + 97 
+##
+## Register Use:
+##
+## $10 base register, address of x
+## $11 x
+## $12 value of the polynomial
+## $13 temporary
+
+        .text
+        .globl  main
+
+main: 
+        lui   $10,0x1000     #  Init base register
+        lw    $11,0($10)     #  Load x
+
+        ori   $12,$0,97      #  Initialize the accumulator
+                             #  during the "load delay slot"
+
+        ori   $13,$0,12      #  evaluate second term
+        mult  <span style="color:red">$11</span>,<span style="color:red">$13</span>        #  12x
+        <span style="color:red">mflo</span>  $13            #  assume 32 bit result
+        subu <span style="color:red"> $12</span>,<span style="color:red">$12</span>,<span style="color:red">$13</span>    #  accumulator = -12x +97
+
+                             #  evaluate third term
+                             
+        mult  $<input type="text" name="I1" size="4" />,$<input type="text" name="I2" size="4" />        #  x**2
+        
+        mflo  $<input type="text" name="I3" size="4" />            #  assume 32 bit result
+
+        . . . more instructions
+
+        sw    $12,4($10)     #  Store result in poly
+
+        .data
+x:      .word   17           #  base register points here
+poly:   .word   0
+
+## End of file
+</pre>
+</form>
+<br style="clear:both"> 
+
+<div class="left">
+<p>
+<span class="highlight">At
+ this point all we need to do is square <code>x</code>,
+multiply by five, and add the result to
+the accumulator.</span>
+</p>
+
+<p> 
+After squaring <code>x</code> you don't need its
+value anymore, so <code>x**2</code> can be put back
+into register <code class="register">$11</code>.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:32 GMT -->
+</html>

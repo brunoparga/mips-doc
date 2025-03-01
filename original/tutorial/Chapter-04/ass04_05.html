@@ -1,0 +1,128 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 09:30:06 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-04/ass04_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:34 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Addresses</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass04_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass04_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap04-06.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+A byte.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Addresses</h1>
+<!-- ../Audio/chap04-06.mp3 -->
+
+<a id="address"> </a>
+ 
+<img src="memory01.gif"  class="rightimage" alt="cells of memory" >
+ 
+<div class="left">
+<p>
+<span class="highlight">Each byte of  main storage has an <b>address</b>.</span>
+Many processors use 32-bit addresses, 
+so there are 2<sup>32</sup> possible
+addresses.
+Think of main storage as if it were an array:
+</p>
+
+<pre class="code">
+byte mainStorage[0x00000000 ... 0xFFFFFFFF];
+</pre>
+
+
+<p>
+<span class="highlight">A main storage address is an index into memory.</span>
+A 32-bit address
+is the address of a single byte.
+Thirty-two wires of the bus contain an address
+(there are many more bus wires for timing and control).
+</p>
+
+<p>
+Sometimes people talk about addresses like 0x2000,
+which looks like a pattern of just 16 bits.
+But this is just an abbreviation for the full 32-bit address.
+The actual address is 0x00002000.
+</p>
+
+<p>
+The first MIPS processors (designed in 1985)  
+used 32-bit addresses.
+From 1991 to present, top-end
+MIPS processors use 64-bit addresses.
+</p>
+
+<p> 
+The MIPS32 processor used in these notes is a modern chip designed
+for embedded applications.
+It uses 32-bit addresses, since embedded applications
+often don't need 64 bits.
+Recent processor chips from AMD and Intel
+have 64-bit addresses, although 32-bit versions are
+still available.
+</p>
+
+<p>
+<span class="highlight">The assembly language of this course is for the MIPS32 chip,
+so we will use 32-bit addresses.</span>
+The assembly language of the 64-bit MIPS chips is similar.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+<p>
+What is the hexadecimal name for the 32-bit pattern
+that consists of all 1 bits?
+(Hint: look at the picture.)
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass04_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass04_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-04/ass04_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:35 GMT -->
+</html>

@@ -1,0 +1,149 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_30.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:36 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>End of the Chapter</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_29.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-43.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+Subtract  &nbsp; &nbsp;0111 1000 &nbsp; &nbsp; from  &nbsp; &nbsp;1011 0000
+</p>
+
+<h3>Answer:</h3>
+<p>
+0011 1000
+</p>
+
+<p>
+(incorrect)
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>End of the Chapter</h1>
+<!-- ../Audio/chap08-43.mp3 -->
+
+<p>
+The 
+integer to be subtracted is made negative ...
+</p>
+
+<pre>
+0111 1000 <span style="font-size:200%">&#8594;</span> 1000 0111 + 1 <span style="font-size:200%">&#8594;</span> 1000 1000
+</pre>
+
+<p>
+...then added to the other:
+</p>
+
+<pre>
+10000 000       
+ 1011 0000  = - 80<sub>10</sub>
+ 1000 1000  = -120<sub>10</sub>
+ &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;     &#8212;&#8212;&#8212;&#8212;
+ 0011 1000     +56<sub>10</sub>    &nbsp; &nbsp; ???
+</pre>
+
+<p>
+Since the carry into the most significant column 
+is <em>NOT</em> the same as the carry out,
+the result is not correct.
+</p>
+
+<hr />
+<p>
+You have reached the end this chapter.
+You may wish to review the following topics
+unless your brain has overflowed.
+Click on a subject that interests you 
+to go to where it was discussed.
+</p>
+
+<ul>
+<li>
+<a href="ass08_03.html#binary_addition_algorithm" target="_blank">binary addition algorithm</a>
+The binary addition algorithm
+</li>
+
+<li>
+<a href="ass08_05.html#binary_addition_algorithm,_details" target="_blank">binary addition algorithm, details</a>
+Details
+of the binary addition algorithm.
+</li>
+
+<li>
+<a href="ass08_06.html#hexadecimal_addition" target="_blank">hexadecimal addition</a>
+Hexadecimal addition.
+</li>
+
+<li>
+<a href="ass08_10.html#overflow,_unsigned_binary_addition" target="_blank">overflow, unsigned binary addition</a>
+Overflow
+in unsigned binary addition.
+</li>
+
+<li>
+<a href="ass08_12.html#sign-magnitude_representation" target="_blank">sign-magnitude representation</a>
+Sign-magnitude
+representation
+</li>
+
+<li>
+<a href="ass08_17.html#two's_complement" target="_blank">two's complement</a>
+Two's complement
+representation
+</li>
+
+<li>
+<a href="ass08_21.html#sign_bit" target="_blank">sign bit</a>
+The sign bit
+with two's complement representation.
+</li>
+
+
+<li>
+<a href="ass08_23.html#overflow,_two's_complement" target="_blank">overflow, two's complement</a>
+Overflow
+in two's complement addition.
+</li>
+
+</ul>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_29.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_30.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:36 GMT -->
+</html>

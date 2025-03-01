@@ -1,0 +1,121 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 27 19:53:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:22 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starting SPIM</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass22_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap22-06.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+It is a machine language program in memory (possibly in ROM).
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Starting SPIM</h1>
+<!-- ../Audio/chap22-06.mp3 -->
+
+<a id="exception_handler,_using_with_SPIM"> </a>
+
+ 
+<img src="exceptionOptions.gif" class="centerimage" alt="SPIM settings" >
+ 
+
+<div class="left">
+
+<p><span class="highlight">
+With  SPIM, 
+exceptions are handled  by the simulator.</span>
+On a real machine an exception handler might be permanently
+in ROM, might be loaded from a "boot sector" of the hard disk,
+or (in the good old days) might be entered into memory by hand.
+</p>
+
+<p>
+To use the exception handler with SPIM do the following
+in the <u>S</u>imulator <u>S</u>ettings panel.<span class="highlight">
+Set the options "Allow pseudoinstructions"
+and "Load trap file".
+Disable "Mapped I/O".</span>
+</p>
+
+<p>
+<b>Bug Alert!</b>
+Make sure that "Mapped I/O" is disabled!
+The memory mapped I/O option simulates the hardware implementation of I/O
+and interferes with these system calls.
+</p>
+</div>
+
+<div class="right">
+<p>
+Now to assemble and load your program go to
+<u>F</u>ile <u>O</u>pen and select the source file
+(just as we have been doing).
+Your program is loaded along with some
+initialization code.
+The initialization code starts at address 0x00400000,
+the address that has until now been where your programs
+started.
+</p>
+ 
+<p>
+To run the program click on <u>S</u>imulator <u>G</u>o
+and then OK in the pop-up panel.
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+
+<p>
+Can you single step starting at address 0x00400000 as before?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass22_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:24 GMT -->
+</html>

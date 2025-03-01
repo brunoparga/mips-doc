@@ -1,0 +1,105 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue May 04 10:31:43 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:53 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply the Formula</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass32_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap32-14.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Seven or eight.  To be safe, count on no better than
+six digits of accuracy.
+This program uses five place accuracy.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Apply the Formula</h1>
+<!-- ../Audio/chap32-14.mp3 -->
+
+<p>
+The value in <code>f10</code> is used to test if the
+five digits of accuracy have been reached.
+We will do this in a moment.
+Here is the part of the program that uses the formula:
+</p>
+
+<form>
+<pre class="program">
+## x' = (1/2)(x + n/x)
+
+## $f0  ---  n
+## $f1  ---  1.0
+## $f2  ---  2.0
+## $f3  ---  x  : current approx.
+## $f4  ---  x' : next approx.
+## $f8  ---  temp
+## $f10 ---  small value
+
+loop:
+        <input type="text" size="8">.s   $f4,$f0             #  x' = n
+        
+        <input type="text" size="8">.s   $f4,$f4,$f3         #  x' = n/x
+        
+        <input type="text" size="8">.s   $f4,$f3,$f4         #  x' = x + n/x
+        
+        <input type="text" size="8">.s   $f3,$f4,$f2         #  x = (1/2)(x + n/x)
+
+</pre>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+But part of each mnemonic is missing!
+Fill them in.
+You may wish to look at the list of floating point
+<a href="../Chapter-31/ass31_13.html#arithmetic,%20single%20precision" target="_blank" >
+instructions.
+</a>
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass32_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:55 GMT -->
+</html>

@@ -1,0 +1,113 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Feb 09 12:35:36 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:47 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Another Conversion</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass07_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap07-20.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre class="code">
+number = 247
+247 div 16 = 15 r 7  &rarr;  digit[ 0 ] = 7
+
+number =  15
+15 div 16 =  0 r 15  &rarr;  digit[ 1 ] = F    
+("15" is in base 10, "F" is the hex digit)
+
+number = 0, so the algorithm is finished
+Result: 247<sub class="base">10</sub> = 0xF7
+</pre>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Another Conversion</h1>
+<!-- ../Audio/chap07-20.mp3 -->
+
+
+<div class="left">
+<p>
+To
+ convert 247 from decimal to base 16,
+repeatedly divide by 16, collecting the remainders right to left as
+ the base 16 expression.
+This is shown above.
+Check the result by converting the base 16 expression
+to decimal: 
+</p>
+
+<pre> 
+<code>0xF7 &nbsp;=&nbsp; F &#215; sixteen + 7 &#215; 1 </code>
+<code> &nbsp;=&nbsp; 15 &#215; 16 + 7 </code>
+<code> &nbsp;=&nbsp; 240 + 7 = 247<sub>10</sub></code> 
+</pre>
+
+<p>
+<span class="highlight">The algorithm is: </span>
+</p>
+
+<ul>
+<li>Divide the number by the base</li>
+<li>The remainder is the digit</li>  
+<li>The quotient becomes the number </li> 
+<li>Repeat until number is zero</li>
+</ul>
+
+<p> 
+<span class="highlight">The digits come out right to left</span>
+</p>
+</div> 
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 18:</h3>
+<p>
+Convert 1033<sub class="base">10</sub> to hex.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass07_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:48 GMT -->
+</html>

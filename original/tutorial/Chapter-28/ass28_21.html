@@ -1,0 +1,126 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:40 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:45 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More   main()  </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-28.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-28.mp3 -->
+
+<h3>Answer:</h3>
+<pre class="program">                       
+                                  # subroutine call: b = fact( a )
+                                  #   1. No T registers to push
+         lw      $a0,<span style="color:blue">0</span>($fp)       #   2. Put argument into $a0
+         jal     <span style="color:blue">fact</span>             #   3. Jump and link to subroutine
+         
+                                  # return from subroutine 
+                                  #   1. No T registers to restore
+                                  
+         sw     $v0,<span style="color:blue">4</span>($fp)        # b = fact( a )
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>More <code> main() </code></h1>
+
+<p>
+Next
+<code>main()</code> does some  routine things:
+</p>
+
+<pre class="program">                       
+                                  # print( b )
+         lw     $a0,4($fp)        # load b into $a0
+         li     $v0,1             # print integer service
+         syscall                                  
+                                  # end the print line
+         li     $v0,4             #   print string service
+         la     $a0,lf            #   address of line feed
+         syscall
+</pre>
+
+<p>
+Finally,  <code>main()</code> ends with a subroutine epilog.
+</p>
+
+<pre class="program">                       
+                                  # epilog
+                                  #   1. No return value         
+         add     $sp,$fp,8        #   2. $sp = $fp + space_for_variables       
+                                  #   3. No S registers to pop      
+         lw      $fp,($sp)        #   4. Pop $fp
+         add     $sp,$sp,4        #           
+         lw      $ra,($sp)        #   5. Pop $ra
+         add     $sp,$sp,4        #                                    
+         jr      $ra              # return to OS 
+</pre>
+
+
+<p>
+The data for the prompts is not stored on the stack.
+</p>
+
+
+<pre class="program">                       
+         .data
+prompt1: .asciiz "enter an int:"
+prompt2: .asciiz "factorial is:"
+lf:      .asciiz "\n"
+</pre>
+ 
+<p>
+&#160;
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 21:</h3>
+<p>
+How do the variables <code>a</code> and <code>b</code> differ
+from the data <code>prompt1</code> and <code>prompt2</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:46 GMT -->
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-02/flashCardsAsm02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:36 GMT -->
+<head>
+<title>Flashcards for Chapter 1</title>
+<meta charset="utf-8">
+<meta name="creation" content="2017,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/FLASHstyle.css" />
+
+<style>
+input:disabled
+{
+  border: 1px solid #999999;
+  background-color: #aaaaaa;
+  color: #666666;
+}
+</style>
+
+<script type="text/javascript">
+
+  var questions = new Array();
+  var answers   = new Array();
+  var asked     = new Array();
+  var qNumber;
+
+  // The flash cards start here
+
+  questions.push("What is a pattern of bits that corresponds to one fundamental operation of the processor ?");
+  answers  .push("machine instruction ");
+
+  questions.push("What, in order, are the three steps of the machine cycle?");
+  answers  .push("Fetch the Instruction, Increment PC, Execute the Instruction ");
+
+  questions.push("What is the PC?");
+  answers  .push("Program Counter: a register that holds the address of the next instruction. ");
+
+  questions.push("What is the size of memory addresses in MIPS?");
+  answers  .push("32 bits ");
+
+  questions.push("What is the size of registers in MIPS ?");
+  answers  .push("32 bits ");
+
+  questions.push("What is the size of machine instructions in MIPS ?");
+  answers  .push("32 bits ");
+
+  questions.push("What does \"binary\" mean ?");
+  answers  .push("Having two states (only) ");
+
+  questions.push("What is a bit ?");
+  answers  .push("A single on/off value (or true/false value) ");
+
+  questions.push("What does \"discrete\" mean ?");
+  answers  .push("Having a number of definite states. ");
+
+  questions.push("What is an advantage of using binary? S______ build");
+  answers  .push("Simple and easy to build ");
+
+  questions.push("What is an advantage of using binary? U______ signals");
+  answers  .push("Unambiguous signals");
+
+  questions.push("What is an advantage of using binary? F______ copies");
+  answers  .push("Flawless copies");
+
+  questions.push("What is an advantage of using binary? A______ represented");
+  answers  .push("Anything that can be represented with a pattern can be represented with patterns of bits");
+
+  questions.push("Who first described the advantages of binary ?");
+  answers  .push("Claude Shannon ");
+
+  questions.push("What is an analog signal ?");
+  answers  .push("An analog signal may continuously change in value. ");
+
+  questions.push("When converting analog to binary, a voltage below the __________ counts as zero ?");
+  answers  .push("threshold ");
+
+  questions.push("What part of a processor determines when binary values are determined ?");
+  answers  .push("clock ");
+
+  questions.push("What is the abbreviation for megahertz ?");
+  answers  .push("MHz ");
+
+  questions.push("What is the scheme for representing letters with 8-bit binary ?");
+  answers  .push("ASCII ");
+
+  questions.push("Do bit patterns always represent numbers ?");
+  answers  .push("No ");
+
+  questions.push("If a small amount of noise is added to a digital signal can the original signal be prefectly recovered ?");
+  answers  .push("Yes ");
+
+  questions.push("xxxx ?");
+  answers  .push("xxxx ");
+
+  questions.push("xxxx ?");
+  answers  .push("xxxx ");
+
+  questions.push("xxxx ?");
+  answers  .push("xxxx ");
+
+ 
+  
+// If you are making your own flashcards, do not modify anything below this line.
+
+
+var count =0, numRight =0, numWrong=0;
+var qNumber;
+
+for ( var j=0; j < questions.length; j++ ) asked.push( 0 );
+
+function questionClick()
+{
+  var txt;
+  var coin;
+  var allAsked = false;
+
+  document.getElementById("questionButton").disabled = true;
+  document.getElementById("answerButton"  ).disabled = false;
+  document.getElementById("rightButton"   ).disabled = true;
+  document.getElementById("wrongButton"   ).disabled = true;
+  document.getElementById("doneButton"    ).disabled = true;
+  
+  coin = Math.floor( Math.random()*questions.length );
+  qNumber = coin;
+
+  // search for an unasked question
+  while ( asked[qNumber] == 1 && !allAsked ) 
+  {
+    qNumber = (qNumber+1)%questions.length;
+    if ( qNumber == coin ) allAsked = true;
+  }
+
+  if ( allAsked )
+  {
+    txt = "You have gone through all the flash cards\n" ;
+
+    txt +=  "Number of questions: " + count + "\n";
+    txt +=  "Number correct: " +  numRight + "\n";
+    
+    if ( count>0 )
+      txt +=  "Percent correct: " + Math.round( (numRight*100)/count ) + "% \n";
+        
+    document.getElementById("questionArea").innerHTML = txt;
+  }
+
+  else
+  {
+    count++; 
+    document.getElementById("Counter").value  = "" + count;
+    document.getElementById("questionArea").innerHTML  =  questions[qNumber] + "\n";
+    document.getElementById("answerArea").innerHTML  = " ";
+  }
+}
+
+function answerClick()
+{
+  document.getElementById("questionButton").disabled = true;
+  document.getElementById("answerButton"  ).disabled = true;
+  document.getElementById("rightButton"  ).disabled = false;
+  document.getElementById("wrongButton"  ).disabled = false;
+  
+  document.getElementById("answerArea").innerHTML =  answers[qNumber]
+}
+
+function rightClick()
+{
+  asked[qNumber] = 1;
+
+  document.getElementById("questionButton").disabled = false;
+  document.getElementById("answerButton"  ).disabled = true;
+  document.getElementById("rightButton"   ).disabled = true;
+  document.getElementById("wrongButton"   ).disabled = true;
+  document.getElementById("doneButton"    ).disabled = false;
+
+  numRight++ ;
+  document.getElementById("Right").value = ""+ numRight ;
+  document.getElementById("Wrong").value = ""+ numWrong ;
+}
+
+function wrongClick()
+{
+  document.getElementById("questionButton").disabled = false;
+  document.getElementById("answerButton"  ).disabled = true;
+  document.getElementById("rightButton"   ).disabled = true;
+  document.getElementById("wrongButton"   ).disabled = true;
+  document.getElementById("doneButton"    ).disabled = false;
+  
+  numWrong++ ;
+  document.getElementById("Right").value = ""+ numRight ;
+  document.getElementById("Wrong").value = ""+ numWrong ;
+}
+
+function doneClick()
+{
+      txt = "You have seen "  + count + " flash cards\n" ;
+
+      txt +=  "Number correct: " +  numRight + "\n";
+      
+      if ( count>0 )
+        txt +=  "Percent correct: " + Math.round( (numRight*100)/count ) + "% \n";
+          
+      document.getElementById("questionArea").innerHTML = txt;
+      document.getElementById("answerArea").innerHTML = "";
+}
+
+</script>
+</head>
+
+<body>
+ 
+
+<h1>Flash Cards on Chapter 1</h1>
+ 
+<br>
+
+<table style="margin-left: auto; margin-right: auto;">
+<tr>
+  <th>QUESTION</th><th>ANSWER</th>
+</tr>
+
+<tr> 
+  <td>
+  <textarea id="questionArea" rows="8" cols="50">
+  Instructions:
+
+  Click on button 1 to see a question.
+
+  Mentally answer the question (just as you would with paper flash cards.)
+  </textarea>
+  </td>
+  
+  <td>
+  <textarea id="answerArea" rows="8" cols="50">
+  Then click on button 2 to see the correct answer. 
+
+  Then click on the "Right" or the "Wrong" button as appropriate.
+
+  Repeat.
+  </textarea>
+  </td>
+</table>
+
+
+<p style="text-align:center">
+Questions so far
+&nbsp;&nbsp;
+<input type="text" id="Counter" size="5" value="">
+
+&nbsp;&nbsp;
+Number Right:
+&nbsp;&nbsp;
+<input type="text" id="Right" size="5" value="">
+
+&nbsp;&nbsp;
+Number Wrong:
+&nbsp;&nbsp;
+<input type="text" id="Wrong" size="5" value="">
+</p>
+
+<p style="text-align:center">
+
+<input type="button" 
+  id="questionButton" 
+  value="1. Ask Question" 
+  onClick="questionClick()">
+
+&nbsp;
+
+<input type="button" id="answerButton" disabled
+  value="2. Show Answer" 
+  onClick="answerClick()">
+
+&nbsp;
+
+<input type="button" id="rightButton" disabled
+  value="3. Right" 
+  onClick="rightClick()">
+
+OR
+
+<input type="button" id="wrongButton" disabled
+  value="3. Wrong" 
+  onClick="wrongClick()">
+ 
+&nbsp; &nbsp; &nbsp;
+
+<input type="button" id="doneButton" 
+  value="Finished" 
+  onClick="doneClick()">
+</p>
+
+<hr>
+<p>
+<b>Instructions:</b> &nbsp; 
+Click on button 1 to see a question. 
+Click on button 2 to see the correct answer. 
+Then click on the "Right" or the "Wrong"
+button as appropriate.
+Repeat.
+</p>
+
+<p>
+Click "Finished" when you are done.
+</p>
+
+<p>
+Correctly answered questions are removed from the deck of flash cards.
+Incorrectly answered questions go back into the deck.
+The program stops when all questions have been answered correctly.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part1"> Back to Index  </a> 
+</p>
+ 
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-02/flashCardsAsm02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:36 GMT -->
+</html>

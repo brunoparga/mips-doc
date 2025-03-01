@@ -1,0 +1,191 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 13 19:19:52 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:44 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading a Single Byte</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass16_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap16merge0203.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+A byte
+</p>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Loading a Single Byte</h1>
+<!-- ../Audio/chap16merge0203.mp3 -->
+
+
+<a id="lb_(instruction)"> </a>
+<a id="lbu_(instruction)"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">There
+are two instructions that
+load a byte from memory.</span>
+The address of the byte is calculated at run
+time by adding an offset to a base
+register (just as with the load word 
+and store word instructions).
+The instructions differ in how the
+8-bit byte is put into the 32-bit
+register.
+</p>
+
+<pre>
+lb t,off(b)  
+
+# $t <span style="font-size: 30px;">&larr;</span>  <u>Sign-extended</u> byte 
+# from memory address b+off
+# b is a base register. 
+# off is 16-bit two's complement.
+</pre>
+
+<p>
+<span class="highlight">The <code>lb</code> instruction
+loads the byte from memory into the low order eight bits
+of the register.</span>
+These are bits 0-7 of the register.
+Then it
+<span class="highlight">copies bit 7 to bits 8-31 of the register</span> 
+(all bits to the left of bit 7).
+</p>
+<p>
+Another way to say this is that the  <code>lb</code> instruction
+loads the register with a 32-bit <b>sign extended</b> version of
+the byte at the designated address.
+</p>
+
+<p>
+The address in memory does not have any
+alignment restrictions.
+</p>
+
+</div>
+
+<a id="sign_extension"> </a>
+
+<div class="right">
+
+<p> 
+Use
+the <code>lb</code>  instruction when the byte is regarded as an
+8-bit signed integer in the range -128 ... +127 and you want
+a 32-bit version of the same integer.
+</p>
+
+<p>
+<span class="highlight">The <code>lbu</code> instruction
+fills bits 8-31 of the register with zeros.</span>
+Use this instruction when the byte is regarded as a
+ascii character or 8-bit unsigned integer.
+</p>
+
+<p>
+Another way to say this is that the  <code>lbu</code> instruction
+loads the register with a 32-bit <b>zero extended</b> version of
+the byte at the designated address.
+</p>
+<pre>
+lbu t,off(b)
+
+# $t <span style="font-size: 30px;">&larr;</span>  <u>Zero-extended</u> byte 
+# from memory address b+off
+# b is a base register. 
+# off is 16-bit two's complement.
+</pre>
+
+<p>
+The address in memory does not have any
+alignment restrictions.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<form>
+<ul>
+<li>Memory at 0x10000007 contains the byte 0xA4</li>
+<li>Register <code class="register">$8</code> contains 0x10000000</li>
+</ul>
+
+<p>
+What is put in register <code class="register">$10</code> when the following
+instruction is executed:
+</p>
+
+<pre>
+lb    $10,7($8)
+</pre>
+
+<pre>
+<input type="text" size="25" >  
+</pre>
+
+<p>
+What is put in register <code class="register">$12</code> when the following
+instruction is executed:
+</p>
+
+<pre>
+lbu  $12,7($8)
+</pre>
+
+<pre>
+<input type="text" size="25" >  
+</pre>
+
+</form>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass16_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:45 GMT -->
+</html>

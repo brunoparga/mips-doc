@@ -1,0 +1,138 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 27 19:53:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:58 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read Integer, Print Integer</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass22_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap22-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+The program prints "ello SPIM!"
+</p>
+
+<p>
+The print service prints characters starting at the address it was given.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Read Integer, Print Integer</h1>
+<!-- ../Audio/chap22-08.mp3 -->
+
+<a id="read_integer_(exception_handler_service)"> </a>
+<a id="write_integer_(exception_handler_service)"> </a>
+
+<div class="left">
+<p><span class="highlight">
+The 
+<b>read integer</b> service reads an entire line of input from
+your keyboard&#8212;all the characters you type up to the <code>newline</code>
+character.</span>
+These characters are expected to be ASCII digits '0', '1', .., '9'
+with an optional leading '-' or '+'.
+</p>
+
+<p>
+<span class="highlight">The characters are converted into a 32-bit two's complement representation
+of the integer which is returned in <code class="register">$v0</code>.</span>
+</p>
+</div>
+<br style="clear:both">
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+li      $v0,5     # code 5 == read integer
+syscall           # Invoke the operating system.
+                  # Read in one line of ascii characters.
+                  # Convert them into a 32-bit integer.
+                  # $v0 <span style="font-size: 30px;">&larr;</span> two's comp. int.
+</pre>
+<br style="clear:both">
+
+
+<div class="left">
+<p><span class="highlight">
+The <b>print integer</b> service prints the
+integer represented by the 32 bits in 
+<code class="register">$a0</code> 
+to the SPIM terminal.</span>
+Of course, there are many ways that the integer can be placed in 
+<code class="register">$a0</code>,
+not just  <code>lw</code>.
+</p>
+</div>
+
+<br style="clear:both"> 
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+li      $v0,1     # code 1 == print integer
+lw      $a0,int   # $a0 == the integer
+syscall           # Invoke the operating system.
+                  # Convert the 32-bit integer into characters.
+                  # Print the character to the monitor.
+</pre>
+ 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+
+<p>
+What is wrong with the following fragment:
+</p>
+
+<pre>
+main:
+        li      $v0,4       # code 4 == print string
+        la      $a0,result  # $a0 == address 
+        syscall             # Invoke the operating system.
+        . . .
+        .data
+        
+result: .word   35          # result of a calculation
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass22_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:59 GMT -->
+</html>

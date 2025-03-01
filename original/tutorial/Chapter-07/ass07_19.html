@@ -1,0 +1,98 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Feb 09 12:35:36 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:08 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decimal to base 5</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass07_18.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_20.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap07-21.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+0x409
+</p>
+
+<pre class="code">
+1033 div 16 = 64 r 9;  digit[0] = 9
+  64 div 16 =  4 r 0;  digit[1] = 0
+   4 div 16 =  0 r 4;  digit[2] = 4
+</pre>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Decimal to base 5</h1>
+<!-- ../Audio/chap07-21.mp3 -->
+
+<p>
+The
+ conversion algorithm works to convert a decimal representation
+of a number to any base.
+Here is a conversion of 1033<sub class="base">10</sub> to base 5:
+</p>
+
+
+<img src="conversionBase5.gif" class="center" alt="conversion to base 5" >
+
+
+<p>
+So <code>1033<sub class="base">10</sub> = 13113<sub class="base">5</sub></code> &nbsp;
+      (the first digit produced is the rightmost).  Check the results:
+</p>
+
+<pre class="code">
+13113<sub class="base">5</sub>  = 1 &#215; 5<sup>4</sup>   + 3 &#215; 5<sup>3</sup>  + 1 &#215; 5<sup>2</sup>  + 1 &#215; 5<sup>1</sup> + 3 &#215; 5<sup>0</sup>
+        = 1 &#215; 625 + 3 &#215; 125 + 1 &#215; 25  + 1 &#215; 5  + 3
+        = 625     + 375     + 25      + 5      + 3
+        = 1033<sub class="base">10</sub> 
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 19:</h3>
+<p>
+Convert 100<sub class="base">10</sub> to base 3.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass07_18.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_20.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:10 GMT -->
+</html>

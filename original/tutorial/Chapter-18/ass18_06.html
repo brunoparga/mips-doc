@@ -1,0 +1,135 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Mar 05 21:12:52 EST 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:17 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start on the Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass18_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap18-06.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+With assembly language it is essential to
+make a plan before coding.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Start on the Program</h1>
+<!-- ../Audio/chap18-06.mp3 -->
+
+
+<div class="left">
+<p>
+The
+flowchart for the program
+is at right.
+The first box sets a flag to a 
+default value
+in advance of the test that might change it.
+This is a common trick.
+</p>
+
+<p>
+The range test is in two parts.
+The first part (in this program)
+tests if temp is less than <u>or equal</u> to 55.
+However, the machine instruction is "set on less than".
+If temp is out of range a branch is taken to
+<code>out</code>.
+The branch is followed by a no-op for the branch
+delay.
+</p>
+
+<p> 
+Here is an outline of the program:
+</p>
+</div>
+ 
+<br style="clear:both"> 
+<pre class="program">
+<img src="tempRange.gif" class="rightimage" alt="flowchart" />
+
+## tempRange.asm
+##
+## Check that   30 &lt;= temp &lt;= 55
+## Set flag to 1 if in range, to 0 if out of range
+##
+## Registers:
+## $2 -- temperature
+## $3 -- in range / out of range indicator flag
+## $8 -- scratch
+
+      .text
+      .globl  main
+# Set range indicator to 1
+main:   ori     $3,$0,1         #  set to 1 (in range)
+
+# Test  30 &lt;= temp &lt;= 55
+
+        sltiu   $8,$2,<input type="text" size="3" />     #  $8=1 if temp &lt;= 55
+        
+        beq     $8,$<input type="text" size="3" /> , <input type="text" size="3" />  #  0? out of range
+        
+        sll     $0,$0,0         #  delay
+
+       . . . .                  #  more instructions
+
+# Out of Range: clear range indicator to 0
+out:
+       . . . .                  #  clear flag to 0
+
+# continue
+cont:  sll     $0,$0,0         #  target for the jump
+
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass18_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:19 GMT -->
+</html>

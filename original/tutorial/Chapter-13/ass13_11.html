@@ -1,0 +1,126 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Mar 01 18:06:44 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:13 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The   subu   Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass13_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap13-17.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<pre>
+    ori      $7, $0, 146        # put +146 into $7
+    addiu    $10,$7,-82         # add -82
+</pre>
+<p>
+The program is much shorter. The assembler made a 16 bit -82, which the ALU sign-extended to 32 bits, which it added to the contents of $7.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The <code> subu </code> Instruction</h1>
+
+<!-- ../Audio/chap13-17.mp3 -->
+
+
+<a id="subu"> </a>
+<a id="sub"> </a>
+
+<p>
+<span class="highlight">MIPS 
+has two integer subtraction instructions.
+The <code>subu</code> instruction does not
+generate a trap on overflow.</span>
+Overflow is possible if you subtract a large negative integer from
+a large positive integer
+(or subtract a large positive integer from a negative integer.)
+</p>
+
+<pre style="border: 2px dotted green; padding:10px; background-color:white">
+subu   d,s,t        # d <span style="font-size: 30px;">&larr;</span>  s - t 
+                    # No overflow trap.
+                    # This is equivalent to $d &lt;&#8212;&#8212; s + (-t)
+                    # where (-t) is reflect-add-one of t.
+</pre> 
+
+<p>
+<span class="highlight">The <code>sub</code> instruction does
+generate a trap on overflow.</span>
+It would be OK to use,
+but this course does not discuss
+how to deal with traps.
+</p>
+
+<pre style="border: 2px dotted green; padding:10px; background-color:white">
+sub    d,s,t        # d <span style="font-size: 30px;">&larr;</span>  s - t
+                    # Two's comp. overflow is trapped!
+                    # This is equivalent to $d <span style="font-size: 30px;">&larr;</span>  s + (-t)
+                    # where (-t) is reflect-add-one of t.
+</pre> 
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+
+
+<p>
+When <code>ori  $d,$0,const</code> is used to load 
+the register <code class="register">$d</code>,
+<code>const</code> must be 16-bit  unsigned binary.
+</p>
+
+<p>
+But say that you want to load <code class="register">$8</code> with a negative 86.
+Will the following work?
+</p>
+
+<pre>
+addiu    $8,$0,-86  # $8 <span style="font-size: 30px;">&larr;</span> -86 
+</pre> 
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass13_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:14 GMT -->
+</html>

@@ -1,0 +1,105 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:39 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The "Sign Bit"</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08merge3031.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+256
+</p>
+<p>
+256
+</p>
+
+<p>
+Every pattern of the 256 patterns has been assigned an integer to represent.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The "Sign Bit"</h1>
+<!-- ../Audio/chap08merge3031.mp3 -->
+
+<p>
+The 
+algorithm that creates the representation of the negative of an integer
+works with both positive and negative integers. 
+Start with <code>N</code> and form its two's complement: 
+you get <code>-N</code>.
+Now complement   <code>-N</code> and you get the original <code>N</code>.
+</p>
+
+<pre class="code">
+0110 1101 &nbsp; &nbsp; reflect <span style="font-size:200%">&#8594;</span>  1001 0010 &nbsp; &nbsp; add one <span style="font-size:200%">&#8594;</span>  1001 0011
+
+1001 0011 &nbsp; &nbsp; reflect <span style="font-size:200%">&#8594;</span>  0110 1100 &nbsp; &nbsp; add one <span style="font-size:200%">&#8594;</span>  0110 1101
+</pre>
+
+<a id="sign_bit"> </a>
+<p>
+<span class="highlight">With N-bit two's comp  representation,
+the high order bit is "0" for positive
+integers and "1" for negative integers.</span>
+This is a fortunate result.
+The high order bit is sometimes called the <b>sign bit</b>.
+<span class="highlight">But it is not really a sign</span>
+(it does not play a separate role from the other bits).
+It takes part in the binary addition algorithm just as any
+bit.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 21:</h3>
+<p>
+Does the following <b>four-bit</b> two's complement represent
+a negative or a positive integer?
+</p>
+
+<pre> 1001</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:40 GMT -->
+</html>

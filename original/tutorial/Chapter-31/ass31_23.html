@@ -1,0 +1,111 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_23.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:46 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_22.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_24.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes.  With an integer, all 32 bits may be significant.  With IEEE float (recall) the mantissa is only 24 bits (represented with 23 bits).
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+
+<pre class="program">
+
+##  twoOnesConvert.asm
+##
+##  float x;
+##  x = 1 + 1.0
+##
+        .text
+        .globl main
+        
+main:   l.s     $f0,ai              # get an integer one (into a float register)
+        cvt.s.w $f2,$f0             # convert to float in $f2     
+        l.s     $f4,af              # get a floating point one
+        add.s   $f12,$f4,$f2        # 1.0 + 1.0 = 2.0 in $f12
+        s.s     $f12,x              # x = sum
+        
+        li      $v0,2               # print float (in $f12)
+        syscall
+        li      $v0,10              # halt
+        syscall
+
+        .data
+af:     .float  1.0
+ai:     .word   1
+x:      .word   0.0
+</pre>
+
+<div class="left">
+
+<p><span class="highlight">
+Here is our program that (finally) adds one plus one.</span>
+</p>
+
+<p>
+Of course, a sensible program would just declare the data to be consistenly integer or float and avoid the need to do conversion.
+</p>
+</div>
+
+<div class="right">
+<p>
+Notice how the conversion is done using floating point registers.
+The integer data is loaded into floating point register <code class="register">$f0</code> with a <code>l.s</code> instruction.
+</p>
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 23:</h3>
+
+<p>
+Could the program be written to convert the float to an integer and do integer addition?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_22.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_24.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_23.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:47 GMT -->
+</html>

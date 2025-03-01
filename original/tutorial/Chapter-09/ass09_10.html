@@ -1,0 +1,105 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Sep 17 18:05:33 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-09/ass09_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:21 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running the Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass09_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass09_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap09-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+A user types "400000" into the value box,
+clicks OK, and sees the PC change to
+00061a80.  What Happened?
+</p>
+<h3>Answer:</h3>
+<p>
+Without a leading "0x" the characters "400000"
+are taken to be an integer expressed in decimal.
+The PC is loaded with the binary representation
+of that integer.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Running the Program</h1>
+<!-- ../Audio/chap09-10.mp3 -->
+
+<a id="SPIM_single_step"> </a>
+
+<img src="singleStep.gif" class="centerimage" alt="Single Stepping the program" width="800px"/>
+ 
+<div class="middle"> 
+<p>
+<span class="highlight">Push F10
+to execute one instruction.</span>
+The first instruction executes,
+loading register eight with a 2
+(see the register display).
+The PC  advances to the next
+instruction 0x00400004
+and the message display window
+shows the instruction
+that just executed.
+</p>
+
+<p>
+Push F10 two more times
+to execute the remaining instructions.
+Each instruction is 32 bits (four bytes) long,
+so the PC changes by four each time.
+After the third instruction,
+register 8 will have the sum of two plus three.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+What is the sum of 0x0000002 and 0x0000003  &nbsp; ?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass09_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass09_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-09/ass09_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:23 GMT -->
+</html>

@@ -1,0 +1,110 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Apr 28 18:51:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:53 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How the Mantissa Works</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass30_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap30merge1824.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+What a sweet name!
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>How the Mantissa Works</h1>
+<!-- ../Audio/chap30merge1824.mp3 -->
+
+<div class="left">
+
+<p><span class="highlight">
+Since
+leading zeros of a binary number can be dropped,
+it is safe to not actually include the first 1.</span>
+There will always be one, so there is no need to show it.
+</p>
+
+<p>
+The exponent is adjusted so that the most significant 1 is
+in the one's place of the mantissa.
+Then that 1-bit is dropped.
+</p>
+
+<p>
+For example: say that you wish to represent 3.17578125 as a float.
+In binary, this is
+<code>00011.00101101</code>.
+</p>
+</div>
+
+<br style="clear:both"> 
+<ul style="line-height:2em">
+<li><b>Drop</b> the leading zeros: <br /><code>11.00101101</code></li>
+<li><b>Now</b> there is a leading one.</li>
+<li><b>Move</b> the binary point so that the leading one
+    is in the one's place (the exponent shows the move):<br />
+   <code>1.100101101 &#215; 2<sup>1</sup> </code> </li>
+<li><b>Drop</b> the leading one:<br />
+   <code>100101101 &#215; 2<sup>1</sup> </code></li>
+<li><b>Add</b> zero bits on the right so that there are 23 bits in total:<br/>
+   <code>10010110100000000000000 &#215; 2<sup>1</sup> </code></li>
+<li><b>Result:</b> the mantissa is:
+   <code>10010110100000000000000</code></li>
+</ul>
+
+ 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+
+<p>
+Is the mantissa always zero or positive?
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass30_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:54 GMT -->
+</html>

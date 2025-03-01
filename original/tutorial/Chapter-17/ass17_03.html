@@ -1,0 +1,161 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 07 17:30:04 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:45 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Altering the PC</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass17_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap17-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+A no-op instruction is an instruction that has no effect.
+A common no-op instruction is <code>sll $0,$0,0</code>.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Altering the PC</h1>
+<!-- ../Audio/chap17-04.mp3 -->
+ 
+ 
+<table>
+<tr><th>PC at top of cycle</th><th>Instruction Fetched<br>(details omitted)</th>
+<th>PC after increment</th>
+<th>PC at the bottom of the cycle 
+</tr>
+
+<tr><td>00400000</td>       <td>load</td>            <td>00400004</td><td>00400004</td></tr>
+<tr><td>00400004</td>       <td>add </td>            <td>00400008</td><td>00400008</td></tr>
+<tr><td>00400008</td>       <td>jump 0x00400000</td> <td>0040000C</td><td>0040000C</td></tr>
+<tr style="border-bottom-style: dashed"><td>0040000C</td>       <td>no-op</td>           <td>00400010</td><td>00400000<br />effect of the jump instruction</td></tr>
+<tr><td>00400000</td>       <td>load</td>            <td>00400004</td><td>00400004</td></tr>
+<tr><td>00400004</td>       <td>add </td>            <td>00400008</td><td>00400008</td></tr>
+<tr><td>00400008</td>       <td>jump 0x00400000</td> <td>0040000C</td><td>0040000C</td></tr>
+<tr style="border-bottom-style: dashed"><td>0040000C</td>       <td>no-op</td>           <td>00400010</td><td>00400000<br />effect of the jump instruction</td></tr>
+<tr><td>00400000</td>       <td>load</td>            <td>00400004</td><td>00400004</td></tr>
+<tr><td>00400004</td>       <td>add </td>            <td>00400008</td><td>00400008</td></tr>
+<tr><td>00400008</td>       <td>jump 0x00400000</td> <td>0040000C</td><td>0040000C</td></tr>
+<tr style="border-bottom-style: dashed"><td>0040000C</td>       <td>no-op</td>           <td>00400010</td><td>00400000<br />effect of the jump instruction</td></tr>
+
+<tr><td colspan="4" style="text-align:center">.... and so on ....</td></tr>
+</table>
+
+<br style="clear:both">  
+
+<!-- old table 
+<table>
+<tr><th>PC at top of cycle</th><th>Instruction<br />(details omitted)</th><th>PC just after this 
+<br>instruction has executed<br />(at the bottom of the cycle)</th></tr>
+<tr><td>...............</td><td>...........</td>   <td>00400000</td></tr>
+<tr><td>00400000</td>       <td>load</td>          <td>00400004</td></tr>
+<tr><td>00400004</td>       <td>add </td>          <td>00400008</td></tr>
+<tr><td>00400008</td>       <td>jump 0x00400000</td> <td>0040000C</td></tr>
+<tr><td>0040000C</td>       <td>no-op</td>        <td>00400000<br />effect of the jump</td></tr>
+</table>
+
+-->
+<br style="clear:both"> 
+
+<img src="MachineCycle.gif" class="rightimage" alt="Machine Cycle">
+
+<div class="left">
+
+<a id="PC,_altered_in_branch_instruction"> </a>
+<p>
+Here
+is a sequence of instructions.
+The "load" and "add" represent typical instructions.
+The "jump" instruction shows the address we wish to put into the PC.
+(The actual MIPS instruction for this involves details that we are
+skipping for the moment.)
+</p>
+
+<pre>
+main: load ...           
+      add  ...
+      jump 0x00400000
+      no-op
+</pre>
+
+<p>
+<span class="highlight">Say the the program has been assembled and loaded
+at address 0x00400000.</span>
+The program starts running with the PC holding that address.
+</p>
+
+<p><span class="highlight">
+Once started, the four instructions execute in
+an unending loop.</span>
+The last instruction, a no-op, fills the
+branch delay slot.
+</p>
+
+
+<p> 
+A loop structure is created with the
+jump instruction. 
+The intent of the jump instruction is to put
+the address 0x00400000 into the PC.
+However, it takes one more machine cycle for this to happen.
+</p>
+
+<p>
+<span class="highlight">But once the PC has changed,
+the next instruction fetched is at the top of the loop.</span>
+The instructions execute again, and at the end the PC is again set to the starting address.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+
+<p>
+(Thought question:) Is there anything 
+in this program that will stop the loop from executing?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass17_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:46 GMT -->
+</html>

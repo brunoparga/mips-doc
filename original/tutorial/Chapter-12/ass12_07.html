@@ -1,0 +1,137 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 07:54:16 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:58 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee.org">
+<!-- <meta name="copyright" content="2009"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OR Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass12_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap12-07.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+(Trick Question:) What is the net result if a bit pattern is
+logical left shifted 2 positions then logical right shifted 
+2 positions?
+ </p>
+
+<h3>Answer:</h3>
+
+<p>
+The two bits on the left of the pattern are guaranteed to be zero;
+the other bits are not changed.
+</p>
+
+<p>
+You might have hastily said that the net result is no change.
+But if there are one-bits at the left 
+(high order) end of the pattern they will be lost.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>OR Instruction</h1>
+<!-- ../Audio/chap12-07.mp3 -->
+
+
+<a id="register_to_register_instruction"> </a>
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+or  d,s,t        # $d gets the bitwise 
+                 # OR between $s with $t.
+</pre> 
+
+
+<div class="right">
+<table>
+<tr><th colspan="5">OR Operation on Bits</th></tr>
+<tr><td> first operand </td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td> second operand </td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>&nbsp;</td><td colspan="4"><hr /></td></tr>
+<tr><td> result </td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+</table>
+</div>
+
+<div class="left">
+<p>
+<span class="highlight">
+MIPS
+ has many instructions that use two registers
+as operands and that put the result in a register.</span>
+All the action takes place inside the processor.
+The data comes from registers, the ALU performs the
+operation, and the result is written to a register.
+<span class="highlight">All this can be done quickly.</span>
+</p>
+
+<p>
+The assembly language must specify four things:
+(1) the operation, (2) the first operand register, 
+(3) the second operand register, and
+(4) the destination register.
+Of course, the machine language must encode the
+same four things in bit patterns.
+</p>
+
+<a id="or_instruction"> </a>
+ 
+
+<p>
+Recall that the result of OR is zero only when
+both operand bits are zero.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+What is the bitwise OR of the following?
+</p>
+
+<pre>
+ FEED
+ BECA
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</pre> 
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass12_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:59 GMT -->
+</html>

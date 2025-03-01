@@ -1,0 +1,218 @@
+<!doctype html> 
+<!-- 05/19/2016  bpk  HTML5 validation -->
+ 
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:12 GMT -->
+<head>
+<meta charset="utf-8">
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 07/08/2003</p>
+<hr />
+
+<h1> 
+Chapter 33 Programming Exercises
+</h1>
+
+<hr />
+
+<p>
+<b>NOTE:</b>
+If you have read the chapters on
+subroutine linkage,
+write each exercise as a
+main program calling a subroutine.
+Use either the stack-based linkage or the
+frame-based linkage convention.
+<p>
+
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine OFF, Accept Pseudo Instructions ON,
+Enable Branch Delays ON,
+Enable Load Delays ON, Enable Mapped IO OFF, Load Exception Handler ON.
+</p>
+
+<hr />
+
+<!-- untested -->
+
+<h2>Exercise 1 &#8212; Date</h2>
+
+<p>
+Consider the following structure:
+</p>
+
+<pre>
+struct
+{
+  int day;
+  int month;
+  int year;
+}
+</pre>
+
+<p>
+Write a program that allocates memory for such a structure
+and fills it in with values such as 9/7/2003.
+</p>
+
+<p>
+Write out the values in the structure.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<!-- untested -->
+
+<h2>Exercise 2 &#8212; Array of Structures</h2>
+
+<p>
+Consider the following structure,
+the same as for Exercise 1:
+</p>
+
+<pre>
+struct
+{
+  int day;
+  int month;
+  int year;
+}
+</pre>
+
+<p>
+Write a program that asks the user for how many
+dates are needed and then allocates space
+(all at one time) for that many structs.
+</p>
+
+<p>
+Then, in a loop, ask the user for the values to put in
+each structure.
+Do this by initializing a structure pointer to the first
+address of the allocated space.
+Then add the size of a structure to it for each execution
+of the loop. 
+</p>
+
+<p>
+Finally, write out the contents of all the structures.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<!-- untested -->
+
+<h2>Exercise 3 &#8212; Array of Structure Pointers</h2>
+
+
+<p>
+Consider the following structure,
+the same as for the above exercises:
+</p>
+
+<pre>
+struct
+{
+  int day;
+  int month;
+  int year;
+}
+</pre>
+
+<p>
+In the static data section of your program declare space
+for an array of up to 25 addresses:
+</p>
+
+<pre>
+          .data
+size:     .word   0
+dates:    .space  25*4          
+</pre>
+
+<p>
+Not all of the potential addresses will be used.
+The field <code>size</code> starts at zero because
+to start, none of the addresses are used.
+</p>
+
+<p>
+Write a program that asks the user for how many
+dates are needed.
+Set  <code>size</code> to that amount.
+Now a counting loop executes for that many times.
+Each execution of the loop allocates space for one data,
+puts the address of that date in the array of addresses,
+asks the user for values for that data,
+and finally, fills the date with those values.
+</p>
+
+<p>
+At the end of the program write out the values in the dates.
+Do this by scanning through the array of addresses to access
+each date.
+(Probably the dates will be in order in a contiguous block of
+memory, but a real-world program can not count on this being true.)
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- untested -->
+
+<h2>Exercise 4 &#8212; Image Allocation</h2>
+
+<p>
+Write a program that asks the user for the
+size of an image: R rows and C columns.
+Then allocate space for R*C bytes.
+</p>
+
+<p>
+Fill row 1 with 1s, fill row 2 with 2s, and so on.
+Examine the data section of the simulator to see if you did this correctly.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:12 GMT -->
+</html>
+

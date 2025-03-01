@@ -1,0 +1,117 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Mar 05 21:12:52 EST 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:54 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass18_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap18-08.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+The completed program follows.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Program</h1>
+<!-- ../Audio/chap18-08.mp3 -->
+ 
+<div class="left">
+<p>
+Here
+is the complete program,
+suitable to copy to a file and to run with SPIM.
+When you run it, set the PC to 0x400000 (as usual)
+and also use the set value menu to set <code class="register">$2</code> to
+a temperature.
+Run the program with different temperatures
+and check that <code class="register">$3</code> is set correctly.
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="program">
+## tempRange.asm
+##
+## Check that   30 &lt;= temp &lt;= 55
+## Set flag to 1 if in range, to 0 if out of range
+##
+## Registers:
+## $2 --- temperature
+## $3 --- in/out range indicator flag
+## $8 --- scratch
+<img src="tempRange.gif" class="rightimage" alt="flowchart" />
+      .text
+      .globl  main
+
+# Set range indicator to 1
+main:   ori     $3,$0,1         #  set to 1
+
+# Test  30 &lt;= temp &lt;= 55
+        sltiu   $8,$2,<span class="red">56</span>        #  $8=1 if temp &lt;= 55
+        beq     $8,<span class="red">$0,out</span>       #  0? out of range
+        sll     $0,$0,0         #  delay
+
+        sltiu   $8,$2,<span class="red">30</span>        #  $8=1 if  temp &lt; 30
+        beq     $8,$0,<span class="red">cont</span>      #  0? in range
+        sll     $0,$0,0         #  delay
+
+# Out of Range: clear range indicator to 0
+out:    <span class="red">ori     $3,$0,0</span>         #  clear flag to 0
+
+cont:   sll     $0,$0,0         #  target for the jump
+<br style="clear:both" />
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+
+<p>
+Could the no-op instructions 
+( the <code>sll</code>)
+be removed without affecting the program?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass18_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:55 GMT -->
+</html>

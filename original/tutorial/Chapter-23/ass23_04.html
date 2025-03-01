@@ -1,0 +1,141 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:47 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arithmetic Pseudoinstructions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-04.mp3 -->
+
+
+<h3>Answer:</h3>
+<p>
+yes
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Arithmetic Pseudoinstructions</h1>
+
+
+<a id="addu_(pseudoinstruction)"> </a>
+
+<div class="left">
+<p>
+With the non-extended assembler there is
+an &nbsp;<code>addu d,s,t</code>&nbsp;
+instruction where
+d, s, and t are registers
+There is also
+and an
+&nbsp;<code>addiu d,s,imm</code>&nbsp; instruction where
+<code>imm</code> is an immediate operand.
+</p>
+
+<p><span class="highlight">
+With the extended assembler the 
+&nbsp;<code>addu d,s,x</code>&nbsp;
+instruction translates into different basic instructions
+depending on <code>x</code>.</span>
+<code>x</code> can be a register, a 16-bit immediate operand, or a
+32-bit immediate operand.
+</p>
+</div>
+
+<div class="right">
+<p>
+Examine the following instruction (for the extended assembler):
+</p>
+
+<pre class="code">
+addu $t0,$s0,40000
+</pre> 
+
+<p>
+The decimal value 40000 is too large to represent in 16 bits,
+(the range for 16 bits is -32768 to +32767)
+so the instruction cannot be translated into a basic
+<code>addiu</code>
+instruction.
+Two instructions must be used to add <code class="register">$s0</code> to 40000<sub>10</sub>
+and to place the result in <code class="register">$t0</code>.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+
+
+<form>
+<p>
+Translate the following:
+</p>
+
+<pre class="code">
+addu $s1,$s0,40000
+</pre>
+
+<p>
+into basic instructions.
+(Use mnemonic register names.)
+</p>
+
+<pre>
+li   <input type="text" size="7">,40000    # use pseudoinstruction <b>li</b>
+
+addu $s1,$s0,<input type="text" size="7">  # perform 32-bit addition
+</pre> 
+
+<p>
+<input type=button value="hint" onClick='alert("Consider using register $at")'>
+</p>
+</form>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:48 GMT -->
+</html>

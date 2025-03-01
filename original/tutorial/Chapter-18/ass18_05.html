@@ -1,0 +1,102 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Mar 05 21:12:52 EST 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:25 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temperature Range Tester</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass18_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap18-05.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+
+<p>1</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Temperature Range Tester</h1>
+<!-- ../Audio/chap18-05.mp3 -->
+
+ 
+<img src="thermometer.gif" class="rightimage" alt="thermometer" title="thermometer" />
+ 
+
+<a id="range_testing"> </a>
+
+
+<div class="left">
+
+<p>
+Say that 
+you are writing a control program for
+a robot spray painter.
+The allowed temperature range for the
+paint is 30 degrees to 55 degrees Celsius (inclusive).
+The device driver for the temperature sensor 
+puts the temperature in register <code class="register">$2</code>.
+</p>
+
+<p>
+Your program will test if the unsigned integer
+in register <code class="register">$2</code> is in range.
+If it is in range, 
+register <code class="register">$3</code> is set to 1,
+otherwise to 0.
+</p>
+
+<p>
+(Sensors often deliver <u>unsigned</u> data.
+Pretend that our sensor delivers unsigned data
+in the range of 0 to 100 in register <code class="register">$2</code>.)
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+
+<p>
+Sketch a flow chart for this program.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass18_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:27 GMT -->
+</html>

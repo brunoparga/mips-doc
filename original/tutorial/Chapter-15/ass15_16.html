@@ -1,0 +1,144 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:10 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second Term</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-19.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Second Term</h1>
+<!-- ../Audio/chap15-19.mp3 -->
+
+
+<form>
+<pre class="program">
+## poly.asm  
+##
+## evaluate  5x^2 -12x + 97 
+##
+## Register Use:
+##
+## $10 base register, address of x
+## $11 x
+## $12 value of the polynomial
+## $13 temporary
+
+        .text
+        .globl  main
+
+main: 
+        lui   $10,<span style="color:red">0x1000</span>     #  Init base register
+        lw    $11,0(<span style="color:red">$10</span>)     #  Load x
+
+        ori   $12,$0,97      #  Initialize the accumulator
+                             #  during the "load delay slot"
+
+        ori   $13,$0,12      #  evaluate second term
+        
+        mult  $<input type="text" name="I1" size="4" />,$<input type="text" name="I2" size="4" />   #  12x
+        
+        <input type="text" name="I3" size="4" />  $13            #  assume 32 bit result
+        
+        subu  $<input type="text" name="I4" size="4" />,$<input type="text" name="I5" size="4" />,$<input type="text" name="I6" size="4" />    #  accumulator = -12x +97
+
+       ....   more instructions
+
+        sw    $12,<span style="color:red">4</span>(<span style="color:red">$10</span>)     #  Store result in poly
+
+        .data
+x:      .word   17           # base register points here 
+poly:   .word   0
+
+## End of file
+</pre>
+</form>
+
+<br style="clear:both"> 
+<div class="left">
+<p><span class="highlight">
+Since
+ SPIM starts the data section at
+0x10000000,
+register <code class="register">$10</code> can be loaded with the 
+first address of the data section
+using the <code>lui</code> instruction.</span>
+The low order sixteen bits of the address
+are all zero.
+The address of <code>x</code> is
+an offset of zero from that base address.
+</p>
+</div>
+
+<div class="right">
+<p>
+The location for the result
+is at an offset of four from the base
+address.
+</p>
+
+<p>
+Now fill in the blanks 
+so that the second term 
+is evaluated and added to the accumulator.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 16:</h3>
+
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:11 GMT -->
+</html>

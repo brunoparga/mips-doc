@@ -1,0 +1,156 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:22 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_18.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_20.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-19.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Program</h1>
+<!-- ../Audio/chap36-19.mp3 -->
+
+<p>
+Here is the complete, revised program.
+You may wish to play with it.
+<span class="highlight">Perhaps add several more objects.</span>
+</p>
+
+<p>
+You could add any number of additional objects,
+but only one copy is needed of each method.
+</p>
+
+<pre class="program">
+          .globl   main
+          .text
+main:                                 # object1.print(); 
+          la       $a0,object1        #   get address of first object
+          lw       $t0,0($a0)         #   get address of print method
+          jalr     $t0                #   call the method
+                                      # object1.cancel();
+          la       $a0,object1        #   get address of first object
+          lw       $t0,4($a0)         #   get address of cancel method
+          jalr     $t0                #   call the method
+                                      # object1.print();
+          la       $a0,object1        #   get address of first object
+          lw       $t0,0($a0)         #   get address of print method
+          jalr     $t0                #   call the method
+                                      # object2.print();         
+          la       $a0,object2        #   get address of second object
+          lw       $t0,0($a0)         #   get address of object's method
+          jalr     $t0                #   call the object's method
+          
+          li      $v0,10              # return to OS
+          syscall
+
+# Objects constructed in static memory.
+# The implementation of an object consists of the data for each object
+# and a jump table of entry points common to all objects
+# of this type.
+
+          .data
+object1:
+          .word    print                    # Jump Table
+          .word    cancel
+          .asciiz  "Hello World\n"          # This object's data
+
+object2:
+          .word    print                    # Jump Table
+          .word    cancel
+          .asciiz  "Silly Example\n"        # This object's data
+
+# print() method
+# Used by all objects.
+#
+# Parameter: $a0 == address of the object
+          .text         
+print:
+          li       $v0,4                   # print string service
+          addiu    $a0,$a0,8               # address of object's string
+          syscall                          # 
+          jr       $ra
+          
+# cancel() method
+# Used by all objects.
+#
+# Parameter: $a0 == address of the object
+# 
+# Registers:
+# $t0 == address of the char in the string
+# $t1 == char from the string
+# $t2 == 'x'
+
+          .text         
+cancel:
+          addiu    $t0,$a0,8       # the string starts 8 bytes
+                                   # from the start of the object
+          li       $t2,'x'         # replacement character                             
+          lb       $t1,0($t0)      # get first ch of string
+loop:     beqz     $t1,done        # while ( ch != '\0' )
+          sb       $t2,0($t0)      #   replace ch with 'x'
+          addiu    $t0,$t0,1       #
+          lb       $t1,0($t0)      #   get next ch
+          b        loop            # end while     
+done:
+          jr       $ra             # return to caller
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 19:</h3>
+<p>
+While a program is running,
+can an object be created
+out of dynamic memory?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_18.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_20.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:23 GMT -->
+</html>

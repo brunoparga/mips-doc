@@ -1,0 +1,130 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:56 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Single Precision Load</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes. 
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Single Precision Load</h1>
+<!-- ../Audio/chap31-04.mp3 -->
+<a id="load_instruction_(single_precision)"> </a>
+<a id="l.s_(instruction)"> </a>
+
+<br style="clear:both"> 
+<pre class="code" class="middle" style="border: 2px dotted green; padding:10px; background-color:white">
+l.s   fd,addr  # load register fd from addr
+               # (pseudoinstruction)
+</pre>
+
+<div class="left">
+<p>
+Actual
+hardware has a delay between a load instruction and the time
+when the data reaches the register.
+The electronics of main memory handles all bit patterns in the same
+way, so there is the same delay no matter what the bit patterns represent.
+</p>
+
+<p>
+In SPIM there is an option that disables the load delay.
+For this chapter,  disable the load delay.
+(Floating point is tricky enough already).
+</p>
+
+<p> 
+Loading a single precision value is done with a pseudoinstruction:
+</p>
+</div>
+
+
+<div class="right">
+<p><span class="highlight">
+This instruction loads 32 bits of data from address <code>addr</code>
+into floating point register <code class="register">$fd</code>. </span>
+<code class="register">$fd</code>  is 
+<code class="register">$f0</code>,
+<code class="register">$f1</code>,
+...
+<code class="register">$f31</code>.
+</p>
+
+<p>
+Whatever 32 bits are located at <code>addr</code> 
+are copied into  <code>fd</code>.
+If the data makes no sense as a floating point value, 
+that is OK for this instruction.
+Later on the mistake will be caught when floating point operations are attempted.
+</p>
+
+<p>
+The address <code>addr</code> must be full-word aligned, a multiple of four.
+</p>
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+<p>
+Every one of the 2<sup>32</sup> patterns that 32 bits can form is a legal
+two's complement integer.
+</p>
+
+<p>
+Are some 32-bit patterns not legal as floating point values?
+Hint: think about how zero is represented.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:57 GMT -->
+</html>

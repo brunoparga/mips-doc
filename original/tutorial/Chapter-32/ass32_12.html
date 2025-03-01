@@ -1,0 +1,102 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue May 04 10:31:43 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:16 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ending Test</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass32_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap32merge161718.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+Say that  <code>x</code>  is very close to  <code>n<sup>0.5</sup></code>.
+What do you think will be the value of <code>n/(x*x)</code>?
+</p>
+<h3>Answer:</h3>
+<p>
+It should be very close to <code>1.0</code>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Ending Test</h1>
+<!-- ../Audio/chap32merge161718.mp3 -->
+
+<p>
+But due to the lack of precision with floating point, the best we can
+hope for is to calculate an  <code>x</code> such that:
+</p>
+
+<pre class="code">
+0.999999  &lt;  n/(x*x)  &lt;  1.00001
+</pre>
+
+<p>
+The
+left and the right bound in the above have 6 decimal digits of precision.
+If 1.00000  is subtracted from this value the result is:
+</p>
+
+<pre class="code">
+-0.000001  &lt;  n/(x*x) - 1.0  &lt;  0.00001
+</pre>
+
+<p>
+To be safe, terminate the loop when:
+</p>
+
+<pre class="code"><span class="highlight">
+| n/(x*x) - 1.0 |  &lt;  0.00001</span>
+</pre>
+
+<p>
+where <code>|x|</code> means the absolute value of <code>x</code>.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+<p>
+Is there a floating point absolute value instruction?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass32_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:17 GMT -->
+</html>

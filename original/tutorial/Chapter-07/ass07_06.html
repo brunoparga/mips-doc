@@ -1,0 +1,136 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Feb 09 12:35:36 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:02 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unisgned Binary</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass07_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap07-06.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+2<sup>8</sup> - 1  &nbsp;=&nbsp; 256 - 1  &nbsp;=&nbsp; 255.&nbsp;
+</p>
+
+<p>
+There are 256 patterns possible with 8 bits.
+But when these patterns represent integers,
+One of the patterns (0000 0000) is used for zero.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Unisgned Binary</h1>
+<!-- ../Audio/chap07-06.mp3 -->
+<a id="unsigned_binary"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">
+The
+representation scheme we are looking at is
+called <b>unsigned binary</b> because no
+negative numbers are represented.</span>
+Often when people say "binary number" this
+is what they mean.
+Here are some of its characteristics:
+</p>
+
+<a id="unsigned_binary,_characteristics"> </a>
+<ol>
+<li>
+With N bits, 
+the integers 0, 1, 2,  ... , 2<sup>N</sup> - 1 can be
+represented.
+  <ul>
+  <li>
+  So, for instance, with 8 bits, the integers 0, 1,  ..., 2<sup>8</sup> - 1
+  can be represented.
+  This is 0 ... 255.<br> 
+  </li>
+  </ul><br> 
+</li>
+<li>
+With N bits, zero is represented by 0....0....0 (all 0's).<br><br>  
+</li>
+<li>
+(2<sup>N</sup> - 1) is represented by 1....1....1 (all 1's).<br><br>  
+</li>
+
+</ol>
+ 
+<p>
+These facts are <b>NOT always true</b> for other representation schemes!
+Know what scheme is being used before you decide what
+a pattern represents.
+</p>
+
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+Without doing any calculation,
+which of the following is the decimal equivalent of
+<code>1111 1111 1111</code>?
+</p>
+
+<ul>
+<li>2048</li>
+<li>4095</li>
+<li>16384</li>
+<li>18432</li>
+</ul>
+
+<p>Look at fact 3 in the list and think a bit.</p>
+
+<p>Hint: Actually, you should think <u>about</u> a bit.</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass07_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:03 GMT -->
+</html>

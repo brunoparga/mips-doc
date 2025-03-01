@@ -1,0 +1,119 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 27 19:53:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:30 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Traditional Example</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass22_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap22-05.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre>
+li  $v0,4          # code 4 == print string
+la  $a0,message    # $a0 == address of the string
+syscall            # Ask the operating system to 
+                   # perform the service.
+    . . . .
+
+         .data
+message: .asciiz      "Intruder Alert!\n"
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The Traditional Example</h1>
+<!-- ../Audio/chap22-05.mp3 -->
+
+<a id="hello_world_program"> </a>
+
+<pre class="program">
+# hello.asm
+#
+        .text
+        .globl  main
+main:
+        li      $v0,4       # code 4 == print string
+        la      $a0,string  # $a0 == address of the string
+        syscall             # Invoke the exception handler.
+
+        li      $v0,10      # code 10 == exit
+        syscall             # Halt the program.
+
+        .data
+string: .asciiz      "Hello SPIM!\n"
+
+</pre>
+
+<div class="left">
+<p>
+You
+are now ready to see the program you probably expected to
+see in Chapter One.<span class="highlight">
+The above program prints a string,
+then calls the <b>exit</b> service.</span>
+</p>
+</div>
+
+<div class="right">
+<p>
+The string is printed to the 
+monitor window of the simulator.
+The program is complete, and can be copied into
+a source file and run as is.
+But see the next page first.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+
+<p>
+On a real (hardware) computer,
+what is the exception handler?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass22_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:31 GMT -->
+</html>

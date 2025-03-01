@@ -1,0 +1,126 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Sep 17 18:05:34 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-09/ass09_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:29 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explanation Continued</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass09_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass09_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap09-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+(Memory test) Where was the first machine instruction placed in memory?
+</p>
+<h3>Answer:</h3>
+<p>
+0x00400000
+</p>
+
+<p>
+But you probably did not remember that.
+It would be nice to have names for addresses.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Explanation Continued</h1>
+<!-- ../Audio/chap09-13.mp3 -->
+
+<a id="symbolic_address"> </a>
+
+
+<pre class="program">
+## Program to add two plus three 
+        .text
+        .globl  main
+
+main:
+        ori     $8,$0,0x2       # put two's comp. two into register 8
+        ori     $9,$0,0x3       # put two's comp. three into register 9
+        addu    $10,$8,$9       # add register 8 and 9, put result in 10
+
+## End of file
+</pre>
+
+<div class="left">
+<p><span class="highlight">
+The line
+<b><code>main:</code></b>
+defines a <b>symbolic address</b>
+(sometimes called a <b>statement label</b>).</span>
+A symbolic address is a symbol (an identifier)
+that is the source code name for a location in memory.
+In this program, <b>main</b> 
+stands for the address of the first machine instruction
+(which turns out to be 0x00400000).
+Using a symbolic address is much easier 
+than using a numerical address.
+With a symbolic address, the programmer refers to
+memory locations by name and lets the assembler figure
+out the numerical address.
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">The symbol <code>main</code> 
+is global. </span>
+This means that several source files
+can use the symbol <code>main</code> to refer to
+the same location in storage.
+(However, SPIM does not use this feature.
+All our programs will be contained in a single source file.)
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+
+<p>
+(Test your intuition: ) Is it likely that several sections of a software
+system need to refer to each other?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass09_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass09_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-09/ass09_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:30 GMT -->
+</html>

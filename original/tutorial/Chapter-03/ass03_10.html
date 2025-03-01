@@ -1,0 +1,160 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Aug 31 19:18:25 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:16 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Octal</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass03_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap03-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+ 
+<ul style="font-size:1.5em;list-style-type: none;">
+<li>0000 1010 0001 0001 &nbsp; &nbsp; <span  style="color:blue;"> 0x0A11 </span></li>
+<li>0001 0010 1001 1010 &nbsp; &nbsp; <span  style="color:blue;"> 0x129A </span></li>
+<li>1111 1010 1101 1110 &nbsp; &nbsp; <span  style="color:blue;"> 0xFADE </span></li>
+<li>0011 0110 1100 0000 &nbsp; &nbsp; <span  style="color:blue;"> 0x36C0 </span></li>
+<li>0000 0000 0000 0000 &nbsp; &nbsp; <span  style="color:blue;"> 0x0000  <span style="font-size:0.4em">(be sure to show all zeros)</span></span></li>
+</ul>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Octal</h1>
+<!-- ../Audio/chap03-10.mp3 -->
+
+<div class="right">
+<table>
+<tr ><th colspan="4">Octal Names</th></tr>
+<tr ><th>nibble</th><th>pattern<br> name</th><th>nibble</th><th>pattern<br> name</th></tr>
+
+<tr><td>000</td>  <td>0</td>  <td>100</td>  <td>4</td>  </tr>
+<tr><td>001</td>  <td>1</td>  <td>101</td>  <td>5</td>  </tr>
+<tr><td>010</td>  <td>2</td>  <td>110</td>  <td>6</td>  </tr>
+<tr><td>011</td>  <td>3</td>  <td>111</td>  <td>7</td>  </tr>
+</table>
+</div>
+
+<div class="left">
+
+<a id="octal"> </a>
+<p>
+Sometimes 
+documentation describes bit
+patterns using groups of three. 
+<span class="highlight">Three-bit groups are named using the first eight
+pattern names of hexadecimal.
+This method is called <b>octal notation</b>.</span>
+A bit pattern can be named using hexadecimal names,
+octal names, or several other notations.
+</p>
+
+<pre class="code">
+01101010 = 01 101 010 =  152 (octal)
+01101010 = 0110 1010  = 0x6A (hex)
+</pre>
+
+<p>
+Octal is awkward to use with 8-bit bytes.
+Bytes don't evenly split into octal pattern names.
+But you should know about it.
+Historically, 
+some computer documentation 
+used octal pattern names.
+<span class="highlight">Also, in several programming languages
+(C and Java among them) an octal literal
+is indicated by a leading zero:</span>
+</p>
+
+
+<pre class="code">
+0152    (octal)    = 001 101 010 
+0x152   (hex)      = 0001 0101 0010 
+152     (decimal)  = 1001 1000 
+</pre>
+
+
+<p>
+<span class="highlight">When the number of bits
+is not a multiple of three it is
+conventional to add zero bits to the left,</span>
+and then to name the pattern as usual.
+This happens frequently because computer memory is organized into 8-bit bytes,
+which do not divide evenly into groups of three.
+</p>
+
+<p>
+I have lost an unfortunate number of hours
+with buggy programs,  only to discover
+a constant buried deep in the code that
+started with a "0" when it should not have.
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+What is the OCTAL pattern name of the following
+bit patterns:
+</p>
+
+<script src="../../ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $(".quest").mouseover(function(){$(this).children().css("color", "blue").fadeIn("fast");});
+    $(".quest").mouseout (function(){$(this).children().fadeOut("slow");});
+    });
+</script>
+
+<ul style="font-size:1.5em;list-style-type: none;">
+<li class="quest">111 010 001 &nbsp; &nbsp; <span style="display:none;"> 0721</span></li>
+<li class="quest">100 011 010 &nbsp; &nbsp; <span style="display:none;"> 0432 </span></li>
+<li class="quest">011011110 &nbsp; &nbsp;  <span style="display:none;"> 0336 </span></li>
+<li class="quest">11000000 &nbsp; &nbsp;    <span style="display:none;"> 0300 </span></li>
+</ul>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass03_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:17 GMT -->
+</html>

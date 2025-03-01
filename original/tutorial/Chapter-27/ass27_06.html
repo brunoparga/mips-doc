@@ -1,0 +1,199 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:28 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stack-based Linkage Convention</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap27merge0813.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre class="program">
+# subC might use $s0 and $s1         
+# subC does not call another subroutine
+#       
+subC:             
+         sub    $sp,$sp,4    # push $s0
+         sw     $s0,($sp)
+         sub    $sp,$sp,4    # push $s1
+         sw     $s1,($sp)
+
+         . . . .             # statements using $s0 and $s1
+
+         lw     $<span style="color:blue"><u>s1</u></span>,($sp)    # pop <span style="color:blue"><u>s1</u></span>
+         add    $sp,$sp,4
+         lw     $<span style="color:blue"><u>s0</u></span>,($sp)    # pop <span style="color:blue"><u>s0</u></span>
+         add    $sp,$sp,4
+
+         jr     $ra          # return to subB 
+         nop       
+</pre>
+
+<p><span class="highlight">
+The registers are popped in the <b>opposite order</b>
+that they were pushed.</span>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Stack-based Linkage Convention</h1>
+<!-- ../Audio/chap27merge0813.mp3 -->
+
+
+<a id="Stack-based_Linkage_Convention"> </a>
+
+<div class="left">
+<p>
+The
+Simple Linkage Convention can be extended into a
+<span class="highlight"><b>Stack-based Linkage Convention</b>.</span>
+This is not an official convention.
+However it could be used for a small assembly language
+project because it is not very 
+complicated and does nearly everything you need.
+</p>
+</div>
+
+<div class="right">
+<p> 
+If you want to link assembly language routines to
+"C" programs or to use routines from
+program libraries
+you need to use the full, official, linkage rules.
+(But on the SPIM simulator you can't do that, anyway.)
+Here are our much simpler rules:
+</p>
+</div>
+<br style="clear:both"> 
+ 
+<blockquote>
+<p>
+<b><span class="highlight">Subroutine Call</span></b>
+(done by the caller)
+</p>
+
+<blockquote>
+<ol start="1">
+<li>Push onto the stack any registers <code class="register">$t0-$t9</code>
+    that contain values that must be saved.
+    The subroutine might change these registers.</li>
+<li>Put argument values into <code class="register">$a0-$a3</code>.</li>
+<li>Call the subroutine using <code>jal</code>.</li>
+</ol>
+</blockquote>
+
+<p>
+<b><span class="highlight">Subroutine Prolog</span></b> 
+(done by the subroutine at its beginning)
+</p>
+
+<blockquote>
+<ol start="4">
+<li>If this subroutine might call other subroutines,
+    push <code class="register">$ra</code> onto the stack.</li>
+<li>Push onto the stack
+    any registers <code class="register">$s0-$s7</code>
+    that this subroutine might alter. </li>
+</ol>
+</blockquote>
+
+<p>
+<b><span class="highlight">Subroutine Body</span></b>
+</p>
+
+<blockquote>
+<ol start="6">
+<li>The subroutine may alter any T or A register, or any S
+    register that it saved in the prolog (step 5).</li>
+<li>If the subroutine calls another subroutine, then it does so
+    by following these rules.</li>
+</ol>
+</blockquote>
+
+<p>
+<b><span class="highlight">Subroutine Epilog</span></b>
+(done by the subroutine just before it returns to the caller)
+</p>
+
+<blockquote>
+<ol start="8">
+<li>Put returned values in  <code>$v0-$v1</code></li>
+<li>Pop from the stack
+    (in reverse order)
+    any registers <code class="register">$s0-$s7</code>
+    that were pushed in the prolog (step 5).</li>
+<li>If it was pushed in the prolog (step 4), pop the return address
+    from the stack into <code class="register">$ra</code>.
+<li>Return to the caller using  <code>jr $ra</code>.</li>
+</ol>
+</blockquote>
+
+<p>
+<b><span class="highlight">Regaining Control</span></b>
+from a subroutine (done by the caller)
+</p>
+
+<blockquote>
+<ol start="12">
+<li>Pop from the stack 
+    (in reverse order)
+    any registers <code class="register">$t0-$t9</code>
+    that were previously pushed (step 1).</li>
+</ol>
+</blockquote>
+</blockquote>
+ 
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+Why do you think there are both T and S registers?
+Why not just have S registers and make it a rule that a
+subroutine must save (and later restore) each one that it uses?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:29 GMT -->
+</html>

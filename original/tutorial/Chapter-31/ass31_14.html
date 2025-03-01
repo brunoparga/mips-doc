@@ -1,0 +1,143 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:17 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Movement</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+It clears (makes zero) the sign bit, bit 31.
+All the other bits stay the same.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Data Movement</h1>
+<!-- ../Audio/chap31-14.mp3 -->
+
+<a id="move,_single_precision"> </a>
+<a id="data_movement,_single_precision"> </a>
+<a id="floating_point_move"> </a>
+ 
+<table class="center"> 
+<tr><th>Instruction</th><th>Operation</th></tr>
+<tr><td>mov.s  fd, fs</td><td>
+                             <p>
+                             copy 32 bits from float register <code class="register">$fs</code> <br> to float register <code class="register">$fd</code>
+                             </p>
+                             </td></tr>
+<tr><td>mtc1  rs, fd</td><td>
+                             <p>
+                             <u>m</u>ove <u>t</u>o <u>c</u>oprocessor <u>1</u>
+                             </p>
+                             
+                             <p>
+                             Copy 32 bits from general register 
+                             <code class="register">$rs</code> <br> 
+                             to float register 
+                             <code class="register">$fd</code>.<br>
+                             No data conversion is done.
+                             <br />
+                             <b>Note:</b> the source register is <br>
+                             <code class="register">$rs</code> and the destination
+                             register is <br>
+                             <code class="register">$fd</code>, the reverse of the usual order.
+                             </p>
+                             </td></tr>
+<tr><td>mfc1  rd, fs</td><td>
+                             <p>
+                             <u>m</u>ove <u>f</u>rom <u>c</u>oprocessor <u>1</u>
+                             </p>
+                             <p>
+                             copy 32 bits from float register  
+                             <code class="register">$fs</code> 
+                             <br>to general register <code class="register">$rd</code>.<br>
+                             No data conversion is done.
+                             </p>
+                             </td></tr>
+</table>
+
+<div class="left">
+
+<p>
+There
+are three instructions that move data between
+registers inside the processor.
+</p>
+
+<p><span class="highlight">
+These instructions merely copy bit patterns between registers.
+The patterns are not altered.</span>
+With the <code>mfc1</code> instruction,
+the contents of a floating point register is copied "as is"
+to a general purpose register.
+</p>
+</div>
+
+<div class="right">
+<p>
+A complicated calculation with integers can use float registers
+to hold intermediate results.
+But the float registers cannot be used in integer instructions.
+And a complicated calculation with floats can use general purpose registers
+the same way.
+But the general purpose registers cannot be used in floating point instructions.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+
+<p>
+(Thought Question: )
+If a calculation needs to save an intermediate value,
+why not just save it to memory?  Or save it on the stack? Why bother saving it in a register?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:18 GMT -->
+</html>

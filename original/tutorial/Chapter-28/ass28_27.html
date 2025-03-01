@@ -1,0 +1,108 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:41 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_27.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:28 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursive Call</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_26.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_28.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-38.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-38.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+See Below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Recursive Call</h1>
+
+<a id="recursive_call"> </a>
+<p>
+</p>
+<pre class="program">
+         . . . . . .
+
+recurse:                          # else
+                                  #   return n*fact(n-1);
+         sub     $a0,$s1,1        #     argument0 = n-1
+                       
+                                  # subroutine call
+                                  #   1. No T registers to push
+                                  #   2. Argument is in $a0 
+         jal     fact             #   3. Jump and link to subroutine
+
+         mul     $<span style="color:blue">v0</span>,$<span style="color:blue">v0</span>,$<span style="color:blue">s1</span>      # n*fact(n-1)
+
+epilog:                           # epilog
+                                  #   1. Return value is already in $v0        
+         . . . . . .
+         jr      $ra              #
+</pre>
+<div class="left">
+
+<p><span class="highlight">
+Recursion
+has been implemented by using: (1) the normal machine operations
+of sequential execution, testing, and branching, and (2) the run-time stack.</span>
+</p>
+</div>
+
+<div class="right">
+<p>
+This is (yet another) example of a new level of abstraction being build
+upon a foundation level.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 27:</h3>
+<p>
+The programming language FORTRAN IV did not have support for recursion.
+Was it possible to write a recursive program in FORTRAN IV?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_26.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_28.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_27.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:29 GMT -->
+</html>

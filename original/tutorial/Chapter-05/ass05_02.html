@@ -1,0 +1,132 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 11:48:16 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:25 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Representing Characters</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass05_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap05-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Machine instructions.
+</p>
+
+<p> 
+(Many answers are correct;
+anything symbolic can be represented
+with bit patterns: 
+graphics, music, floating point numbers,
+internet locations, video, ...)
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Representing Characters</h1>
+<!-- ../Audio/chap05-02.mp3 -->
+
+<a id="ASCII"> </a>
+
+<p>
+<img src="printerA.gif"  class="rightimage" alt="dot matrix printed" >
+</p>
+
+
+<div class="left">
+
+<p>
+A group of 8 bits is a byte. 
+<span class="highlight">Typically one character
+is represented with one byte.</span>
+The agreement by the 
+American Standards Committee 
+on what
+pattern represents what character is called ASCII.
+(There are several ways to pronounce "ASCII".
+Frequently it is pronounced "&aacute;sk-ee").
+Most microcomputers and 
+many mainframes follow this standard.
+</p>
+
+<p>
+When a printer built to print ASCII receives
+the ASCII pattern for "A" 
+(along with some control signals),
+it prints an "A".
+Printers built to other specifications
+(typically for mainframe computers) might
+print some completely different character
+if sent the same pattern.
+</p>
+
+<p>
+Most modern printers are much more complicated
+than the one illustrated on the right.
+Typically,
+  a modern printer is sent an entire file of information
+  at once.
+  The file describes the layout and contents of an entire page.
+  ASCII characters are just some of the
+  information in the file.
+</p>
+
+<p>
+Modern computers use a character scheme called UTF-8.
+Nearly all web pages encode characters using this scheme.
+UTF-8 uses one to four bytes per character.
+Characters encoded with one byte correspond directly to ASCII,
+so valid ASCII is valid UTF-8.
+</p>
+
+</div>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+<p>
+(Thought Question: ) Does the DOS command TYPE expect
+a file containing ASCII characters? 
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass05_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:27 GMT -->
+</html>

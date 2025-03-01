@@ -1,0 +1,368 @@
+<!doctype html> 
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:58 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Programming Exercises for Chapter 17</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 06/29/2003</p>
+<hr />
+ 
+<h1> 
+Chapter 20 Programming Exercises
+</h1> 
+
+<hr />
+ 
+<p>
+For these programming exercises,
+use only those instructions that have been
+discussed so far in these notes:
+</p>
+
+<br>
+ 
+<table style="width:50%">
+<tr>
+<td>add   </td><td>div    </td><td>mflo    </td><td>slt, slti</td>
+</tr>
+<tr>
+<td>addi  </td><td>divu   </td><td>mult    </td><td>sltu, sltiu</td>
+</tr>
+<tr>
+<td>addiu </td><td>j      </td><td>multu   </td><td>sra</td>
+</tr>
+<tr>
+<td>addu  </td><td>lb     </td><td>nor     </td><td>srl</td>
+</tr>
+<tr>
+<td>and   </td><td>lbu    </td><td>or      </td><td>sub</td>
+</tr>
+<tr>
+<td>andi  </td><td>lh     </td><td>ori     </td><td>subu</td>
+</tr>
+<tr>
+<td>beq   </td><td>lhu    </td><td>sb      </td><td>sw</td>
+</tr>
+<tr>
+<td>bgez  </td><td>lui    </td><td>sh      </td><td>xor</td>
+</tr>
+<tr>
+<td>bltz  </td><td>lw     </td><td>sll     </td><td>xori</td>
+</tr>
+<tr>
+<td>bne   </td><td>mfhi   </td><td>&#160;  </td><td>&#160;  </td>
+</tr>
+</table>
+ 
+
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine ON, Allow Pseudo Instructions OFF,
+Delayed Branches ON,
+Delayed Loads ON, Mapped IO OFF, Load Exception Handler OFF.
+</p>
+
+<p>
+Run programs by 
+single stepping (pushing F10)
+or by  clicking <em>run</em> and allowing control to go beyond the program.
+Implement while loops by branching to a no-op (sll $0,$0,0) at the end of the loop when the loop finishes.
+</p>
+
+<p>
+A carefully thought-out and debugged flow chart will
+cut in half the time it takes to do one of these exercises.
+Plus you will learn good coding techniques and gain
+insight into programming languages and language translation.
+</p>
+
+<hr />
+
+<!-- untested -->
+
+<h2>*Exercise 1  &#8212; To Lower Case</h2>
+
+<p>
+Declare a string in the data section:
+</p>
+
+<pre>
+          .data
+string:   .asciiz    "ABCDEFG"
+</pre>
+
+<p>
+Write a program that converts the string to all lower case
+characters.
+Do this by adding 0x20 to each character in the string.
+(See Appendix F to figure out why this works.)
+</p>
+
+<p>
+Assume that the data consists only of upper-case alphabetical characters,
+with no spaces or punctuation.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- tested -->
+
+
+<h2>***Exercise 2  &#8212; Capitalization </h2>
+
+<p>
+Declare a string in the data section:
+</p>
+
+<pre>
+          .data
+string:   .asciiz    "in a  hole in the   ground there lived a hobbit"
+</pre>
+
+<p>
+Write a program that capitalizes the <u>first</u> letter of each word,
+so that after running your program the data will look like this:
+</p>
+
+<pre>
+          .data
+string:   .asciiz    "In A  Hole In The   Ground There Lived A Hobbit"
+</pre>
+
+<p>
+Easy version: assume that the data consists only of lower case characters
+and spaces.
+There may, however, be several spaces in a row. 
+Be sure to capitalize the first letter of the string.
+</p>
+
+<p>
+Medium-hard version: assume that the data consists only 
+of upper and lower case characters
+and spaces. Alter a character only if it is lower case and
+follows a space.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- tested 07/30/03 -->
+
+<h2>***Exercise 3  &#8212; Space Removal</h2>
+
+<p>
+Declare a string in the data section:
+</p>
+
+<pre>
+          .data
+string:   .asciiz    "    Is  this a dagger    which I see before me?     "
+</pre>
+
+<p>
+Write a program that removes all the spaces from the string so that
+the resulting string looks like:
+</p>
+
+<pre>
+          .data
+string:  .asciiz    "IsthisadaggerwhichIseebeforeme?"
+</pre>
+
+<p>
+Be sure to end the result string with a null after its
+final character.
+</p>
+
+<p>
+Easy version: declare a second buffer to hold the result string.
+Transfer non-space characters from the input string to the result string. 
+</p>
+
+<p>
+Medium-hard version: 
+Use only the buffer that holds the original string.
+Use two character pointers, one for the current character and
+another for its destination.
+</p>
+
+<p>
+The logic for this can be tricky.
+Figure out how you would do it with characters arrays in C or Java 
+before you try it with assembly.
+For testing, use a data string such as the following:
+</p>
+
+<pre>
+          .data
+string:  .asciiz    "aaaa bbbb  cccc   dddd    eeee"
+</pre>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+
+
+<!-- tested 07/30/03 -->
+
+<h2>**Exercise 4  &#8212;  Array Maximum and Minimum</h2>
+
+<p>
+Declare an array of integers, something like:
+</p>
+
+<pre>
+        .data
+size:   .word 8
+array:  .word 23, -12, 45, -32, 52, -72, 8, 13
+</pre>
+
+<p>
+Write a program that determines the minimum and the maximum
+element in the array.
+Assume that the array has at least one element
+(in which case, that element will be both the minimum and maximum.)
+Leave the results in registers.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+
+
+<!-- tested 07/30/03 -->
+
+<h2>**Exercise 5  &#8212;  Ascending Numbers</h2>
+
+<p>
+Declare an array of integers, something like:
+</p>
+
+<pre>
+        .data
+size:   .word 10
+array:  .word 2, 4, 7, 12, 34, 36, 42, 8, 57, 78
+</pre>
+
+<p>
+Write a program that 
+determines if the numbers form an increasing sequence
+where each integer is greater than the one to its left.
+If so, it sets a register to 1, 
+otherwise it sets the register to 0.
+</p>
+
+<p>
+Of course,
+write the program to work with an array of any size, including 0.
+Arrays of size 0 and size 1 are considered to be ascending sequences.
+The array can contain elements that are positive, negative, or zero.
+Test the program on several sets of data.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+
+
+<!-- tested 07/30/03 -->
+
+<h2>*Exercise 6  &#8212;  Paired Data</h2>
+
+<p>
+In this program data comes in pairs, say height and weight:
+</p>
+
+<pre>
+        .data
+pairs:  .word 5                  # number of pairs
+        .word 60, 90             # first pair: height, weight
+        .word 65, 105
+        .word 72, 256
+        .word 68, 270
+        .word 62, 115
+</pre>
+
+<p>
+Write a program that computes the average height and average weight.
+Leave the results in two registers.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+
+<h2>**Exercise 7  &#8212;  Array Reversal</h2>
+
+<p>
+Declare an array of integers in the usual way:
+</p>
+
+<pre>
+        .data
+size :  .word 7                     # number of elements
+        .word 1, 2, 3, 4, 5, 6, 7
+</pre>
+
+<p>
+Write a program that 
+reverses the order of elements in the array.
+The result will be as if the array were declared:
+</p>
+
+<pre>
+        .data
+size :  .word 7                     # number of elements
+        .word 7, 6, 5, 4, 3, 2, 1
+</pre>
+
+<p>
+Test that the program works on arrays of several lengths,
+both even and odd lengths.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:58 GMT -->
+</html>
+

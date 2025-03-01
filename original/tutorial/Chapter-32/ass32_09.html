@@ -1,0 +1,145 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue May 04 10:31:43 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:01 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start of the Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass32_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap32-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+<code>x = 2.5</code>, a better approximation to the square root of 4.0.
+</p>
+
+<p>
+Now using <code>x = 2.5</code> in the formula yields:
+</p>
+
+<pre class="code">
+x' = (1/2)(2.5 + 4/2.5) <br> 
+   = (1/2)(2.5 + 1.6) <br>
+   = (1/2)(4.1) <br>
+   = 2.05<br>
+</pre>
+
+<p>
+This is a better yet approximation, and could be fed back into the
+formula to get an even better approximation.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Start of the Program</h1>
+<!-- ../Audio/chap32-13.mp3 -->
+
+<pre class="program">
+## newton.asm -- compute sqrt(n) 
+
+## given an approximation x to sqrt(n),
+## an improved approximation is:
+
+## x' = (1/2)(x + n/x)
+
+## $f0  ---  n
+## $f1  ---  1.0
+## $f2  ---  2.0
+## $f3  ---  x  : current approx.
+## $f4  ---  x' : next approx.
+## $f8  ---  temp
+## $f10 ---  accuracy limit, a small value
+
+        .text
+        .globl main
+
+main:   
+
+        l.s     $f0,n               # get n
+        li.s    $f1,1.0             # constant 1.0
+        li.s    $f2,2.0             # constant 2.0
+        li.s    $f3,1.0             # x == first approx.
+        li.s    $f10,1.0e-5         # accuracy limit
+loop:
+
+        . . . .                     # to be continued
+        
+##  Data Segment  
+##
+        .data
+n:      .float  3.0
+</pre>
+<br style="clear:both"> 
+
+<div class="left">
+
+<p>
+This example program implements this procedure.
+It repeatedly uses the formula to calculate
+increasingly accurate approximations to the square root.
+</p>
+
+<p><span class="highlight">
+The program will stop looping
+when no further improvement is possible.
+We can't expect to get the answer exactly correct.</span>
+</p>
+</div>
+
+<div class="right">
+<p>
+The program uses a hard-coded value for <code>n</code>,
+but could easily be improved by asking the user for it.
+It should also check that the value is greater than zero.
+</p>
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+(Memory test: ) How many decimal places of precision
+can be expected with floating point?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass32_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:02 GMT -->
+</html>

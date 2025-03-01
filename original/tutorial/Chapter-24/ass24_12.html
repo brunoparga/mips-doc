@@ -1,0 +1,133 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:09 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Four Levels</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-14.mp3 -->
+
+
+<h3>Answer:</h3>
+<p>
+When the code that the assembler generates is actually executing.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Four Levels</h1>
+
+<a id="indexed_addressing,_mechanics"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">This
+is a very "Computer Science"-like idea.</span>
+It takes some careful thought to see what is going on.
+Here is a table:
+</p>
+</div>
+<br style="clear:both"> 
+
+<table>
+<tr style="height:30px">
+<th>What the  programmer writes</th>
+<th>What the extended  assembler translates  it into</th>
+<th>What the basic assembler translates the code into</th>
+<th>What happens at run time</th>
+</tr>
+<tr>
+
+<td>
+<pre style="text-align:left;padding:5px">
+li    $t1,2 
+lb    $v0,data($t1) 
+</pre>
+</td>
+
+<td>
+<pre style="text-align:left;padding:5px">
+ori   $t1,$0,2 
+lui   $at,4097
+addu  $at,$at,$t1
+lb    $v0,0($at)
+</pre>
+(4097 is the upper half of the address of data.)
+</td>
+
+<td>
+ 
+<pre>
+34090002
+3c011001
+00290821
+80220000
+</pre>
+</td>
+
+<td style="text-align:left;padding:5px;width:25%">
+<br> 
+The first three machine instructions 
+execute, placing the address of the 
+third byte of the array into register 
+<code class="register">$1</code> . <br><br> 
+The fourth machine instruction loads the 
+byte at that address into register  
+<code class="register">$2</code> ( <code class="register">$v0</code>).<br>
+<br> 
+</td>
+</tr>
+</table>
+
+<br>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+<p>
+At what index do "C" and Java arrays begin?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:10 GMT -->
+</html>

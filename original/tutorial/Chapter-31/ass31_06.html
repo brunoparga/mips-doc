@@ -1,0 +1,110 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:33 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floating Point Load Immediate</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-06.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+To free up a general purpose register for some other use.
+</p>
+
+<p>
+(You might also push the register's contents on the run-time stack, and later
+pop it back into the register.)
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Floating Point Load Immediate</h1>
+<!-- ../Audio/chap31-06.mp3 -->
+
+
+<pre class="code" class="middle" style="border: 2px dotted green; padding:10px; background-color:white">
+li.s   fd,val     # load register $fd with val
+                  # (pseudoinstruction)
+</pre>
+ 
+
+<p><span class="highlight">
+There
+is a floating point <b>load immediate</b> pseudoinstruction.</span>
+This loads a floating point register with a
+value that is specified in the instruction.
+</p>
+ 
+
+<a id="load_immediate_instruction_(floating_point)"> </a>
+<a id="li.s_(instruction)"> </a>
+
+ 
+
+<p>
+Here is a code snippet showing this:
+</p>
+
+<pre class="code">
+li.s    $f1,1.0             # $f1 =  1.0
+li.s    $f2,2.0             # $f2 =  2.0
+li.s    $f10,1.0e-5         # $f10 = 0.00001
+li.s    $f5,-0.1            # $f5 = -0.1
+</pre>
+
+<p>
+Recall that for SPIM assembly language, only lower-case "e" is allowed in floating point constants.
+(Most programming language allow both upper and lower case.)
+</p>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+(Take a guess: ) Could the first instruction be written as &nbsp;  <code>li.s $f1,1</code> &nbsp;  ?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:34 GMT -->
+</html>

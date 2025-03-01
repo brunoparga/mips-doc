@@ -1,0 +1,136 @@
+<!doctype html> 
+
+<!-- HTML5 Validation 05/19/2016 -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:04 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css">
+
+</head>
+
+<body>
+
+<p class="revisions">
+created 07/04/2003; edited 05/31/2015
+</p>
+
+<hr>
+<h1> 
+Chapter 25 Programming Exercises
+</h1>
+
+<hr>
+ 
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine OFF, Accept Pseudo Instructions ON,
+Enable Branch Delays ON,
+Enable Load Delays ON, Enable Mapped IO OFF, Load Exception Handler ON.
+</p>
+
+<p>
+Run the programs 
+by loading the exception handler
+and clicking <u>S</u>imulator <u>R</u>un. 
+</p>
+<hr>
+
+<!-- untested -->
+
+<h2>*Exercise 1 &#8212; Arithmetic Evaluation (stack-based)</h2>
+
+<p>
+Write a program to evaluate 
+<code>3ab - 2bc - 5a + 20ac - 16</code>
+</p>
+
+<p>
+Prompt the user for the values
+<code>a, b,</code> and <code>c</code>. 
+Try to use a small number of registers.
+Use the stack to hold intermediate values.
+Write the final value to the monitor.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part7"> Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+<!-- untested -->
+
+<h2>**Exercise 2 &#8212; String Reversal (stack-based)</h2>
+
+<p>
+Write a program that asks the user for a string.
+Read the string into a buffer,
+then reverse the string using the stack.
+However, unlike the example in the chapter,
+don't push a null character on the stack.
+Keep track of the number of characters on the
+stack by incrementing a count each time a character
+is pushed, and decrementing it each time a character is popped.
+Write out the reversed string.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part6"> Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+
+<!-- untested -->
+
+<h2>***Exercise 3 &#8212; Vowel Removal (stack-based)</h2>
+
+<p>
+Write a program that asks the user for a string.
+Read the string into a buffer.
+Now scan the string from right to left
+starting with the right-most character
+(this is the one just before the null termination.)
+Push each non-vowel character onto the stack.
+Skip over vowels.
+</p>
+
+<p>
+Now pop the stack character by character back into the buffer.
+Put characters into the buffer from left to right.
+End the string with a null byte.
+The buffer will now contain the string,
+in the correct order,
+without vowels.
+</p>
+
+<p>
+Write out the final string.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part6"> Click here </a> to go back to the main menu.
+</p>
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<hr>
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:04 GMT -->
+</html>
+

@@ -1,0 +1,130 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:32 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natural If-Else Structure</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-05.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-05.mp3 -->
+
+
+<h3>Answer:</h3>
+<p>
+No assumptions are necessary. It tests if two bit patterns are identical.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Natural If-Else Structure</h1>
+
+<a id="if-else_structure"> </a>
+
+
+<pre class="program">
+#
+# If val is even, add it to $t2
+# else, add the value to $t1
+#
+        lw    $t0,val          # $t0 has the value
+        andi  $t8,$t0,1        # one's place in $t8 is zero or one
+        
+        <input type="text" size="3">  $t8,odd      # if even
+                               # {
+        addu  $t2,$t2,$t0      #     add to $t2
+        b     endif            # }
+        
+odd:                           # else
+        addu  $t1,$t1,$t0      #     add to $t1
+        
+endif:  nop
+
+.....
+
+       .data
+val:   .word  37
+</pre>
+<br style="clear:both"> 
+
+<div class="left">
+<p><span class="highlight">
+When a branch statement is used to test a condition,
+the statements that follow it are skipped when 
+the condition is <code>True</code>.</span>
+</p>
+
+<p> 
+This is the opposite of high-level languages.
+With them, an if-statement is immediately followed by the
+statements that correspond to "true".
+Watch out for this problem when you are coding.
+Careful documentation helps.
+</p>
+
+</div>
+
+<div class="right">
+<p><span class="highlight">
+An unconditional branch instruction is used at the bottom
+of the true branch to skip around the false branch.</span>
+</p>
+
+<p>
+(In this chapter, the SPIM simulator has been set so that
+delayed branches are OFF
+and delayed loading is OFF, so no-ops are not included in
+this program fragment.)
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+<p>
+Fill in the blank by choosing the correct branch instruction
+(refer to the previous table).
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:33 GMT -->
+</html>

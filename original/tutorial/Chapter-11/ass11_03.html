@@ -1,0 +1,133 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:36 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero Extension</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<ul>
+<li>What bit pattern is contained in register <code class="register">$0</code> ?
+    <ul><li><span class="blue">All zero bits</span></li></ul></li>
+<li>How many bits are there in each MIPS instruction?
+    <ul><li><span class="blue">32 bits</span></li></ul></li>
+</ul>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Zero Extension</h1>
+<!-- ../Audio/chap11-03.mp3 -->
+
+
+<a id="zero_extension"> </a>
+<a id="padding_with_zeros"> </a>
+
+<p>
+Look
+again at the instruction:
+</p>
+
+<pre class="code">
+address         machine code      assembly code
+
+0x00400000      0x3408<u>0002</u>        ori $8,$0,0x2
+</pre>
+
+
+<p>
+The sixteen bits of immediate operand, 
+</p>
+
+<pre><code>0000 0000 0000 0010</code></pre>
+
+<p>
+are to be bitwise ORed with the thirty-two bits of register zero,
+</p>
+
+<pre><code>0000 0000 0000 0000 0000 0000 0000 0000</code></pre>
+
+<div class="left">
+<p>
+This would not ordinarily be possible
+because the operands are different lengths.
+However, <span class="highlight">
+when the instruction is executed
+the processor <b>zero extends</b> the sixteen-bit operand
+so the operands are the same length.</span>
+Sometimes this is called <em>padding with zeros</em> on the left.
+</p>
+</div>
+<br style="clear:both"> 
+ 
+<pre> 
+   zero extension
+---- ---- ---- ----
+<span class="blue">0000 0000 0000 0000</span> 0000 0000 0000 0010   -- zero extended immediate operand
+0000 0000 0000 0000 0000 0000 0000 0000   -- data in register $0
+---------------------------------------
+0000 0000 0000 0000 0000 0000 0000 0010   -- result, put in register $8
+
+</pre>
+ 
+ 
+<div class="left">
+<p>
+An OR operation is done in each column.
+The 32-bit result is placed in register <code class="register">$8</code> .
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+After the instruction
+<code>ori $8,$0,0x2</code>
+executes, what is in <code class="register">$8</code>  ?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:37 GMT -->
+</html>

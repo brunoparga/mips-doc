@@ -1,0 +1,136 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:48 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Negative Six Again</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-25.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre class="code">
+The positive integer: 0000 0110     ( 6<sub>10</sub> )
+
+Reflect each bit:     1111 1001
+
+Add one:              1111 1010     ( -6<sub>10</sub> )
+</pre>
+
+<p>
+The result is the same representation for minus six as
+we figured out before.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Negative Six Again</h1>
+<!-- ../Audio/chap08-25.mp3 -->
+
+<p>
+Here is what is going on:
+<span class="highlight">When each bit of a pattern is reflected
+then the two patterns added
+together make all 1's.</span>
+This works for all patterns:
+</p>
+
+<pre class="code">
+      0110 1010   pattern
+     <u> 1001 0101 </u>  pattern reflected
+      1111 1111   all columns filled
+</pre>
+
+<p><span class="highlight">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-26.mp3" target="audioPlayer">A</a>dding one to this pattern  
+creates a pattern of all zero's:</span>
+</p>
+
+<pre>
+     11111 111    row of carry bits
+      1111 1111   all columns filled
+    <u>  0000 0001 </u>  one
+      0000 0000
+</pre>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-27.mp3" target="audioPlayer">T</a>he
+negation algorithm makes use of the above trick.
+Three patterns added together result in a zero.
+If one pattern represents an integer,
+then the sum of the other two patterns represents
+the negative of the integer.
+</p>
+
+<pre class="code">
+pattern +  pattern reflected               = all ones
+
+pattern +  pattern reflected + one         = all zeros
+
+pattern + (pattern reflected + one )       = all zeros
+
+pattern + (two's complement of pattern)    = all zeros
+</pre>
+
+<p>
+Don't be too upset if the above is confusing.
+Mostly all you need is to get used to this stuff.
+Of course, this takes practice.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 18:</h3>
+<p>
+What is the two's complement of 0100 0111?
+</p>
+
+<p>
+Reflect: <input type="text" size="10" name="reflect" /> 
+</p>
+<p>
+Add one: <input type="text" size="10" name="reflect" />
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:49 GMT -->
+</html>

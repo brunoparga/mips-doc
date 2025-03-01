@@ -1,0 +1,163 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:53 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Implicit Immediate Operand</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-03.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+
+<code>
+not $s1,$t5
+</code>
+&nbsp; &nbsp; = &nbsp; &nbsp; 
+<code>
+nor  $s1, $t5, $0
+</code>
+</p>
+
+<p>
+The order of <code>$t5</code> and <code>$0</code> could be reversed.
+(You could also say <code>$zero</code> rather than  <code>$0</code>.)
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Implicit Immediate Operand</h1>
+
+
+<a id="immediate_operand,_implicit"> </a>
+
+<div class="left"> 
+<p><span class="highlight">
+Some pseudoinstructions
+translate into different basic instructions
+depending on the type of operands.</span>
+</p>
+
+<p>
+A pseudoinstruction used with  an immediate operand 
+translates into different basic instructions
+than one used with all register operands.
+
+<p><span class="highlight">
+Sometimes the same mnemonic
+is used for a basic instruction and also for a 
+pseudoinstruction.</span>
+For example, you can use the mnemonic <code>or</code>
+for an or with register operands and also for an or with an immediate operand:
+</p>
+
+<pre class="code">
+or $s0,$s1,0x00ff      
+
+translates into:      
+
+ori $s0,$s1,0x00ff
+</pre>
+
+<p>
+Here, the extended assembler notices the immediate
+operand and translates the instruction into an 
+<code>ori</code> basic instruction.
+The resulting machine code is a 32-bit or immediate.
+</p>
+</div>
+
+<div class="right">
+<p> 
+However, the following statement is not translated into
+a pseudoinstruction:
+</p>
+
+<pre class="code">
+or $s0,$s1,$t1 
+</pre>
+
+<p>
+It corresponds to a basic instruction.
+The resulting machine code is a 32-bit <code>or</code>  instruction.
+</p>
+
+<p>
+The mnemonic
+<code>and</code>
+is similar.
+It might call for the
+basic instruction 
+<code>and</code>,
+or the basic instruction
+<code>andi</code>,
+or other basic instructions
+depending on the operands.
+</p>
+
+<p>
+There is no flexibility at the
+machine code level.
+The op-code for <code>or</code> requires three registers to be specified
+in the 32-bit instruction.
+The op-code for <code>ori</code> is different, and requires two registers 
+and an immediate operand.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+
+
+<p>
+Is there both a basic add instruction and an add immediate 
+instruction?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:54 GMT -->
+</html>

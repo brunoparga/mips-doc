@@ -1,0 +1,123 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon May 31 12:11:38 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:41 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traversing a Linked List</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass34_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap34-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+In MIPS, 32 zero bits.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Traversing a Linked List</h1>
+<!-- ../Audio/chap34-11.mp3 -->
+
+
+<a id="traversal"> </a>
+
+
+<form>
+<pre class="program">
+## linked.asm --- hard-coded linked list
+##
+          .text
+          .globl main
+          
+main:
+          <input type="text" size="8" name="T1" />   $s0,elmnt01    # get the address of the first node
+          
+loop:     beqz   $s0,done       # while not null
+
+          . . .          
+done:    
+
+          . . .
+                     
+          .data
+
+elmnt01:  .word  1
+          .word  elmnt02
+
+elmnt02:  .word  2
+          .word elmnt03 
+
+          . . . 
+</pre>
+</form>
+
+<div class="left">
+
+<p>
+<span class="highlight">Here is a program that visits every node of a linked list
+and prints out its data.</span>
+A visit to every node of a data structure is called a <b>traversal</b>. 
+</p>
+</div>
+
+<div class="right">
+<p>
+The first statement loads register <code class="register">$s0</code> with
+the <b>address</b> of the first node.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+Which instruction should fill the blank in the first statement:
+</p>
+
+<ul>
+<li>lw  --- load a register with the <u>data</u> stored at a symbolic address</li>
+<li>la  --- load a register with the <u>address</u> corresponding to a symbolic address</li>
+</ul>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass34_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:42 GMT -->
+</html>

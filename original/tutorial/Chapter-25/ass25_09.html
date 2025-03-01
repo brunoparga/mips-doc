@@ -1,0 +1,137 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 11:37:41 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:54 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Runtime Stack</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass25_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap25merge1011.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap25merge1011.mp3 -->
+
+
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Runtime Stack</h1>
+
+<a id="stack,_in_MIPS_memory"> </a>
+
+<div class="right">
+<img src="../Chapter-10/memoryLayout.gif"   alt="memory layout">
+</div>
+
+<div class="left">
+
+
+<p>
+There
+is a finite amount of memory, even in the best computer systems.
+So it is possible to push more words than there are words of memory.
+Usually this would be the result of an infinite loop 
+because when a program is first entered the operating system gives it
+space for a very large stack.
+</p>
+
+<p><span class="highlight">
+The picture shows how a 
+typical operating system arranges memory
+when a program starts running.</span>
+</p>
+
+<p>
+There are four gigabytes of (virtual) memory available in total.
+The section of memory from 0x10000000 to 0x7FFFFFFF is available for
+the data segment and the stack segment.
+This is 1.8 Gigabytes of space.
+</p>
+
+<p>
+When
+the program is started the stack pointer (<code class="register">$sp</code>) is
+initialized to  0x7FFFFFFC
+(the address of the last fullword of user memory).
+<span class="highlight">As the program runs,
+the stack grows downward into the available space.</span>
+</p>
+
+<p> 
+Dynamically allocated memory is implemented by the data segment.
+This is where objects are allocated (in object oriented programming),
+or where <code>malloc()</code> allocates memory in C programming.
+<span class="highlight">The data segment grows upward as the program runs.</span>
+(This is the subject of chapter 33.)
+</p>
+
+<p>
+In a dynamic program,
+the segments grow and shrink.
+If the combined size of the segments exceeds the
+available space their boundaries will meet
+somewhere in the middle of the range.
+When this happens there is no memory left.
+</p>
+
+<p>
+Another (inferior) way of arranging memory might
+be to divide the space above the text segment
+so the stack gets half and the data segment gets half.
+But now the stack could grow too large for its
+allocated space, even if there was a tiny data segment
+that used little of its space.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+Which segment is for the machine instructions?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass25_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:55 GMT -->
+</html>

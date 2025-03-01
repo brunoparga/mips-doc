@@ -1,0 +1,117 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:30 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Binary Addition Algorithm</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+In binary:
+</p>
+
+<pre>
+0 + 0 = 0
+0 + 1 = 1
+1 + 0 = 1
+1 + 1 = 10
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The Binary Addition Algorithm</h1>
+<!-- ../Audio/chap08-02.mp3 -->
+
+<a id="carry_(in_binary_addition)"> </a>
+
+<p><span class="highlight">
+The <b>binary addition algorithm</b> 
+is a bit-pattern manipulation procedure
+that is built into the hardware 
+of (nearly) all computers.</span>
+All computer scientists and computer engineers know it.
+</p>
+ 
+<img src="binaryAdditionTable.gif" class="center" alt="Rules for Binary Addition">
+
+<p>
+Let us start by adding 1-bit  integers.
+The
+operation is performed on three bits.
+Arrange the bits
+into a  column.
+The bit at the top of the column is called
+the "carry into the column".
+The operation produces a two-bit result.
+The left bit of the result is called the "carry out of the column".
+</p>
+
+<p>
+<b>To add two 1-bit</b> (representations  of) <b>integers:</b>
+<span class="highlight">Count the number of ones in a column
+and write the result in binary.</span>
+The right bit of the result is placed under the column of bits.
+The left bit is called the "carry out of the column".
+The table shows the outcomes with all possible
+operands.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+<p>
+Perform the following additions:
+</p>
+
+<pre>
+  1             0             1
+  0             1             1
+<u>  1  </u>         <u>  0  </u>         <u>  0  </u>
+<input type="text" size="3" name="answer1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="3" name="answer2" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="3" name="answer3" /> 
+</pre> 
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:32 GMT -->
+</html>

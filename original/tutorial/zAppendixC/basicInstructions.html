@@ -1,0 +1,775 @@
+<!doctype html5> 
+
+<!-- revised 05/24/2015  HTML5 validation -->
+<!-- revised 09/10/2022  Rev 3 style sheet -->
+
+
+<!doctype html> 
+<html lang="en">
+ 
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixC/basicInstructions.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:16 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Basic MIPS Instructions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+<p class="revisions">
+Created: 08/07/03
+</p>
+
+<hr />
+
+<div class="lesson">
+<h1 ><span class="chapterTitle">Basic MIPS Instructions</span></h1>
+
+
+<p>
+These are the assembly language statements covered in these
+notes that each directly correspond to one machine language
+instruction.
+There are additional basic assembly language statements
+that are not covered in these notes.
+</p>
+
+<p>
+When pseudoinstructions are enabled,
+  many of these instructions also correspond to pseudoinstructions
+  that have greater flexibility in the arguments that they allow.
+</p>
+
+<p>
+In the following, <code>d, s, </code> and <code>t</code> are general purpose registers.
+Register <code>d</code> receives the result of operation between the contents of registers <code>s</code> and <code>t</code> .
+</p>
+
+<table  style="margin-left: auto; margin-right:auto;">
+
+<tr><th>Instruction</th><th>Operands</th><th>Description</th></tr>
+
+<tr>
+<td>           
+add 
+</td>
+<td>           
+d,s,t 
+</td>
+<td>
+<pre>
+d &larr; s+t ; with overflow trap
+</pre>
+</td>
+</tr>
+
+<tr>
+<td>           
+addu 
+</td>
+<td>           
+d,s,t 
+</td>
+<td>
+<pre>
+d &larr; s+t ; without overflow trap
+</pre>
+</td>
+</tr>
+
+<tr>
+<td>           
+addi 
+</td>
+<td>           
+d,s,const
+</td>
+<td>
+<pre>
+d &larr; s+const ; with overflow trap
+      const is 16-bit two's comp
+</pre>
+</td>
+</tr>
+
+<tr>
+<td>           
+addiu 
+</td>
+<td>           
+d,s,const 
+</td>
+<td>
+<pre>
+d &larr; s+const ; without overflow trap
+      const is 16-bit two's comp
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+and  
+</td>
+<td>           
+d,s,t 
+</td>
+<td>
+<pre>
+d &larr; bitwise AND of s with t
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+andi  
+</td>
+<td>           
+d,s,const 
+</td>
+<td>
+<pre>
+d &larr; bitwise AND of s with const 
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+beq 
+</td>
+<td>           
+s,t,addr
+</td>
+<td>
+<pre>
+branch if s == t
+A branch delay slot follows the instruction.
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+bgez
+</td>
+<td>           
+s,addr
+</td>
+<td>
+<pre>
+Branch if the two's comp. integer
+in register s is &gt;= 0
+A branch delay slot follows the instruction.
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+bltz
+</td>
+<td>           
+s,addr
+</td>
+<td>
+<pre>
+Branch if the two's comp. integer
+in register s is &lt; 0
+A branch delay slot follows the instruction.
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+bne 
+</td>
+<td>           
+s,t,addr
+</td>
+<td>
+<pre>
+branch if s != t
+A branch delay slot follows the instruction.
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+div  
+</td>
+<td>           
+s,t 
+</td>
+<td>
+<pre>
+lo &larr; s div t ; hi &larr; s mod t
+   two's comp. operands
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+divu  
+</td>
+<td>           
+s,t 
+</td>
+<td>
+<pre>
+lo &larr; s div t ; hi &larr; s mod t
+   unsigned operands
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+j  
+</td>
+<td>           
+target
+</td>
+<td>
+<pre>
+after a delay of one machine cycle,
+PC  &larr; address of target 
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+lb
+</td>
+<td>           
+d,off(b) 
+</td>
+<td>
+<pre>
+d &larr; Sign-extended byte from 
+      memory address b+off
+  off is 16-bit two's complement
+</pre>
+</td>
+</tr>
+
+
+<!-- -->
+<tr>
+<td>           
+lbu
+</td>
+<td>           
+d,off(b) 
+</td>
+<td>
+<pre>
+d &larr; Zero-extended byte 
+      from memory address b+off
+      off is 16-bit two's complement
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+lh
+</td>
+<td>           
+d,off(b)    
+</td>
+<td>
+<pre>
+t &larr; Sign-extended halfword 
+      from memory address b+off
+      off is 16-bit two's complement
+</pre>
+</td>
+</tr>
+
+
+<!-- -->
+<tr>
+<td>           
+lhu
+</td>
+<td>           
+d,off(b)    
+</td>
+<td>
+<pre>
+t &larr; Zero-extended halfword 
+      from memory address b+off
+      off is 16-bit two's complement
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+lui  
+</td>
+<td>           
+d,const  
+</td>
+<td>
+<pre>
+upper two bytes of $t &larr; two byte const 
+lower two bytes of $t &larr; 0x0000 
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+lw  
+</td>
+<td>           
+d,off(b)
+</td>
+<td>
+<pre>
+d &larr; Word from memory address b+off
+      off is 16-bit two's complement. 
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+mfhi  
+</td>
+<td>           
+d 
+</td>
+<td>
+<pre>
+d &larr; hi ;  Move From Hi
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+mflo  
+</td>
+<td>           
+d 
+</td>
+<td>
+<pre>
+d &larr; lo ;  Move From Lo
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+mult  
+</td>
+<td>           
+s,t 
+</td>
+<td>
+<pre>
+hi | lo &larr; s * t  
+two's comp operands 
+64-bit result in 64-bit pair hi and lo
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+multu  
+</td>
+<td>           
+s,t 
+</td>
+<td>
+<pre>
+hi | lo &larr; s * t 
+unsigned operands 
+64-bit result in 64-bit pair hi and lo
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+nor  
+</td>
+<td>           
+d,s,$0 
+</td>
+<td>
+<pre>
+d &larr; bitwise NOT of s
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+nor  
+</td>
+<td>           
+d,s,t 
+</td>
+<td>
+<pre>
+d &larr; bitwise NOR of s with t
+</pre>
+</td>
+</tr>
+
+<tr>
+<td>           
+or  
+</td>
+<td>           
+d,s,$0 
+</td>
+<td>
+<pre>
+d &larr; s
+</pre>
+</td>
+</tr>
+
+<tr>
+<td>           
+or  
+</td>
+<td>           
+d,s,t 
+</td>
+<td>
+<pre>
+d &larr; bitwise OR of s with t 
+</pre>
+</td>
+</tr>
+
+<tr>
+<td>           
+ori 
+</td>
+<td>           
+d,$0,const 
+</td>
+<td>
+<pre>
+d &larr; zero-extended const
+</pre>
+</td>
+</tr>
+
+<tr>
+<td>           
+ori 
+</td>
+<td>           
+d,s,const
+</td>
+<td>
+<pre>
+d &larr; s OR zero-extended const
+ </pre>
+</td>
+</tr>
+
+
+<!-- -->
+<tr>
+<td>           
+sb 
+</td>
+<td>           
+d,off(b)   
+</td>
+<td>
+<pre>
+byte at off+b &larr; low-order byte from register $d.
+off is 16-bit two's complement 
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+sh
+</td>
+<td>           
+d,off(b)    
+</td>
+<td>
+<pre>
+two bytes at off+b &larr; two low-order bytes 
+                      from register $d.
+off is 16-bit two's complement 
+</pre>
+</td>
+</tr>
+
+
+<!-- -->
+<tr>
+<td>           
+sll  
+</td>
+<td>           
+$0,$0,0 
+</td>
+<td>
+<pre>
+no operation
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+sll  
+</td>
+<td>           
+d,s,shft 
+</td>
+<td>
+<pre>
+d &larr; logical left shift of s by shft positions 
+      where  0 <= shft < 32
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+slt  
+</td>
+<td>           
+d,s,t 
+</td>
+<td>
+<pre>
+if s &lt; t
+  d &larr; 1
+else
+  d &larr; 0
+
+two's comp. operands 
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+slti  
+</td>
+<td>           
+d,s,imm
+</td>
+<td>
+<pre>
+if s &lt; imm
+  d &larr; 1
+else
+  d &larr; 0
+
+two's comp. operands 
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+sltiu  
+</td>
+<td>           
+d,s,imm
+</td>
+<td>
+<pre>
+if s &lt; imm
+  d &larr; 1
+else
+  d &larr; 0
+
+unsigned operands 
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+sltu  
+</td>
+<td>           
+d,s,t 
+</td>
+<td>
+<pre>
+if s &lt; t
+  d &larr; 1
+else
+  d &larr; 0
+
+unsigned operands 
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+sra 
+</td>
+<td>           
+d,s,shft 
+</td>
+<td>
+<pre>
+d &larr; arithmetic right shift of s by shft positions 
+      where  0 &lt;= shft &lt; 32
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+srl  
+</td>
+<td>           
+d,s,shft 
+</td>
+<td>
+<pre>
+d &larr; logical right shift of s by shft positions 
+      where  0 <= shft < 32
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+sub  
+</td>
+<td>           
+d,s,t 
+</td>
+<td>
+<pre>
+d &larr; s - t; with overflow trap
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+subu
+</td>
+<td>           
+d,s,t
+</td>
+<td>
+<pre>
+d &larr; s - t; no overflow trap
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+sw 
+</td>
+<td>           
+d,off(b) 
+</td>
+<td>
+<pre>
+Word at memory address (b+off) &larr; $t
+b is a register. off is 16-bit twos complement. 
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+xor  
+</td>
+<td>           
+d,s,t 
+</td>
+<td>
+<pre>
+d &larr; bitwise exclusive or of s with t
+</pre>
+</td>
+</tr>
+
+<!-- -->
+<tr>
+<td>           
+xori  
+</td>
+<td>           
+d,s,const
+</td>
+<td>
+<pre>
+d &larr; bitwise exclusive or of s with const 
+</pre>
+</td>
+</tr>
+
+</table>
+
+</div> 
+
+<hr>
+<a href="../index-2.html#Appendix"><img src="../homeIcon.gif" alt="go to home page" /> &nbsp; &nbsp; Return to Home</a> &nbsp;
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixC/basicInstructions.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:16 GMT -->
+</html>

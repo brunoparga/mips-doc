@@ -1,0 +1,109 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 07:54:16 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:53 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee.org">
+<!-- <meta name="copyright" content="2009"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOT as NOR with  $0 </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass12_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap12-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<table>
+<tr><td> 0 NOR 0 =  <span class="red">1</span></td> <td> NOT 0 =  <span class="red">1</span></td></tr>
+<tr><td> 1 NOR 0 =  <span class="red">0</span></td> <td> NOT 1 =  <span class="red">0</span></td></tr>
+</table>
+
+
+<p>
+NOT X &nbsp;=&nbsp; X <span class="red">NOR</span> 0
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>NOT as NOR with <code class="register">$0</code></h1>
+<!-- ../Audio/chap12-12.mp3 -->
+
+
+<a id="not_operation"> </a>
+<a id="nor_with_zero"> </a>
+
+<div class="fifty">
+
+<table  style="margin:  2em auto 2em  auto ;" >
+<tr><th colspan="3">NOT Operation on Bits</th></tr>
+<tr><td> first operand </td><td>0</td> <td>1</td> </tr>
+<tr><td> &nbsp; </td><td colspan="2"> <hr /> </td></tr>
+<tr><td> result </td><td>1</td> <td>0</td></tr>
+</table>
+
+<p>
+<span class="highlight">If you want a
+NOT operation use a NOR instruction
+with <code class="register">$0</code> as one of the operands:</span>
+</p>
+
+<pre>
+nor  d,s,$0  # $d gets bitwise NOT of $s.
+</pre> 
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+<p>
+Say that register <code class="register">$8</code> contains a bit pattern.
+OR is performed between it and register <code class="register">$0</code>.
+Register <code class="register">$9</code> is to be the destination.
+What is the effect?
+</p>
+
+<pre>
+or  $9,$8,$0
+</pre> 
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass12_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:54 GMT -->
+</html>

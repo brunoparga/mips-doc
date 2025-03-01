@@ -1,0 +1,135 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_29.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:35 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Convert</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_28.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_30.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap27-25.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Convert</h1>
+<!-- ../Audio/chap27-25.mp3 -->
+
+<p>
+The
+subroutine 
+<code>convert</code> uses <code class="register">$s0</code> as a character pointer
+because <code class="register">$a0</code> might be changed by <code>conChar</code>.
+You might think that it would be a good idea to look inside
+<code>conChar</code> to see if, in fact, it actually changes <code class="register">$a0</code>.
+But this is a violation of modularity.
+It is much better to have a calling convention, and to follow it,
+than to make modules depend critically on each other's quirks.
+</p>
+
+<p>
+For example, <code>conChar</code> doesn't actually alter  <code class="register">$a0</code>.
+At least not now,
+but later on,  <code>conChar</code> might be changed.
+Then you (or the unfortunate programmer that inherited your program) would have to
+look everywhere  <code>conChar</code> was used to see what assumptions were
+made.
+</p>
+
+<pre class="program">
+<img src="convert.gif" class="rightimage" alt="Flowchart for convert"/>
+# convert -- convert a line to all capitals
+#
+# on entry:
+#    $a0 -- address of input buffer
+#    $a1 -- length of input buffer
+#
+# register use:
+#    <span style="color:red">$s0 -- pointer into character buffer</span>
+#
+# on exit:
+#    no return values
+         .text
+         .globl  convert
+convert:   
+         sub     $sp,$sp,4        # push the return address
+         sw      $ra,($sp)
+         <span style="color:red">sub     $sp,$sp,4        # push $s0
+         sw      $s0,($sp)</span>
+
+                                  # for ( p=buffer; *p!=0; p++ )
+         move    $s0,$a0          # p=buffer
+
+cloop:   lbu     $a0,($s0)        # get a char from the string
+         beqz    $a0,endC         # exit if null byte
+                                  # argument a0: char to convert
+         jal     conChar          # convert character
+         sb      $v0,($s0)        # put converted char into string                 
+         addu    $s0,$s0,1        # p++
+         b       cloop         
+ 
+endC:   
+         <span style="color:red">lw      $s0,($sp)        # pop $s0 
+         add     $sp,$sp,4</span>                                    
+         lw      $ra,($sp)        # pop return address
+         add     $sp,$sp,4         
+         jr      $ra              # return to caller 
+</pre>
+
+<p>
+&#160;
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 29:</h3>
+<p>
+Would it be a good idea to look into  <code>doLines</code>
+to see if <code class="register">$s0</code> is important and actually needs to
+be saved?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_28.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_30.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_29.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:36 GMT -->
+</html>

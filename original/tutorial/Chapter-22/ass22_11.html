@@ -1,0 +1,143 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 27 19:53:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:23 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Fine Example</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass22_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap22-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>A Fine Example</h1>
+<!-- ../Audio/chap22-11.mp3 -->
+
+<pre class="program">
+# overdue.asm
+
+        .text
+        .globl  main
+
+main:   
+        # get patron name
+        li      $v0,4           # print prompt
+        la      $a0,prompt      #
+        syscall
+        li      $v0,8           # code 8 == read string
+        la      $a0,name        # $a0 == address of buffer
+        li      $a1,24          # $a1 == buffer length
+        syscall                 # Invoke the operating system.
+
+        # print the letter
+        li      $v0,4           # print greeting
+        la      $a0,letter      #
+        syscall
+        li      $v0,4           # print body
+        la      $a0,body        #
+        syscall
+
+        li      $v0,10      # exit
+        syscall
+
+        .data
+prompt: .asciiz "enter name, followed by comma-enter: "
+letter: .ascii  "\n\nDear "
+name:   .space  24
+
+body:   .ascii  "\nYour library books are way\n"
+        .ascii  "overdue.  Please return them\n"
+        .ascii  "before we give your name\n"
+        .asciiz "to the enforcement squad.\n\n"
+</pre>
+
+<br style="clear:both">
+
+<div class="left">
+<p>
+Sometimes 
+you will have to remove the null at the end of the
+input string, perhaps because it is intended to be part of a
+larger string.
+Other times, as in the following example, you can use two
+<em>print string</em> operations.
+</p>
+
+<p><span class="highlight">
+The example program asks the user to enter a person's name followed by
+comma and "enter".
+Then the program writes out a personalized letter using the name.</span>
+The body of the letter is printed using only one 
+<code>syscall</code>.
+The personalized greeting is printed first in a separate
+<code>syscall</code>
+because it is null terminated.
+</p>
+</div>
+
+<div class="right">
+<p>
+It is somewhat crude to make the user enter a comma at
+the end of the name.
+It would be nicer to have the program detect the
+end of the name and automatically put a comma after it.
+The program would be much longer.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+
+<p>
+Can blank spaces be part of the name that the user enters?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass22_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:24 GMT -->
+</html>

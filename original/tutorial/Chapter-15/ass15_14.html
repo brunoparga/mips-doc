@@ -1,0 +1,178 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:13 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Symbolic Address</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-17.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+How many <code>lw</code>
+instructions will be needed?
+</p>
+
+<blockquote>
+<span class="red">One</span>, near the start
+of the program to load <code>x</code> into a register.
+</blockquote>
+
+<p>
+How many <code>sw</code>
+instructions will be needed? 
+</p>
+
+<blockquote>
+<span class="red">One</span>, near the end
+of the program to save the result in <code>poly</code>.
+</blockquote>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Symbolic Address</h1>
+<!-- ../Audio/chap15-17.mp3 -->
+
+<pre class="program">
+## poly.asm
+##
+## evaluate  5x^2 -12x + 97 
+##
+
+        .text
+        .globl  main
+
+main: 
+
+        . . . . many instructions
+
+        .data
+                             # In SPIM, the data section
+                             # starts at address 0x10000000
+x:      .word   17           # The base register points here.
+poly:   .word   0
+
+## End of file
+</pre>
+
+<br style="clear:both"> 
+
+<a id="symbolic_address"> </a>
+
+<div class="left">
+<p>
+In the description of this problem, memory locations
+are called <b><code>x</code></b> and <b><code>poly</code></b>.
+Of course, at run time, addresses are 32-bit patterns.
+</p>
+
+<p> 
+In assembly language  source code, it is convenient to use
+names for memory locations.
+<span class="highlight">These names are called <b>symbolic addresses</b>.</span>
+</p>
+
+<p>
+One of the most important features of an assembler
+is support for symbolic addresses.
+In the following example we will ignore some of this
+support in favor of explaining 
+how the hardware instructions work.
+</p>
+
+<p>
+In the above (incomplete) sample program,
+<span class="highlight"><b><code>x</code></b> is a symbolic address.</span>
+It corresponds to the address where, at run-time, four bytes hold a two's complement 17.
+</p>
+
+</div>
+
+
+<a id=".word"> </a>
+<a id=".data"> </a>
+
+<div class="right">
+<p>
+<span class="highlight">The assembler directive <code>.data</code> means:
+<em>here is the start of the data section of memory.</em></span>
+</p>
+
+<p> <span class="highlight">
+The assembler directive <code>.word</code> means:
+<em>put a 32-bit two's complement integer here.</em></span>
+The integer is specified using base 10 (by default).
+</p>
+
+<p>
+In the above, the <code>.word 17</code> calls for a 32-bit two's complement
+representation of an integer that in base 10 is "17".
+The assembler converts the representation into the appropriate bit pattern.
+</p>
+
+<p>
+You can also specify the bit pattern using the hexadecimal name for the pattern.
+<code>.word 0x11</code> does exactly the same thing as <code>.word 17.</code>
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+
+<p>
+The assembler in SPIM automatically assembles the
+.data section starting at
+address 0x10000000.
+</p>
+
+<ol>
+<li>What address corresponds to the symbolic address <b><code>x</code></b>?</li>
+<li>What address corresponds to the symbolic address <b><code>poly</code></b>?</li>
+</ol>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:14 GMT -->
+</html>

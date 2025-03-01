@@ -1,0 +1,107 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Feb 20 17:09:32 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:12 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The   sra  Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass14_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap14-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+Is there a need for an <em>arithmetic shift left</em> instruction?
+</p>
+
+<h3>Answer:</h3>
+<p>
+No. A logical shift left moves zeros into the low-order bit,
+which is correct for both signed and unsigned integers.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The  <code>sra</code> Instruction</h1>
+<!-- ../Audio/chap14-14.mp3 -->
+
+<a id="sra"> </a>
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+sra    d,s,shft   #  $d <span style="font-size: 30px;">&larr;</span> $s shifted right
+                  #  shft bit positions.
+                  #  0 &le; shft &le; 31
+</pre> 
+
+
+<div class="left">
+<p>
+<span class="highlight">MIPS
+has a shift right arithmetic instruction.</span>
+This instructions takes the bit pattern in <code class="register">$s</code>,
+arithmetic shifts it right by shft positions,
+and deposits the result in register <code class="register">$d</code>.
+Register <code class="register">$s</code> is not changed
+(unless it is the same as the destination register.)
+</p>
+</div>
+
+
+<div class="right">
+<p>
+Sometimes you need to divide by two.
+This instruction is faster and
+more convenient than the
+<code>div</code>
+instruction.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+
+<p>
+Does the <code>sra</code> instruction
+give the correct results for <em>unsigned</em> integers?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass14_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:13 GMT -->
+</html>

@@ -1,0 +1,133 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:25 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Range of Integers with 2's Complement</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-29.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre class="code">
+       128  =  1000 0000
+
+   reflect  =  0111 1111
+
+   add one  =  1000 0000   ??????
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Range of Integers with 2's Complement</h1>
+<!-- ../Audio/chap08-29.mp3 -->
+
+<p>
+It looks like +128 and - 128 are represented by the same pattern.
+This is not good.
+A  non-zero integer and its negative can't both be represented by the
+same pattern.
+So +128 can not be represented in eight bits.
+<span class="highlight">The maximum positive integer that can be represented in
+eight bits is 127<sub>10</sub>.</span>
+</p>
+
+<p>
+What number is represented by 1000 0000?
+Add the representation of 127<sub>10</sub> to it:
+</p>
+
+<pre class="code">
+
+   1000 0000    = ?
+  <u> 0111 1111 </u>   = 127<sub>10</sub>
+   1111 1111    =  -1<sub>10</sub>
+</pre>
+
+<p>
+A good choice for ? is -128<sub>10</sub>. 
+<span class="highlight">Therefore 1000 0000 represents -128<sub>10</sub>.</span>
+Eight bits can be used to represent the numbers 
+&nbsp;-128<sub>10</sub> ... 0 ... +127<sub>10</sub>.
+</p>
+
+ 
+<table>
+<tr><th>Range of  N Bit 2's Complement</th></tr><tr>
+<td>
+
+<pre>
+-( 2<sup>(N-1)</sup> )  ... 0 ... 2<sup>(N-1)</sup> - 1
+</pre>
+
+</td>
+</tr>
+</table>
+ 
+
+<p>
+For example, the range of integers that can be represented in eight bits using
+two's complement is:
+</p>
+
+<pre>
+-( 2<sup>(8-1)</sup> ) = -128  ... 0 ... 2<sup>(8-1)</sup> - 1 = 127
+</pre>
+
+<p>
+<span class="highlight">Notice that one more negative integer can be represented than positive integers.</span>
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 20:</h3>
+<p>
+How many integers are there in the range 
+ &nbsp;-128 ... 0 ... +127&nbsp; ? 
+</p>
+
+<p>
+How bit patterns can be formed with 8 bits?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:26 GMT -->
+</html>

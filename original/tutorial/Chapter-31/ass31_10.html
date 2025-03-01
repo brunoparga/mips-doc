@@ -1,0 +1,120 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:52 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mistake</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Register <code>$v0</code>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Mistake</h1>
+<!-- ../Audio/chap31-10.mp3 -->
+
+<div class="middle">
+<p>
+Depending
+on the service, you may have to place arguments
+in other registers as well.
+</p>
+
+<p><span class="highlight">
+The following example program prints out
+a floating point value.</span>
+It first does this correctly (using system call 2).
+Then does it incorrectly uses the integer print service
+(system call 1).
+Of course, the 32 bits of the floating point value can
+be interpreted as an integer, so system call 2 innocently
+does what we asked it to do.
+</p>
+</div>
+
+<pre class="program">
+## print.asm
+##
+## Print out a 32 bit pattern, first as a float,
+## then as an integer.
+
+        .text
+        .globl  main
+
+main:
+        l.s     $f12,val        # use the bit pattern
+                                # in val as a float
+        li      $v0,2           # <span class="highlight">code 2 == print float</span>
+        syscall                 # (correct)
+
+        li      $v0,4           # print
+        la      $a0,lfeed       # line separator
+        syscall
+
+        lw      $a0,val         # use the bit pattern
+                                # in val as an int
+        li      $v0,1           # <span class="highlight">code 1 == print int</span>
+        syscall                 # (mistake)
+
+        li      $v0,10          # code 10 == exit
+        syscall                 # Return to OS.
+                
+        .data
+val :   .float  -8.32           # floating point data
+lfeed:  .asciiz "\n"
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+Will the assembler catch this error?
+Will the program bomb when it runs?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:53 GMT -->
+</html>

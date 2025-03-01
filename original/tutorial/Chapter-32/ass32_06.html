@@ -1,0 +1,132 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue May 04 10:31:43 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:34 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Complete Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass32_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap32-09.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre class="program">
+        c.eq.s  $f0,$f2          # is A = B?
+        bc1t    printEQ          # yes: print equal
+
+        c.lt.s  $f2,$f0          # is B &lt; A?
+        bc1t    printB           # yes: print B
+
+                                 # otherwise A &lt; B
+</pre>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The Complete Program</h1>
+<!-- ../Audio/chap32-09.mp3 -->
+
+<p>
+Here is the complete program.
+</p>
+
+<pre class="program">
+## min.asm --- determine the min of two floats
+##
+        .text
+        .globl main
+
+main:   # get the values into registers
+        l.s     $f0,A
+        l.s     $f2,B
+        
+        c.lt.s  $f0,$f2          # is A &lt; B?
+        bc1t    printA           # yes -- print A
+        c.lt.s  $f2,$f0          # is B &lt; A?
+        bc1t    printB           # yes -- print B
+
+        la      $a0,EQmsg        # otherwise
+        li      $v0,4            # they are equal
+        syscall
+        mov.s   $f12,$f0         # print one of them
+        b       prtnum
+        
+printA: la      $a0,Amsg         # message for A
+        li      $v0,4
+        syscall
+        mov.s   $f12,$f0         # print A
+        b       prtnum
+        
+printB: la      $a0,Bmsg         # message for B
+        li      $v0,4
+        syscall
+        mov.s   $f12,$f2         # print B
+        
+prtnum: li      $v0,2            # print single precision
+                                 # value in $f12
+        syscall
+        la      $a0,newl
+        li      $v0,4            # print new line
+        syscall
+       
+        li      $v0,10           # end program
+        syscall
+
+        .data
+A:      .float  4.830
+B:      .float  1.012
+Amsg:   .asciiz "A is smallest: "
+Bmsg:   .asciiz "B is smallest: "
+EQmsg:  .asciiz "They are equal: "
+newl:   .asciiz "\n"
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+Would you expect the condition bit (of the FPU) to
+keep its value until it is altered by another comparison
+instruction?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass32_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:35 GMT -->
+</html>

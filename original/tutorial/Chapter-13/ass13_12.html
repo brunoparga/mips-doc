@@ -1,0 +1,110 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Mar 01 18:06:44 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:54 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Absent Subtract Immediate</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass13_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap13-18.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<pre>
+addiu    $8,$0,-86  
+</pre> 
+
+<h3>Answer:</h3>
+<p>
+Yes.  The immediate operand -86 is <em>sign</em>-extended
+to 32 bits then added to a 32-bit zero.
+The sum (-86) is loaded into <code class="register">$8</code> .
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The Absent Subtract Immediate</h1>
+
+<!-- ../Audio/chap13-18.mp3 -->
+
+<div class="left">
+<p>
+You 
+would expect that since there are
+<code>add,</code> <code>addu,</code> <code>addi,</code> <code>addiu</code>
+and since there are <code>sub</code>, <code>subu</code>
+that there would be subtract immediate instructions.
+</p>
+
+<p>
+<span class="highlight">But there are no subtract immediate instructions.</span>
+They are not really needed.
+Use the  add immediate instruction  with a negative immediate operand.
+To subtract 201 
+from register <code class="register">$10</code> 
+do this:
+</p>
+
+<pre><code>
+addiu    $8,$10,-201    #  $8 = $10 - 201 </code>
+</pre> 
+
+<p>
+Say that we want to compute <code>5*x - 74</code> where the
+value <code>x</code> is in register <code class="register">$8</code> .
+MIPS has an integer multiply instruction, 
+but let us say that we don't want to use it.
+How can <code>5*x</code> be done using the instructions you have seen
+so far?
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+
+
+<p>
+How could you compute <code>4*$8 + $8 </code>?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass13_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:55 GMT -->
+</html>

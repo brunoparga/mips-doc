@@ -1,0 +1,618 @@
+<!doctype html> 
+
+<!-- 06/30/2015  bpk  HTML5 validation; added color to answer box; put answer box in table -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:59 GMT -->
+<head>
+<meta charset="utf-8">
+
+<meta name="copyright" content="2003">
+<meta name="author" content="Bradley Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+
+<title>
+Quiz on Extended Assembler
+</title>
+
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/QUIZstyle.css">
+
+<script type="text/javascript">
+function gradeQuiz( reportForm ) 
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+    {
+      document.forms[ count ].correct.style.background = "#80FF80" ;
+      totalRight++ ;
+    }
+   else
+      document.forms[ count ].correct.style.background = "#FF8080" ;
+       
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+</script>
+</head>
+
+<body>
+<p class="revisions">Created 03/17/03; revised 06/30/15</p>
+
+<hr/> 
+
+<h1  style="text-align:center">
+<img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/quizPencil.gif" alt="Quiz" />
+ on the Extended Assembler
+</h1> 
+ 
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, 
+the correct answers will appear in the box after each question.
+</p>
+
+<hr/>
+<form name="question1">
+<p>
+1.
+
+Register <code>$8</code> is the first register
+conventionally used to hold temporary values.
+What is its <b>mnemonic</b> name?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>$temp</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>$t0</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>$t1</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>$t8</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+
+</form>
+
+<hr/>
+<form name="question2">
+
+<p>
+2. What is the <b>mnemonic</b> name of register <code>$0</code>?
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+zero
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+$zero
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+$z0
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+$t0
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question3">
+<p>
+3.
+
+Does the extended assembler translate assembly
+language into
+machine instructions not available to the basic
+assembler?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+No. Extended assembly language is just an
+alternate syntax used to specify the same machine
+instructions.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+No. The extended assembler uses many fewer
+of the actual machine instructions.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes. The extended assembler outputs
+instructions for the extended part of
+the processor.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes. The extended assembler is the only
+way to ask for floating-point operations.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question4">
+<p>
+4.
+
+What is true just after the return from
+a call to a subroutine?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+The <b>temporary</b> registers are the same as they were before the call,
+and the <b>saved</b> registers <u>may</u> have been altered.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+The <b>saved</b> registers are the same as they were before the call,
+and the <b>temporary</b> registers <u>have certainly</u> been altered.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Values in the <b>saved</b> registers are safely stored in memory,
+but values in the <b>temporary</b> registers have not been saved.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+The <b>saved</b> registers are the same as they were before the call,
+and the <b>temporary</b> registers <u>may</u> have been altered.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question5">
+<p>
+5.
+
+What is the most fundamental part
+of an operating system?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+The shell.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+The peel.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+The kernel.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+The seed.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question6">
+<p>
+6.
+
+Translate the following pseudoinstruction
+into basic assembly: <code>move $t8,$t3</code>
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>addu  $t3,$t8,$t3</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>ori  $t8,$0,$t3</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>ori  $t8,$t3</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>addu  $t8,$0,$t3</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question7">
+<p>
+7.
+
+Here is the load immediate pseudoinstruction:
+<code>li d,value</code>.
+What is true of <code>value</code>?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+It may be any integer, positive or negative, that
+fits into 16 bits.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+It may be any integer, positive or negative, that
+fits into 32 bits.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+It may be any positive integer  that
+fits into 32 bits.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+It may be any positive integer that
+fits into 16 bits.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question8">
+<p>
+8.
+
+How is the <code>li d,value</code>
+translated by the extended assembler?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+It is always translated into the
+<code>addiu</code> basic instruction.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+It is always translated into the
+one basic instruction.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+How it is translated depends on the size
+and sign of the <code>value</code>.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+It is always translated into two
+basic instructions.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question9">
+<p>
+9.
+
+Inspect the following code:
+</p>
+
+
+<pre>
+         .data
+numa:    .word 23
+numb:    .word 99
+numc:    .word -12
+</pre>
+
+
+<p>
+Which instruction puts the <b>address</b>
+of the word that contains <code>99</code> into
+register <code>$s3</code>?
+
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>la  $s3,numb</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>lw $s3,numb</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>lw $s3,99</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>la $s3,4(numa)</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question10">
+<p>
+10.
+
+Inspect the following code (the same as above):
+</p>
+
+
+<pre>
+         .data
+numa:    .word 23
+numb:    .word 99
+numc:    .word -12
+</pre>
+
+
+
+<p>
+Which instruction <u>stores</u> the <b>contents</b>
+of register <code>$s3</code> into 
+memory at <code>numc</code> ?
+
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sa  $s3,numc</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sw  $s3,numc</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sw  numc,$s3</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>move  $s3,numc</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr>
+<form name="evaluateQuest">
+
+
+<p  style="text-align:center">
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+&nbsp;&nbsp;
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+<p  style="text-align:center">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part7"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/homeIcon.gif" alt="Click here" > </a>
+</p>
+
+<p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:59 GMT -->
+</html>

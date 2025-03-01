@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Mar 01 18:06:44 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:39 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binary Addition Algorithm</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass13_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap13merge030405.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<ul>
+<li>Both</li>
+</ul>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Binary Addition Algorithm</h1>
+
+<!-- ../Audio/chap13merge030405.mp3 -->
+
+
+<table class="center" style="width:70%;">
+  <tr>
+    <th colspan="2"  style="background-color:#f2f2f8;">Binary Addition Algorithm: detecting overflow</th>
+  </tr>
+
+  <tr>
+    <th>Unsigned Binary</th><th>Two's Complement</th>
+  </tr>
+
+  <tr>
+    <td style="width:50%">
+      <p>
+      The 
+      result is correct if <em>the carry out</em> of the
+      high order column is zero.
+      </p>
+    </td>
+
+    <td style="width:50%">
+      <p>
+      The 
+      result is correct if <em>the carry into</em> the
+      high order column is the same as <em>the carry out of</em> the
+      high order column.
+      The carry bits can both be zero or both be one.
+      </p>
+    </td>
+  </tr>
+</table>
+
+
+<a id="overflow,_unsigned_and_two's_comp."> </a>
+
+<p><span class="highlight">
+The Binary Addition Algorithm works for both
+methods of integer representation.</span>
+The same MIPS instruction (<code>addu</code>) is
+used for both methods.
+However, the overflow condition is different for each method.
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+
+<p>
+Use the Binary Addition Algorithm on these
+8-bit patterns:
+</p>
+
+
+<pre>  
+ 1010 1011
+ 0101 0101
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</pre>
+
+<p>
+Does overflow happen for:
+</p>
+<ul>
+<li>Unsigned Binary?</li>
+<li>Two's Complement?</li>
+</ul>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass13_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:40 GMT -->
+</html>

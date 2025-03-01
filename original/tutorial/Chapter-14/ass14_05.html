@@ -1,0 +1,125 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Feb 20 17:09:32 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:20 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The  mfhi  and   mflo  Instructions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass14_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap14-05.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<p>
+About how many significant bits do you expect in this product:
+</p>
+
+<pre>
+01001010 &times;  00010101
+</pre>
+
+<h3>Answer:</h3>
+<p>
+About 12 significant bits.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The <code>mfhi</code> and  <code>mflo</code> Instructions</h1>
+<!-- ../Audio/chap14-05.mp3 -->
+
+
+<a id="mfhi"> </a>
+<a id="mflo"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">Two instructions
+move the result of a multiplication into a general
+purpose register:</span>
+</p>
+
+<pre>
+mfhi    d        #  d <span style="font-size: 30px;">&larr;</span>  hi.  Move From Hi
+</pre> 
+
+<pre>
+mflo    d        #  d <span style="font-size: 30px;">&larr;</span>  lo.  Move From Lo
+</pre> 
+
+<p>
+The <code>hi</code> and <code>lo</code> registers
+cannot be used with any of the other arithmetic or logic
+instructions.
+If you want to do something with a product, it must first
+be moved to a general purpose register.
+</p>
+</div>
+
+<div class="right">
+<a id="mflo,_no_mult_following"> </a>
+<p>
+However there is a further complication on MIPS hardware:
+</p>
+
+<p><b>Rule:</b>
+The next two instructions after a <code>mflo</code> 
+or <code>mfhi</code> must not be a multiply or a divide instruction.
+The reason for this involves the way the MIPS pipeline works.
+</p>
+
+<p> 
+On the SPIM simulator this rule does not matter
+(but on actual hardware it does.)
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+
+<p>
+Must you move the result of a multiplication into a general purpose register
+before you start another multiply operation?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass14_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:21 GMT -->
+</html>

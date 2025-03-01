@@ -1,0 +1,167 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:59 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pushing the Return Address</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap27merge0203.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.
+</p>
+
+<p>
+In the previous chapter, 
+after a subroutine is called,
+the return address to main is
+in register <code class="register">$ra</code>.
+If that subroutine calls another subroutine, 
+the address in <code class="register">$ra</code> is changed
+and the return address to main is lost.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Pushing the Return Address</h1>
+<!-- ../Audio/chap27merge0203.mp3 -->
+
+
+<a id="return_address,_on_the_stack"> </a>
+
+<img src="mainCallingA.gif" class="rightimage" alt="Main calling A" />
+
+<div class="left">
+<p>
+<span class="highlight">To
+return to the caller
+a subroutine must have the correct 
+return address
+in <code class="register">$ra</code> when
+the <code>jr</code> instruction is performed.</span>
+</p>
+
+<p>
+But this address does not have to remain in <code class="register">$ra</code> 
+all the time the subroutine is running.
+It works fine
+to save the value in <code class="register">$ra</code> somewhere.
+The value can be restored, later on, when 
+it is time to return to the caller.
+</p>
+
+<p>
+In the  picture, 
+the operating system calls
+<code>main</code>.
+The return address to the operating system
+is in <code class="register">$ra</code>.
+<span class="highlight">When it gets control,
+<code>main</code>
+pushes the return address on the stack</span>   (step 1).
+The return address that <code>main</code>
+should use when it returns to the operating system
+is now on the top of the stack.
+</p>
+
+<p>
+The
+"push" and "pop" instructions in the picture are conceptual.
+Actual code does these operations in the usual way.
+</p>
+ 
+<p>
+After pushing the return address,
+<code>main</code> computes for a while.
+<span class="highlight">Then <code>main</code> calls <code>subC</code>
+using a <code>jal</code> instruction (step 2).</span>
+This puts the return address to <code>main</code>
+in <code class="register">$ra</code>.
+It does not matter that <code class="register">$ra</code> has
+been changed because the return address that <code>main</code>
+will use to return to the operating system is safely on the stack.
+</p>
+
+<p>
+<code>subC</code> receives control and computes for a while.
+Because it does not
+call another subroutine, <code>subC</code> 
+does not alter <code class="register">$ra</code> and does not need to save it on the stack.
+<span class="highlight">When <code>subC</code>  returns to <code>main</code>
+it uses a <code>jr $ra</code> instruction (step 3).</span>
+</p>
+
+<p>
+Control returns to
+<code>main</code>,
+which computes for a while.
+<span class="highlight"><code>main</code> returns to the OS
+by popping the stack into <code class="register">$ra</code>
+and executing
+a <code>jr $ra</code> instruction</span> (step 4).
+</p>
+
+<p>
+Exception handler
+service 10 is another way to return to the OS.
+For this example let us not do that.
+</p>
+
+<p>
+<span class="red">NOTE:</span> The latest version of QtSPIM requires   <code>main</code> to end by using exception handler service 10.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+<p>
+Is there room on the stack for additional addresses?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:01 GMT -->
+</html>

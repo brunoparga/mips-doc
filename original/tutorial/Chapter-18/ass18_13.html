@@ -1,0 +1,103 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Mar 05 21:12:52 EST 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:39 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summing Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass18_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap18-13.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Summing Program</h1>
+<!-- ../Audio/chap18-13.mp3 -->
+
+
+<p>
+The
+ loop is already correct for the
+problem.
+Don't change it.
+Computing the sum is done by adding just two
+statements:
+</p>
+
+<pre class="program">
+##
+##  Sum of integers 0 .. 9
+##
+## Registers:
+##  $8  --- loop control
+##  $9  --- scratch
+## $10  --- sum
+
+init:   <span class="red">ori    $10,$0,0       # sum = 0</span>
+        ori    $8,$0,0        # count = 0
+test:   sltiu  $9,$8,10       # count &lt; 10
+        beq    $9,$0,endLp    # end loop if count &gt;= 10
+        sll    $0,$0,0        # delay
+
+        <span class="red">addu   $10,$10,$8     # sum += count</span>
+
+        addiu  $8,$8,1        # count++ ;
+        j      test
+        sll    $0,$0,0        # delay
+
+endLp:  sll    $0,$0,0        # jump target
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+
+<p>
+Of all the <code>sll</code>s
+in the program,
+which one is the most dangerous to remove?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass18_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:40 GMT -->
+</html>

@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 13 19:19:52 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:03 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Halfwords</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass16_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap16-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+Which byte of <code class="register">$9</code> should go into address $0x10000000?
+</p>
+
+<h3>Answer:</h3>
+<p>
+0x12 &mdash; the "big end" of an integer 
+goes into the first address of a group of bytes
+with big-endian byte order.
+</p>
+
+<p>
+Eventually, after a few more right shifts, it gets there.
+</p>
+ 
+<img src="finalRun.gif" class="center" alt="SPIM Display"  />
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Loading Halfwords</h1>
+<!-- ../Audio/chap16-09.mp3 -->
+
+
+<a id="lh_(instruction)"> </a>
+<a id="lhu_(instruction)"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">
+A
+MIPS <b>halfword</b> is two bytes.</span>
+This, also, is a frequently used length of data.
+In ANSI C, a short integer is usually two bytes.
+So, MIPS has instructions to load halfword and store halfwords.
+</p>
+
+<p><span class="highlight">
+There are two load halfword instructions.</span>
+One extends the sign bit of the halfword in memory
+into the upper two bytes of the register.
+The other extends with zeros.
+</p>
+
+<pre>
+lh   t,off(b)   # $t <span style="font-size: 30px;">&larr;</span>  <span class="highlight"><u>Sign-extended</u> halfword </span>
+                # starting at memory address b+off. 
+                # b is a base register. 
+                # off is 16-bit two's complement.
+</pre>
+
+<pre>
+lhu  t,off(b)   # $t <span style="font-size: 30px;">&larr;</span>  <span class="highlight"><u>zero-extended</u> halfword </span>
+                # starting at memory address b+off. 
+                # b is a base register. 
+                # off is 16-bit two's complement.
+</pre>
+</div>
+
+<div class="right">
+<a id="halfword_aligned"> </a>
+<p><span class="highlight">
+Halfword addresses must be 
+<b>halfword aligned</b>.</span>
+Attempting to load a halfword from
+an unaligned address will cause a trap.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+
+<p>
+How can you tell if an address is halfword aligned?
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass16_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:05 GMT -->
+</html>

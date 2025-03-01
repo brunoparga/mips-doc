@@ -1,0 +1,113 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 07 17:30:04 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:16 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ifs and Whiles</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass17_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap17-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+It does not matter.  The branch is taken if the patterns are identical,
+regardless of what data they encode.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Ifs and Whiles</h1>
+<!-- ../Audio/chap17-14.mp3 -->
+
+
+<img src="beqChart.gif" class="rightimage" alt="Single-branch IF" />
+
+
+<div class="left">
+<p>
+More
+ trickery is used to create a 32-bit branch address out
+of the smaller sized field of the  &nbsp;<b><code>beq</code></b> &nbsp; instruction.
+But let's skip that for now.
+</p>
+
+
+<p><span class="highlight">
+Branch instructions
+(including the <code>beq</code> instruction)
+are used to implement both loops and branches.</span>
+At right is a flowchart showing an optional branch.
+Here is  the assembly language for it:
+</p>
+
+<pre class="code">
+        ...                # load values into 
+                           # $8 and $9 
+                           #
+        beq  $8,$9,cont    # branch if equal
+        sll  $0,$0,0       # branch delay slot
+        ...                # conditionally
+        ...                # executed statements
+        ...                # 
+cont:   add   $10,$10,$11  # always executed
+</pre>
+
+<p>
+(Any instruction can be a target of a branch.
+The <code>add</code> instruction is here just as an example.)
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+
+<p>
+Must the contents of registers 
+<code class="register">$8</code> 
+and 
+<code class="register">$9</code> in this example 
+be regarded as numbers?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass17_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:18 GMT -->
+</html>

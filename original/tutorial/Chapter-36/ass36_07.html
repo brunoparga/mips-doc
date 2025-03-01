@@ -1,0 +1,212 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:30 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Jump Table    (simulated) </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-07.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+4
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Dynamic Jump Table <br /> <small>(simulated)</small></h1>
+<!-- ../Audio/chap36-07.mp3 -->
+
+<div class="left">
+
+<p>
+With
+SPIM,
+you write a program as one big source file.
+All entry points are labeled, 
+and subroutines can be called with <code>jal</code>.
+However,
+large programming projects
+are usually written with dozens of source files
+which are later on assembled (or compiled) and linked
+together
+(see
+<a href="../Chapter-01/ass01_14.html">Chapter One</a>.)
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">Operating systems often support <b>dynamic loading</b>,
+where
+the machine code
+for a subroutine is loaded (by the operating system) only when a
+running program requires it.</span>
+After the subroutine is loaded,
+its entry point is put into a jump table. 
+A collection of machine code that
+can be dynamically loaded is kept in a
+<b>dynamically loaded library</b>.
+</p>
+
+
+<p>
+Here is our example program modified to give the feel of this:
+</p>
+</div>
+
+<br style="clear:both">
+<pre class="program">
+          .globl   main
+          .text
+main: 
+          . . . .
+          
+          # Assume that when the program is first loaded into
+          # memory that the subroutines are NOT loaded with it.
+          # After running for a while, the program needs to
+          # call sub1. Only at that time is sub1 loaded and
+          # the first entry in the jump table is filled in.
+          
+          <span class="red">lw       $t0,jtable         # call sub1</span>
+          jalr     $t0                # pass control
+
+          . . . .
+          # After running for a while longer, the program
+          # needs to call sub2. At that time, sub2 is loaded
+          # and the second entry in the jump table is filled in.
+                    
+          <span class="red">lw       $t0,jtable+4       # call sub2</span>
+          jalr     $t0                # pass control
+          
+          li      $v0,10              # return to OS
+          syscall
+
+          .data
+jtable:
+          .word <span class="red">sub1</span>                  # Jump Table <span class="red">(pretend that the</span>
+          .word <span class="red">sub2</span>                  # <span class="red">addresses are filled in at run-time).</span>
+          
+          .globl   sub1               # <span class="red">Pretend that this subroutine is loaded</span>
+          .text                       # <span class="red">into memory only after the main routine</span>
+sub1:     li       $v0,4              # <span class="red">has started running, and that its entry</span>
+          la       $a0,messH          # <span class="red">point is then filled into the jump table.</span>
+          syscall
+          jr       $ra
+          .data
+messH:    .asciiz  "Hello "
+
+          .globl   sub2               # <span class="red">The second subroutine works the same</span>
+          .text                       # <span class="red">as the first.</span>
+sub2:     li       $v0,4
+          la       $a0,messW
+          syscall
+          jr       $ra
+          .data
+messW:    .asciiz  "World\n"
+
+</pre>
+<br style="clear:both">
+
+<div class="left">
+
+<p>
+Pretend that at first only <code>main</code> and its
+jump table are loaded into memory,
+and that the jump table is full of zeros.
+Then,
+later on,
+the program calls the first subroutine.
+At that time,
+the operating system pauses the program,
+loads the subroutine into memory,
+and puts its address into the jump table.
+The program then resumes running.
+</p>
+
+<p>
+<span class="highlight">Now the subroutine is called
+using the jump table.</span>
+The instruction
+</p>
+
+<pre>
+<span class="red">lw  $t0,jtable  # call sub1</span>
+</pre>
+
+<p>
+loads the first address of the jump table
+into <code class="register">$t0</code> .
+Then the <code>jalr</code> instruction calls it.
+</p>
+</div>
+
+<div class="right">
+<p>
+Later on the process is repeated
+with the second subroutine.
+The instruction
+</p>
+
+<pre>
+<span class="red">lw  $t0,jtable+4  # call sub2</span>
+</pre>
+
+<p>
+loads the second address of the jump table
+into <code class="register">$t0</code> .
+The <code>jtable+4</code> means to use the
+address that is four bytes away from
+the symbolic address <code>jtable</code>.
+</p>
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+Could several running programs
+share the same dynamic library?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:32 GMT -->
+</html>

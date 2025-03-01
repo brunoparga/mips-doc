@@ -1,0 +1,117 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue May 04 10:31:43 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:25 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Condition Bit Holds its Value</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass32_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap32-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Condition Bit Holds its Value</h1>
+<!-- ../Audio/chap32-10.mp3 -->
+
+<a id="condition_bit"> </a>
+
+<div class="left">
+
+<p>
+<span class="highlight">The condition bit holds the value put into it by a comparison instruction until
+another comparison instruction is executed.</span>
+This code 
+puts the minimum of <code class="register">$f0</code> or <code class="register">$f2</code>
+into   <code class="register">$f12</code> .
+If they are equal, then <code class="register">$f12</code> gets the value they both contain. 
+</p>
+</div>
+
+<div class="right">
+<p>
+The  code is awkward;
+it would be better to reverse the third and fourth
+statements.
+However, sometimes it is very useful to hold the
+condition bit's value for several instructions
+before using it.
+</p>
+</div>
+
+<br style="clear:both"> 
+<pre class="program">                  
+        # $f12 &lt;-- min of A and B
+        #
+        l.s     $f0,A            # get the values 
+        l.s     $f2,B            # into registers
+        
+        c.lt.s  $f0,$f2          # is A &lt; B?
+        mov.s   $f12,$f0         # move A to $f12
+                                 # (condition bit continues to hold
+                                 # its value)
+        bc1t    common           # otherwise
+        mov.s   $f12,$f2         # move B to $f12
+
+common: .....
+
+        .data
+A:      .float  12.45
+B:      .float  53.05
+
+</pre>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+(Review: ) should <code>c.eq.s</code> be used to
+implement a while loop?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass32_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:26 GMT -->
+</html>

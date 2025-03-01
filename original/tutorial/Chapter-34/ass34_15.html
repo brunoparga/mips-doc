@@ -1,0 +1,128 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon May 31 12:11:38 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:01 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Printing Each node</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass34_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap34-15.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Printing Each node</h1>
+<!-- ../Audio/chap34-15.mp3 -->
+
+
+<!--INDEX></INDEX-->
+
+<pre class="program">
+main:
+          la     $s0,elmnt01    # get a pointer to the first node
+          
+loop:     beqz   $s0,done       # while the pointer is not null
+          lw     $a0,0($s0)     #   get the data of this node
+<span style="color:blue">
+                                #   do something with the node
+          li     $v0,1          #   print it
+          syscall               #
+          la     $a0,sep        #   print separator
+          li     $v0,4          #
+          syscall               #</span>
+          
+          lw     $s0,4($s0)     #   get the pointer to the next node
+          b      loop
+          
+done:     . . . 
+
+          .data   
+elmnt01:  .word  1
+          .word  elmnt02
+
+elmnt02:  .word  2
+          .word elmnt03 
+
+elmnt03:  .word  3
+          .word elmnt04 
+
+elmnt04:  .word  5
+          .word  elmnt05
+          
+elmnt05:  .word  7
+          .word  0
+<span style="color:blue">
+sep:      .asciiz "  "</span>
+</pre>
+
+<div class="left">
+
+<p>
+<span class="highlight"> The
+ loop is a sentinel controlled loop.
+It keeps going until it hits the special
+value that signals the end.</span>
+Some new lines have been added
+that print the data of each node.
+</p>
+</div>
+
+<div class="right">
+<p>
+The code that traverses the list is in black;
+the code that processes the data at each node is in blue.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+<p>
+What needs to be done after the loop is done?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass34_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:02 GMT -->
+</html>

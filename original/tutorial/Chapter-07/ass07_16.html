@@ -1,0 +1,160 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Feb 09 12:35:36 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:06 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decimal to base B</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass07_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap07-18.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre class="code">
+          binary    
+ hex      groups of four 
+
+0x1A4  =  0001 1010 0100 =
+
+
+  binary          octal
+  ungrouped       groups of three
+
+000110100100  =  000 110 100 100   =  0644<sub class="base">eight</sub>
+</pre>
+
+<p>
+Remember to group bits starting from the right.
+If the left group is one or two bits short, add zero bits on the left as needed.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Decimal to base B</h1>
+<!-- ../Audio/chap07-18.mp3 -->
+
+<a id="converting_decimal_to_any_base"> </a>
+
+
+<div class="right">
+
+<table>
+<tr>
+<th>Algorithm: Convert from base 10 to base B Representation</th>
+</tr>
+
+<tr>
+<td>
+<pre  style="margin-left:0.25cm;text-align:left;">
+place  = 0;
+number = number to be converted
+         
+while (number > 0 )
+{
+  digit[place] = number mod B ; 
+  number       = number div B ;
+  place        = place + 1 ;
+}            
+</pre>
+
+</td>
+</tr>
+</table>
+</div>
+
+<div class="left">
+<p>
+You
+already know how to convert from Base B to Decimal.
+</p>
+
+<p>
+<span class="highlight">
+The algorithm converts <em>number</em>
+from decimal representation to base B representation.</span>
+</p>
+
+<a id="div"> </a>
+<a id="mod_(modulo_division)"> </a>
+<a id="integer_division"> </a>
+
+
+<ul>
+<li>
+<code>div</code> means integer division and <code>mod</code> means modulo.
+</li>
+
+<li>
+<code>number div B</code> is how many times B goes into number.
+</li>
+
+<li>
+<code>number mod B</code> is the left-over amount.
+</li>
+</ul>
+
+<p>
+For example,
+<code>15 div 6 = 2</code> and <code>15 mod 6 = 3</code>.
+</p>
+
+<p>
+Here is an example: convert 54<sub class="base">10</sub> to hex representation.
+The base <code>B</code> is 16.
+The first execution of the loop body  calculates <code>digit[0]</code>
+the right-most digit of the hex number.
+</p>
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 16:</h3>
+<p>
+What is <code>digit[ 0 ] = 54 mod 16</code> ?
+</p>
+<p>
+What is <code>number = 54 div 16</code> ?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass07_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:07 GMT -->
+</html>

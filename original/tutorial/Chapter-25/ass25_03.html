@@ -1,0 +1,120 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 11:37:41 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:55 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upside-down MIPS Stack</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass25_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap25-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap25-03.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+The plate at the top of the stack was the last one added.
+It will also be the first one removed.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Upside-down MIPS Stack</h1>
+
+<a id="LIFO"> </a>
+
+<div class="right">
+<img src="stackInts00.gif"  alt="stack of integers">
+
+</div>
+
+<div class="left">
+
+
+<p><span class="highlight">
+Stack-like
+behavior is sometimes called "LIFO" for
+Last In First Out.</span>
+</p>
+
+<p>
+The data elements in our stacks are 32-bit words.
+In general,
+stacks can be used for all
+types of data.
+But in these chapters,
+stacks contain only 32-bit MIPS full words.
+</p>
+
+<a id="stack_pointer"> </a>
+<p>
+The picture shows a
+stack of  MIPS full words.<span class="highlight">
+The <b>stack pointer register</b> <code class="register">$sp</code> 
+by convention points at the <u>top</u> item of the stack.</span>
+The stack pointer is register <code class="register">$29</code>.
+The mnemonic register name <code class="register">$sp</code> is used by the
+extended assembler.
+</p>
+
+<p>
+<span class="highlight">In the usual way of drawing memory the stack is upside-down.</span>
+In the picture, the top item of the stack is 81.
+The bottom of the stack contains the integer -92.
+</p>
+
+<p>
+Before the operating system starts your program it ensures
+that there is a range of memory for a stack and puts
+a suitable address into <code class="register">$sp</code>.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+If an item of data (say the value 103) is added to the stack,
+where will it go?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass25_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:57 GMT -->
+</html>

@@ -1,0 +1,111 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:06 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Implementation of  cancel() </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-18.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+When a method is called,
+it is given the address of
+the object.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Implementation of <code>cancel()</code></h1>
+<!-- ../Audio/chap36-18.mp3 -->
+
+
+<p>
+Here
+ is <code>cancel()</code>.
+</p>
+
+<p> 
+At the beginning of the code
+<span class="highlight">access to the object's data is
+done by using the address in
+<code class="register">$a0</code>.</span>
+</p>
+
+<pre class="program">
+          
+# cancel() method
+# Parameter: $a0 == address of the object
+# 
+# Registers:
+# $t0 == address of the char in the string
+# $t1 == char from the string
+# $t2 == 'x'
+
+          .text         
+cancel:
+          <span class="highlight">addiu    $t0,$a0,8</span>       # the string starts 8 bytes
+                                   # from the start of the object
+          li       $t2,'x'         # replacement character                             
+          lb       $t1,0($t0)      # get first ch of string
+loop:     beqz     $t1,done        # while ( ch != '\0' )
+          sb       $t2,0($t0)      #   replace ch with 'x'
+          addiu    $t0,$t0,1       #
+          lb       $t1,0($t0)      #   get next ch
+          b        loop            # end while     
+done:
+          jr       $ra             # return to caller
+
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 18:</h3>
+<p>
+Do an object's methods know how many other objects 
+have been declared in the program?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:07 GMT -->
+</html>

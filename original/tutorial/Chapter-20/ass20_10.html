@@ -1,0 +1,129 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 26 18:18:41 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:36 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading the Array Size</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass20_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap20-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+See below
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Loading the Array Size</h1>
+<!-- ../Audio/chap20-10.mp3 -->
+
+
+<div class="left">
+<p>
+Now, 
+you need to
+get the size of the array.<span class="highlight">
+The size is the first word of the data section.</span>
+Recall that the data section starts at the address 0x10000000.
+Load the top half of that address into the base register.
+Then, load the size into register <code class="register">$15</code>.
+</p>
+
+<p>
+After that, point the base register 
+at the first word of the array.
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="program">
+
+<img src="smallAddIntArray.gif"  class="rightimage" alt="integer array flow chart" />
+
+## Registers:
+##  $8 -- count                     
+##  $9 -- pointer to the array entry
+## $10 -- current array entry       
+## $11 -- sum of all integers       
+## $12 -- sum of negative integers
+## $13 -- sum of positive integers
+## $14 -- pos. or neg. flag
+## $15 -- SIZE of the array
+
+## Initialize
+main:    ori      <span class="red"><b>$8</b></span>,$0,0        #  count = 0
+         ori      <span class="red"><b>$11</b></span>,$0,0       #  sum = 0
+         ori      <span class="red"><b>$12</b></span>,$0,0       #  neg = 0
+         ori      <span class="red"><b>$13</b></span>,$0,0       #  pos = 0
+
+         <input type="text" size="4" />     $9,0x1000     #  point at SIZE
+         
+         <input type="text" size="4" />     $15,0($9)     #  get SIZE
+         
+         addiu    $9,$9,<input type="text" size="4" />    #  point to first entry
+         
+
+# while  count &lt; SIZE do
+loop: 
+         . . . .
+		 
+         j        loop
+         sll      $0,$0,0        #  branch delay
+
+        .data
+size:   .word  17
+array:  .word  12, -1, 8, 0, 6, 85, -74, 23, 99, -30, 30, 95, 4, 7, 10, 28, 14
+</pre>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass20_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:38 GMT -->
+</html>

@@ -1,0 +1,137 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Feb 20 17:09:31 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:40 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIPS Multiply Unit</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass14_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap14-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. In general, 64 bits are needed.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>MIPS Multiply Unit</h1>
+<!-- ../Audio/chap14-03.mp3 -->
+
+
+<a id="hi_register"> </a>
+<a id="lo_register"> </a>
+
+
+ 
+<img src="HiLoMult.gif"  alt="High and Low Registers" class="center">
+
+<div class="left">
+<p>
+<span class="highlight">MIPS contains two 32-bit
+registers called <b>hi</b> and <b>lo</b>.</span>
+These are not general purpose registers.
+When two 32-bit operands are multiplied,
+<b>hi</b> and <b>lo</b> hold the 64 bits
+of the result.
+Bits 32 through 63 are in <b>hi</b>
+and bits 0 through 31 are in <b>lo</b>.
+</p>
+ 
+
+<p>
+Here are the instructions  that do this.
+The operands are contained in general-purpose
+registers.
+</p>
+</div>
+<br style="clear:both"> 
+<a id="mult"> </a>
+<a id="multu"> </a>
+ 
+
+<pre style="border: 2px dotted green; padding:10px; background-color:white">
+ 
+mult    s,t        # hilo <span style="font-size: 30px;">&larr;</span> $s * $t   <span class="highlight">(two's comp operands)</span>
+ 
+multu   s,t        # hilo <span style="font-size: 30px;">&larr;</span> $s * $t   <span class="highlight">(unsigned operands)</span>
+</pre> 
+
+<div class="left">
+<p>
+There is a multiply instruction for unsigned operands,
+and a multiply instruction for signed operands 
+(two's complement operands).
+Integer multiplication never causes a trap.
+</p>
+
+<p>
+<b><span class="highlight">Confusion Altert!</span></b> <code>add</code> and <code>addu</code>, 
+both perform the same operation.
+The "u" means "don't trap overflow".
+</p>
+
+<p> 
+With <code>mult</code> and <code>multu</code>,
+<u>different</u> operations are carried out.
+Neither instruction ever causes a trap.
+</p>
+
+<p>
+If the operands are too big, overflow will happen.
+But with these instructions the overflow will not cause a trap.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+
+<p>
+Two small integers are multiplied.
+Where is the result?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass14_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:42 GMT -->
+</html>

@@ -1,0 +1,106 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:26 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Records and Structs</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap33-07.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+You can guess that it will follow the first block.
+<b>However</b>, this is not necessarily so, and you should not rely on this expectation.
+In a real operating system with many tasks and threads, it is almost certain that
+the next block <b>will not</b> immediately follow the first.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Records and Structs</h1>
+<!-- ../Audio/chap33-07.mp3 -->
+
+
+<a id="record"> </a>
+<a id="struct"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">A <b>record</b>
+is a block of memory that contains several data items.</span>
+The data may be of several types, say an <code>int</code> followed by
+a <code>float</code> followed by a <code>short</code>.
+The language <span class="highlight">C calls this idea a <b>struct</b></span> (short for "structure").
+An big extension of this idea is called an "object".
+Records are frequently stored in dynamically allocated memory.
+</p>
+
+<p>
+Say that you had hundreds of data that look like this:
+</p>
+
+
+<pre>
+struct
+{
+  int age;  
+  int pay;
+  int class;
+} myData;
+</pre>
+
+<p>
+This just says that each data item consists of three integers,
+the age of a person, their pay rate, and their job classification.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+In MIPS, how many bytes are needed for this <code>struct</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:27 GMT -->
+</html>

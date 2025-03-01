@@ -1,0 +1,133 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:03 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nested Subroutine Calls</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap27merge1516.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Nested Subroutine Calls</h1>
+<!-- ../Audio/chap27merge1516.mp3 -->
+ 
+<img src="popetBeads.gif" width="300px" class="rightimage" alt="chain of subroutine calls" />
+ 
+<div class="left">
+
+<a id="activation"> </a>
+
+<p>
+The
+diagram at right shows the main routine
+linking to subroutine A, which links to subroutine B,
+which links to subroutine C.
+</p>
+
+<p>
+The subroutines link together like beads on a double string.
+Control is passed from the caller to prolog, and from
+epilog back to the caller.
+All subroutines in a calling chain (except the one at the bottom)
+have all five sections (call, prolog, body, epilog, and regaining control).
+</p>
+
+<p>
+<span class="highlight">Each time another subroutine is added to the chain,
+more data is pushed onto the run-time stack.</span>
+At the end of the chain of calls the run-time stack
+has a section of data (saved register values) from
+each of the subroutines (including main).
+<span class="highlight">The currently active subroutine is the one whose data
+is at the top of the stack</span> (subroutine C, in our
+upside-down stack).
+</p>
+
+<p>
+<span class="highlight">As
+each subroutine returns to its caller,
+its section of data is popped from the stack.</span>
+</p>
+
+<p>
+A subroutine does not "know" anything about the
+stack other than its own section.
+It pushes its data onto the stack, and later on
+pops exactly that data back into registers.
+It does not look at any other data in the stack.
+It does not even know how deep the stack is.
+</p>
+
+<p>
+Sometimes instead of saying "calling a subroutine" people say
+"activating a subroutine."
+Each bead in the picture and each section of the stack
+corresponds to one subroutine activation.
+</p>
+
+<p>
+Sometimes (on a real computer) when a program "crashes"  the
+operating system takes over and prints a <b>stack trace.</b>
+<span class="highlight">A stack trace shows the values on the activation chain at the time
+of the crash.</span>
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+After subroutine B returns control to subroutine A, might
+subroutine A call another subroutine (say subroutine X)?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:05 GMT -->
+</html>

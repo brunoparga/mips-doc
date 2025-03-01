@@ -1,0 +1,777 @@
+<!doctype html> 
+
+<!-- 06/30/2015  bpk  HTML5 validation; added color to answer box; put answer box in table -->
+
+<!-- 08/01/2020  bpk many cosmetic changes, corrected one answer -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:02 GMT -->
+<head>
+<meta charset="utf-8">
+
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+
+<title>
+Quiz on Extended Assembler
+</title>
+
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/QUIZstyle.css">
+
+<script type="text/javascript">
+function gradeQuiz( reportForm ) 
+{
+  var totalRight = 0;
+  
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == '' ) { alert("Question " + (count+1) + " has not been answered" ); return; }
+  }
+  
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+    {
+      document.forms[ count ].correct.style.background = "#80FF80" ;
+      totalRight++ ;
+    }
+   else
+      document.forms[ count ].correct.style.background = "#FF8080" ;
+       
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+</script>
+
+<style>
+table
+{
+  padding: 15px;
+}
+
+td
+{
+  padding: 5px;
+}
+
+code
+{
+  color:blue;
+}
+
+pre
+{
+  color:blue;
+}
+
+</style>
+</head>
+
+<body>
+<p class="revisions">Created 07/03/03; edited 02/17/08, 07/04/15, 08/01/2020</p>
+<hr/>
+
+<h1  style="text-align:center">
+<img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/quizPencil.gif" alt="Quiz"/>
+ on Branch and Comparison Pseudoinstructions
+</h1>
+
+
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, 
+the correct answers will appear in the box after each question.
+</p>
+<br>
+
+
+<hr/>
+<form name="question1">
+<p>
+1. Translate the following pseudoinstruction into a basic instruction:
+&nbsp; &nbsp;  
+<code>
+beqz   $t0,spot
+</code>
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+beqz   $t0,$0,spot
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+beqz   $t0,$t0,spot
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+beq   $t0,spot
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>
+beq   $t0,$0,spot
+</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question2">
+<p>
+2.
+
+With what addresses may the <code>b</code> instruction 
+be used with?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+Any address in memory.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+Any address in the first 64K of memory.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Any address within plus or minus 128K of the current address.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Any address within the current program.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question3">
+<p>
+3.
+
+What format of data do the branch instructions assume?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+unsigned integers only
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+two's complement integers only
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Depending on the instruction,
+unsigned integers or two's complement integers.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Depending on the instruction,
+unsigned integers, two's complement integers, or abstract bit patterns.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question4">
+<p>
+4.
+
+Which of the following instruction sequences
+computes the absolute value of the two's complement
+value in <code>$t0</code>?
+(Branch delays are turned off.)
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+     bgez  $t0,pos
+     subi  $t0,$0,$t0
+pos:
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+     bgez   $t0,pos
+     subu   $t0,$0,$t0
+pos:
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+     blez   $t0,pos
+     subu   $t0,$0,$t0
+pos:
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+     bnez   $t0,pos
+     subu   $t0,$0,$t0
+pos:
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question5">
+<p>
+5.
+
+What register do some of the branch instructions
+use when they are translated into basic instructions?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>$t0</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>$a0</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>$at</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>hi</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question6">
+<p>
+6.
+
+Pick the syntactically incorrect instruction from the following:
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>bge   $t1,$t3,lbl</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>bge   $t1,-98,lbl</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>bge   $t1,value,lbl</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>bge   $t1,124034,lbl</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question7">
+<p>
+7.
+
+Pick the syntactically incorrect instruction from the following:
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>slt   $v0,$s1,123</code>
+
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>slt   $v0,$s1,$s3</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>slt   $v0,$s1,0x123</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>slt   $t1,$s1,lbl</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question8">
+<p>
+8.
+
+Is it possible that a given pseudoinstruction
+could be translated into several different
+sequences of basic instructions?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+No.  There is only one
+possible translation 
+of any given pseudoinstruction.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes. Each pseudoinstruction asks for a little
+program of basic instructions, and there may be several
+little programs that do the same thing. 
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question9">
+<p>
+9.
+
+Here is a fragment of code:
+</p>
+
+<pre>
+         .data        
+array:   <b>.byte</b>   12,23,45,12,-5,72
+</pre>
+
+<p>
+Which of the following pseudoinstructions
+loads register <code>$s1</code> with the 45?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,2
+lw    $s1,array($t0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,8
+lw    $s1,array($t0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,2
+lb    $s1,array($t0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,2
+lw    $s1,$t0(array)
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question10">
+<p>
+10.
+
+Here is a fragment of code. (Note the subtle change from the previous question.)
+</p>
+
+<pre>
+         .data        
+array:   <b>.word</b>   12,23,45,12,-5,72
+</pre>
+
+<p>
+Which of the following pseudoinstructions
+loads register <code>$s1</code> with the 45?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,2
+lw    $s1,array($t0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,8
+lw    $s1,array($t0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,2
+lb    $s1,array($t0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,2
+lw    $s1,$t0(array)
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question11">
+<p>
+11.
+
+Here is a fragment of code.  
+</p>
+
+<pre>
+         .data        
+string:  <b>.asciiz</b>   "Hello Virtual World!"
+</pre>
+
+<p>
+Which of the following pseudoinstructions
+loads register <code>$s1</code> with the 'V'?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,5
+lw    $s1,string($t0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,6
+lb    $s1,string($t0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,7
+lb    $s1,string($t0)
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+li    $t0,12
+lw    $s1,$t0(string)
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question12">
+<p>
+12.
+
+Where do indexes begin for arrays in C or Java?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+at any index the programmer picks
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+at any multiple of four
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr>
+<form name="evaluateQuest">
+
+
+<p  style="text-align:center">
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+&nbsp;&nbsp;
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+<p  style="text-align:center">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part7"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/homeIcon.gif" alt="Click here" > </a>
+</p>
+
+<p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:02 GMT -->
+</html>

@@ -1,0 +1,182 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:42 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More Code</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-18.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+The assembler in SPIM automatically assembles code starting at
+address 0x10000000.
+</p>
+
+<ol>
+<li>What address corresponds to the symbolic address <b><code>x</code></b>? 
+     &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; <span class="red">0x10000000</span></li>
+<li>What address corresponds to the symbolic address <b><code>poly</code></b>?
+    &nbsp; &nbsp; <span class="red">0x10000004</span></li>
+</ol>
+<p>
+Here is what this part of the SPIM simulation looks like:
+</p>
+
+ 
+<img src="polyDataSect.gif" class="center" alt="Data Section showing X" >
+
+<p>
+On this little endian machine, the bit pattern 0x00000011 is stored at address 0x10000000.
+</p> 
+
+<p>
+The byte 0x11 is stored at the address 0x10000000, which for display purposes is on the right of the first 
+four-byte group.
+This makes reading 32-bit values easy to read with our usual left to right reading style.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>More Code</h1>
+<!-- ../Audio/chap15-18.mp3 -->
+
+<a id="register_use_table"> </a>
+
+
+<form>
+<pre class="program">
+## poly.asm  
+##
+## evaluate  5x^2 -12x + 97 
+##<span class="highlightgreen">
+## Register Use:
+##
+## $10 base register, address of x
+## $11 x
+## $12 value of the polynomial
+## $13 temporary</span>
+
+        .text
+        .globl  main
+
+main: 
+        lui   $10,<input type="text" name="I1" size="4" />       #  Init base register to 0x10000000
+        
+        lw    $11,0($<input type="text" name="I2" size="4" /> )  #  Load x
+
+        ori   $12,$0,<input type="text" name="I3" size="4" />    #  Initialize the accumulator
+                              #  during the "load delay slot"
+
+        . . .  many instructions
+
+        sw    $12,<input type="text" name="I5" size="4" /> ($<input type="text" name="I4" size="4" /> )  #  Store result in poly
+
+        .data
+                             # In SPIM, the data section
+                             # starts at address 0x10000000
+x:      .word   17           # The base register points here .
+poly:   .word   0
+
+## End of file
+</pre>
+</form>
+
+<a id="accumulator"> </a>
+
+<div class="left">
+
+<p>
+The program must load a register with data from memory,
+and, at the end, store a result back to memory.
+The above program fragment does this, when you complete it.
+</p>
+
+<p>
+<span class="highlightgreen">The register use table in the documentation summarizes how 
+registers are used in this program.</span>
+When you program, decide on the registers you need and what
+they are used for.
+Then write down your decisions!
+This is crucial for getting things correct.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+A register where a value is 
+built up after several calculations
+is called an <b>accumulator</b>.</span>
+(Some old processors have a single,
+special register that is used for this
+purpose.
+But MIPS has many general purpose registers
+for this).
+</p>
+
+<p>
+Remember that data loaded from memory is not
+available to the instruction following the load.
+The instruction after a   
+<code>lw</code>, 
+in the "load delay slot",
+should not try to use the loaded data.
+</p>
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+
+<p>
+Fill in the blanks. 
+Look at the previous answer to help with
+the <code>lui</code> instruction.
+Use it to load the upper half of the base register with
+the upper half of the first data address.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:44 GMT -->
+</html>

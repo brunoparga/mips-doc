@@ -1,0 +1,104 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:16 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precision of Single Precision Floats</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Maybe Not. The source file for the program specified the
+constant <code>-8.32</code> but the program
+printed  <code>-8.31999969</code> 
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Precision of Single Precision Floats</h1>
+<!-- ../Audio/chap31-12.mp3 -->
+
+<a id="precision,_decimal_places"> </a>
+
+<div class="left">
+
+<p>
+There
+are two things wrong: 
+(1) the value  <code>-8.32</code> 
+can not be represented exactly in binary, and 
+(2) the last digit or two of the printed value are likely in error.
+</p>
+
+<p><span class="highlight">
+Single precision floats have (recall) only 24 bits
+of precision.
+This is the equivalent of 7 to 8 decimal digits.</span>
+SPIM should have printed <code>-8.3199999</code> to the window.
+</p>
+</div>
+
+<div class="right">
+<p>
+The 7 or 8 decimal digits of precision for single precision float is much worse than
+most electronic calculators.
+<span class="highlight">It is usually unwise to use single precision floating point in programs.</span>
+(But these chapters use it since the goal is to explain concepts,
+not to write production grade programs).
+Double precision has 15 or 16 decimal places of precision.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+<p>
+How many decimal places of precision does <u>Java</u>'s primitive type
+<code>float</code> have?
+How many decimal places of precision does <u>C</u>'s data type
+<code>float</code> have?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:16 GMT -->
+</html>

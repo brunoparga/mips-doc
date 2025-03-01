@@ -1,0 +1,119 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Mar 01 18:06:44 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:19 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass13_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap13-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Both operand registers and the result register can all be the same.
+(This is not true on many processors, but MIPS is nice in this way.)
+</p>
+
+<p>
+The effect of adding an integer to itself is doubling it.
+The maximum unsigned integer that can be represented in 32 bits
+is <code>+2<sup>32</sup>-1</code>
+so the maximum that <code>$8</code> could start with is:
+<code>+2<sup>31</sup>-1</code>
+</p>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+
+<!-- ../Audio/chap13-09.mp3 -->
+
+
+<pre class="program">
+## AddSome.asm
+## 
+## Program to demonstrate addition
+        .text
+        .globl  main
+
+main:
+        ori      $8, $0, 0xAB       # put 0x000000AB into $8
+        ori      $9, $0, 0x55       # put 0x00000055 into $9
+        addu     $10,$9, $8         # $10  gets sum
+
+## End of file
+</pre>
+
+<p>&nbsp;</p>
+<p>
+Here  is the addition problem on a previous page extended to 32 bits.
+</p>
+
+<pre>
+carry:   <span class="blue">0 0000 0000 0000 0000 0000 0001 1111 111</span>
+           0000 0000 0000 0000 0000 0000 1010 1011         000000AB
+           <u>0000 0000 0000 0000 0000 0000 0101 0101</u>         <u>00000055</u>
+           0000 0000 0000 0000 0000 0001 0000 0000         00000100
+</pre>
+
+<p>
+<span class="highlight">What was unsigned overflow with 8-bit unsigned arithmetic is
+within range for 32-bit arithmetic.</span>
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+
+
+<p>
+Are registers <code class="register">$8</code> 
+and <code class="register">$9</code> changed by the <code>addu</code>
+instruction in this program?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass13_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:20 GMT -->
+</html>

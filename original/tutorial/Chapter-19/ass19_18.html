@@ -1,0 +1,134 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 26 20:00:27 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:52 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structure Rule Five: Nesting Structures</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass19_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap19-22.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Yes
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Structure Rule Five: Nesting Structures</h1>
+<!-- ../Audio/chap19-22.mp3 -->
+
+
+<a id="nesting_structures"> </a>
+ 
+<img src="absIterate.gif" class="center" alt="Iteration">
+ 
+<br style="clear:both"> 
+<div class="left">
+<p><span class="highlight">
+In flowcharting terms, any code block can
+be expanded into any of the structures.</span>
+Or, going the other direction, if there is a portion of the flowchart
+that has a single entry point and a single exit point, it can be
+summarized as a single code block.
+</p>
+
+<a id="structured_programming,_rule_5"> </a>
+
+<blockquote><span class="highlightgreen">
+<b>Rule 5 of Structured Programming:</b>
+A structure (of any size) that has a single entry point
+and a single exit point is equivalent to a code block.</span>
+</blockquote>
+
+<p>
+For example, say that you are designing a program to
+go through a list of signed integers calculating the
+absolute value of each one.
+You might (1) first regard the program as one block, then
+(2) sketch in the iteration required, and finally
+(3) put in the details of the loop body.
+</p>
+
+
+<p>
+Or, you might go the other way.
+Once the absolute value code is working,
+you can regard it as a single code block to be used
+as a component of a larger program.
+</p>
+
+</div>
+
+
+<div class="right">
+<p>
+<span class="highlight">Sometimes this idea is called <b>modularity.</b></span>
+If a structure (say the third view, above) computes
+something useful, call it a <b>module</b>.
+The module is a self-contained component that does something
+useful if the entry conditions are met.
+The module can now be used as a building block for larger structures.
+</p>
+
+<p>
+When the larger structures are working, they can be themselves
+be regarded as as modules and used to build yet-bigger modules.
+This idea is common in science and engineering.
+Open the hood of your car and look at the engine-module,
+built of modules, that are build of yet-smaller modules.
+</p>
+</div>
+
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 18:</h3>
+
+<p>
+(Thought question:) Would it be a good idea to implement
+a useful code block as a subroutine (as a function)?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass19_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:54 GMT -->
+</html>

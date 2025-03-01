@@ -1,0 +1,154 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 27 19:53:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:46 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print String</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass22_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap22-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+This is how the program returns control to the operating system
+without expecting to get control back.
+</p>
+<p>
+On SPIM, the exit service stops execution of the simulated MIPS processor.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Print String</h1>
+<!-- ../Audio/chap22-04.mp3 -->
+
+<a id="print_string_(exception_handler_service)"> </a>
+
+<pre class="program">
+li      $v0,4       # code 4 == print string
+la      $a0,string  # $a0 == address of the string
+syscall             # Ask the operating system to 
+                    # perform the service.
+    . . . .
+
+        .data
+string: .asciiz      "Hello SPIM!\n"
+</pre>
+
+<br style="clear:both"> 
+
+<div class="left">
+<p>
+The
+ <em>exit</em> service is
+normally used when the program is finished.
+A real computer is always running, 
+and control has to go <em>somewhere</em>,
+so this is how control is sent back to the OS.
+The OS then goes about its own tasks, possibly starting another user
+program.
+
+</p>
+
+<p><span class="highlight">
+The <b>print string</b> SPIM exception handler service prints
+a <b>null terminated</b> string to the simulated monitor.</span>
+The address of the string is loaded into register <code class="register">$a0</code>.
+Typically the string is in the data section of memory.
+</p>
+
+<p>
+The print string service sends bytes to the simulated monitor 
+one by one starting
+with the byte pointed to by <code class="register">$a0</code>.
+It continues until it hits a null byte.
+It does not check that the bytes are ASCII. 
+You will print garbage if you point <code class="register">$a0</code> 
+at a location that is not an ASCII string.
+</p>
+</div>
+
+<div class="right">
+<p>
+If you want to advance to a new line, 
+use the newline character <code>'\n'</code>
+inside or at the end of the string.
+</p>
+
+<p>
+<b>Bug Alert:</b> <span class="highlight">the <code>la</code> instruction
+is used to load the <u>address</u> of the first byte of
+the string to be printed.</span>
+</p>
+
+<p>
+<b>Bug Alert:</b> values in <code class="register">t</code> registers
+may be altered by the operating system service,
+for this and other services.
+</p>
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+
+ 
+<p>
+Fill in the blanks.
+</p>
+
+<pre style="line-height: 200%;">
+<input type="text" size="10" >  $v0,4           # code 4 == print string
+<input type="text" size="10" >  $a0,message     # $a0 == address of the string
+<input type="text" size="10" >                  # Ask the operating system to perform the service.
+    . . . .
+         .data
+message: .asciiz      "Intruder Alert!\n"
+</pre>
+ 
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass22_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:47 GMT -->
+</html>

@@ -1,0 +1,122 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:55 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classic Confusion</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap33-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre class="program">
+        # copy data from first struct to second     
+        lw      $t0,0($s1)         # copy age from first
+        sw      $t0,0($s2)         # to second struct
+        lw      $t0,<u>  4  </u>($s1)     # copy pay from first
+        sw      $t0,<u>  4  </u>($s2)     # to second struct
+        lw      $t0,<u>  8  </u>($s1)     # copy class from first
+        sw      $t0,<u>  8  </u>($s2)     # to second struct
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Classic Confusion</h1>
+<!-- ../Audio/chap33-10.mp3 -->
+
+
+<pre class="program">         
+        # write out the second struct    
+        <input type="text" size="8" name="T1">   $a0,agest         # print "age:"
+        
+        <input type="text" size="8" name="T2">    $v0,4            # print string service
+        
+        syscall
+        <input type="text" size="8" name="T3">    $a0,0($s2)        # print age
+        
+        <input type="text" size="8" name="T4">    $v0,1             # print int service
+        
+        syscall
+
+        <input type="text" size="8" name="T5">    $v0,10            # return to OS
+        
+        syscall       
+
+        .data
+pay:    .word   24000             # rate of pay, in static memory
+agest:  .asciiz "age:   "
+</pre>
+
+<div class="left">
+<p>
+Working with addresses and the <em>contents</em> of addresses
+can be confusing.
+<span class="highlight">The classic prevention to classic confusion is to study a simple program.</span>  
+Such as the one on the previous page.
+Copy that program into your editor, paste it to a file and play with it with SPIM.
+</p>
+</div>
+
+<div class="right">
+<p>
+The program is more interesting if it writes some output.
+Insert the above block of code just before the end of the program.
+Fix it up so it prints out some values.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+You weren't expecting to get that code for free, were you?
+Fill in those blanks.
+</p>
+
+<p>
+Hint: pick from <code>li</code>, <code>la</code>, and <code>lw</code>
+for each blank.
+</p>
+ 
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:56 GMT -->
+</html>

@@ -1,0 +1,119 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue May 04 10:31:43 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:09 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newton's Method</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass32_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap32-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No, not usually.  With the inherent inaccuracy of floating point
+this risks creating a non-terminating loop.
+This next example shows a while loop.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Newton's Method</h1>
+<!-- ../Audio/chap32-11.mp3 -->
+
+<a id="Newton's_method"> </a>
+
+<div class="middle">
+<p><span class="highlight">
+<b>Newton's method</b>
+is a way to compute the square root of
+a number.</span>
+Say that <code>n</code> is the number and that <code>x</code>
+is an approximation to the square root of <code>n</code>.
+Then:
+</p>
+
+<pre class="code">
+x' =(1/2)(x + n/x)
+</pre>
+
+<p>
+<code> x'</code> is an even better approximation to the square root.
+The reasons for this are buried in your calculus book.
+</p>
+
+<p> 
+Here is what happens if
+the approximation <code>x</code> happens to be exactly the
+square root.
+In other words, what if <code>x = n<sup>0.5</sup></code>.
+Then:
+</p>
+
+<pre class="code">
+x' = (1/2)(x + n/x) <br>
+   = (1/2)( n<sup>0.5</sup> + n/n<sup>0.5</sup> )<br>
+   = (1/2)(n<sup>0.5</sup> + n<sup>0.5</sup>) <br>
+   = n<sup>0.5</sup><br>
+</pre>
+
+<p><span class="highlight">
+If <code>x</code> reaches the exact value, it stays fixed at that
+value.</span>
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+<b>Try it:</b> 
+Say that  <code>n == 4</code> and that our first
+approximation to the square root is <code>x == 1</code>.
+Use the formula to get the next approximation: 
+</p>
+
+<pre class="code">
+x' =(1/2)(1 + 4/1)
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass32_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:10 GMT -->
+</html>

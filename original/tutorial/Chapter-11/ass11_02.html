@@ -1,0 +1,144 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:38 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immediate Operand</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes, as long as the remaining 16 bits are enough to specify the machine operation.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Immediate Operand</h1>
+<!-- ../Audio/chap11-02.mp3 -->
+
+
+<a id="immediate_operand"> </a>
+<a id="bitwise_operation"> </a>
+<a id="bitwise_or"> </a>
+
+  
+<div class="left">
+<p><span class="highlight">
+ Some 
+ machine instructions 
+ contain a 16  bit
+ operand.</span>
+ The second operand is contained in a register.
+<span class="highlight">An operand that is directly encoded as part of
+a machine instruction is called an
+<b>immediate operand</b>.</span>
+</p>
+
+<p>
+For example, here is one of the instructions from
+the previous example program:
+</p>
+
+<pre class="code">
+address         machine code      assembly code
+
+0x00400000      0x3408<u>0002</u>        ori $8,$0,0x2
+</pre>
+
+
+<p>
+The last 16 bits (four hex characters) of the 
+machine instruction contain the operand 0x0002.
+The assembly language instruction can just say "0x2".
+The assembler creates a pattern padded with zeros to fill 16 bits.
+</p>
+</div>
+<br style="clear:both"> 
+
+<div class="right">
+  <table>
+  <tr><th colspan="5">OR Operation on Bits</th></tr>
+  <tr><td> first operand </td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+  <tr><td> second operand </td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+  <tr><td>&nbsp;</td><td colspan="4"><hr></td></tr>
+  <tr><td> result </td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+  </table>
+</div>
+
+<div class="left"> 
+<p> 
+The machine instruction tells the ALU to perform a
+<b>bitwise OR</b> between the contents of register
+<code class="register">$0</code> and the immediate operand 0x0002.
+The result is put in register <code class="register">$8</code> .
+</p>
+
+
+<p><span class="highlight">
+A <b>bitwise</b> operation is where
+a logical operation is performed on the bits of 
+each column of the operands.</span>
+The result in each column depends only on the bits in that column.
+Here is the bitwise OR between two 8-bit patterns:
+</p>
+
+<pre class="code">
+0110 1100    operand
+<u>0101 0110</u>    operand
+0111 1110    result
+</pre> 
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+<ul>
+<li>What bit pattern is contained in register <code class="register">$0</code> ?</li>
+<li>How many bits are there in each MIPS instruction?</li>
+</ul>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:39 GMT -->
+</html>

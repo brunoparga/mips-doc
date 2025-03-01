@@ -1,0 +1,138 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:12 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_18.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_20.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-22.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Program</h1>
+<!-- ../Audio/chap15-22.mp3 -->
+
+
+<pre class="program">
+## poly.asm -- complete program
+##
+## evaluate  5x^2 -12x + 97 
+##
+## Register Use:
+##
+## $10 base register, address of x
+## $11 x
+## $12 value of the polynomial
+## $13 temporary
+
+        .text
+        .globl  main
+
+main: 
+        lui   $10,0x1000     #  Init base register
+        lw    $11,0($10)     #  Load x
+
+        ori   $12,$0,97      #  Initialize the accumulator
+                             #  during the "load delay slot"
+
+        ori   $13,$0,12      #  evaluate second term
+        mult  $11,$13        #  12x
+        mflo  $13            #  assume 32 bit result
+        subu  $12,$12,$13    #  accumulator = -12x +97
+
+                             #  evaluate third term
+        mult  $11,$11        #  x^2
+        mflo  $11            #  assume 32 bit result
+        ori   $13,$0,<span style="color:red">5</span>       #  5
+        mult  <span style="color:red">$11</span>,<span style="color:red">$13</span>        #  5x^2
+        mflo  $13            #
+        addu  $12,<span style="color:red">$12</span>,<span style="color:red">$13</span>    #  accumulator = 5x^2-12x+97
+
+        sw    $12,4($10)     #  Store result in poly
+
+        .data
+x:      .word   17           #  Edit this line to change the value of x
+poly:   .word   0            #  Result is placed here.
+
+## End of file
+</pre>
+<br style="clear:both"> 
+
+<div class="left">
+<p>
+Here
+is the complete program.
+You may wish to copy it to the clipboard and
+paste it into your text editor.
+Now you can save it to a file and run it
+with SPIM.
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">Of course, the program should be tested with a 
+careful selection of
+values for <code><b>x</b></code>.</span>
+A production quality program would document the
+upper and lower bounds for <code><b>x</b></code>.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 19:</h3>
+
+<p>
+Suggest three values for <code><b>x</b></code>
+for use in testing.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_18.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_20.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:13 GMT -->
+</html>

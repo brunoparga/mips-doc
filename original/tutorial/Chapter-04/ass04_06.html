@@ -1,0 +1,116 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 09:30:06 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-04/ass04_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:34 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Memory</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass04_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass04_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap04merge0708.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+What is the hexadecimal name for the 32-bit pattern
+that consists of all 1 bits?
+</p>
+<h3>Answer:</h3>
+<p>
+0xFFFFFFFF
+</p>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Virtual Memory</h1>
+<!-- ../Audio/chap04merge0708.mp3 -->
+<a id="RAM"> </a>
+<a id="virtual_memory"> </a>
+
+<img src="virtualMem.gif"  class="rightimage" alt="virtual memory" >
+
+<div class="left">
+
+<p>
+The MIPS32 has an address space of 2<sup>32</sup> bytes.
+A Gigabyte is 2<sup>30</sup>, so the MIPS has 4 gigabytes
+of address space.
+Ideally, all of these memory locations would
+be implemented using memory chips
+(usually called RAM).
+</p>
+
+<p>
+<span class="highlight">On
+modern computers,
+the full address space is present
+no matter how much RAM has been installed.</span>
+This is done by keeping some parts of
+the full address space on disk and some parts in RAM.
+The RAM, the hard disk, some special electronics,
+and the operating system
+work together to provide the full 32 bit
+address space.
+To a user or an applications programmer
+it looks as if all 2<sup>32</sup>
+bytes of main memory are present.
+</p>
+
+<p>
+<span class="highlight">This method of providing the full address space
+by using a combination of RAM memory and the hard
+disk is called <b>virtual memory</b>.</span>
+The word <em>virtual</em> means 
+"appearing to exist, but not really there."
+Some computer geeks have a virtual social life.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+Which is faster:
+access to physical (RAM) memory or access to the hard disk?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass04_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass04_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-04/ass04_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:36 GMT -->
+</html>

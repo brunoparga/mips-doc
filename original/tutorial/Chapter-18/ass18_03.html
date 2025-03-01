@@ -1,0 +1,146 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Mar 05 21:12:52 EST 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:46 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set on Less Than</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass18_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap18-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<pre class="code">
+if ( !( a &lt; 0 ) ) { ... } 
+
+if ( a &gt;= 0  ) { ... }
+</pre> 
+
+<p>
+ The two operators &nbsp;
+ <code>&lt;</code>
+ &nbsp; and  &nbsp; <code>&gt;=</code>  &nbsp;
+cover all possible integer values.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Set on Less Than</h1>
+<!-- ../Audio/chap18-03.mp3 -->
+
+<a id="slt_(instruction)"> </a>
+<a id="sltu_(instruction)"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">
+<b>set</b> instructions set a register to 1 or 0 to show
+the relation between two values.</span>
+They
+are used to implement relational operators.
+However, they do not in themselves alter
+the flow of control.
+</p>
+
+<p>
+The <code>slt</code>
+instruction is used with
+two's complement integers:
+</p>
+
+<pre class="code">
+                   #  $s and $t contain
+                   #  signed integers
+                   #
+slt   d,s,t        #  if ( $s &lt; $t )
+                   #    d = 1
+                   #  else
+                   #    d = 0
+</pre>
+
+<p>
+The <code>sltu</code>
+instruction is used with
+unsigned integers:
+</p>
+
+<pre class="code">
+                   #  $s and $t contain
+                   #  unsigned integers
+                   #
+sltu  d,s,t        #  if ( $s &lt; $t )
+                   #    d = 1
+                   #  else
+                   #    d = 0
+</pre> 
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+
+<p>
+(Trick Question)
+</p>
+
+<p>
+<b>A.</b> After the following code executes, what value is in register <code class="register">$7</code> ?
+</p>
+
+<pre>
+addiu    $5,$0,-25
+addiu    $6,$0,25
+slt      $7,$5,$6
+</pre>
+
+<p>
+<b>B.</b> After the following code executes, what value is in register <code class="register">$7</code> ?
+</p>
+
+<pre>
+addiu    $5,$0,-25
+addiu    $6,$0,25
+sltu     $7,$5,$6
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass18_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:47 GMT -->
+</html>

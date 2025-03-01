@@ -1,0 +1,119 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Feb 09 12:35:36 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:27 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Favorite Binary Numbers</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass07_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap07-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+&nbsp;
+
+<table>
+<tr><th> Power of 2</th>
+<td> 10</td><td> 9</td><td>8 </td><td> 7</td><td> 6</td>
+<td> 5</td><td> 4</td><td>3 </td><td> 2</td><td> 1</td><td> 0</td></tr>
+<tr><th> Decimal</th>
+<td> 1024</td><td> 512</td><td>256 </td><td> 128</td><td> 64</td>
+<td> 32</td><td> 16</td><td>8 </td><td> 4</td><td>  2</td><td> 1 </td></tr>
+<tr><th> Include?</th>
+<td> &nbsp;  </td><td> &nbsp; </td><td> &nbsp; </td><td>  1 </td><td> 0 </td>
+<td>  1 </td><td> 0 </td><td> 1  </td><td> 0 </td><td>  1 </td><td> 0 </td></tr>
+</table>
+
+<h3>Answer:</h3>
+
+<p>
+Adding up the "turned on" powers of two gives:
+ <code>&nbsp; &nbsp;128 + 32 + 8 + 2 =  170<sub class="base">10</sub></code> &nbsp; &nbsp;
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Favorite Binary Numbers</h1>
+<!-- ../Audio/chap07-03.mp3 -->
+<a id="binary_integers,_common"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">Here is a list of positive integers represented in both
+8-bit binary and decimal.</span>
+You will encounter these patterns frequently.
+For now, only positive integers are represented.
+Negative integers come later.
+</p>
+
+<p>
+Look at the table and see if you can discover a useful pattern.
+</p>
+</div>
+<br style="clear:both"> 
+
+<table>
+<tr><th>Binary</th><th>Decimal</th><th>Notes</th></tr>
+<tr><td>0000 0000</td><td>     0</td><td>   &nbsp;           </td></tr>
+<tr><td>0000 0001</td><td>     1</td><td style="text-align:left"> &nbsp; &nbsp; 2<sup>0</sup> = 1 = 2<sup>1</sup> - 1</td></tr>
+<tr><td>0000 0011</td><td>     3</td><td style="text-align:left"> &nbsp; &nbsp; 2<sup>1</sup> + 2<sup>0</sup> = 3 =  2<sup>2</sup> - 1   </td></tr>
+<tr><td>0000 0100</td><td>     4</td><td style="text-align:left"> &nbsp; &nbsp; 2<sup>2</sup>   </td></tr>
+<tr><td>0000 0111</td><td>     7</td><td style="text-align:left"> &nbsp; &nbsp; 2<sup>2</sup> + 2<sup>1</sup> + 2<sup>0</sup>  = 2<sup>3</sup> - 1 </td></tr>
+<tr><td>0000 1000</td><td>     8</td><td style="text-align:left"> &nbsp; &nbsp; 2<sup>3</sup>    </td></tr>
+<tr><td>0000 1111</td><td>     15</td><td style="text-align:left"> &nbsp; &nbsp; 2<sup>4</sup> - 1  </td></tr>
+<tr><td>0001 0000</td><td>     16</td><td style="text-align:left"> &nbsp; &nbsp; 2<sup>4</sup>      </td></tr>
+<tr><td>0001 1111</td><td>     31</td><td style="text-align:left"> &nbsp; &nbsp; 2<sup>5</sup> - 1  </td></tr>
+<tr><td>0010 0000</td><td>     32</td><td style="text-align:left"> &nbsp; &nbsp; 2<sup>5</sup>      </td></tr>
+<tr><td>0111 1111</td><td>      <span class="red">?</span></td><td style="text-align:left"> &nbsp; &nbsp; <span class="red">?</span>            </td></tr>
+<tr><td>1000 0000</td><td>     128</td><td style="text-align:left"> &nbsp; &nbsp; 2<sup>7</sup>     </td></tr>
+</table>
+ 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+An important number was left out of the
+table.  What do you suppose is the decimal equivalent of
+<code>0111 1111</code> ?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass07_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:28 GMT -->
+</html>

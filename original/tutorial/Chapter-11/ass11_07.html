@@ -1,0 +1,142 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:56 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running the Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-07.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre>
+0000 1111 1010 0101           0FA5 
+0011 0110 1000 1111           368F 
+-------------------           ----
+0011 1111 1010 1111           3FAF
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Running the Program</h1>
+<!-- ../Audio/chap11-07.mp3 -->
+
+<img src="orWork.gif" class="center"  style="max-width:95%;"  alt="register display in SPIM" />
+
+<div class="left">
+<p>
+Doing
+the problem by hand yields the result,
+<code>0x3faf</code>.
+Of course,
+when the program runs the result
+will be 32 bits long:
+<code>0x00003faf</code>.
+</p>
+ 
+<p>
+The picture shows the result of running the program.
+<span class="highlight">The result in <code class="register">$10</code>  is what was expected.</span>
+</p>
+ 
+<p>
+To run the program:
+</p>
+
+</div>
+<br style="clear:both"> 
+<ol>
+<li>Create a source file (copy and paste from the previous page).</li>
+<li>Start QtSpim.</li>
+<li>Simulator &#8594; Settings &#8594; MIPS:
+    <ul>
+    <li><b>ON</b> &mdash; Bare Machine (click on the button)</li>
+    <li><b>OFF</b> &mdash; Load Exception Handler (clear the check box)</li>
+    </ul>
+<li>Display registers in Hex (Registers &#8594; Hex)</li>
+<li>Load the source file (File &#8594; Reinitialize and Load File).
+    <ul>
+    <li>This assembles the source and loads the resulting machine code at address 0x400000</li>
+    </ul>
+    </li>
+<li>Push F10 once per instruction.
+    <ul>
+    <li>Twice for this program</li>
+    <li>With the third push, the simulator will show an error message</li>
+    </ul>
+
+</li>
+</ol>
+
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+Here is the the first instruction from the source window:
+</p>
+<pre>
+[0x00400000]    0x34080fa5    ori  $8, $0, 4005       ori  $8,$0,0x0FA5
+</pre>
+
+
+<div class="left">
+
+<p>
+Look at the 32-bit machine instruction at address <code>0x00400000</code>. 
+Do you see the immediate operand in it?
+</p>
+
+<p>
+(Recall that the SPIM window shows the dis-assembly of the machine code, which
+in the above is <code>ori  $8, $0, 4005</code>. 
+The dis-assembly uses base 10 to show the bit
+pattern as if it were representing an integer.)
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:58 GMT -->
+</html>

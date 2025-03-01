@@ -1,0 +1,104 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_01.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:11 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHAPTER  33 &#8212; Dynamic Memory Allocation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<p class="revisions">
+created: 01/17/2003; edits: 11/26/2003, 04/29/2004, 04/26/2007, 06/02/2015, 05/28/2021
+</p>
+
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_02.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap33-01.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>CHAPTER  33 &#8212; Dynamic Memory Allocation</h1>
+<!-- ../Audio/chap33-01.mp3 -->
+
+<div class="right">
+
+
+<p>
+<span class="highlight">Dynamic memory allocation is used in assembly language and
+high level languages for building data structures.</span>
+In object oriented languages it is used to get the memory 
+used to construct objects.
+</p>
+
+<p>
+Just 
+before a program starts running,
+the loader copies
+machine code from the executable file into
+the <b>text</b> segment of memory.
+It also copies data from the executable file into the
+<b>data</b> segment of memory.
+</p>
+
+<p>
+Source
+code declares a fixed amount of memory
+(in the .data section for assembly language).
+<span class="highlight">But often as a program runs
+it requests more memory for data.</span>
+The operating system finds a block of available memory
+and allocates it to the program.
+<span class="highlight">This is <b>dynamic memory allocation</b>.</span>
+</p>
+</div>
+
+<div class="left">
+<h4>Chapter Topics:</h4>
+
+<ul>
+<li>Dynamic Memory Allocation</li>
+<li>Records and Structures</li>
+<li>Subroutine Calls with Structures</li>
+<li>C program versions of the above</li>
+</ul>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 1:</h3>
+<p>
+(Review: ) How many addresses does MIPS main storage have?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_02.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_01.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:12 GMT -->
+</html>

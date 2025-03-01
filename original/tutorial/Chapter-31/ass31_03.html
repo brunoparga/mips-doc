@@ -1,0 +1,104 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:05 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Double Precision</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Because floating point zero has the same representation as integer zero,
+32 zero-bits.
+Register <code class="register">$0</code> works as a floating point zero as well as an integer zero.
+</p>
+
+<p>
+(Floating point "negative zero" has the sign bit set, and all other bits zero.
+It is rarely needed.)
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Double Precision</h1>
+<!-- ../Audio/chap31-03.mp3 -->
+<a id="load_delay,_floating_point"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">MIPS also has hardware for <b>double precision</b> (64 bit) floating point operations.</span>
+For this,
+it uses <u>pairs</u> of single precision registers to hold operands.
+There are 16 pairs, named <code class="register">$f0, $f2</code>, ... , <code class="register">$f30</code>.
+</p>
+
+<p>
+<span class="highlight">Only the even numbered register is specified in a double precision instruction;</span>
+the odd numbered register of the pair is included automatically.
+</p>
+</div>
+
+<div class="right">
+<p>
+Some MIPS processors allow only even-numbered registers 
+(<code class="register">$f0</code>, <code class="register">$f2</code>,...)
+for single precision instructions.
+However SPIM allows you to use all 32 registers in single precision instructions.
+These notes follow that usage.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+Remember the <u>load delay</u>, where it takes an extra machine cycle
+after a load instruction
+before integer data reaches a general purpose register?
+Do you think there is a load delay for floating point load operations?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:06 GMT -->
+</html>

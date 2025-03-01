@@ -1,0 +1,150 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:51 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The   jal   Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26merge040506.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+(ii) By placing it in a register designated for this purpose.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The <code> jal </code> Instruction</h1>
+<!-- ../Audio/chap26merge040506.mp3 -->
+
+<img src="../Chapter-01/machinecycle.gif" class="centerimage" alt="machine cycle" />
+<br style="clear:both"> 
+
+<div class="middle">
+
+<a id="return_address_register"> </a>
+<a id="$ra_register"> </a>
+
+<p><span class="highlight">
+The register that is used for linkage is register <code class="register">$31</code>,
+which is called <b><code class="register">$ra</code></b> by the extended assembler.</span>
+It holds the <b><em>return address</em></b> for a subroutine.
+The instruction that puts the return address into  <code class="register">$ra</code>
+is (usually) the <code>jal</code> instruction.
+</p>
+
+<p>
+Register <code>$31</code> is one of the two "general purpose registers"
+that behave differently from the others.
+(The other one is register <code class="register">$0</code>.)
+The <code>jal</code> instruction and register <code class="register">$31</code> provide
+the hardware support necessary to elegantly implement subroutines.
+</p>
+
+<p>
+To 
+understand how <code>jal</code> works, review the machine cycle.
+The MIPS endlessly cycles through
+three basic steps.
+Each cycle executes one machine instruction.
+</p>
+
+<a id="jal,_instruction"> </a>
+<a id="instruction,_jal"> </a>
+
+<p>
+The <code>jal</code> instruction does the following
+in the execute phase of the machine cycle:
+</p>
+
+</div>
+<br style="clear:both"> 
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+jal sub    # $ra &larr; PC+4  add another 4 to the PC
+           # This forms the address 8 bytes away from the jal. 
+           # PC  &larr; sub   load the PC with the subroutine entry point.
+           # A branch delay slot follows this instruction.
+           # After the branch delay the instruction at sub is fetched.
+</pre>
+
+<div class="middle">
+
+<p>
+<b>Very Tricky:</b>
+the middle step (increment) of the machine cycle has already incremented
+the PC by four. 
+At this point the PC holds the address of the instruction 
+just after the <code>jal</code> instruction.
+</p>
+
+<p>
+Now the execute phase of the <code>jal</code> instruction 
+<u>adds another four</u> to that address
+and puts the result in <code class="register">$ra</code>.
+<span class="highlight">Now <code class="register">$ra</code> holds the address of the <u>second</u> instruction
+after the  <code>jal</code> instruction.</span>
+</p>
+
+<p>
+<span class="highlight">The correct return address is "address of the <code>jal</code>  plus eight".</span>
+This is because: (i) returning from the subroutine 
+to the <code>jal</code> instruction would be a disaster
+(since it would execute again, sending control back to the subroutine),
+and
+(ii) the instruction following the <code>jal</code> 
+is a branch delay slot.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+<p>
+What instruction is usually placed in the branch delay slot?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:52 GMT -->
+</html>

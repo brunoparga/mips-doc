@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/flashCardsAsm03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:40 GMT -->
+<head>
+<title>Flashcards for Chapter 3</title>
+<meta charset="utf-8">
+<meta name="creation" content="2017,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/FLASHstyle.css" />
+
+<style>
+input:disabled
+{
+  border: 1px solid #999999;
+  background-color: #aaaaaa;
+  color: #666666;
+}
+</style>
+
+<script type="text/javascript">
+
+  var questions = new Array();
+  var answers   = new Array();
+  var asked     = new Array();
+  var qNumber;
+
+  // The flash cards start here
+
+  questions.push("What is the PC?");
+  answers  .push("Program Counter: a register that holds the address of the next instruction. ");
+
+  questions.push("What is the size of memory addresses in MIPS?");
+  answers  .push("32 bits ");
+
+  questions.push("What is the size of registers in MIPS ?");
+  answers  .push("32 bits ");
+
+  questions.push("What is the size of machine instructions in MIPS ?");
+  answers  .push("32 bits ");
+ 
+  questions.push("What is a register?");
+  answers  .push("A register is an electronic device that holds a bit pattern (for us, 32 bits.) ");
+
+  questions.push("What are 8 contiguous bits called?");
+  answers  .push("byte ");
+ 
+  questions.push("List all the patterns that can be formed with 2 bits.");
+  answers  .push("00\n01\n10\n11 ");
+ 
+  questions.push("List all the patterns that can be formed with 3 bits.");
+  answers  .push("000\n001\n010\n011\n100\n101\n110\n111 ");
+ 
+  questions.push("How many patterns can be formed with N bits?");
+  answers  .push("2**N\n\n2 to power N ");
+ 
+  questions.push("How many patterns can be formed with 3 bits?");
+  answers  .push("8 ");
+ 
+  questions.push("How many patterns can be formed with 4 bits?");
+  answers  .push("16");
+ 
+  questions.push("How many patterns in a killobyte KB?");
+  answers  .push("1024");
+ 
+  questions.push("What is 2**N times 2**M");
+  answers  .push("2**(N+M) \n\n2 to power (N+M)");
+ 
+  questions.push("What is the pattern name for 0000?");
+  answers  .push("0  ");
+ 
+  questions.push("What is the pattern name for 1111?");
+  answers  .push("F  ");
+ 
+  questions.push("What is the pattern name for 1111 0011?");
+  answers  .push("F3  ");
+ 
+  questions.push("What is the pattern name for 1001 0111?");
+  answers  .push("97 ");
+ 
+  questions.push("What is the bit pattern corresponding to 0xFA?");
+  answers  .push("1111 1010 ");
+ 
+  questions.push("What is the bit pattern corresponding to 0x04?");
+  answers  .push("0000 0100 ");
+ 
+  questions.push("What is the name for the system of naming 4-bit groups of bit patterns?");
+  answers  .push("hexadecimal ");
+ 
+  questions.push("What is the name for the system of naming 3-bit groups of bit patterns?");
+  answers  .push("octal ");
+  
+  
+// If you are making your own flashcards, do not modify anything below this line.
+
+
+var count =0, numRight =0, numWrong=0;
+var qNumber;
+
+for ( var j=0; j < questions.length; j++ ) asked.push( 0 );
+
+function questionClick()
+{
+  var txt;
+  var coin;
+  var allAsked = false;
+
+  document.getElementById("questionButton").disabled = true;
+  document.getElementById("answerButton"  ).disabled = false;
+  document.getElementById("rightButton"   ).disabled = true;
+  document.getElementById("wrongButton"   ).disabled = true;
+  document.getElementById("doneButton"    ).disabled = true;
+  
+  coin = Math.floor( Math.random()*questions.length );
+  qNumber = coin;
+
+  // search for an unasked question
+  while ( asked[qNumber] == 1 && !allAsked ) 
+  {
+    qNumber = (qNumber+1)%questions.length;
+    if ( qNumber == coin ) allAsked = true;
+  }
+
+  if ( allAsked )
+  {
+    txt = "You have gone through all the flash cards\n" ;
+
+    txt +=  "Number of questions: " + count + "\n";
+    txt +=  "Number correct: " +  numRight + "\n";
+    
+    if ( count>0 )
+      txt +=  "Percent correct: " + Math.round( (numRight*100)/count ) + "% \n";
+        
+    document.getElementById("questionArea").innerHTML = txt;
+  }
+
+  else
+  {
+    count++; 
+    document.getElementById("Counter").value  = "" + count;
+    document.getElementById("questionArea").innerHTML  =  questions[qNumber] + "\n";
+    document.getElementById("answerArea").innerHTML  = " ";
+  }
+}
+
+function answerClick()
+{
+  document.getElementById("questionButton").disabled = true;
+  document.getElementById("answerButton"  ).disabled = true;
+  document.getElementById("rightButton"  ).disabled = false;
+  document.getElementById("wrongButton"  ).disabled = false;
+  
+  document.getElementById("answerArea").innerHTML =  answers[qNumber]
+}
+
+function rightClick()
+{
+  asked[qNumber] = 1;
+
+  document.getElementById("questionButton").disabled = false;
+  document.getElementById("answerButton"  ).disabled = true;
+  document.getElementById("rightButton"   ).disabled = true;
+  document.getElementById("wrongButton"   ).disabled = true;
+  document.getElementById("doneButton"    ).disabled = false;
+
+  numRight++ ;
+  document.getElementById("Right").value = ""+ numRight ;
+  document.getElementById("Wrong").value = ""+ numWrong ;
+}
+
+function wrongClick()
+{
+  document.getElementById("questionButton").disabled = false;
+  document.getElementById("answerButton"  ).disabled = true;
+  document.getElementById("rightButton"   ).disabled = true;
+  document.getElementById("wrongButton"   ).disabled = true;
+  document.getElementById("doneButton"    ).disabled = false;
+  
+  numWrong++ ;
+  document.getElementById("Right").value = ""+ numRight ;
+  document.getElementById("Wrong").value = ""+ numWrong ;
+}
+
+function doneClick()
+{
+      txt = "You have seen "  + count + " flash cards\n" ;
+
+      txt +=  "Number correct: " +  numRight + "\n";
+      
+      if ( count>0 )
+        txt +=  "Percent correct: " + Math.round( (numRight*100)/count ) + "% \n";
+          
+      document.getElementById("questionArea").innerHTML = txt;
+      document.getElementById("answerArea").innerHTML = "";
+}
+
+</script>
+</head>
+
+<body>
+ 
+
+<h1>Flash Cards on Chapter 3: Analog and Binary Signals</h1>
+ 
+<br>
+
+<table style="margin-left: auto; margin-right: auto;">
+<tr>
+  <th>QUESTION</th><th>ANSWER</th>
+</tr>
+
+<tr> 
+  <td>
+  <textarea id="questionArea" rows="8" cols="50">
+  Instructions:
+
+  Click on button 1 to see a question.
+
+  Mentally answer the question (just as you would with paper flash cards.)
+  </textarea>
+  </td>
+  
+  <td>
+  <textarea id="answerArea" rows="8" cols="50">
+  Then click on button 2 to see the correct answer. 
+
+  Then click on the "Right" or the "Wrong" button as appropriate.
+
+  Repeat.
+  </textarea>
+  </td>
+</table>
+
+
+<p style="text-align:center">
+Questions so far
+&nbsp;&nbsp;
+<input type="text" id="Counter" size="5" value="">
+
+&nbsp;&nbsp;
+Number Right:
+&nbsp;&nbsp;
+<input type="text" id="Right" size="5" value="">
+
+&nbsp;&nbsp;
+Number Wrong:
+&nbsp;&nbsp;
+<input type="text" id="Wrong" size="5" value="">
+</p>
+
+<p style="text-align:center">
+
+<input type="button" 
+  id="questionButton" 
+  value="1. Ask Question" 
+  onClick="questionClick()">
+
+&nbsp;
+
+<input type="button" id="answerButton" disabled
+  value="2. Show Answer" 
+  onClick="answerClick()">
+
+&nbsp;
+
+<input type="button" id="rightButton" disabled
+  value="3. Right" 
+  onClick="rightClick()">
+
+OR
+
+<input type="button" id="wrongButton" disabled
+  value="3. Wrong" 
+  onClick="wrongClick()">
+ 
+&nbsp; &nbsp; &nbsp;
+
+<input type="button" id="doneButton" 
+  value="Finished" 
+  onClick="doneClick()">
+</p>
+
+<hr>
+<p>
+<b>Instructions:</b> &nbsp; 
+Click on button 1 to see a question. 
+Click on button 2 to see the correct answer. 
+Then click on the "Right" or the "Wrong"
+button as appropriate.
+Repeat.
+</p>
+
+<p>
+Click "Finished" when you are done.
+</p>
+
+<p>
+Correctly answered questions are removed from the deck of flash cards.
+Incorrectly answered questions go back into the deck.
+The program stops when all questions have been answered correctly.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part1"> Back to Index  </a> 
+</p>
+ 
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/flashCardsAsm03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:40 GMT -->
+</html>

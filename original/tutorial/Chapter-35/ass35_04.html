@@ -1,0 +1,134 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Jun 03 18:01:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:01 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allocating Memory for a Node</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass35_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass35_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap35-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+8 bytes (4 bytes for the integer, 4 bytes for the address)
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Allocating Memory for a Node</h1>
+<!-- ../Audio/chap35-04.mp3 -->
+
+<a id="memory_allocation,_for_a_node"> </a>
+
+ 
+<pre class="program">
+#
+# create the first node 
+li      $v0,9             # allocate memory
+li      $a0,8             # 8 bytes
+syscall                   # $v0 &lt;-- address
+move    <span style="color:red"><b>$s1</b></span>,$v0           # $s1 = &amp;(first node)
+li      $t0,1             # store 1
+sw      $t0,0(<span style="color:red"><b>$s1</b></span>)        # at displacement 0
+                          # &amp; == "address of"
+
+# create the second node 
+li      $v0,9             # allocate memory
+li      $a0,8             # 8 bytes
+syscall                   # $v0 &lt;-- address
+move    <span style="color:green"><b>$s2</b></span>,$v0           # $s2 = &amp;(second node) <img src="twoNodeList.gif"  alt="Two Node List" />
+                          # &amp; == "address of"
+
+# link the second node to the first
+sw    <input type="text" size="5" name="T1" />,4(<input type="text" size="5" name="T2" />)       # copy address of second node
+                          # into the first node
+
+# initialize the second node
+li      $t0,2             # store 2
+sw      $t0,0(<span style="color:green"><b>$s2</b></span>)        # at displacement 0
+
+# put null in the link of the second node
+sw    <input type="text" size="5" name="T3" />,4(<input type="text" size="5" name="T4" />)
+</pre>
+ 
+<div class="left">
+ 
+<p><span class="highlight"> 
+Dynamic 
+ memory can be used for a node.</span>
+Here is a program that creates a two-node linked list.
+</p>
+
+<p>
+<span class="highlight"> First, 8 bytes are dynamically allocated for the first node.</span> 
+The address of the node is saved in <code class="register">$s1</code>.
+The data, "1", is copied into the first four bytes of the
+node at displacement <code>0</code> off of  <code class="register">$s1</code>.
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight"> The process is repeated for the second node,</span>  except that
+its address is saved in <code class="register">$s2</code>.
+</p>
+
+<p>
+<span class="highlight"> To complete the structure, the first node is made to point to
+the second node.</span> 
+This is what the green arrow between the nodes shows.
+Also, a null should be put in the pointer field of the last node.
+But the code is not complete.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+
+<p>
+Fill in the blanks. 
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass35_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass35_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:03 GMT -->
+</html>

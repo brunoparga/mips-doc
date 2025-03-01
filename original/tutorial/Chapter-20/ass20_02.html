@@ -1,0 +1,166 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 26 18:18:41 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:49 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Null-terminated String</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass20_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap20-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+A zero byte (also called a null byte).
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Null-terminated String</h1>
+<!-- ../Audio/chap20-02.mp3 -->
+
+
+<a id="null-terminated_string"> </a>
+<a id="null"> </a>
+
+
+<div class="middle">
+<p><span class="highlight">
+A
+null-terminated string is a sequence of ASCII
+characters, one to a byte,
+followed by
+a zero byte (a null byte).</span>
+Null-terminated strings are common in C and C++.
+Here is how a string is declared in assembly language:
+</p>
+
+<pre>
+        .data
+str:    .asciiz "Time is the ghost of space."
+</pre>
+
+<p>
+The characters are placed in memory in order,
+starting with the 'T'.
+The picture shows this.
+The blank bytes are
+filled with ASCII space (0x20).
+The last byte is filled with 0x00, 
+represented with a slash.
+</p>
+</div>
+
+<div style="text-align: center;">
+<img alt="Time is the ghost of space" src="nullTermString.gif">
+</div>
+
+<div class="middle">
+<p>
+Here is what it looks like in the data display
+of SPIM running on a Windows PC.<span class="highlight">
+The characters are placed 
+in memory in sequential order
+beginning with 'T' (at address 0x10000000).</span>
+This is hard to see in the display.
+</p>
+</div>
+
+<div style="text-align: center;">
+<img src="spimString.gif" alt="SPIM display" />
+</div>
+
+<div class="left">
+
+<p>
+The right section of the SPIM display shows the characters in a string in the order they are stored in memory, one character per byte.
+However, in the hex display of memory, 
+each group of four bytes is displayed  in backwards order.
+The byte with the lowest address of a group is on the right; the byte with the highest address  of the group is the leftmost byte.
+The red letters over each byte in the hex  memory display have been added (by me) to show what each byte actually contains.
+</p>
+<p><span class="highlight">
+The hex memory display is aimed at
+displaying 32-bit little-endian integers.</span>
+For 4-byte integers, this puts the most significant
+byte on the left, where it ordinarily goes when integers are printed.
+Unfortunately, this makes the hex display hard to read
+for data other than integers.
+</p>
+</div>
+
+<div class="right">
+
+<p>
+In the red text, space (0x20) is shown as '_'.
+The null byte is at address 0x1000001B, followed by more nulls that are not part of the string.
+</p>
+
+
+<ul>
+<li> <code>'T'</code> ( 0x54 ) is at address 0x10000000.</li>
+<li> <code>'i'</code> ( 0x69 ) is at address 0x10000001.</li>
+<li> <code>'m'</code> ( 0x6d ) is at address 0x10000002.</li>
+<li> <code>'e'</code> ( 0x65 ) is at address 0x10000003.</li>
+<li> <code>' '</code> ( 0x20 ) is at address 0x10000004.</li>
+<li> <code>'i'</code> ( 0x69 ) is at address 0x10000005.</li>
+<li> <code>'s'</code> ( 0x73 ) is at address 0x10000006.</li>
+<li> <code>' '</code> ( 0x20 ) is at address 0x10000007.</li>
+</ul>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<p>
+What character is at 0x10000008 &nbsp; ?
+</p>
+
+<p>
+What character is at 0x10000010 &nbsp; ?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass20_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:52 GMT -->
+</html>

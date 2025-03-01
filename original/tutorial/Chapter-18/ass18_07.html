@@ -1,0 +1,129 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Mar 05 21:12:52 EST 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:06 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More Blanks</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass18_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap18-07.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+See Below
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>More Blanks</h1>
+<!-- ../Audio/chap18-07.mp3 -->
+
+<div class="left">
+<p>
+The
+ immediate operand used in the set instruction
+is changed to 56 to implement "less than or equal to 55".
+Notice that the assembly language uses decimal 
+numbers for temperatures.
+This is fine.
+The assembler translates the decimal representation
+of the source file into the correct bit pattern
+for the machine instruction.
+</p>
+</div>
+
+<div class="right">
+<p>
+The next part of the program tests if 
+<code>temp</code>
+is less than 30.
+Be careful with the branch instruction
+so that it branches for the correct condition.
+</p>
+</div>
+
+<br style="clear:both"> 
+ 
+<pre class="program">
+## tempRange.asm
+##
+## Check that   30 &lt;= temp &lt;= 55
+## Set flag to 1 if in range, to 0 if out of range
+##
+## Registers:
+## $2 --- temperature
+## $3 --- in/out range indicator flag
+## $8 --- scratch
+<img src="tempRange.gif" class="rightimage" alt="flowchart" />
+
+      .text
+      .globl  main
+# Set range indicator to 1
+main:   ori     $3,$0,1         #  set to 1
+
+# Test  30 &lt;= temp &lt;= 55
+        sltiu   $8,$2,<span class="red">56</span>        #  $8=1 if temp &lt;= 55
+        beq     $8,<span class="red">$0,out</span>       #  0? out of range
+        sll     $0,$0,0         #  delay
+
+        sltiu   $8,$2,<input type="text" size="3" />     #  $8=1 if  temp &lt;30
+        
+        beq     $8,$0,<input type="text" size="3" />     #  0? in range
+        
+        sll     $0,$0,0         #  delay
+
+# Out of Range: clear range indicator to 0
+out:
+        ori     $3,<input type="text" size="3" />,<input type="text" size="3" />    #  clear flag to 0
+
+cont:   sll     $0,$0,0         #  target for the jump
+
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass18_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:07 GMT -->
+</html>

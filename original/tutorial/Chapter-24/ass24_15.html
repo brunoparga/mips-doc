@@ -1,0 +1,114 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:51 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-17.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-17.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Program</h1>
+
+<div class="left">
+<p>
+Here 
+is a complete program.<span class="highlight">
+This is similar to what a C for loop
+might compile into.</span>
+The job of a C compiler, of course,
+is to translate from C into assembly.
+</p>
+
+<p>
+If you copy this to a file and run it with SPIM
+make sure that pseudoinstructions are allowed and
+that delayed load and delayed branches are turned off.
+</p>
+</div>
+
+<br style="clear:both">
+<pre class="program">
+        .globl  main
+
+main:   
+        li    $v1,0              # zero the sum
+        li    $t1,0              # init index to 0
+        li    $t2,0              # init loop counter
+        
+for:    beq   $t2,5,endfor       # for ( i=0; i &lt; 5 ;i++ )
+        lw    $v0,array($t1)
+        addu  $v1,$v1,$v0        #     sum = sum+array[i]
+        addi  $t1,$t1,4          #     increment index
+        addi  $t2,$t2,1          #     increment counter
+        b     for
+ 
+endfor:
+        li    $v0,10             # exit
+        syscall   
+
+        .data
+array:  .word  1,2,3,-5,1
+</pre>
+
+<br style="clear:both">
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+<p>
+Some languages (like Pascal) allow the first index of
+an array to be any integer.
+Can such a language be compiled for MIPS?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:52 GMT -->
+</html>

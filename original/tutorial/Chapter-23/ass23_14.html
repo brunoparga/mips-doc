@@ -1,0 +1,138 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:20 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bit Pattern Rotation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-14.mp3 -->
+
+<p>
+What is the bit pattern in register <code>$t1</code> after the following:
+</p>
+
+<pre class="code">
+li   $t0,0x12345678
+sll  $t1,$t0,8
+</pre> 
+
+<h3>Answer:</h3>
+<p>
+Register <code class="register">$t1</code>  will contain 0x34567800
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Bit Pattern Rotation</h1>
+
+
+<a id="rotate"> </a>
+
+<div class="right">
+<img src="shiftRot.gif" class="rightimage" alt="Rotate Left and Shift Left">
+</div>
+
+<div class="left">
+
+<p>
+With   
+ a <b>shift left</b> instruction,
+the bits at the left end of the the register
+"fall off".
+The bits shifted into the right end are always 
+zero bits.
+</p>
+
+<p><span class="highlight">
+With a <b>rotate left</b> instruction,
+the bits at the left end of the the register
+are fed into the right end of the register.</span>
+</p>
+
+<p>
+The 32-bit register always contains the same
+32-bit values it started with, but they are
+rotated into new positions.
+</p>
+
+<p>
+In the illustration, after rotating left one bit
+the pattern changes from <b>10100111</b>
+to <b>01001111</b>.
+One more left rotate would change the pattern
+to <b>10011110</b>.
+</p>
+
+<p>
+Of course, registers have 32 bits, not the
+eight bits shown in the illustration.
+</p>
+
+<p><span class="highlight">
+With a  <b>rotate right</b> instruction,
+bit values in
+the register are moved right.</span>
+Bits at the right end of the register are fed
+back into the left end of the register.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+
+<p>
+Rotate right this pattern by <b>two</b> bit positions:
+</p>
+
+<blockquote>
+10001100<br><br>
+<input type="text" size="10">
+</blockquote>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:22 GMT -->
+</html>

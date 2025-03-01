@@ -1,0 +1,339 @@
+<!doctype html> 
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:53 GMT -->
+<head>
+
+<title>Programming Exercises</title>
+<meta charset="utf-8">
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 06/20/2003; small edits: 07/20/2015</p>
+<hr />
+
+<h1> 
+Chapter 15 Programming Exercises
+</h1>
+
+<hr />
+ 
+<p>
+For these programming exercises,
+use only those instructions that have been
+discussed so far in these notes:
+</p>
+
+ 
+<table style="width:50%">
+
+<tr>
+<td>add</td>	<td>lw</td>	<td>sll</td>
+</tr>
+<tr>
+<td>addi</td>	<td>mfhi</td>	<td>sra</td>
+</tr>
+<tr>
+<td>addiu</td>	<td>mflo</td>	<td>srl</td>
+</tr>
+<tr>
+<td>addu</td>	<td>mult</td>	<td>sub</td>
+</tr>
+<tr>
+<td>and</td>	<td>multu</td>	<td>subu</td>
+</tr>
+<tr>
+<td>andi</td>	<td>nor</td>	<td>sw</td>
+</tr>
+<tr>
+<td>div</td>	<td>or</td>	<td>xor</td>
+</tr>
+<tr>
+<td>divu</td>	<td>ori</td>	<td>xori</td>
+</tr>
+<tr>
+<td>lui</td><td>&#160;</td><td>&#160;</td>
+</tr>
+
+</table>
+ 
+
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine ON, Allow Pseudo Instructions OFF,
+Load Trap File OFF, Delayed Branches ON,
+Delayed Loads ON, Mapped IO OFF, Quiet OFF.
+</p>
+
+<p>
+Run the programs by 
+setting the value of the PC to 0x400000 and
+then single stepping (pushing F10)
+or by multiple stepping (push F11 and enter a number of steps).
+Observing the results in the SPIM window.
+</p>
+
+ 
+
+<hr />
+
+<!-- written and tested -->
+<h2>*Exercise 1</h2>
+
+<p>
+<b>Modify</b> exercise 1 of the previous chapter
+so that the value <code>x</code> is 
+in memory.
+Store the value of the polynomial back to memory.
+The program will be similar
+to <em>poly.asm</em> from this chapter.
+Evaluate the polynomial:
+</p>
+
+<pre class="code">
+3x<sup>2</sup> + 5x - 12
+</pre>
+
+<p>
+Use symbolic addresses <code>x</code>
+and  <code>poly</code>.
+Assume that  the value in <code>x</code> is small enough so that
+all results fit into 32 bits.
+Since load delays are turned on in SPIM
+be careful what instructions are placed in the load delay slot.
+</p>
+
+<p>
+Verify that the program works by using several
+initial values for <code>x</code>.
+Use  <code>x = 0</code> and  <code>x = 1</code>
+to start since this will make debugging easy.
+Then try some other values, such as
+<code>x = 10</code> and  <code>x = -1</code>.
+</p>
+
+<p>
+<b>Optional:</b>
+write the program following the hardware rule that
+two or more instructions must follow a <code>mflo</code>
+instruction before another  <code>mult</code> instruction.
+Try to put useful instructions in the two slots that follow
+the  <code>mflo</code>.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- written and tested -->
+<h2>*Exercise 2</h2>
+
+<p>
+Evaluate the expression:
+</p>
+
+<pre class="code">
+17xy - 12x - 6y + 12
+</pre>
+
+<p>
+Use symbolic addresses <code>x</code>,
+<code>y</code>,
+and  <code>answer</code>.
+Assume that  the values are small enough so that
+all results fit into 32 bits.
+Since load delays are turned on in SPIM
+be careful what instructions are placed in the load delay slot.
+</p>
+
+<p>
+Verify that the program works by using several
+initial values for <code>x</code> and <code>y</code>.
+Use  <code>x=0, y=1</code> and  <code>x=1, y=0</code>
+to start since this will make debugging easy.
+Then try some other values.
+As an option,
+follow the precaution for multiplication, as above.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- written and tested -->
+<h2>**Exercise 3 &#8212; Horner's Method</h2>
+
+<p>
+Evaluate the polynomial:
+</p>
+
+<pre class="code">
+6x<sup>3</sup> - 3x<sup>2</sup> + 7x + 2
+</pre>
+
+<p>
+Get the value for  <code>x</code>
+from symbolic addresses <code>x</code>.
+Store the result at symbolic address <code>poly</code>.
+Assume that  the values are small enough so that
+all results fit into 32 bits.
+Since load delays are turned on in SPIM
+be careful what instructions are placed in the load delay slot.
+</p>
+
+<p>
+Evaluate the polynomial by using <b>Horner's Method</b>.
+This is a way of building up values until the final value is reached.
+First, pick a register, say $7, to act as an accumulator.
+The accumulator will hold the value at each step.
+Use other registers to help build up the value at each step.
+</p>
+
+<p>
+First, put the coefficient of
+the first term into the accumulator:
+</p>
+
+<pre>
+6
+</pre>
+
+<p>
+Next, multiply that value by x:
+</p>
+
+<pre>
+6x
+</pre>
+
+<p>
+Add the coefficient of the next term:
+</p>
+
+<pre>
+6x - 3
+</pre>
+
+<p>
+Next, multiply that sum by x:
+</p>
+
+<pre>
+6x<sup>2</sup> - 3x
+</pre>
+
+<p>
+Add the coefficient of the next term:
+</p>
+
+<pre>
+6x<sup>2</sup> - 3x + 7
+</pre>
+
+<p>
+Next, multiply that sum by x:
+</p>
+
+<pre>
+6x<sup>3</sup> - 3x<sup>2</sup> + 7x 
+</pre>
+
+<p>
+Finally, add the coefficient of the last term:
+</p>
+
+<pre>
+6x<sup>3</sup> - 3x<sup>2</sup> + 7x + 2
+</pre>
+
+<p>
+Evaluating the polynomial in this way reduces the
+number of steps (and the amount of code).
+If you want to save time, write and debug
+each step before moving on to the next.
+When you reach the final step you should have a
+working, debugged program.
+</p>
+
+<p>
+Verify that the program works by using several
+initial values for <code>x</code>.
+Use  <code>x=1</code> and  <code>x=-1</code>
+to start since this will make debugging easy.
+Then try some other values.
+As an option,
+follow the precaution for multiplication.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+<h2>**Exercise 4 &#8212; More Horner's Method</h2>
+
+<p>
+Evaluate the following  polynomial using Horner's method:
+</p>
+
+<pre class="code">
+ax<sup>3</sup> + bx<sup>2</sup> + cx + d
+</pre>
+
+<p>
+Now the values  for the coefficients <code>a, b, c, d</code>
+as well as for <code>x</code> come from the <code>.data</code>
+section of memory.
+Some versions of SPIM do not accept a statement label of "b", so use "bb".
+</p>
+
+
+<pre class="code">
+       .data
+x:     .word    1
+a:     .word   -3
+bb:    .word    3
+c:     .word    9
+d:     .word  -24
+</pre>
+
+<p>
+Load a base register with the address of the first byte of
+the <code>.data</code> section.
+Calculate (by hand) the displacement needed for each of
+the values in memory and use it with a <code>lw</code>
+instruction to get values from memory.
+In a later chapter you will find a much more convenient
+way to load and store values using symbolic addresses.
+But don't do this now.
+</p>
+
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+ 
+<hr />
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:53 GMT -->
+</html>
+

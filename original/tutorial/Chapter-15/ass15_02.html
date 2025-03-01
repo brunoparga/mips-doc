@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:43 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Load and Store</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+A register is <b>loaded</b> from memory.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Load and Store</h1>
+<!-- ../Audio/chap15-02.mp3 -->
+
+<a id="words"> </a>
+<a id="load"> </a>
+<a id="store"> </a>
+<a id="alignment_restriction"> </a>
+<a id="word_alignment"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">
+The 
+ operands for all arithmetic and 
+ logic operations are contained in registers.</span>
+To operate on data in main memory, 
+the data is first copied
+into registers.  
+</p>
+
+<ul>
+<li>A <b>load</b> operation copies data from main
+memory into a register.</li>
+<li>A <b>store</b> operation 
+copies data from a register into  main memory .</li>
+</ul>
+
+<p>
+<span class="highlight">When a word (4 bytes) is loaded or stored the memory address must be
+a multiple of four.</span>
+This is called an <b>alignment restriction</b>.
+Addresses that are a multiple of four are called <b>word aligned</b>.
+This restriction makes the hardware simpler and faster.
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">The <code>lw</code> instruction  loads a word into a register from memory.</span>
+</p>
+
+<p>
+<span class="highlight">The <code>sw</code> instruction  stores a word from a register into memory.</span>
+
+</p>
+
+<p> 
+Each instruction specifies a register and a memory address
+(details in a few pages).
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<p>
+Which of the following addresses are word aligned?
+</p>
+
+<ul>
+<li><code>0x000AE430</code></li>
+<li><code>0x00014432</code></li>
+<li><code>0x000B0737</code></li>
+<li><code>0x0E0D8844</code></li>
+</ul>
+
+<p>
+Hint: how can you multiply by four in binary?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:44 GMT -->
+</html>

@@ -1,0 +1,203 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:40 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:29 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frame-based Linkage Convention</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28merge0711.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap28merge0711.mp3 -->
+
+<pre class="code">
+a = a + 1;
+</pre>
+
+<h3>Answer:</h3>
+<pre class="code">
+lw      $t0,12($fp)    # get a
+addiu   $t0,$t0,1      # a + 1
+sw      $t0,12($fp)    # a = 
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Frame-based Linkage Convention</h1>
+
+<a id="frame-based_linkage_convention"> </a>
+
+ 
+<img src="stackFrame00.gif"  class="centerimage" alt="stack frame">
+
+<br style="clear:both"> 
+<p>
+<span class="highlight">Conceptually, when a subroutine is called,
+its stack frame is pushed onto the stack.
+And, when a subroutine returns
+to its caller its stack frame is popped.</span>
+Pushing a stack frame is done by individually pushing
+the many full-words that it contains.
+And popping is done by individually popping each full-word
+in reverse order.
+</p>
+
+<p>
+A real-world linkage convention allows many types of
+objects to go into a stack frame.
+The following rules assume that the stack stores only 32-bit values.
+There are other features of real-world linkage that the following does not have.
+</p>
+ 
+ <p>
+ <b><span class="highlight">Calling a Subroutine</span></b>
+(done by the caller):
+</p>
+
+<blockquote>
+<ol start="1">
+<li>Push any registers <code class="register">$t0-$t9</code>
+    that contain values that must be saved.
+    Push the registers in numerical order.</li>
+<li>Put argument values into <code class="register">$a0-$a3</code>.</li>
+<li>Call the subroutine  using <code class="register">jal</code>.</li>
+</ol>
+</blockquote>
+
+<p>
+<b><span class="highlight">Subroutine Prolog</span></b>
+(done by the subroutine):
+</p>
+
+<blockquote>
+<ol start="4">
+<li>Push <code class="register">$ra</code> (always).</li>
+<li>Push the caller's frame pointer <code class="register">$fp</code>.</li>
+<li>Push
+    any of the  registers <code class="register">$s0-$s7</code>
+    that the subroutine might alter. </li>
+<li>Initialize the frame pointer: 
+    <code class="register">$fp = $sp - space_for_variables</code>.
+    The "space for variables" is four times the
+    number of local variables.<br> 
+    (Remember that subtracting from <code class="register">$sp</code> grows the stack,
+     and that our variables are always four bytes wide).</li>
+<li>Initialize the stack pointer: 
+    <code class="register">$sp = $fp</code>.</li>
+</ol>
+ 
+
+</blockquote>
+ 
+<b><span class="highlight">Subroutine Body:</span></b>
+</p>
+
+<blockquote>
+<ol start="9">
+<li>At this point the stack looks like the picture.<br> 
+    The stack frame and its variables are ready for use.</li>
+<li>The subroutine may alter any 
+    <code class="register">T</code>, 
+    <code class="register">A</code>, or 
+    <code class="register">V</code> register, or any 
+    <code class="register">S</code>
+    register that it saved in the prolog.</li>
+<li>The subroutine refers to local variables as <code class="register">disp($fp)</code>.</li>
+<li>The subroutine may push and pop values on the stack using <code class="register">$sp</code>.</li>
+<li>If the subroutine calls another subroutine, then it does so
+    by following these rules.</li>
+</ol>
+</blockquote>
+
+<p>
+<b><span class="highlight">Subroutine Epilog</span></b>
+(done at the end of the subroutine):
+</p>
+
+<blockquote>
+<ol start="14">
+<li>Put return values in  <code class="register">$v0-$v1</code></li>
+<li><code class="register">$sp = $fp + space_for_variables</code>.<br>
+    Now <code class="register">$sp</code> points at the last <code class="register">S</code>
+    register that was pushed in the prolog.</li>
+<li>Pop into  <code class="register">$s0-$s7</code>
+    any  values for them
+    that were previously saved by the prolog (in step6).</li>
+<li>Pop the caller's frame pointer into <code class="register">$fp</code>.
+<li>Pop <code class="register">$ra</code> (always).
+<li>Return to the caller using  <code class="register">jr $ra</code>.</li>
+</ol>
+</blockquote>
+
+<p>
+<b><span class="highlight">Regaining Control</span></b>
+from a Subroutine (done by the caller):
+</p>
+
+<blockquote>
+<ol start="20">
+<li>Pop
+    any registers <code class="register">$t0-$t9</code>
+    that the caller previously pushed.</li>
+</ol>
+</blockquote>
+
+
+<p>
+The push in the subroutine call (step 1)
+is matched with a pop  when the caller regains control (step 20.)
+</p>
+ 
+<p>
+Each push in the prolog (steps 4, 5, 6)
+is matched with a pop in the epilog (steps 18, 17, 16).
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+When the caller gets control back, are its frame pointer and
+stack pointer the same as when it called the subroutine?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:30 GMT -->
+</html>

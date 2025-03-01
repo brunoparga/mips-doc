@@ -1,0 +1,124 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Feb 09 12:35:36 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:40 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Converting a Hex Representation to Decimal</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass07_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap07-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<pre class="code">
+31A (base sixteen) &nbsp; = 
+
+&nbsp;  <b>3</b> &#215; sixteen<sup>2</sup> + <b>1</b> &#215; sixteen<sup>1</sup> + <b>A</b> &#215; sixteen<sup>0</sup>
+</pre> 
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Converting a Hex Representation to Decimal</h1>
+<!-- ../Audio/chap07-08.mp3 -->
+
+<div class="left">
+<p>
+<span class="highlight">To
+convert a hexadecimal representation of an integer to base 10,
+write the integer as a sum of hex digits times 
+the corresponding power of 16</span> for each digit's position.
+Then, write the digits and the powers of 16 in base ten,
+and do the arithmetic.
+</p>
+
+<pre class="code">
+31A (base sixteen) = 3 &#215; sixteen<sup>2</sup> + 1 &#215; sixteen<sup>1</sup> + A &#215; sixteen<sup>0</sup>
+
+                   = 3 &#215; 16<sup>2</sup> + 1 &#215; 16<sup>1</sup> +  10 &#215; 16<sup>0</sup>
+
+                   = 3 &#215; 256 + 1 &#215; 16 +  10 &#215; 1  =  794<sub class="base">10</sub>
+</pre>
+
+<p>
+You don't have to remember powers of 16 to do this conversion.
+All you need is powers of 2.
+For example, 
+</p>
+
+<pre>
+<code>16<sup>2</sup> &nbsp;=&nbsp; 2<sup>4</sup> &#215; 2<sup>4</sup> &nbsp;=&nbsp; 
+2<sup>8</sup> &nbsp;=&nbsp;  256.</code>
+</pre> 
+
+<p>
+Another example: &nbsp;
+</p>
+
+<pre>
+<code>16<sup>3</sup> &nbsp;=&nbsp; 2<sup>4</sup> &#215; 2<sup>4</sup> &#215; 2<sup>4</sup> &nbsp;=&nbsp; 
+2<sup>12</sup> &nbsp;=&nbsp; 2<sup>2</sup> &#215; 2<sup>10</sup> &nbsp;=&nbsp; 4K</code>
+</pre>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+More practice: &nbsp;
+Whatis the integer (represented in base 10) that is represented by  1B2 (base sixteen)  ?
+</p>
+
+<form>
+<pre class="code">
+1B2 = <input type="text" size="2" name="T1" >  &#215; sixteen<sup>2</sup> + <input type="text" size="2" name="T2" > &#215; sixteen<sup>1</sup> +  <input type="text" size="2" name="T3" > &#215; sixteen<sup>0</sup>
+
+1B2 = <input type="text" size="2" name="T4" ><sub class="base">10</sub> &#215; 16<sup>2</sup> + <input type="text" size="2" name="T5" ><sub class="base">10</sub> &#215; 16<sup>1</sup> +  <input type="text" size="2" name="T6" ><sub class="base">10</sub> &#215; 16<sup>0</sup>
+
+1B2 = <input type="text" size="2" name="T7" ><sub class="base">10</sub> &#215; <input type="text" size="2" name="T8" ><sub class="base">10</sub> + <input type="text" size="2" name="T9" ><sub class="base">10</sub> &#215; <input type="text" size="2" name="T10" ><sub class="base">10</sub> +  <input type="text" size="2" name="T11" ><sub class="base">10</sub> &#215; <input type="text" size="2" name="T12" ><sub class="base">10</sub>
+
+1B2 = <input type="text" size="2" name="T13" ><sub class="base">10</sub>
+</pre>
+</form>
+ 
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass07_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:41 GMT -->
+</html>

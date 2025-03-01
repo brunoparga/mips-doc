@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node17.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:46 GMT -->
+<HEAD>
+<TITLE>Load Instructions</TITLE>
+<META NAME="description" CONTENT="Load Instructions">
+<META NAME="keywords" CONTENT="spim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="spim.css">
+
+<LINK REL="next" HREF="node18.html">
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node9.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html228"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html226"
+  HREF="node9.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html220"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html229"
+  HREF="node18.html">Store Instructions</A>
+<B> Up:</B> <A NAME="tex2html227"
+  HREF="node9.html">Description of the MIPS</A>
+<B> Previous:</B> <A NAME="tex2html221"
+  HREF="node16.html">Branch and Jump Instructions</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00028000000000000000">
+Load Instructions</A>
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>la Rdest, address</TT>Load Address <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Load computed <EM>address</EM>, not the contents of the location, into
+register <TT>Rdest</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>lb Rdest, address</TT>Load Byte
+<BR></EM>
+<EM><TT>lbu Rdest, address</TT>Load Unsigned Byte
+<BR></EM>
+Load the byte at <EM>address</EM> into register <TT>Rdest</TT>.  The byte
+is sign-extended by the <TT>lb</TT>, but not the <TT>lbu</TT>, instruction.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>ld Rdest, address</TT>Load Double-Word <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Load the 64-bit quantity at <EM>address</EM> into registers <TT>Rdest</TT>
+and <TT>Rdest + 1</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>lh Rdest, address</TT>Load Halfword
+<BR></EM>
+<EM><TT>lhu Rdest, address</TT>Load Unsigned Halfword
+<BR></EM>
+Load the 16-bit quantity (halfword) at <EM>address</EM> into register
+<TT>Rdest</TT>.  The halfword is sign-extended by the <TT>lh</TT>, but not
+the <TT>lhu</TT>, instruction
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>lw Rdest, address</TT>Load Word
+<BR></EM>
+Load the 32-bit quantity (word) at <EM>address</EM> into register <TT>Rdest</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>lwc<EM>z</EM> Rdest, address</TT>Load Word Coprocessor
+<BR></EM>
+Load the word at <EM>address</EM> into register <TT>Rdest</TT> of
+coprocessor <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$z$"></SPAN> (0-3).
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>lwl Rdest, address</TT>Load Word Left
+<BR></EM>
+<EM><TT>lwr Rdest, address</TT>Load Word Right
+<BR></EM>
+Load the left (right) bytes from the word at the possibly-unaligned
+<EM>address</EM> into register <TT>Rdest</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>ulh Rdest, address</TT>Unaligned Load Halfword <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+<EM><TT>ulhu Rdest, address</TT>Unaligned Load Halfword Unsigned <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Load the 16-bit quantity (halfword) at the possibly-unaligned <EM>address</EM> into register <TT>Rdest</TT>.  The halfword is sign-extended
+by the <TT>ulh</TT>, but not the <TT>ulhu</TT>, instruction
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>ulw Rdest, address</TT>Unaligned Load Word <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Load the 32-bit quantity (word) at the possibly-unaligned <EM>address</EM>  into register <TT>Rdest</TT>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html228"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html226"
+  HREF="node9.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html220"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html229"
+  HREF="node18.html">Store Instructions</A>
+<B> Up:</B> <A NAME="tex2html227"
+  HREF="node9.html">Description of the MIPS</A>
+<B> Previous:</B> <A NAME="tex2html221"
+  HREF="node16.html">Branch and Jump Instructions</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Ian Moor
+2009-03-11
+</ADDRESS>
+</BODY>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node17.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:46 GMT -->
+</HTML>

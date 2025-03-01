@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 27 19:53:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:52 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exception Handler Services</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass22_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap22-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+It is a basic assembly instruction
+that corresponds to a 32-bit machine instruction.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Exception Handler Services</h1>
+<!-- ../Audio/chap22-03.mp3 -->
+
+<a id="exception_handler_services_(table)"> </a>
+
+ 
+<table class="center">
+<tr><th>Service</th><th>Code in $v0</th><th>Arguments</th><th>Returned Value</th></tr>
+<tr><td>print integer</td><td>1</td><td> $a0 <code>==</code> integer</td><td> &nbsp; </td></tr>
+<tr><td>print float  </td><td>2</td><td> $f12 <code>==</code> float </td><td> &nbsp; </td></tr>
+<tr><td>print double </td><td>3</td><td> ($f12, $f13) <code>==</code> double </td><td> &nbsp; </td></tr>
+<tr><td>print string </td><td>4</td><td> $a0 <code>==</code> address of string</td><td> &nbsp; </td></tr>
+<tr><td>read  integer</td><td>5</td><td> &nbsp; </td><td>$v0 <code>==</code> integer</td></tr>
+<tr><td>read  float  </td><td>6</td><td> &nbsp; </td><td>$f0 <code>==</code> float</td></tr>
+<tr><td>read  double </td><td>7</td><td> &nbsp; </td><td>($f0, $f1) <code>==</code> double</td></tr>
+<tr><td>read  string </td><td>8</td><td> $a0 <code>==</code> buffer address<br>$a1 <code>==</code> buffer length</td><td> &nbsp; </td></tr>
+<tr><td>allocate memory </td><td>9</td><td> $a0 <code>==</code> number of bytes</td><td>$v0 <code>==</code> address</td></tr>
+<tr><td>exit         </td><td>10</td><td> &nbsp; </td><td> &nbsp; </td></tr>
+</table>
+
+<br style="clear:both"> 
+
+<div class="left">
+<p><span class="highlight">
+Here
+are the services of the SPIM exception handler.</span>
+The following pages explain how to use them.
+The <em>print services </em>write characters to the 
+simulated monitor of SPIM.
+The <em>read services</em> read characters from the keyboard
+and (for numeric read services) convert character strings
+into the appropriate type.
+</p>
+
+<p><span class="highlight">
+Load register <code class="register">$v0</code> with the code for the 
+service you wish to use and load other specific registers with
+parameters for the service.</span>
+</p>
+
+</div>
+
+ 
+<div class="right">
+<a id="exit_(exception_handler_service)"> </a>
+
+
+<p>
+For example,
+The <span class="highlight"><b>exit</b> service gracefully stops the program.</span>
+It takes no parameters, so all you need is the service code.
+Until now we have been single stepping the program or crashing into the
+bytes beyond the end of the program.
+</p>
+
+<pre>
+li      $v0,10      # code 10 == exit
+syscall             # Return control to the
+                    # operating system.  
+</pre>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+
+<p>
+What do you think the <b>exit</b> service 
+does for a program running on a computer with a real operating system?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass22_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:53 GMT -->
+</html>

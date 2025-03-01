@@ -1,0 +1,120 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:37 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subroutine PStruct</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Subroutine PStruct</h1>
+ 
+
+
+<p>
+Here is the original (short) version of the subroutine in assembly:
+</p>
+
+<pre class="program">
+# Subroutine PStruct: print a struct
+#
+# Registers on entry: $a0 --- address of the struct
+#                     $ra --- return address
+#
+# Registers:          $s0 --- address of the struct
+#
+        .text
+
+PStruct:
+        sub     $sp,$sp,4         # push $s0
+        sw      $s0,($sp)         # onto the stack
+        
+        move    $s0,$a0           # make a safe copy 
+                                  # of struct address
+        la      $a0,agest         # print "age:"
+        li      $v0,4
+        syscall
+        lw      $a0,0($s0)        # print age
+        li      $v0,1
+        syscall
+
+        add     $sp,$sp,4         # restore $s0 of caller 
+        lw      $s0,($sp)
+        jr      $ra               # return to caller        
+
+        .data
+agest:  .asciiz "age:   "
+</pre>
+
+<p>
+And here is the equivalent in C:
+</p>
+
+<pre>
+void PStruct( struct EMPLOYEE *emp )
+{
+  printf("age: %d", emp-&gt;age );
+}
+</pre>
+
+<p>
+The parameter list of the C subroutine says that its parameter
+is a pointer to an <code>EMPLOYEE</code> structure.
+This pointer (address) will be called <code>emp</code>.
+The structure is accessed by following the address: <code> emp-&gt;</code>
+and parts of the structure are accessed by displacements into the block of memory:
+<code> emp-&gt;age</code>
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 20:</h3>
+<p>
+Does the C subroutine explicitly contain code for the subroutine prolog and epilog?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:38 GMT -->
+</html>

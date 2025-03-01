@@ -1,0 +1,109 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:53 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set on Less Than</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-10.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+Set instructions 
+set a register to 1 or clear it to 0
+to show the outcome of a comparison
+between two values.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Set on Less Than</h1>
+
+<a id="slt_(instruction)"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">Think of the "1" and "0" that a set instruction
+puts in the flag register as "true" and "false".</span>
+Here is the <code>slt</code>
+from chapter 18, but now made more useful
+by the extended assembler:
+</p>
+</div>
+<br style="clear:both"> 
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+
+                   #  $s and t contain two's comp. integers  
+                   #  t can be a register or an immediate operand
+                   #
+slt   d,s,t        #  if ( $s &lt; $t )
+                   #    d = 1
+                   #  else
+                   #    d = 0
+                   #
+                   #  (pseudoinstruction)
+</pre>
+
+<div class="left">
+<p>
+With the extended
+assembler, the operand <code>t</code> can be
+an immediate operand.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+Is the following correct?
+</p>
+<pre>
+slt   $t5,$v0,87        #  if ( $v0 &lt; 87 ) $t5 = 1
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:54 GMT -->
+</html>

@@ -1,0 +1,159 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 26 20:00:27 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:48 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computing Power</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass19_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap19merge020304.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+When the one processor can compute
+something that the other one can't.
+</p>
+
+<p>
+But that answer is somewhat vague.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Computing Power</h1>
+<!-- ../Audio/chap19merge020304.mp3 -->
+
+
+<a id="computing_power"> </a>
+
+<div class="left">
+<p>
+So  
+far, these chapters have covered several kinds of instructions:
+</p>
+
+<ul>
+<li>Bit-wise logic instructions </li>
+<li>Integer arithmetic instructions </li>
+<li>Memory access instructions </li>
+<li>Instructions that conditionally alter program flow </li>
+</ul>
+
+<p>
+You might wonder how many instructions one processor
+must have in order to be as powerful as another.
+The answer is: the above set of instructions is
+more than enough.
+But the idea of computer "power" is somewhat vague.
+Sometimes people use it to mean "speed" 
+and sometimes to mean
+"what a processor can compute."
+Usually it means a fuzzy
+combination of both.
+Let us use the following definition:
+</p>
+
+<blockquote><span class="highlight">
+Computing Power:  
+Two processors 
+have the same computing power
+if they can run the
+same programs 
+(after translation into 
+each processor's machine language)
+and produce the same results.</span>
+</blockquote>
+<p>
+For 
+ example, say that two processors have the same power.
+Then if one processor can run
+a particular program,
+then the other one must be able to run it, 
+and both processors produce the same result.
+This must be true for all programs 
+(after appropriate compilation into the machine language for each processor).
+</p>
+</div>
+
+<div class="right">
+
+<p>
+Sometimes the result a program produces
+depends on the compiler.
+For example, different compilers for C use
+different numbers of bits for
+the data type <code>int</code>.
+But that is an effect of the compiler, 
+not of the processor.
+All that matters for processor "power" is that
+it is possible to translate
+identical programs into machine
+language appropriate for each processor and that
+these machine language programs produce the same result
+on each processor.
+</p>
+
+<p><span class="highlight">
+Processor 
+<u>speed</u> is left 
+out of the definition.</span>
+It is helpful to regard computing power and
+processor speed as separate aspects.
+Memory and peripherals 
+(such as graphics boards)
+are also left out.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<p>
+(Thought Question:)
+Can a program that uses 64-bit integers 
+run on a processor that
+has 32-bit words?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass19_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:49 GMT -->
+</html>

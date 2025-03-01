@@ -1,0 +1,124 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Jul 06 10:45:01 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:15 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2019"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Load Modules</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass01_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap01-18.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Enterprise-wide programs are hundreds of thousands of lines long and
+take hundreds of programmers and support staff.
+It just would not work if they were all working on one big monster source
+program.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Load Modules</h1>
+<!-- ../Audio/chap01-18.mp3 -->
+<a id="load_module"> </a>
+
+<img src="objectTOload.gif" class="center" alt="object to load">
+ 
+<div class="left">
+<p><span class="highlight">
+In assembly language the
+pieces of a big application program can be
+written as separate source files and assembled into
+separate object modules.
+The separate object modules are then combined by
+a linker into a <b>load module</b>, an executable file.</span>
+</p>
+
+
+<p>
+This is how all modern software of any appreciable size is
+written.
+The object modules do not need to be created from
+assembly language source.
+A compiler of a high level language
+(such as C)
+creates object modules that look the same as those
+from the assembler.
+In the picture, object module A might be from
+an assembly program,
+object module B might be from a FORTRAN program,
+and object module C might be from a COBOL program.
+</p>
+</div>
+
+<div class="right">
+<p>
+For many years, the only common languages that supported 
+separate translation
+were Assembly, FORTRAN, and COBOL.
+For many years, the only common languages used in production
+were Assembly, FORTRAN, and COBOL.
+BASIC did not support separate compilation;
+BASIC was never used for writing big applications.
+Pascal did not support separate compilation;
+Pascal was never used for writing big applications.
+C supported separate compilation;
+C is now the dominant language for writing applications.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+
+<p>
+C compilers come with libraries of useful
+functions.  The <em> standard math library </em>
+contains functions like <em>sin</em>, <em>cos</em>, and
+<em>rand</em>.
+What do you suppose a software library is?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass01_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:18 GMT -->
+</html>

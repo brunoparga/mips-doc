@@ -1,0 +1,450 @@
+/*
+Aug 20, 2014:  changed line-height property in pre class program.
+Aug  3, 2017:  modified for LessonMaker.java added .bottomnavigation
+*/
+
+
+/* Color Scheme:
+background-color: #f5f5f5;    -- color of main body of text
+color: #f25239;               -- color of page heading and borders around code (orange)
+color: #a030a0;               -- color of question and answer title (purple)
+border-color: #a030a0;        -- dotted line around navigation buttons and entire body (purple)
+background-color: #fcfcff;    -- color of question and answer divisions, row of table headings (lavender)
+color: #005000;               -- color of code (dark green)
+color: white;                 -- color of program class and tables
+color: green;                 -- color of table and cell borders
+*/
+
+body
+{
+max-width:1200px;  /* might not be a good idea.  Seems to help on really wide monitors, though */
+font-size:100%;
+background-color:#F5F5F5;
+font-family:Arial,Garuda,Helvetica,sans-serif;   /* Garuda: font for Linux */
+padding: 0px 0px 0px 0px;
+margin: 0 auto 0 auto;
+border: 2px solid #509060;
+}
+
+.left
+{
+max-width:48%;
+float:left;
+margin: 0 auto 0 auto;
+}
+
+.right
+{
+max-width:48%;
+float:right;
+margin: 0 auto 0 auto;
+}
+
+.middle
+{
+max-width:60%;
+text-align:center;
+margin: 0 auto 0 auto;
+}
+ 
+
+/* see "code" */
+.nobr  
+{ 
+  white-space:nowrap; 
+}
+
+/* for fill-in-the-blank questions */
+.blank
+{
+    font-weight: bold;
+    font-size: large;
+    color: blue;
+}
+
+sub
+{
+font-size:0.6em;
+color:#5050F0;
+}
+
+/* Don't use:  see code */
+.tt
+{
+font-size:1em;
+font-family:"Courier New",courier,FreeMono,monospace;   /* FreeMono for Linux */
+}
+
+
+/* Used for file names in paragraphs */
+kbd
+{
+font-size:1em;
+font-family:"Courier New",courier,FreeMono,monospace;   /* FreeMono for Linux */
+}
+
+
+p
+{
+text-align: justify;
+font-size: 1em;
+line-height: 125%;
+margin-top: 1em;
+margin-right: 0em;
+margin-bottom: 1em;
+margin-left: 0em;
+}
+
+blockquote
+{
+margin-left: 2em;  
+line-height:1.5;
+}
+
+/* rarely used */
+blockquote.display
+{
+width:auto;
+margin-left:2em;
+margin-right:2em;
+padding:1.5em;
+border-width:4px;
+border-style:double;
+border-color:#f25239;
+background-color: white;
+font-size:1.0em;
+}
+
+h2,h3,h4
+{
+color: #a000f0;                 
+font-weight:bold;
+}
+
+
+.lesson
+{
+margin-top:1.5em;
+margin-right:1.5em;
+margin-bottom:1.5em;
+margin-left:1.5em;
+padding:0em;
+}
+
+.lesson h1
+{
+color: #f25239;                
+text-align:center;
+font-size:2.5em;
+}
+
+h1 code
+{
+font-size:1.2em;
+}
+
+ul, ol
+{
+padding-left: 4em;
+padding-top: 0.5em;
+padding-bottom: 0.5em;
+line-height:1.5;
+}
+
+ul
+{
+list-style:square;
+}
+
+ol
+{
+list-style:decimal;
+}
+
+ul ul
+{
+padding-left:2em;
+list-style:circle;
+}
+
+ol ol
+{
+padding-left:2em;
+list-style:lower-alpha;
+}
+
+ol ul
+{
+padding-left:2em;
+list-style:circle;
+}
+
+ul ol
+{
+padding-left:2em;
+}
+
+p.revisions
+{
+font-size:0.66em;
+}
+
+.questionEcho
+{
+padding-bottom: 1em;
+border-width: 1px;
+border-style: none none dotted none;
+}
+
+.answer, .question
+{
+background-color:#f0f0f0;
+padding:1.0em;
+margin: 0.0em;
+}
+
+.answer
+{
+border-bottom: 1px dotted black;
+}
+
+.answer h3, .question h3
+{
+background-color:#f5f0f0;
+font-size: 1.5em;
+font-weight: bold;
+padding: .5em 0 0 0;
+}
+
+
+table 
+{
+background-color: white;
+border: 2px;
+border-color: green;  
+border-style: solid;
+
+margin: 1.0em 1.0em 1.0em 1.0em;
+font-family:"Lucida Console","Courier New",courier,FreeMono,monospace;   /* FreeMono for Linux */
+}
+
+tr.headings
+{
+background-color:#eaeaf5;
+}
+
+th.headings
+{
+background-color:#eaeaf5;
+}
+
+th
+{
+border: 1px; 
+border-style: dotted;
+border-color: green; 
+padding: 0.5em 0.5em 0.5em 0.5em;
+background-color:#eaeaf5;
+}
+
+td
+{
+border: 1px; 
+border-style: dotted;
+border-color: green; 
+padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+table.layout 
+{
+border: 0px;
+background-color: white;
+}
+
+table.layout th, table.layout td
+{
+border: 0px;
+}
+
+table.center    /* center the table */
+{
+margin: 1em auto 1em auto;  
+}
+
+table ul, table ol
+{
+margin-left:0.65em;
+padding-left:0.65em;
+}
+
+table code
+{
+font-size:1.0em;
+}
+
+table pre
+{
+margin-left:0.4em;
+margin-right:0.4em;
+}
+
+figure.center    /* center the figure */
+{
+float: center;
+margin: 1em auto 1em auto;  
+}
+
+figure.right    /* right-align the figure */
+{
+display: block;
+float:right;
+margin: 1em auto 1em auto;  
+}
+
+img.centerimage, img.center    /* center the image */
+{
+display: block;
+margin: 1em auto 1em auto;  
+}
+
+img.rightimage
+{
+display: block;
+float:right;
+margin:2em 4em auto auto;
+}
+
+.clearfloats
+{
+clear:both;
+height: 1px;
+line-height: 1px;
+}
+
+.question
+{
+border-top: 1px dotted black;
+}
+
+.question img
+{
+border-style:none;
+}
+
+.bottomnavigation, .topnavigation
+{
+padding:0.5em 0.5em 0.5em 0.5em;
+margin:0 0 0 0;
+}
+
+.bottomnavigation img, .topnavigation img
+{
+border-style:dotted;
+border-color:transparent;
+padding: 1px;
+}
+
+.bottomnavigation img:hover, .topnavigation img:hover
+{
+border-style:dotted;
+border-color:#a030a0;  /* purple */
+}
+
+.topnavigation
+{
+border-width:  0 0  1px  0;
+border-style: none none dotted none;
+}
+
+.bottomnavigation
+{
+border-width:1px 0 0 0;
+border-style:dotted none  none  none ;
+}
+
+.blue
+{
+color:blue;
+}
+
+.red
+{
+color:red;
+}
+
+.green
+{
+color:green;
+}
+
+pre 
+{
+margin: 0.5em 2em 0.5em 2em;
+text-align: left;
+font-family:"Lucida Console","Courier New",courier,FreeMono,monospace;   /* FreeMono for Linux */
+}
+
+pre.code
+{
+font-family:"Lucida Console","Courier New",courier,FreeMono,monospace;   /* FreeMono for Linux */
+font-size:1.2em;
+color: #005000;
+}
+
+sub
+{
+font-size:0.5em;
+}
+
+pre.program
+{
+width:auto;
+margin-left:2em;
+margin-right:2em;
+padding:1.5em;
+border-width:4px;
+border-style:double;
+border-color:#8B7355;
+background-color: white;
+font-size:0.90em;
+line-height: 150%;
+}
+
+/* Use for code in paragraphs, also for file names */
+code
+{
+font-family:"Lucida Console","Courier New",courier,FreeMono,monospace;   /* FreeMono for Linux */
+font-size:1.2em;
+color: #005000;
+white-space:nowrap;   /* to deal with deprecated nobr */
+}
+
+input
+{
+background-color: #fffffa;
+color: #000000;
+font-size:1.1em;
+}
+
+a
+{
+font-size: 1em;
+font-family: "Comic Sans MS", TSCu_Comic, fantasy;  /* TSCu_Comic for Linux */
+}
+
+canvas 
+{
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background: #E0E0E5;
+    border:1px solid #000000;
+}
+
+ 
+a:link     { color:blue; }
+a:visited  { color:green; }
+a:hover    { color:red; }
+a:active   { color:red; }

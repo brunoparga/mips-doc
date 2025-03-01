@@ -1,0 +1,112 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:00 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floating Point Services</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.  The print integer method works correctly only with 32-bit two's complement
+representation.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Floating Point Services</h1>
+<!-- ../Audio/chap31-09.mp3 -->
+
+<a id="system_calls_(floating_point)"> </a>
+<a id="exception_handler_services_(floating_point)"> </a>
+
+
+<table style="height:30em; width:50em;margin-left:auto; margin-right:auto; ">
+<tr ><th>Service</th><th>Code in $v0</th><th>Arguments</th><th>Returned Value</th></tr>
+<tr><td>print integer</td><td >1</td><td> $a0 == integer</td><td> &nbsp; </td></tr>
+<tr><td style="background-color:pink">print float  </td><td >2</td><td> $f12 == float </td><td> &nbsp; </td></tr>
+<tr><td style="background-color:pink">print double </td><td >3</td><td> ($f12, $f13) == double </td><td> &nbsp; </td></tr>
+<tr><td>print string </td><td >4</td><td> $a0 == address of string</td><td> &nbsp; </td></tr>
+<tr><td>read  integer</td><td >5</td><td> &nbsp; </td><td>$v0 &larr; integer</td></tr>
+<tr><td style="background-color:pink">read  float  </td><td >6</td><td> &nbsp; </td><td>$f0 &larr; float</td></tr>
+<tr><td style="background-color:pink">read  double </td><td >7</td><td> &nbsp; </td><td>($f0, $f1) &larr; double</td></tr>
+<tr><td>read  string </td><td >8</td><td>$a0 == buffer address<br>$a1 == buffer length</td><td> &nbsp; </td></tr>
+<tr><td>allocate memory </td><td >9</td><td> $a0 == number of bytes</td><td>$v0 &larr; address</td></tr>
+<tr><td>exit         </td><td >10</td><td> &nbsp; </td><td> &nbsp; </td></tr>
+</table>
+
+<div class="left">
+
+<p><span class="highlight">
+To
+print a floating point  value to the SPIM monitor, use 
+service 2 (for single precision)</span> or service 3 (for double precision).
+</p>
+
+<p>
+<span class="highlight">To read a floating point value from the user,
+use service 6 (for single precision)</span> or service 7 (for double precision).
+These notes deal mostly with single precision.
+</p>
+</div>
+
+<div class="right">
+<p>
+The chart shows the list of SPIM exception handler services.
+Each I/O method works with
+a specific format for data.
+The methods for double use an even-odd pair of registers.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+(Review: ) Into what register do you put the service code before
+executing a <code>syscall</code>
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:01 GMT -->
+</html>

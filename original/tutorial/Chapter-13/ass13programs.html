@@ -1,0 +1,218 @@
+<!doctype html> 
+
+<!-- 07/23/2015  bpk  HTML5 validation;  -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:51 GMT -->
+<head>
+
+<title>Programming Exercises for Chapter 13</title>
+
+<meta charset="utf-8">
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 06/20/2003; edited: 07/24/2015</p>
+<hr />
+
+<h1> 
+Chapter 13 Programming Exercises
+</h1>
+
+<hr />
+
+<p>
+For these programming exercises,
+use only those instructions that have been
+discussed so far in these notes:
+</p>
+
+ 
+<table   style="width:50%">
+<tr>
+<td>add</td>  <td>sll</td>
+</tr>
+<tr>
+<td>addi</td>	 <td>srl</td>
+</tr>
+<tr>
+<td>addiu</td><td>sub</td>
+</tr>
+<tr>
+<td>addu</td>	<td>subu</td>
+</tr>
+<tr>
+<td>and</td>  <td>nor</td>
+</tr>
+<tr>
+<td>andi</td>		 <td>xor</td>
+</tr>
+<tr>
+<td>or</td>	 <td>xori</td>
+</tr>
+<tr>
+<td>ori</td>	<td>&#160;</td>
+</tr>
+</table>
+ 
+
+<p>
+In the <em> Simulator/Settings/MIPS</em> menu of SPIM set
+Bare Machine ON, Accept Pseudo Instructions OFF,
+Enable Delayed Branches ON,
+Enable Delayed Loads ON,
+Enable Mapped I/O OFF, 
+Load Exception Handler OFF.
+</p>
+
+<p>
+Run the programs by 
+single stepping (pushing F10).
+Observing the results in the SPIM Int Regs window.
+Check the <em>Registers</em> menu that the registers are displayed in HEX.
+</p>
+
+
+<hr />
+
+<h2>*Exercise 1 &#8212; Column Addition</h2>
+
+<p>
+Write a program that adds up the following integers:
+</p>
+
+<pre class="code">
+ 456
+-229
+ 325
+-552
+</pre>
+
+
+<p>
+Leave the answer in register $8.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<h2>*Exercise 2 &#8212; Shifting and Adding</h2>
+
+<p>
+Initialize the sum in register $8 to zero.
+Then add 4096<sub>10</sub> to $8 sixteen times.
+You don't know how to loop, yet, so do this
+by making 16 copies of the same instruction.
+The value 4096<sub>10</sub> is 0x1000.
+</p>
+
+<p>
+Next initialize register $9 to 4096<sub>10</sub>.
+Shift $9 left by the correct number of positions
+so that registers $8 and $9 contain the same bit pattern.
+</p>
+
+<p>
+Finally, initialize aregister $10 to  4096<sub>10</sub>.
+Add $10 to <u>itself</u> the correct number of times
+so that it contains the same bit pattern as the other two
+registers.
+<hr />
+
+<h2>*Exercise 3 &#8212; Trapping Overflow</h2>
+
+<p>
+Initialize register $9 to 0x7000.
+Shift the bit pattern so that $9 contains 0x70000000.
+Now use <code>addu</code> to add $9 to itself.
+Is the result correct?
+</p>
+
+<p>
+Now use the  <code>add</code> instruction
+and run the program again.
+What happens?
+</p>
+
+<p>
+This may be the only time in this
+course that you will use the 
+<code>add</code> instruction.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<h2>*Exercise 4 &#8212; Arithmetic Expression</h2>
+
+<p>
+Let register $8 be <code>x</code> and register $9 be <code>y</code>.
+Write a program to evaluate:
+</p>
+
+<pre>
+3x - 5y
+</pre>
+
+<p>
+Leave the result in register $10.
+Inspect the register after running the program to
+check that the program works.
+Run the program several times, 
+initialize <code>x</code> and <code>y</code> 
+to different values for each run.
+</p>
+<hr />
+
+<h2>**Exercise 5 &#8212; Two's Complement</h2>
+
+<p>
+Let register $8 be <code>x</code>.
+Write a program that computes <code>13x</code>.
+Leave the result in register $10.
+Initialize  <code>x</code> to 1 for debugging.
+Then try some other positive values.
+</p>
+
+<p>
+Extend your program so that it also
+computes <code>-13x</code>
+and leaves the result in register $11
+(This will take one additional instruction.)
+Now initialize <code>x</code> to -1.
+Look at your result for <code>13x</code>.
+Is it correct?
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+<p>
+<b>End of Exercises</b>
+</p>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:51 GMT -->
+</html>
+

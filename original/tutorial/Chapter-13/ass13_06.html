@@ -1,0 +1,152 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Mar 01 18:06:44 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:10 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Run of the Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass13_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap13-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. Operand registers are not changed
+unless one is also the destination register.
+ </p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Run of the Program</h1>
+
+<!-- ../Audio/chap13-10.mp3 -->
+
+
+<a id="decimal_integers,_in_assembly_language"> </a>
+ 
+<img src="addSome.gif"  width="1000" class="center" alt="Run of the Program"/>
+<br style="clear:both"> 
+ 
+<div class="left">
+<p>
+<span class="highlight">Here 
+is a run of the program.</span>
+The results are as expected.
+The source code is shown at the right of the text section.
+In the middle column of the text section
+the decimal equivalents of
+the immediate operands is shown in the instructions.
+The registers are shown at the left.
+</p>
+ 
+<p>
+<span class="highlight">To express an immediate operand using decimal
+notation omit the leading "0x".</span>
+The following puts the same bit pattern in the 
+registers as the previous assembly language:
+</p>
+
+<pre>
+ori      $8, $0, 171  # put 171 into $8 
+                      #(this is 0xAB)
+ori      $9, $0,  85  # put  85 into $9 
+                      #(this is 0x55)
+addu     $10,$9,  $8  # $10 gets sum
+</pre>
+
+<p>
+Of course,
+the immediate operand in the machine instruction
+is a 16-bit pattern.
+The assembler allows you to specify this pattern
+using the hexadecimal pattern name,
+or a decimal integer that is converted into
+a 16 bit pattern.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+The job of the assembler is to construct machine instructions
+based on the assembly language in the source file.
+Bit patterns in the machine instructions may be specified in a
+variety of ways.</span>
+</p>
+
+<p> 
+The SPIM display shows your source code after the <code>;</code> in the right of the display.
+It shows main storage addresses inside brackets <code>[]</code>,
+followed by the 32-bit machine instruction that starts at the address.
+Then it translates from machine instructions back to an equivalent machine language statement
+shown in the middle column.  
+Immediate operands are shown in their equivalent decimal here, which may not be what you wrote.
+</p>
+
+<p>
+Expressed in hex, the program computes the pattern 0xAB + 0x55 = 0x100.
+The register display shows this in register <code class="register">R10</code>.
+</p>
+
+<p>
+Expressed in decimal, the program computed 171 + 85 = 256.
+<span class="highlight">Click on the "Registers" tab in the SPIM display to change the display to decimal.</span>
+Of course, this just changes the display. 
+The registers continue to hold the same bit patterns as before.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+
+
+<p>
+(Review:)  Can  a negative <code>const</code>
+be used with the instruction:
+</p>
+
+<pre>ori  $d,$0,const</pre> 
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass13_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:12 GMT -->
+</html>

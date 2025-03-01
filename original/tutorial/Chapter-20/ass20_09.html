@@ -1,0 +1,157 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 26 18:18:41 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:48 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowchart</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass20_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap20-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+See Below
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Flowchart</h1>
+<!-- ../Audio/chap20-09.mp3 -->
+
+<div style="text-align: center;">
+<img src="addIntArray.gif" alt="integer array flow chart" />
+</div>
+
+<br style="clear:both"> 
+<div class="left">
+<p><span class="highlight">
+The flow chart is a structured flowchart.
+  The
+ chart could work for any 
+language.
+Language details
+are left out of the design.</span>
+</p>
+
+<p>
+The usual good advice:  design first, code second.
+</p>
+
+<a id="array_entry"> </a>
+
+<p>
+An array entry is one integer stored in the array,
+sometimes called an array element.
+</p>
+</div> 
+
+<div class="right">
+<p>
+Here is an outline of the program.
+So far, it implements the first box of the flowchart,
+plus part of the loop.
+The data for the array has been declared.
+</p>
+
+<p><span class="highlight">
+SPIM initializes registers to zero,
+but it is good practice to explicitly zero accumulators.</span>
+</p>
+
+</div> 
+
+<br style="clear:both"> 
+<form>
+<pre class="program">
+## addIntArray.asm
+##
+## Sum all integers, the positive integers,
+## and the negative integers in an array.
+
+## Registers:
+##  $8 -- count
+##  $9 -- pointer to the array entry
+## $10 -- current array entry
+## $11 -- sum of all integers
+## $12 -- sum of negative integers
+## $13 -- sum of positive integers
+## $14 -- pos. or neg. flag
+## $15 -- SIZE of the array
+
+         .text
+         .globl  main
+         
+# Initialize
+main:    
+         ori      $<input type="text" size="4" />,$0,0       #  count = 0
+
+         ori      $<input type="text" size="4" />,$0,0       #  sum = 0
+
+         ori      $<input type="text" size="4" />,$0,0       #  neg = 0
+
+         ori      $<input type="text" size="4" />,$0,0       #  pos = 0
+
+# while  count &lt; SIZE do
+loop:     
+         . . . .
+		 
+         j        loop
+         sll      $0,$0,0        #  branch delay
+
+        .data
+size:   .word  17
+array:  .word  12, -1, 8, 0, 6, 85, -74, 23, 99, -30, 30, 95, 4, 7, 10, 28, 14
+
+
+</pre>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass20_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:50 GMT -->
+</html>

@@ -1,0 +1,103 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:22 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assigning Values to the struct</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+From the heap.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Assigning Values to the struct</h1>
+ 
+
+<p>
+The assembly language program continues by assigning values into the
+dynamically allocated block of memory:
+</p>
+
+<pre  class="program">
+  # initialize the first struct       
+  li      $t0,34            # store 34
+  sw      $t0,0($s1)        # in age
+  <span class="highlightgreen">lw      $t0,pay           # store 24000</span>
+  <span class="highlightgreen">sw      $t0,4($s1)        # in pay</span>
+  li      $t0,12            # store 12
+  sw      $t0,8($s1)        # in class
+</pre>
+
+<p>
+Here is how the C program does this:
+</p>
+
+<pre  class="program">
+  empA-&gt;age = 34;
+  <span class="highlightgreen">empA-&gt;pay = 24000;</span>
+  empA-&gt;class = 12;
+</pre>
+
+<p>
+<span class="highlight">The pointer variable <code>empA</code> holds the address of a block
+of memory, just as does the register <code class="register">$s1</code>.</span>
+</p>
+
+<p>
+The expression <span class="highlightgreen"><code>empA-&gt;pay</code></span> means to go to the block of memory
+at the address in <code>empA</code>, then use the bytes where <code>pay</code>
+is located.
+</p>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 16:</h3>
+<p>
+Could C allocate a second block of memory for a second struct?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:23 GMT -->
+</html>

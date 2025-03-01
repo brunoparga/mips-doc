@@ -1,0 +1,118 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Apr 23 14:15:06 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:05 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worries</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="appH_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<p>
+17 == 16 + 1
+</p>
+
+<p>
+16 is 10000 so 17 must be 10001.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Worries</h1>
+
+
+<a id="unique,_binary_representation"> </a>
+<p>
+You might worry that even though a power of two fits into an integer, perhaps it should not
+be part of the representation.
+</p>
+
+<p>
+For example,  the above table shows that 52 will be represented as <code>1 _ _ _ _ _</code>.
+</p>
+
+<p>
+Perhaps, instead, it should be represented as <code>0 _ _ _ _ _</code>
+(where the low-order bits are yet to be determined).
+</p>
+
+<p>
+This is not a problem, for two reasons:
+</p>
+
+<ol>
+<li>The representation of an integer in this method of unsigned binary is unique.
+    <ul><li>If an integer is represented as <code>b<sub>N</sub> b<sub>N-1</sub> . . . b<sub>1</sub> b<sub>0</sub></code>
+            (each b either 1 or 0 ) then that is the only way it can be represented.</li>
+        <li>So once you find the powers of 2 that add up to the integer, you have found the only correct representation.</li>
+    </ul>
+</li>
+
+<li>No pattern of bits to the right of the bit in position N represents more than 2<sup>N</sup>.
+    <ul> <li>So if 2<sup>N</sup> fits into an integer, and is the largest power of 2 that fits,
+             then no other pattern of bits results in a better fit.</li>
+         <li>For example, 16 = 10000, and 15 = 01111.</li>
+         <li>So be sure to start with the leftmost bit, the largest power of two that fits.</li>
+    </ul>
+</li>
+</ol>
+
+
+<p>
+So your job (using this method) is:
+</p>
+
+<ol>
+<li>Find the high-order bit of the binary representation of an integer.</li>
+<li>Subtract that power of 2 from the integer.</li>
+<li>Then find the rest of the bits by doing this again and again.</li>
+</ol>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+<p>
+Represent 20 in binary.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="appH_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:06 GMT -->
+</html>

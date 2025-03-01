@@ -1,0 +1,119 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:55 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Linkage Convention</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. The value in <code class="register">$t0</code>
+might have been changed by <code>somesub</code>,
+since  <code class="register">$t0</code> (according to convention)
+is a register that a subroutine is free to use.
+</p>
+
+<pre class="code">
+      add    <span style="color:red">$t0</span>,$s5,$s3   # calculate an important sum
+      jal    somesub       # call a subroutine
+      nop                  # branch delay
+      mul    $s4,<span style="color:red">$t0</span>,$v1   # multiply the sum by the result
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Simple Linkage Convention</h1>
+<!-- ../Audio/chap26-12.mp3 -->
+
+
+<a id="linkage,_simple"> </a>
+<a id="simple_linkage"> </a>
+
+<p>
+<span class="highlight">Here is an example of a calling convention.</span>
+This convention is very simple and is not
+suitable for a serious program.
+But it illustrates some ideas that will be used
+later on in more complex conventions.
+Let us call it the <em>Simple Linkage Convention </em>.
+You have already seen most of the rules of this convention:
+</p>
+
+<ol>
+<li>A subroutine is called using <code>jal</code> (which puts the return address in <code class="register">$ra</code>.)</li>
+<li>A subroutine will NOT call another subroutine.</li>
+<li>The subroutine returns to its caller using <code>jr $ra</code>.</li>
+<li>Registers are used as follows:
+  <ul>
+  <li><code class="register">$t0 - $t9</code>  &#8212;  The subroutine is free to change these registers.</li>
+  <li><code class="register">$s0 - $s7</code>  &#8212;  The subroutine must not change these registers.</li>
+  <li><code class="register">$a0 - $a3</code>  &#8212;  These registers contain arguments for the subroutine.
+                                       The subroutine can change them.</li>
+  <li><code class="register">$v0 - $v1</code>  &#8212;  These registers contain values returned from the subroutine.</li>
+  </ul>
+  </li>
+<li>The <code>main</code> routine returns control by using
+    the exit service (service 10) of the SPIM exception handler.</li>
+</ol>
+
+<p>
+Since a subroutine may not call another subroutine
+(in this Simple Linkage Convention)
+<span class="highlight">programs consist of a  <code>main</code> routine
+that calls any number of subroutines.</span>
+But the subroutines do not call other subroutines and
+always return directly to <code>main</code>.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+(Thought Question: ) Consider rule number 2. Why must not a subroutine call another subroutine?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:56 GMT -->
+</html>

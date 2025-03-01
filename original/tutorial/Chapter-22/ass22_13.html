@@ -1,0 +1,114 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 27 19:53:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:44 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No Line-buffer Correction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass22_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap22-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+Yes &#8212; it is ASCII code 0x08
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>No Line-buffer Correction</h1>
+<!-- ../Audio/chap22-13.mp3 -->
+
+<a id="cooked_input"> </a>
+<a id="raw_input"> </a>
+<a id="line_buffer_editing"> </a>
+
+ 
+<img src="fineLetter.gif" class="centerimage" alt="Another Fine Letter">
+
+<div class="left">
+<p><span class="highlight">
+The  
+user might make  a mistake in entering the name
+and try to correct it by hitting 
+the "backspace"  key to erase the mistake.
+But this does not work.
+The backspace character, 0x08, is included in
+the string just as is any character.</span>
+Non-character byte values show up (in SPIM) as small black
+rectangles.
+</p>
+ 
+
+<p>
+Most operating system user interfaces allow the user to
+edit a string (with BS, DEL, arrow and other keys) before 
+it is sent to an application program.
+The application program asks for a string from the user,
+but the OS does the actual input, complete with user editing.
+(This is sometimes called <span class="highlight">"cooked"</span> input mode).
+</p>
+</div>
+
+<div class="right">
+<p>
+The SPIM exception handler service does not do this.
+Characters are sent directly to the program as they were typed.
+If the user hits the backspace character,
+then that character is placed in the input string.
+(This is called <span class="highlight">"raw"</span> input mode).
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+
+
+<p>
+What mode of input (raw or cooked) does a text editor use?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass22_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:46 GMT -->
+</html>

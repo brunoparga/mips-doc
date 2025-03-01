@@ -1,0 +1,112 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_24.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:14 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Main</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_23.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_25.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-24.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Main</h1>
+<!-- ../Audio/chap36-24.mp3 -->
+
+
+<p>
+Here
+ is the complete <code>main()</code>.
+</p>
+
+<pre class="program">
+          .globl   main
+          .text
+main:                                 # object1 = new object(); 
+          li       $v0,9              #   allocate 32 bytes
+          li       $a0,32             #  
+          syscall                     #   $v0 = address
+          sw       $v0,object1        #
+          
+          la       $t0,print          #   initialize jump table
+          sw       $t0,0($v0)         #   
+          la       $t0,read           #
+          sw       $t0,4($v0)         #
+          
+                                      # object1.read();
+          lw       $a0,<span class="blue">object1</span>        #   get address of object1
+          lw       $t0,<span class="blue">4</span>($a0)         #   get address of read method
+          jalr     <span class="blue">$t0</span>                #   call the method
+          
+                                      # object1.print();
+          lw       $a0,<span class="blue">object1</span>        #   get address of first object
+          lw       $t0,<span class="blue">0</span>($a0)         #   get address of print method
+          jalr     <span class="blue">$t0</span>                #   call the method
+          
+          li      $v0,10              # return to OS
+          syscall
+
+          .data
+object1:  .word    0
+object2:  .word    0
+</pre>
+
+
+<p>
+The program needs the code for
+the <code>print()</code> and the <code>read()</code> method.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 24:</h3>
+<p>
+Where would a compiler of an OO language find
+the code for the methods?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_23.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_25.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_24.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:15 GMT -->
+</html>

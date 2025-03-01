@@ -1,0 +1,110 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:52 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>remu (Pseudoinstruction)</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-09.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+Of course.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>remu (Pseudoinstruction)</h1>
+
+
+<a id="remu_(pseudoinstruction)"> </a>
+
+<div class="left">
+<p>
+After a 32-bit integer division, the quotient
+is in the <code>lo</code> register and the remainder is in
+the <code>hi</code> register.<span class="highlight">
+The following pseudoinstruction 
+uses several basic instructions to
+compute the remainder:</span>
+</p>
+</div>
+<br style="clear:both"> 
+
+<pre  class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+remu d,s,t # divide $s by $t. Put the
+           # remainder in $d. Operands are unsigned.
+           # (pseudoinstruction)
+</pre>
+
+<div class="left">
+<p>
+There is a pseudoinstruction for creating
+<span class="highlight">the absolute value of an integer:</span>
+</p>
+</div>
+<br style="clear:both"> 
+
+<a id="abs_(pseudoinstruction)"> </a>
+<pre  class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+abs d,s    # d = |s|
+           # (pseudoinstruction)
+</pre>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+
+
+<p>
+What total amount is given to a waiter if the
+bill is $25, the tax rate is 8%, and the tip is 15% ?
+(Use integer math).
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:53 GMT -->
+</html>

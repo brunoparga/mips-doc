@@ -1,0 +1,145 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 06 15:47:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:14 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assembler Temporary Register</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass21_18.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_20.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap21merge3233.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+<code class="register">$at</code>,
+the <em>assembler temporary</em> register.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Assembler Temporary Register</h1>
+<!-- ../Audio/chap21merge3233.mp3 -->
+
+<a id="assembler_temporary_register"> </a>
+
+<div class="left">
+<p><span class="highlight">
+The
+<b>assembler temporary register</b>
+is reserved for use in the
+machine instructions that pseudoinstructions 
+are translated into.</span>
+Often a pseudoinstruction
+is implemented as a short sequence of
+machine instructions that use
+<code class="register">$at</code>.
+Here is  how
+<code>la</code>
+was translated in the example:
+</p>
+
+<pre>
+la $t0,val2 == lui $1,4097
+               ori $8,$1,8
+</pre>
+
+
+<p><span class="highlight">
+Sometimes
+a pseudoinstruction has the
+same mnemonic as a  basic  assembler instruction.</span>
+For example,
+<code>lw</code> (load word)
+is a basic assembler instruction.
+</p>
+
+<p>
+As an assembler instruction, it is used like this:
+</p>
+
+<pre>
+lw    $t1,8($t0)   
+#  load the word at address $t0+8
+</pre>
+
+<p>
+This instruction
+designates the address  with a displacement
+(eight, in this case) to add to a base register
+(<code class="register">$t0</code>, in this case).
+This corresponds exactly to one machine instruction.
+There is no other form for the non-extended
+assembler instruction.
+</p>
+</div>
+
+<div class="right">
+
+<p>
+However, with the extended assembler,<span class="highlight">
+the following &nbsp;<em>pseudo</em>instruction
+can be used:</span>
+</p>
+
+<pre>
+lw  $t1,val2    
+#  load value at  address val2
+</pre>
+
+<p>
+The <em>basic instruction</em> <code>lw</code>
+uses a base register to form an address.
+The <em>pseudoinstruction</em> <code>lw</code>
+must be translated into instructions that also use a base register
+(since this is the only way MIPS instructions can address memory.)
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 19:</h3>
+
+<p>
+What base register is used?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass21_18.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_20.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_19.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:15 GMT -->
+</html>

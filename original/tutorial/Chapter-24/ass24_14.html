@@ -1,0 +1,114 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:22 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integer Array</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-16.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-16.mp3 -->
+
+
+<h3>Answer:</h3>
+<p>
+By four.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Integer Array</h1>
+<div class="left">
+<p>
+Here 
+is nearly the same program as before,
+except that now the program adds up the
+integers in an array of full words (32 bits).
+</p>
+
+<p>
+Because each cell of the array is 4 bytes,
+<span class="highlight">the array index register is increased by 4 in each iteration</span> of the loop.
+The logic is the same as before.
+</p>
+</div>
+<br style="clear:both"> 
+
+<pre class="program">
+        .globl  main
+
+main:   
+        li    $v1,0               # zero the sum
+        li    $t1,<input type="text" size="3">          # init index to ???
+        
+        li    $t2,0               # init loop counter
+for:    beq   $t2,5,endfor        # for ( i=0; i &lt; 5 ;i++ )
+
+        <input type="text" size="3">   $v0,array($t1)
+        
+        addu  $v1,$v1,$v0         #     sum = sum+array[i]
+        
+        addi  $t1,$t1,<input type="text" size="3">       #     increment index
+        
+        addi  $t2,$t2,<input type="text" size="3">       #     increment counter
+        b     for
+ 
+endfor:
+        li    $v0,10              # exit
+        syscall   
+
+        .data
+array:  .word  1,2,3,-5,1
+</pre>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+<p>
+Just fill in the blanks and you have a working program!
+</p>
+ 
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:23 GMT -->
+</html>

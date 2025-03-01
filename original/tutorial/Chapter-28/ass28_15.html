@@ -1,0 +1,163 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:40 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:56 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Back to   main()  </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-20.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-20.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+The caller must restore any <code>T</code> registers it saved.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Back to <code> main() </code></h1>
+
+
+<form>
+<pre class="program">
+#  main()
+#  {
+#    int a;                      // a: 0($fp)
+#    a = mysub( 6 );
+#    print( a );
+#  }
+         .text
+         .globl  main
+main:
+                                  # prolog        
+         sub     $sp,$sp,4        #   1. Push return address
+         sw      $ra,($sp)
+         sub     $sp,$sp,4        #   2. Push caller's frame pointer
+         sw      $fp,($sp)
+                                  #   3. No S registers to push
+         sub     $fp,$sp,4        #   4. $fp = $sp - space_for_variables
+         move    $sp,$fp          #   5. $sp = $fp
+
+                                  # subroutine call
+                                  #   1. No T registers to push
+         li      $a0,6            #   2. Put argument into $a0
+         jal     mysub            #   3. Jump and link to subroutine
+
+                                  # regaining control from  the subroutine 
+                                  #   Return value is in $v0
+                                  #   1. No T registers to restore
+                                  
+         sw     $v0,<input type="text" size="4" />(<input type="text" size="4" />)       # a = mysub( 6 )
+        
+                                         # print a
+                                  
+         lw     $a0,<input type="text" size="4" />(<input type="text" size="4" />)       # load a into $a0
+         
+         
+         li     $v0,1             # print integer service
+         syscall
+                                   
+                                  # epilog
+                                  #   1. No return value         
+         add     $sp,$fp,4        #   2. $sp = $fp + space_for_variables       
+                                  #   3. No S registers to pop      
+         lw      $fp,($sp)        #   4. Pop $fp
+         add     $sp,$sp,4        #           
+         lw      $ra,($sp)        #   5. Pop $ra
+         add     $sp,$sp,4        #                                    
+         jr      $ra              # return to OS 
+</pre>
+</form>
+
+<br style="clear:both">
+<div class="left">
+
+<p>
+In
+this example, <code>main()</code>
+did not save any <code class="register">T</code> registers.
+It does not need to restore them.
+</p>
+
+<p> <span class="highlight">
+The value the subroutine returned is in
+<code class="register">$v0</code>.
+This value is assigned to variable <code class="register">a</code> . </span>
+</p>
+
+<p>
+Look down to the section where <code>main</code>
+regains control.
+Fill in the blanks that follow so that the
+value returned by the subroutine
+(contained in <code class="register">$v0</code>) is copied
+to the variable <code>a</code> on the stack.
+</p>
+</div>
+
+<div class="right">
+<p>
+The next few statements
+load <code class="register">$a0</code> with the value
+of <code>a</code> from the stack,
+and then print that value by using
+a SPIM service.
+This could have been done
+without the stack.
+The return value could have been copied directly into <code class="register">$a0</code>.
+But this example shows the type of
+code that a non-optimizing compiler
+might produce.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:57 GMT -->
+</html>

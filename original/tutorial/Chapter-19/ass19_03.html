@@ -1,0 +1,129 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 26 20:00:27 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:47 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equal Power Processors</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass19_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap19-05.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Yes. 
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Equal Power Processors</h1>
+<!-- ../Audio/chap19-05.mp3 -->
+
+
+<div class="left">
+<p><span class="highlight">
+Arithmetic with integers of any size can be implemented 
+no matter what word size the processor uses.</span>
+This is done by using both the
+integer arithmetic instructions of the processor (if any)
+and bit manipulation instructions.
+</p>
+
+<p>
+For example: 16-bit Intel microprocessors can run programs
+that use 64-bit integer arithmetic.
+This is done by using several
+16-bit machine operations for each 64-bit operation.
+</p>
+
+<p>
+As a more modern example: Pentium-1 and Pentium-4 
+processors can run the same programs.
+One (the P-4) has a faster machine cycle than the other.
+And one (the P-4) has more types of 
+machine instructions than the other.
+If you have a C program that computes something,
+both processors can run it, and
+whatever it computes  
+comes out the same on both
+(assuming appropriate compilers). 
+The running time would be longer on
+the P-1 than on the P-4,
+but running time is not part of the definition.
+</p>
+</div>
+<a id="SWAC"> </a>
+<a id="perfect_numbers"> </a>
+
+<div class="right">
+<p>
+At one time,
+the SWAC (Standards Western Automatic Computer) was the world’s fastest computer.
+In 1952 the SWAC was programmed to
+find perfect numbers.
+A perfect number is an integer whose integer divisors sum up to the number.
+For example, <code>6</code> is perfect because <code>6</code> is divided by
+<code>1, 2,</code> and <code>3</code> and <code>6 = 1 + 2 + 3</code>.
+Other perfect numbers are 28, 496, and 8128. 
+</p>
+
+<p>
+After much computation SWAC found the perfect number 33550336.
+</p>
+
+<p>
+Nice article about the SWAC: <a href="../../external.html?link=http://www.computerhistory.org/revolution/birth-of-the-computer/4/97" target="_blank" >www.computerhistory.org</a>
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+
+<p>
+Will a modern computer find the same perfect numbers
+as the SWAC?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass19_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:48 GMT -->
+</html>

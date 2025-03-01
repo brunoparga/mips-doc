@@ -1,0 +1,99 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:39 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patterns that Add  to Zero</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-21.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Might be minus one.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Patterns that Add  to Zero</h1>
+<!-- ../Audio/chap08-21.mp3 -->
+
+<p>
+Minus 
+one added to plus one gives zero.
+<span class="highlight">If a particular bit pattern  when added to one results in the
+pattern that represents zero,
+then it can represent minus one.</span>
+</p>
+
+<pre class="code">
+  11111 111
+   0000 0001  =    1<sub>10</sub>
+  <u> 1111 1111 </u> =  <u> <span class="red"><b>-1</b></span> </u>
+   0000 0000  =    0<sub>10</sub>
+</pre>
+
+<p>
+<span class="highlight">There is a carry out of one from the high order
+column, but that is fine <em>in this situation</em>.</span>
+The binary addition algorithm correctly applied
+gives the correct result in the eight bits.
+Look at another interesting case:
+</p>
+
+<pre class="code">
+  11111 11
+   0000 1110  =   14<sub>10</sub>
+  <u> 1111 0010 </u> =   <u> <span class="red"><b>?</b></span> </u>
+   0000 0000  =    0<sub>10</sub>
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+<p>
+A number added to 14<sub>10</sub> &nbsp;results in a zero.
+What could that number be?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:40 GMT -->
+</html>

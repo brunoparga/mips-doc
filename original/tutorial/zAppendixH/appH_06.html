@@ -1,0 +1,92 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Apr 23 14:15:06 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:42 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Bugs</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="appH_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+The algorithm stops when the number reaches zero.
+(Be sure to include the bit that was the remainder of the last division.)
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Two Bugs</h1>
+
+<a id="bugs,_converting_decimal_to_binary"> </a>
+<p>
+The algorithm is easy enough: divide, divide, divide, ... collect the bits.
+But sometimes people mess up.
+The two most common ways to mess up are:
+</p>
+
+<ol>
+<li>Putting the bits in the wrong order.</li>
+<li>Stopping too soon.</li>
+</ol>
+
+
+<p>
+1. To get the bits in the correct order, think about the
+first bit. The very first modulo division, N mod 2, results
+in a 1 bit if the number is odd, and a 0 bit if the number is
+even. This bit goes into the rightmost position
+(the one's place).
+</p>
+
+<p>
+2. People seem to stop prematurely when they see <code>1 mod 2</code>.
+But that is a legitimate operation (the result is 1).
+If you divide one by two, you get zero with a remainder of one.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+What is the representation of 1 in binary?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="appH_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:43 GMT -->
+</html>

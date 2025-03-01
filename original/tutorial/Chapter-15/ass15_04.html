@@ -1,0 +1,169 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:39 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Byte Order of MIPS and SPIM</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-07.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+The big end is the byte
+that contains 0x00,
+corresponding to the largest powers of two.
+</p>
+
+<p>
+Notice that "big end" refers to <u>position</u>
+within the word, not the value of the byte.
+</p>
+ 
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Byte Order of MIPS and SPIM</h1>
+<!-- ../Audio/chap15-07.mp3 -->
+
+<a id="MIPS,_byte_order"> </a>
+<a id="SPIM,_byte_order"> </a>
+
+<div class="left">
+<p>
+Within
+a byte, for all processors, bit 7  is 
+the most significant bit.
+So the big end byte looks the same for both
+byte orderings.
+Usually in printed material this bit is shown at the left,
+as in <code><u>0</u>0010010</code>.
+</p>
+
+<p>
+Except when discussing byte ordering,
+the "big end" byte is called the
+"high-order byte" or the "most significant byte".
+</p>
+
+<p><span class="highlight">
+The MIPS processor chip can be set up in hardware
+to use either byte ordering.</span>
+A computer system designer makes whatever choice
+best fits the rest of the components in the computer system.
+</p>
+ 
+</div>
+
+<div class="right">
+<p>
+The SPIM simulator uses the byte ordering of
+the computer it is running on.
+</p>
+
+<ul>
+<li>Intel 80x86: little-endian.</li>
+<li>recent Macintosh: little-endian.</li>
+<li>older Macintosh: big-endian.</li>
+</ul>
+
+<p>
+The examples in these notes
+were done on a Windows/Intel computer.
+If you are using a older Macintosh there
+will be occasional differences.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+
+<div class="left">
+<p>
+Here is a bit pattern, with the most significant bits
+written on the left (as is usual in print):
+<code>0xFF00AA11</code>.
+Copy the bytes to memory using big endian and little endian orders:
+</p>
+</div>
+
+<br style="clear:both"> 
+<form>
+<table style="border-width:0px 0px 0px 0px; background-color:transparent;" >
+<tr>
+<td style="border-width:0px 0px 0px 0px;background-color:transparent;">
+  <table>
+  <tr>
+  <th colspan="2">Little Endian</th></tr>
+  <tr><th>Address</th><th>Contents</th></tr>
+  <tr><td>4003</td><td> <input type="text" size="8" /> </td></tr>
+  <tr><td>4002</td><td> <input type="text" size="8" /> </td></tr>
+  <tr><td>4001</td><td> <input type="text" size="8" /> </td></tr>
+  <tr><td>4000</td><td> <input type="text" size="8" /> </td></tr>
+  </table>
+
+</td>
+<td style="border-width:0px 0px 0px 0px;background-color:transparent;">
+  
+  <table>
+  <tr>
+  <th colspan="2">Big Endian</th></tr>
+  <tr><th>Address</th><th>Contents</th></tr>
+  <tr><td>4003</td><td> <input type="text" size="8" /> </td></tr>
+  <tr><td>4002</td><td> <input type="text" size="8" /> </td></tr>
+  <tr><td>4001</td><td> <input type="text" size="8" /> </td></tr>
+  <tr><td>4000</td><td> <input type="text" size="8" /> </td></tr>
+  </table>
+
+</td>
+</tr>
+</table>
+</form>
+
+
+<br />
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:40 GMT -->
+</html>

@@ -1,0 +1,138 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 26 18:18:41 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:18 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branches for Positive and Negative</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass20_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap20-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+See below
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Branches for Positive and Negative</h1>
+<!-- ../Audio/chap20-14.mp3 -->
+
+
+<div class="left">
+<p><span class="highlight">
+  Now,
+ implement the true block and the false block.</span>
+One adds the current entry to the sum of negatives, the
+other adds  it to the sum of positives.
+</p>
+</div>
+
+<div class="right">
+<p>
+Check that you don't have
+the blocks confused.
+This is a frequent mistake.
+</p>
+
+</div>
+<br style="clear:both">
+
+<form>
+<pre class="program">
+<img src="smallAddIntArray.gif"  class="rightimage" alt="integer array flow chart" />
+## Registers:
+##  $8 -- count                     
+##  $9 -- pointer to the array entry
+## $10 -- current array entry       
+## $11 -- sum of all integers       
+## $12 -- sum of negative integers
+## $13 -- sum of positive integers
+## $14 -- pos. or neg. flag
+## $15 -- SIZE of the array
+
+# while  count &lt; SIZE do
+loop:    beq      $8,$15,done 
+         sll      $0,$0,0        #  branch delay
+
+
+# get entry, add to sum
+         lw       $10,0($9)      #  get entry
+         sll      $0,$0,0        #  load delay
+         addu     $11,$11,$10    #  add to sum
+
+#  test neg. or pos.
+         slti     $14,$10,<span class="red"><b>0</b></span>      #  set flag if entry is neg
+         bne      <span class="red"><b>$14,$0</b></span>,neg    #  branch if negative
+         sll      $0,$0,0        #  branch delay
+         
+         <input type="text" size="4" />     $13,$13,$10   #  positive: add to PLUS
+         
+         j        <input type="text" size="8" />
+         
+         sll      $0,$0,0        #  branch delay
+         
+
+neg:     <input type="text" size="4" />     $12,$12,$10   #  negative: add to NEG
+
+ifend:   addiu    $8,$8,1        #  count++
+         addiu    $9,$9,4        #  point at next entry
+         j        loop
+         sll      $0,$0,0        #  branch delay
+
+done:    sll      $0,$0,0        #  target for branch
+
+        .data
+size:   .word  17
+array:  .word  12, -1, 8, 0, 6, 85, -74, 23, 99, -30, 30, 95, 4, 7, 10, 28, 14
+</pre>
+</form>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass20_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:19 GMT -->
+</html>

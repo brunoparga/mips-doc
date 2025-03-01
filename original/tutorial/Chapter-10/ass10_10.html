@@ -1,0 +1,160 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Sep 19 21:41:21 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:23 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass10_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap10merge2021.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<p>
+After the instruction at 0x00400008 has executed,
+what happens?
+</p>
+
+<h3>Answer:</h3>
+<p>
+The processor fetches the 32-bit pattern (whatever it is) at address
+ 0x0040000C 
+and tries to execute it as an instruction.
+</p>
+
+<p>
+(Actually, the SPIM simulator stops at this point.
+This is a convenience for student programmers, but not what actual hardware would do.)
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Control</h1>
+<!-- ../Audio/chap10merge2021.mp3 -->
+
+<a id="control"> </a>
+<a id="control_point"> </a>
+
+<div class="left">
+<p><span class="highlight">
+Any bit pattern that is fetched as an instruction 
+by the machine cycle is
+interpreted as an instruction.</span>
+The bit patterns in the fields tell the
+electronics what operation to perform and what data to use.
+If the bit pattern makes no sense as
+an instruction then the machine cycle is interrupted.
+This causes the program to "crash" (or to "bomb".)
+However, if the pattern can be interpreted as an instruction then it
+will be executed,
+whatever it does.
+</p>
+
+<p>
+<span class="highlight">The <b>control point</b> of an executing
+program is the address in memory of the instruction
+being executed.</span>
+When an instruction is being executed
+(in the third step of the machine cycle)
+the program counter holds the address of
+the instruction after the control point.
+</p>
+
+<p>
+Normally the control point moves sequentially
+through the machine instructions.
+On the MIPS this means it normally moves through
+memory in steps of four bytes (32 bits) at a time.
+Usually "control point" is shortened to "control" and
+the phrase <em>flow of control</em> means how the control point
+moves through memory.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+If control flow leads to an address in memory,
+then the four bytes starting at that address
+are fetched
+as a machine instruction.</span>
+The processor has no other way to tell instructions
+from data.
+Whatever bit pattern gets pulled in from memory as
+an instruction will be executed as an instruction.
+It is common for the control point of a buggy program 
+to enter a section of data.
+Now, bit patterns that were intended as data get executed as instructions.
+This sometimes leads to mystifying results.
+</p>
+
+<p>
+By software convention, data and instructions are
+placed in different sections of memory.
+(This helps prevent mystifying results).
+But this is not a requirement of the architecture.
+</p>
+
+<p>
+Some processors have <b>bounds registers</b> that the operating system sets
+to the first and last address of a user program.
+Only instructions within bounds may be fetched as instructions.
+This also helps prevent mystification.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+Most computer systems start running an
+operating systems when power is applied.
+When an application program runs, the operating
+system passes control to the application.
+</p>
+
+<p>
+What must the application do when it is finished
+running?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass10_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:24 GMT -->
+</html>

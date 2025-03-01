@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 13 19:19:52 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:30 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Low-order Result not always Correct</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass16_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap16-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+ 0011 0100         0000 0000 0000 0000 0000 0001 0011 0100
+
+
+ 0001 1010         0000 0000 0000 0000 0000 0000 1001 1010
+</pre>
+
+<p>
+The  8-bit result is different from the low order byte in the
+32-bit result.
+Of course,
+if we had cleared the carry bit in bit 8 of the 32-bit sum
+before the shift the two bytes would be identical.
+</p>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Low-order Result not always Correct</h1>
+<!-- ../Audio/chap16-12.mp3 -->
+
+<div class="left">
+<p><span class="highlight">
+In
+general
+the low order byte  
+after several 32-bit operations is not the same as would
+result from several true 8-bit arithmetic operations.</span>
+</p>
+
+<p>
+These are problems that compilers  face.
+For example, ANSI C short int variables should
+behave the same way on all computers.
+But 16-bit math does <u>not</u> behave the
+same way on all computer architectures!
+</p>
+</div>
+
+<div class="right">
+<p> 
+When C is compiled for MIPS, several extra
+machine operations must be inserted between
+each arithmetic operation when the operands are short ints.
+On MIPS (and some other computers) 16-bit
+arithmetic is much slower than 32-bit arithmetic.
+</p>
+
+<p>
+Naive programmers sometimes use short ints
+with the expectation that their program will
+run faster.
+Depending on the hardware and the compiler, 
+the opposite might be true!
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+
+<p>
+Cryptography programs often treat characters
+as 8-bit integers and transform them with
+arithmetic operations.
+Suppose a cryptography program is written in
+C for a Windows system.
+When compiled on a Macintosh system it 
+runs, but produces different results!
+You have been given the job of making
+the Mac version work identically to the
+Windows version.
+What must you do?
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass16_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:31 GMT -->
+</html>

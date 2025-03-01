@@ -1,0 +1,141 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_27.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:26 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subroutine   getLine  </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_26.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_28.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap27-23.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+The relevant section is filled in, below.
+</p>
+<pre class="code">
+loop:                             # get a line
+         la      $a0,<u>line</u>         # argument: address of buffer
+         li      $a1,<u>132</u>          # argument: length of buffer
+         jal     <u>getline</u>          # get line from user
+         
+         la      $a0,line         # if "Q"
+         jal     testEnd          # return to caller
+         beqz    $v0,endloop          
+
+                                  # convert to capitals
+         la      $a0,<u>line</u>         # argument: address of buffer
+         li      $a1,<u>132</u>          # argument: length of buffer
+         jal     <u>convert</u>          # convert
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Subroutine <code> getLine </code></h1>
+<!-- ../Audio/chap27-23.mp3 -->
+
+<div class="middle">
+<p>
+Subroutine 
+<code> getLine </code>
+reads a line into a buffer.
+The buffer is in the data section of the caller.
+The address of the buffer is passed as a parameter.
+</p>
+</div>
+
+<pre class="program">
+<img src="getLine.gif" class="rightimage" alt="Flowchart for getline" />
+# getLine -- read in a line of user input
+#
+# on entry:
+#    $a0 -- address of input buffer
+#    $a1 -- length of buffer
+#
+# on exit:
+#    no return values
+
+         .text
+         .globl  getLine
+getLine:   
+         move    $t0,$a0          # save buffer address          
+         la      $a0,prompt       # prompt the user
+         li      $v0,4            # service 4
+         syscall
+
+         move    $a0,$t0          # restore buffer address
+         li      $v0,8            # service 8
+         syscall                  # read in a line to the buffer
+         
+         jr      $ra              # return to caller 
+
+         .data
+prompt:
+         .asciiz ">"
+</pre>
+
+
+<p>
+Notice how <code> getLine </code> reads data into
+an input buffer defined externally to itself.
+The parameters in 
+<code class="register">$a0</code> and 
+<code class="register">$a1</code> specify this buffer.
+It would be a design mistake to have <code> getLine </code>
+read into its own buffer
+or to hard-code the symbolic address of a buffer in another subroutine.
+</p>
+
+<p>
+The buffer address parameter and the length parameter are
+similar to the parameters used in many "C" functions.
+Study this example to help in your future (or present)
+understanding of "C" pointer variables.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 27:</h3>
+<p>
+Does <code> getLine </code> need to store a return address on the stack?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_26.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_28.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_27.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:28 GMT -->
+</html>

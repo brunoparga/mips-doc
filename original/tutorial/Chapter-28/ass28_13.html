@@ -1,0 +1,140 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:40 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:51 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subroutine Epilog</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-18.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-18.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+See Below
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Subroutine Epilog</h1>
+
+
+<pre class="program">
+#  int mysub( int arg )
+#  {
+#    int b,c;                     // b: 0($fp)
+#                                 // c: 4($fp)
+#    b = arg*2;
+#    c = b + 7;
+#    
+#    <span class="highlight">return c;</span>  
+#  }
+         .text
+         .globl  mysub
+mysub:
+                                  # prolog        
+         sub     $sp,$sp,4        #   1. Push return address
+         sw      $ra,($sp)
+         sub     $sp,$sp,4        #   2. Push caller's frame pointer
+         sw      $ra,($sp)
+
+         sub     $sp,$sp,4        #   3. Push register $s1
+         sw      $s1,($sp)
+
+         sub     $fp,$sp,8        #   4. $fp = $sp - space_for_variables
+
+         move    $sp,$fp          #   5. $sp = $fp
+         
+                                  # body of subroutine     
+         mul     $s1,$a0,2        #     arg*2
+         sw      $s1,0($fp)       # b = "   "
+         
+         lw      $t0,0($fp)       # get b
+         add     $t0,$t0,7        #      b+7
+         sw      $t0,4($fp)       # c = "  "
+         
+                                  # epilog
+                                  
+         lw      $v0,<input type="text" size="4" />(<input type="text" size="4" />)  #   1. <span class="highlight">Put return value in $v0</span>
+         
+         
+         add     $sp,$fp,<input type="text" size="4" />      #   2. <span class="highlight">$sp = $fp +space_for_variables</span>
+         
+         
+         lw      $s1,(<input type="text" size="4" />)        #   3. <span class="highlight">Pop register $s1</span>
+         
+         add     <input type="text" size="4" />,<input type="text" size="4" />,<input type="text" size="4" />         
+         
+        
+         lw      $fp,(<input type="text" size="4" />)       #   4. <span class="highlight">Pop $fp</span>
+         
+         
+         add     <input type="text" size="4" />,<input type="text" size="4" />,<input type="text" size="4" />      
+         
+         lw      $ra,(<input type="text" size="4" />)       #   5. <span class="highlight">Pop $ra</span>
+         
+         add     <input type="text" size="4" />,<input type="text" size="4" />,<input type="text" size="4" />        
+         
+          
+         jr      $ra               #   6. return to caller 
+</pre>
+
+<div class="left">
+<p>
+The
+epilog of a subroutine
+prepares the values that are returned to the caller.
+It then restores the registers and stack to how they
+were when the subroutine first got control.
+Finally it returns to the caller.
+</p>
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+<p>
+Those blanks are made for filling.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:52 GMT -->
+</html>

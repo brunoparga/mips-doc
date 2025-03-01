@@ -1,0 +1,161 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 06 15:47:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:21 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pseudoinstructions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass21_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap21merge13-16.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+What does the following assembly language instruction do?
+</p>
+
+<pre>
+addu $t5,$zero,$t7
+</pre> 
+<h3>Answer:</h3>
+
+
+<p>
+It 
+<span class="blue">copies</span>
+the contents of register 
+<code class="register">$t7</code> 
+into register
+<code class="register">$t5</code>.</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Pseudoinstructions</h1>
+<!-- ../Audio/chap21merge13-16.mp3 -->
+<a id="pseudoinstruction"> </a>
+
+<div class="left">
+<p>
+The
+<code>addu</code> instruction,
+used as above with register <code class="register">$zero</code>, copies a bit pattern from the source register into
+the destination register.
+This is usually called a
+<b>move</b> operation, although the source register does not change.
+It is often convenient to move a value from one
+register to another.
+It
+is awkward to say "add" when you mean "move".
+</p>
+
+<p><span class="highlight">
+The <em>extended assembler</em>
+allows you to use the mnemonic
+<code>move</code>
+instead of <code>addu</code>.</span>
+This mnemonic does not correspond to a new machine 
+instruction.
+It is just a way of asking for the same instruction
+by using a more intuitive mnemonic.
+It is a <b>pseudoinstruction</b> that the assembler
+translates into 
+the appropriate basic assembly instruction.
+</p>
+
+
+<p><span class="highlight">
+A <b>pseudoinstruction</b> is an instruction that 
+the extended assembler replaces with
+one or more
+basic assembly instructions.</span>
+</p>
+
+</div>
+
+<div class="right">
+
+
+<p><span class="highlight">
+The
+extended assembler implements 
+many pseudoinstructions.</span>
+Sometimes they are just convenient re-naming of basic assembly
+instructions.
+Other times they correspond to a small, convenient
+sequence of basic assembly instructions.
+Here is the <code>move</code> pseudoinstruction:
+</p>
+
+<a id="move_(pseudoinstruction)"> </a>
+
+<pre class="code">
+move d,s  # copy the contents of 
+          # the source register s
+          # to the destination 
+          # register d
+          # (pseudoinstruction)
+</pre> 
+
+<p>
+The registers <code class="register">d</code> and <code class="register">s</code> can be
+specified by using register mnemonic names 
+(such as <code class="register">$t5</code> or <code class="register">$zero</code>) or by
+using register numbers
+(such as <code class="register">$13</code> or <code class="register">$0</code>).
+This is true for all instructions of the extended assembler.
+</p>
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+
+<p>
+Write the instruction that moves (copies) the contents of
+register <code class="register">$t3</code> into register <code class="register">$s1</code>.
+</p>
+
+<pre class="code">
+<input type="text" size="5">   <input type="text" size="5"> , <input type="text" size="5">
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass21_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:22 GMT -->
+</html>

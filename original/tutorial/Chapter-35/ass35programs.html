@@ -1,0 +1,134 @@
+<!doctype html> 
+<!-- 05/19/2016  bpk  HTML5 validation -->
+ 
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:14 GMT -->
+<head>
+<meta charset="utf-8">
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+
+<body>
+<small>created 07/08/2003</small>
+<hr />
+
+<h1> 
+Chapter 35 Programming Exercises
+</h1>
+
+<hr />
+
+<p>
+<b>NOTE:</b>
+If you have read the chapters on
+subroutine linkage,
+write each exercise as a
+main program calling a subroutine.
+Use either the stack-based linkage or the
+frame-based linkage convention.
+<p>
+
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine OFF, Accept Pseudo Instructions ON,
+Enable Branch Delays ON,
+Enable Load Delays ON, Enable Mapped IO OFF, Load Exception Handler ON.
+</p>
+
+<hr />
+
+<!-- untested -->
+
+<h2>**Exercise 1  &#8212; Subroutines</h2>
+
+<p>
+Divide the last program of the chapter into
+three parts: a main routine, a subroutine that creates
+the linked list, and a subroutine that prints the linked list.
+Have linked list creation routine 
+ask the user for each value that is stored in a node.
+The first value that the user enters is the number
+of nodes that will be in the list.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<!-- untested -->
+
+<h2>***Exercise 2 &#8212; Linked List of Strings</h2>
+
+<p>
+Modify the program 
+(either the one from from the chapter or
+the one in Exercise 1)
+so that the data in each node is a null-terminated
+string.
+For this exercise,
+make all nodes the same size.
+Allow for strings of up to 16 characters (counting the null).
+</p>
+
+<p>
+Put the link to the next node in the first for bytes of a node
+(this will make things easier later.)
+The user enters string data in a loop.
+The string "done" signals the end of input.
+Print out the linked list.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<!-- untested -->
+
+<h2>****Exercise 3 &#8212;  Linked List of Variable-length Strings</h2>
+
+<p>
+Modify the program so that each node has the link
+to the next node in the first four bytes,
+followed by a null-terminated string.
+Unlike the previous exercise,
+allocate only enough memory for each node
+to hold the link and the string.
+Read the string into a buffer,
+compute its length,
+allocate enough memory for the node,
+and then copy the string from the buffer to the node.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:14 GMT -->
+</html>
+

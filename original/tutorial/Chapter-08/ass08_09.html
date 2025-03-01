@@ -1,0 +1,104 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:28 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Additional Addition Practice</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre class="code">
+              1 11      1  1
+   0F4A <span style="font-size:200%">&#8594;</span> 0000 1111 0100 1010
+  <u> 420B </u><span style="font-size:200%">&#8594;</span> <u>0100 0010 0000 1011</u>
+           0101 0001 0101 0101  <span style="font-size:200%">&#8594;</span> 0x5155
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Additional Addition Practice</h1>
+<!-- ../Audio/chap08-13.mp3 -->
+
+<p>
+In
+the answer (above),
+the carry out of zero from the left column 
+indicates
+that <span class="highlight">overflow did not happen.</span>
+</p>
+
+<p>
+<span class="highlight">Sometimes a hex addition problem is easy enough to
+do without converting to binary:</span>
+</p>
+
+<pre class="code">
+   014A
+  <u> 4203 </u>
+   434D
+  
+</pre>
+
+<p>
+It may be helpful to use your digits (fingers) in doing this:
+to add A+3 extend three fingers and count <code>"A... B... C... D"</code>.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+Compute the following sum using 8 bits.
+Is there overflow?
+</p>
+
+<pre class="code">
+   1101 0010
+  <u> 0110 1101 </u>
+ <input type="text" size="10" name="answer" value="             "/>   
+
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:29 GMT -->
+</html>

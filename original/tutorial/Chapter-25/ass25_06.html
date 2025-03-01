@@ -1,0 +1,140 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 11:37:41 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:26 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass25_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap25-07.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap25-07.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+Yes. The data is copied to a new location, but
+the old location is not changed.
+However, since the stack pointer is moved,
+"logically" the data is no longer on the stack.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example</h1>
+
+<a id="compiler,_and_stacks"> </a>
+
+<div class="left">
+
+<p><span class="highlight">
+The
+stack is often used to hold temporary values
+when most registers are already in use.
+An example of this is how
+a compiler translates an arithmetic expression
+into machine codes that uses a stack.</span>
+</p>
+
+<p>
+Say that
+the arithmetic expression is:<br> <br> 
+<code>ab - 12a + 18b - 7</code>.
+</p>
+
+<p>
+Say that only
+<code class="register">$t0</code>
+and
+<code class="register">$t1</code> are available.
+Perhaps only two registers are available because the 
+compiler has already output code that uses all the others.
+</p>
+</div>
+
+<div class="right">
+<a id="stack_pointer,_initialization"> </a>
+<p>
+Before SPIM starts running a program it
+initializes the stack pointer
+<code class="register">$sp</code>
+appropriately.
+On a computer with a full operating system,
+the stack pointer is initialized by
+the operating system before control is
+passed to a user program.
+</p>
+
+<p>
+Here is the start of the program:
+</p>
+</div>
+<br style="clear:both">
+ 
+<form>
+<pre class="program">
+# Evaluate the expression ab - 12a + 18b - 7
+
+main:   
+        lw      $t0,a          # get a
+        lw      $t1,bb         # get b
+        mul     $t0,$t0,$t1    # a*b
+        
+        subu    $sp,$sp,<input type="text" name="T1" size="6">  # push a*b onto stack
+        
+        sw      $t0,<input type="text" name="T2" size="6">
+
+        . . . . .
+
+        .data
+a:      2
+bb:     3
+</pre>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass25_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:27 GMT -->
+</html>

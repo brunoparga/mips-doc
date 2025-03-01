@@ -1,0 +1,164 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_26.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:21 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subroutine   doLines  </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_25.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_27.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap27-22.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+Yes, because <code>main</code> calls a subroutine.
+The completed code for <code>main</code> is below.
+</p>
+
+<pre>
+         .text
+         .globl  main
+main:
+         sub     $sp,$sp,4        ## push the return address
+         sw      $ra,($sp)        ##
+         
+         la      $a0,mainPr       # prompt the user
+         li      $v0,4            # service 4
+         syscall
+
+         jal     doLines          # process lines of input
+         
+         lw      $ra,($sp)        ## pop return address
+         add     $sp,$sp,4        ##
+         
+         jr      $ra              ## return to OS 
+
+         .data
+mainPr:  .ascii  "Type each line of text followed by ENTER.\n"
+         .asciiz "Type Q at the start of a line to finish.\n"
+</pre>
+
+<p>
+(As before, to run on QtSPIM remove the lines with ## and use exception handler service 10 to return to the system.)
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Subroutine <code> doLines </code></h1>
+<!-- ../Audio/chap27-22.mp3 -->
+
+<div class="middle">
+<p>
+The
+<code>main</code> routine calls <code>doLines</code>.
+The flowchart shows the design for that routine.
+Below is its (incomplete) code.
+</p>
+</div>
+
+<form>
+<pre class="program">
+# doLines -- read in and process each line of user input
+#
+# on entry:
+#    $a0 -- address of the prompt text
+#    $ra -- return address
+#
+# on exit:
+#    no return values
+<img src="doLines.gif" class="rightimage" alt="Flowchart for doLines" />
+
+         .text
+         .globl  doLines
+doLines:   
+         sub     $sp,$sp,4        # push the return address
+         sw      $ra,($sp)
+ 
+loop:                             # get a line
+
+         la      $a0,<input type="text" size="8" />    # argument: address of buffer
+         
+         li      $a1,<input type="text" size="8" />    # argument: length of buffer
+         
+         jal     <input type="text" size="8" />        # get line from user
+         
+         la      $a0,line         # if "Q"
+         jal     testEnd          # return to caller
+         beqz    $v0,endloop          
+
+                                  # convert to capitals
+                                  
+         la      $a0,<input type="text" size="8" />    # argument: address of buffer
+         
+         li      $a1,<input type="text" size="8" />    # argument: length of buffer
+         
+         jal     <input type="text" size="8" />        # convert
+         
+         
+         la      $a0,outline      # print out the result
+         li      $v0,4
+         syscall
+         
+         b       loop             # continue with next line
+         
+endloop:          
+         lw      $ra,($sp)        # pop return address
+         add     $sp,$sp,4         
+         jr      $ra              # return to caller 
+
+         .data
+outline: .ascii  ":"              # pad so output lines 
+                                  # line up with input
+line:    .space  132              # input buffer
+</pre>
+</form>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 26:</h3>
+<p>
+No time like the present to fill in those blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_25.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_27.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_26.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:23 GMT -->
+</html>

@@ -1,0 +1,110 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Apr 28 18:51:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:28 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass30_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap30-24b.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes. The sign bit is not part of the mantissa.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Practice</h1>
+<!-- ../Audio/chap30-24b.mp3 -->
+
+<div class="left">
+
+<p>
+You
+must be eager to try this yourself!! Here is an opportunity!
+</p>
+
+<p>
+The decimal value 7.46875 written in base two positional
+notation is <code>00111.01111 .</code>
+What is the 23-bit mantissa of this number for IEEE?
+</p>
+ 
+</div>
+<br style="clear:both"> 
+
+<form>
+<table class="center">
+<tr><td>Represent this number:</td>
+    <td> &nbsp; </td>
+    <td><input type="text" size="35" name="t0" value="00111.01111"></td></tr>
+<tr><td>Drop the leading zeros:</td>
+    <td><input type="button" value=" ? " onclick="t1.value='111.01111'">  </td>
+    <td><input type="text" size="35" name="t1" value=""></td></tr>
+
+<tr><td>Move the binary point: <br>keep track of the exponent</td>
+    <td><input type="button" value=" ? " onclick="t2.value='1.1101111 exponent 2'">  </td>
+    <td><input type="text" size="35"  name="t2" value=""></td></tr>
+
+<tr><td>Drop the leading one:</td>
+    <td><input type="button" value=" ? " onclick="t3.value='1101111 exponent 2'">  </td>
+    <td><input type="text"  size="35" name="t3" value=""></td></tr>
+
+<tr><td>Right-pad with zero:<br>to 23 bits</td>
+    <td><input type="button" value=" ? " onclick="t4.value='11011110000000000000000 exponent 2'">  </td>
+    <td><input type="text"  size="35" name="t4" value=""></td></tr>
+
+<tr><td>The Mantissa is:</td>
+    <td><input type="button" value=" ? " onclick="t5.value='11011110000000000000000'">  </td>
+    <td><input type="text"  size="35" name="t5" value=""></td></tr>
+</table>
+</form> 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+<p>
+(Review:) What part of the single precision float represents the shifted binary point?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass30_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:29 GMT -->
+</html>

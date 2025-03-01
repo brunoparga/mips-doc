@@ -1,0 +1,125 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 26 20:00:27 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:12 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structure Rule Four: Iteration</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass19_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap19-20.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Yes.  It is regarded as if-then-else with an empty else-branch.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Structure Rule Four: Iteration</h1>
+<!-- ../Audio/chap19-20.mp3 -->
+
+
+<a id="iteration"> </a>
+
+<img src="structureRule4.gif"  class="rightimage" alt="structure rule four" />
+
+<div class="left">
+<p>
+Iteration
+(<em>while-loop</em>) is arranged as at right. <span class="highlight">
+Iteration done correctly has one entry point and one exit point.</span>
+The entry point has conditions that
+must be satisfied and the exit point has conditions that
+will be fulfilled.
+There are no jumps into the structure from external points
+of the code.
+</p>
+
+<a id="structured_programming,_rule_4"> </a>
+<blockquote><span class="highlightgreen">
+<b>Rule 4 of Structured Programming:</b>
+The iteration of a code block  is structured.</span>
+</blockquote>
+
+<p>
+The body of the loop (the box following the <em>true</em> arrow)
+is a code block with one entry point and one exit point.
+</p>
+
+<p>
+As with the other structures,
+iteration is built out
+of assembly language pieces.
+There are various ways 
+to do it.
+The following is typical
+</p>
+
+<pre>
+while:  bltz   $8,endWh
+
+        . . . loop body . . .
+
+        j      while
+        sll    $0,$0,0
+
+endWh:  sll    $0,$0,0
+</pre>
+
+<p>
+The particular instructions that make
+up the test depend on circumstances.
+</p>
+<p>&nbsp;</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 16:</h3>
+
+<p>
+In a structured language (such as Pascal, C, or Java) can
+an alternation structure be put inside an iteration structure?
+(can the body of a <em>while-loop</em> contain an <em>if-then-else</em>?)
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass19_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:14 GMT -->
+</html>

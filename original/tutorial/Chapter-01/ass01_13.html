@@ -1,0 +1,127 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Jul 06 10:45:01 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:09 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2019"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Separate Translation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass01_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap01-17.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Of course.  Say that the emulator is written in C.
+Compile the emulator and run it on a MIPS computer.
+Now the program running on the MIPS is a MIPS emulator.
+This is a very computer-science-like notion.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Separate Translation</h1>
+<!-- ../Audio/chap01-17.mp3 -->
+
+<img class="center" src="sourceTOobject.gif" alt="source to object">
+
+<div class="left">
+<p>
+<span class="highlight">Running an emulator on the same processor it is emulating is
+often used for debugging.</span>
+Working with an emulator is usually more convenient than
+dealing with the hard silicon of the actual hardware.
+</p>
+
+<p>
+You might wonder if an emulator of an Apple can run
+on an emulator of an Intel machine that is running
+on a MIPS machine.
+Yes, as long as the various emulators exist.
+</p>
+
+<a id="object_module"> </a>
+<a id="separate_translation"> </a>
+<a id="separate_assembly"> </a>
+
+<p><span class="highlight">
+For  many years  assembly language
+was used for serious enterprise-wide programming for one
+reason:  separate source files could be individually
+assembled, and later combined (linked) into the full
+executable.</span>
+Each source file was assembled into an object module.
+This is called <b>separate assembly</b>
+(or <em>separate translation</em>).
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+An <b>object module</b> is a file that contains 
+a machine language program
+that is not quite ready to run.</span>
+It may not be ready to run for several reasons:
+the source code
+might not be completely translated
+(since more information is needed),
+memory locations for code and data 
+might not be assigned,
+and more code is needed
+before the program is complete.
+An assembler creates an object module
+for each source file of assembly language.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+
+<p>
+(Software Engineering Question:) Why translate many individual
+source files? Why not have one, big, complete program
+that translates into a complete, ready-to-run executable?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass01_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:11 GMT -->
+</html>

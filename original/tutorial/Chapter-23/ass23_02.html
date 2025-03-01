@@ -1,0 +1,165 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:54 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> not  Pseudoinstruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-02.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+<code>NOT( 0011 1001 ) == 1100 0110</code>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1><code>not</code> Pseudoinstruction</h1>
+
+
+<a id="not_(pseudoinstruction)"> </a>
+
+ 
+<table class="center">
+<tr> <th colspan="5">NOR Operation on Bits</th></tr>
+<tr> <td> first operand </td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr> <td> second operand </td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+<tr> <td> &nbsp; </td><td colspan="4"> <hr> </td></tr>
+<tr> <td> OR </td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+<tr> <td> not OR </td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+</table>
+<br style="clear:both"> 
+
+<a id="flipping_bits"> </a>
+ 
+<div class="left">
+
+<p><span class="highlight">
+The <code>not</code> pseudoinstruction
+changes each bit in a register.</span>
+</p>
+
+<p>
+Each 1 is changed to a 0 and each 0 is changed to a 1.
+(This is sometimes called "flipping" each bit
+or "reflecting" each bit.)
+</p>
+</div>
+<br style="clear:both"> 
+
+<pre  class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+not   d,s  
+# Load register d with the 
+# bitwise not of register s.
+# All 32 bits are changed. 
+# (pseudoinstruction)
+</pre>
+<br style="clear:both"> 
+
+<div class="left"> 
+<p>
+This is a pseudoinstruction.
+The assembler translates it
+into a single
+basic assembly instruction,
+a <code>nor</code>
+instruction.
+The nor operation is given in the table.
+The <b>nor</b> of two bits is equivalent to
+applying <b>not</b> to the 
+<b>or</b> of the bits.
+<span class="highlight">The <code>nor</code>
+instruction uses two registers as operands
+and writes the result to a third register.</span>
+</p>
+</div>
+<br style="clear:both"> 
+<pre  class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+nor  d,s,t  
+# $d &lt;&#8212; bitwise 
+#  NOR $s with $t.
+# (basic instruction)
+</pre>  
+<br style="clear:both"> 
+<div class="left"> 
+<p>
+Look at the first two columns of the table
+where the first operand is zero.
+The <b>nor</b> of the two operands is the
+<b>not</b> of the second operand.
+</p>
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<form>
+<p>
+Translate the following:
+</p>
+
+<pre class="code">
+not $s1,$t5
+</pre>
+
+<p>
+into a <code>nor</code> instruction:
+</p>
+
+<pre class="code">
+nor  <input type="text" size="7">, <input type="text" size="7">, <input type="text" size="7">
+</pre>
+
+<p>
+<input type=button value="hint" onClick='alert("Consider using register $0")'>
+</p>
+
+</form>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:55 GMT -->
+</html>

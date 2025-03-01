@@ -1,0 +1,133 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_26.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:24 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read Method</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_25.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_27.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-26.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes. It makes no difference where
+the memory for the object came from.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Read Method</h1>
+<!-- ../Audio/chap36-26.mp3 -->
+
+<div class="left">
+
+<p>
+<span class="highlight">The
+<code>read()</code> method,
+like the <code>print()</code> method,
+is called with the address of the object
+in <code class="register">$a0</code>
+as a parameter.</span>
+</p>
+
+<p>
+Since  <code class="register">$a0</code> is needed
+by  <code>syscall</code>,
+its value must be saved upon entry to the method.
+</p>
+</div>
+
+<div class="right">
+<p>
+Later in the code the base address
+of the object is used to calculate the
+location of the string in the object.
+The jump table has two 4-byte addresses
+in it,
+so 8 is added to the base address.
+</p>
+
+<p>
+Our objects are fixed-sized,
+with a 24 byte buffer.
+The read string service is given the
+buffer size as one of its parameters.
+</p>
+
+</div>
+<br style="clear:both">
+
+<pre class="program">
+# read() method
+# Parameter: $a0 == address of the object
+# 
+          .text         
+read:
+          move     $s1,$a0            # save object's address
+          li       $v0,4              # print string service
+          la       $a0,prompt         # address of object's string
+          syscall                     # 
+          
+          addiu    $a0,$s1,8          # $a0 = address of buffer
+                                      #       in object
+          li       $a1,24             # $a1 = size of buffer
+          li       $v0,8              # read string service
+          syscall 
+ 
+          jr       $ra                # return to caller
+
+          .data
+prompt:   .asciiz  "enter data > "
+</pre>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 26:</h3>
+<p>
+Say that you wanted the objects to hold strings of any size.
+How could this be done?
+(Hint: think about the previous chapter.)
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_25.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_27.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_26.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:25 GMT -->
+</html>

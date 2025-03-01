@@ -1,0 +1,153 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:28 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N-bit Binary Addition Algorithm</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre>
+  1             0             1
+  0             1             1
+<u>  1  </u>         <u>  0  </u>         <u>  0  </u>
+ 10            01            10
+</pre> 
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>N-bit Binary Addition Algorithm</h1>
+<!-- ../Audio/chap08-03.mp3 -->
+
+<p>
+Adding up a column of bits is as easy as counting. 
+It is also easy to do electronically.
+When you take a course in digital logic you
+will probably build a circuit to do it.
+</p>
+
+<a id="binary_addition_algorithm"> </a>
+<a id="operand"> </a>
+<p>
+Now let us look at the full,
+n-bit, binary addition algorithm.
+The algorithm takes two <b>operands</b> 
+and produces one result.
+An operand is the data that an algorithm operates on.
+</p>
+
+<p>
+<b>To add two N-bit</b> (representations  of) <b>integers:</b>
+<span class="highlight">Proceed from right-to-left, column-by-column, until you reach the leftmost column.
+For each column, perform 1-bit addition.</span>
+Write the carry-out of each column above the column to its left.
+The bit is the left column's carry-in.
+</p>
+
+
+<img src="binaryAdditionExample.gif" class="center" alt="Binary Addition Example" >
+
+
+<p>
+The example adds two 4-bit operands. 
+The initial conditions are shown on the left.
+</p>
+
+<p>
+First, add up the bits in the right-most column.
+There is no carry-in to this column, so all you
+need to do is count the bits.
+<span class="highlight">The result is <b>1</b> with a carry of <b>0</b>.
+Write the <b>1</b> as the result for the column,
+and put the carry above the next column.</span>
+</p>
+
+<p>
+Continue right-to-left column by column
+until all the columns have been added.
+The carry-out of the left-most column does not
+go into the sum, but should be written to the
+left of the other carry bits.
+</p>
+
+<p>
+With 4-bit arithmetic, the inputs are 4 bits and the output is 4 bits.
+With paper and pencil, the inputs and output be any size, 
+but with electronics operations are performed with a fixed number of bits (usually).
+The left-most carry-bit does not go into the result.
+(But it is examined by the electronics to determine if overflow happened.)
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+Confirm that this addition is correct. 
+(1) Check that the binary addition
+algorithm was done correctly, then 
+(2) translate the binary operands into decimal and fill the corresponding blanks on the right
+and then (3) verify that the decimal sum represents the same integer as the binary sum.
+</p>
+
+<form>
+<pre>
+ 0110     =     <input type="text" size="7" name="textA"> (base 10) 
+
+ 0111     =     <input type="text" size="7" name="textB"> (base 10)  
+______
+ 
+ 1101     =     <input type="text" size="7" name="textC"> (base 10) 
+</pre>
+</form>
+
+<p>
+Hopefully, the binary result in the bottom row will 
+represent the same integer as the decimal result in the bottom row.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:30 GMT -->
+</html>

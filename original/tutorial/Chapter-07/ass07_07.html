@@ -1,0 +1,134 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Feb 09 12:35:36 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:50 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base 16 Representation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass07_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap07-07.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<p>4095</p>
+
+<p>
+Hopefully you did something clever: you realized that
+the  represented number is 2<sup>N</sup> - 1 which must be an odd number.
+( 2<sup>N</sup> means 2 &#215; 2 &#215; 2 ... &#215; 2 it must be even.
+So 2<sup>N</sup> - 1 must be odd. ) 
+</p>
+
+<p>
+So you picked the only odd number in the list.
+Or else you ignored the question.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Base 16 Representation</h1>
+<!-- ../Audio/chap07-07.mp3 -->
+
+<div class="left">
+<p>
+Recall
+the
+Rules for Positional Notation:
+</p>
+
+<ol>
+<li> The base  B is (usually) a positive integer. <br><br></li>
+<li> There are B "digits" representing zero up to (B minus one). <br><br></li>
+<li> Positions correspond to integer powers of B, starting with power zero,
+     and increasing right to left. <br><br></li>
+<li> The digit placed at a position shows how many times that
+     power of B is included in the number. <br><br></li>
+</ol>
+
+<p>
+Rule 1 says any positive integer can be used as a base.
+<span class="highlight">Let's use sixteen as a base.</span>
+Rule 2 says we need sixteen symbols to use as digits.
+Here is the usual choice: 
+</p>
+
+<table>
+<tr><th>zero</th><th>one</th><th>two</th><th>three</th><th>four</th><th>five</th><th>six</th><th>seven</th></tr>
+<tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+
+<tr><th>eight</th><th>nine</th><th>ten</th><th>eleven</th><th>twelve</th><th>thirteen</th><th>fourteen</th><th>fifteen</th></tr>
+<tr><td>8</td><td>9</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr>
+</table>
+
+
+<p>
+Since there are only ten of the usual digits,
+letters are used for the remaining six hex "digits".
+</p>
+
+<a id="hexadecimal"> </a>
+<p>
+<span class="highlight">Base sixteen representation
+is  called the <b>Hexadecimal</b> system,
+sometimes called <b>Hex</b>.</span>
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+Fill in the blanks with BASE SIXTEEN digits
+</p>
+
+<form>
+<pre class="code">
+31A (base sixteen) =   
+<input type="text" size="2" name="T1" > &#215; sixteen<sup>2</sup> + <input type="text" size="2" name="T2" > &#215; sixteen<sup>1</sup> +  <input type="text" size="2" name="T3" > &#215; sixteen<sup>0</sup>
+</pre>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass07_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:51 GMT -->
+</html>

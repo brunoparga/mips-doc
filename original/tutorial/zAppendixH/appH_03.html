@@ -1,0 +1,90 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Apr 23 14:15:06 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:17 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rightmost Bit of a Number</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="appH_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+What is 24 mod 2? <b><span class="red">0</span></b>
+</p>
+
+<p>
+Does the binary representation of 24 end with a 1 or with a zero? <b><span class="red">0</span></b>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Rightmost Bit of a Number</h1>
+
+<p>
+You can determine the rightmost bit (the least significant bit) in the
+binary representation of a positive integer using modulo division by two.
+</p>
+
+ 
+<img src="oddOReven.gif" class="center" alt= "ends with a 1-bit or 0-bit" />
+ 
+<p>
+Now that you have the rightmost bit, all you need to do is find the rest of
+the bits.
+</p>
+
+<p>
+Think about erasing the rightmost 0 or 1 bit in the above.
+(The same as shifting the bits right by one position.)
+You are left with <code>_ _ _ _</code> .
+Those bits represent [N div 2],
+because shifting right is equivalent to integer dividing by two.
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+How can you determine the rightmost bit of the integer [N div 2] ?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="appH_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:19 GMT -->
+</html>

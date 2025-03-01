@@ -1,0 +1,116 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:45 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pictorial Summary</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Because there is no place to put the return address.
+The register <code class="register">$ra</code> is already in use.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Pictorial Summary</h1>
+<!-- ../Audio/chap26-13.mp3 -->
+
+ 
+<img src="callSummary.jpg" class="centerimage" alt="summary of simple linkage" />
+<br style="clear:both"> 
+
+<div class="thirty">
+
+<p>
+The
+picture shows  <code>main</code> calling
+<code>mySub</code>.
+Two arguments are passed
+in <code class="register">$a0</code> and  <code class="register">$a1</code>.
+The subroutine uses the arguments in those
+registers.
+</p>
+
+<p>
+In the picture,
+the arguments are set up with <code>move</code>
+and <code>li</code> instructions,
+but any means of loading the argument registers
+can be used.
+</p>
+
+<p><span class="highlight">
+The <em>Simple Linkage Convention</em>
+is limited in some obvious ways.</span>
+A more advanced
+calling convention is discussed in
+the next chapter.
+</p>
+
+<p><span class="highlight">
+The caller 
+passes arguments to the subroutine by placing them in registers. </span>
+This is the only way that data is passed to the subroutine.
+The subroutine returns values to the caller in registers.
+This is the only way the subroutine returns data to the caller.
+The subroutine should not look at any
+memory used by the caller,
+and the caller should not look at any memory used by the subroutine.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+Should a code module know about the inner workings of
+another module?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:47 GMT -->
+</html>

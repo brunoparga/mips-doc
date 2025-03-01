@@ -1,0 +1,151 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Sep 19 21:41:21 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:13:12 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registers</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass10_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap10merge0708.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes. Rather than allocate a fixed amount of memory
+for each, this arrangement means each can grow into
+available memory.
+When the two meet, there is no memory left.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Registers</h1>
+<!-- ../Audio/chap10merge0708.mp3 -->
+
+<a id="register"> </a>
+
+<div class="left">
+<p>
+Often 
+data consist of several contiguous bytes.
+Each computer manufacturer has its own 
+idea of what to call groupings larger
+than a byte.
+The following is  used for MIPS chips.
+</p>
+
+<a id="byte"> </a>
+<a id="word"> </a>
+<a id="double_word"> </a>
+
+<ul>
+<li><em>byte</em> &#8212; eight bits.</li>
+<li><em>word</em> &#8212; four bytes, 32 bits.</li>
+<li><em>double word</em> &#8212; eight bytes, 64 bits.</li>
+</ul>
+
+
+<p>
+<span class="highlight">A block of contiguous memory is referred to by the
+address of its first byte</span> 
+(ie. the byte with the lowest address.)
+Most MIPS instructions involve a fixed number
+of bytes.
+</p>
+
+<p>
+Often you need a number of bits 
+other than one of the standard amounts.
+Use the next larger standard amount,
+and remember to be careful.
+Attempting to use the very minimum number of bits
+is more complicated than it is worth and
+is a rich source of errors in assembly
+language programming.
+</p>
+</div>
+
+<div class="right">
+<p>
+A <b>register</b>
+is a part of the processor
+that can hold a bit pattern.
+On the MIPS, a register holds 32 bits.
+There are many registers in the processor, but only
+some of them are visible in assembly language.
+The others are used by the processor in carrying out its operations.
+</p>
+
+<ul>
+<li><span class="highlight">A <b>load</b> operation copies a bit pattern from memory <u>into a register.</u></span></li>
+<li><span class="highlight">A <b>store</b> operation copies a bit pattern <u>from a register</u> into memory.</span></li>
+</ul>
+
+<p>
+The registers that are visible in assembly language are called
+<b>general purpose</b> registers and
+<b>floating point</b> registers.
+There are 32 general purpose registers.
+<span class="highlight">Each general purpose register holds a 32 bit pattern.</span>
+In assembly language, these registers are
+named <code>$0, $1, $2, ... , $31</code>.
+There are 32 floating point registers.
+These are discussed in a later chapter.
+</p>
+
+<p>
+One of the general purpose registers is hard-wired to always
+contain the value 0x00000000 (all zero bits).
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+<p>
+Which register <code>$0, $1, $2, ... , $31</code>
+ do you suppose always contains all zero bits?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass10_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:13:12 GMT -->
+</html>

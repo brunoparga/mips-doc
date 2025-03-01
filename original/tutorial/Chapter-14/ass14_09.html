@@ -1,0 +1,112 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Feb 20 17:09:32 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:38 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The   div   and the   divu   Instructions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass14_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap14-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+99 / 2   =  49 R 1
+99 / 50  =   1 R 49 
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The <code> div </code> and the <code> divu </code> Instructions</h1>
+<!-- ../Audio/chap14-09.mp3 -->
+
+
+<a id="division,_integer"> </a>
+<a id="division,_places_in_result"> </a>
+ 
+<img src="HiLoDiv.gif"  class="center" alt="HI and LO registers" >
+
+<div class="left">
+<p>
+<span class="highlight">
+With
+N-digit integer division there are two results, an
+N-digit quotient and an N-digit remainder.</span>
+With 32-bit operands there will be (in general) two
+32-bit results.
+MIPS uses the <b>hi</b> and <b>lo</b> registers
+for the results:
+</p>
+ 
+<p>
+Here are the MIPS instructions for integer divide.
+The "u" means operands and results are in unsigned binary.
+</p>
+
+</div>
+<br style="clear:both">
+<a id="div"> </a>
+<a id="divu"> </a>
+
+<pre style="border: 2px dotted green; padding:10px; background-color:white">
+
+div    s,t        #  lo <span style="font-size: 30px;">&larr;</span> s div t
+                  #  hi <span style="font-size: 30px;">&larr;</span> s mod t
+                  #  <span class="highlight">operands are two's complement</span>
+
+divu   s,t        #  lo <span style="font-size: 30px;">&larr;</span> s div t
+                  #  hi <span style="font-size: 30px;">&larr;</span> s mod t
+                  #  <span class="highlight">operands are unsigned</span>
+</pre> 
+
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+
+<p>
+(Review:) What instruction would be   used to move the quotient into register <code class="register">$8</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass14_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:40 GMT -->
+</html>

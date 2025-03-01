@@ -1,0 +1,162 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:21 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portability Problems</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+ 
+<form>
+<table style="border-width:0px 0px 0px 0px; background-color:transparent;" >
+<tr>
+<td style="border-width:0px 0px 0px 0px;background-color:transparent;">
+  <table>
+  <tr>
+  <th colspan="2">Little Endian</th></tr>
+  <tr><th>Address</th><th>Contents</th></tr>
+  <tr><td>4003</td><td> FF</td></tr>
+  <tr><td>4002</td><td> 00</td></tr>
+  <tr><td>4001</td><td> AA</td></tr>
+  <tr><td>4000</td><td> 11</td></tr>
+  </table>
+
+</td>
+
+<td style="border-width:0px 0px 0px 0px;background-color:transparent;">
+  
+  <table>
+  <tr>
+  <th colspan="2">Big Endian</th></tr>
+  <tr><th>Address</th><th>Contents</th></tr>
+  <tr><td>4003</td><td>  11</td></tr>
+  <tr><td>4002</td><td>  AA</td></tr>
+  <tr><td>4001</td><td>  00</td></tr>
+  <tr><td>4000</td><td>  FF</td></tr>
+  </table>
+
+</td>
+</tr>
+</table>
+</form>
+<br style="clear:both"> 
+
+<div class="left">
+<p>
+<code>0xFF00AA11</code>.
+</p>
+
+<p>
+To answer the question, remember:
+</p>
+
+<ol>
+<li>The address used for a group of bytes is the smallest address of the four.</li>
+<li>What goes in that byte is:
+    <ul>
+    <li>Big Endian: the big end of the bit pattern</li>
+    <li>Little Endian: the little end of the bit pattern</li>
+    </ul>
+</li>
+<li>The remaining three bytes of the bit pattern are filled in sequence.</li>
+</ol>
+</div>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Portability Problems</h1>
+<!-- ../Audio/chap15-08.mp3 -->
+
+<a id="address_calculation"> </a>
+
+<div class="left">
+<p>
+When
+ a word is loaded from memory,
+the electronics puts the bytes
+into the register in the correct order.
+Operations (such as addition) inside the processor
+use the same order.
+When the register is stored to memory
+the bytes are
+written in the same order.
+</p>
+
+<p><span class="highlight">
+As long as the electronics is consistent, either byte order works.</span>
+Usually you don't need to think about which order is used.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+However, when data from one computer is used on another you do need 
+to be concerned.</span>
+Say that you have a file of integer data 
+that was written by an old mainframe computer.
+To read it correctly, you need to know (among other things):
+</p>
+
+<ul>
+<li>The number of bits used to represent each integer.</li>
+<li>The representational scheme used to represent integers 
+    (two's complement or other).</li>
+<li>Which byte ordering (little or big endian) was used.</li>
+</ul>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+<p>
+Data is sent across the Internet as groups of bit patterns (of course!)
+Does the byte ordering matter with Internet data?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:22 GMT -->
+</html>

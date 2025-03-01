@@ -1,0 +1,165 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Aug 31 19:18:25 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:24 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More Hex Practice  (Not as done at Mugworts) </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass03_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap03-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+
+<ul style="font-size:1.5em;list-style-type: none;">
+<li>0001 0001 &nbsp; &nbsp; <span style="color:blue;"> 11 </span></li>
+<li>0011 1001 &nbsp; &nbsp; <span style="color:blue;"> 39 </span></li>
+<li>1011 1111 &nbsp; &nbsp; <span style="color:blue;"> BF </span></li>
+<li>0100 0110 &nbsp; &nbsp; <span style="color:blue;"> 46 </span></li>
+<li>0000 0000 &nbsp; &nbsp; <span style="color:blue;"> 00  <span style="font-size:0.75em">(be sure to show both zeros)</span></span></li>
+</ul>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>More Hex Practice<br><span style="font-size:0.3em">(Not as done at Mugworts)</span></h1>
+<!-- ../Audio/chap03-09.mp3 -->
+
+<div class="right">
+<table> 
+<tr><th colspan="4">Hexadecimal Names</th></tr>
+<tr><th>nibble</th><th>pattern<br>  name</th><th>nibble</th><th>pattern<br>  name</th></tr>
+
+<tr><td>0000</td>  <td>0</td>  <td>1000</td>  <td>8</td>  </tr>
+<tr><td>0001</td>  <td>1</td>  <td>1001</td>  <td>9</td>  </tr>
+<tr><td>0010</td>  <td>2</td>  <td>1010</td>  <td>A</td>  </tr>
+<tr><td>0011</td>  <td>3</td>  <td>1011</td>  <td>B</td>  </tr>
+<tr><td>0100</td>  <td>4</td>  <td>1100</td>  <td>C</td>  </tr>
+<tr><td>0101</td>  <td>5</td>  <td>1101</td>  <td>D</td>  </tr>
+<tr><td>0110</td>  <td>6</td>  <td>1110</td>  <td>E</td>  </tr>
+<tr><td>0111</td>  <td>7</td>  <td>1111</td>  <td>F</td>  </tr>
+</table>
+</div>
+
+<div class="left">
+
+<p>
+<span class="highlight">If there are not enough bits at the left to form a complete group
+of four, add zero bits <em>to the left</em>,</span>
+(but be sure that it is clear by context how many bits you
+are describing).
+For example:
+</p>
+
+<pre class="code">
+1010000010000010     =  
+1010 0000 1000 0010  =  A082
+</pre>
+
+<p>
+Another example:
+</p>
+
+<pre class="code">
+10100110101111      =  
+10 1001 1010 1111   =
+0010 1001 1010 1111 = 29AF
+</pre>
+
+<p>
+<span class="highlight">Usually '0x' is placed at the front of a pattern name</span> to show that
+it is a hexadecimal pattern name:
+</p>
+
+<pre class="code">
+0x0010  =  0000 0000 0001 0000
+0xFACE  =  1111 1010 1100 1110
+</pre>
+
+<p>
+<span class="highlight">Additional zeros creates a new pattern.</span>
+The new pattern has its own name.
+<code>0x0 = 0000</code> is a different pattern than <code>0x00 = 0000 0000</code>.
+Sadly, people are not consistent about this,
+and depending on context, both patterns
+might be called "0x0".
+</p>
+
+<p>
+Keep in mind that
+<em>
+<span class="highlight">hexadecimal pattern names are used by humans for
+talking about bit patterns.</span>
+</em>
+Inside the computer there are only bits and their patterns.
+Hexadecimal is used in books and documents
+(outside the computer)
+to describe these bit patterns.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<script src="../../ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $(".quest").mouseover(function(){$(this).children().css("color", "blue").fadeIn("fast");});
+    $(".quest").mouseout (function(){$(this).children().fadeOut("slow");});
+    });
+</script>
+
+<p>
+Name the following patterns; include  0x in the name:
+</p>
+
+
+<ul style="font-size:1.5em;list-style-type: none;">
+<li class="quest">0000 1010 0001 0001 &nbsp; &nbsp; <span style="display:none;"> 0x0A11 </span></li>
+<li class="quest">0001 0010 1001 1010 &nbsp; &nbsp; <span style="display:none;"> 0x129A </span></li>
+<li class="quest">1111 1010 1101 1110 &nbsp; &nbsp; <span style="display:none;"> 0xFADE </span></li>
+<li class="quest">0011 0110 1100 0000 &nbsp; &nbsp; <span style="display:none;"> 0x36C0 </span></li>
+<li class="quest">0000 0000 0000 0000 &nbsp; &nbsp; <span style="display:none;"> 0x0000  <span style="font-size:0.4em">(be sure to show all zeros)</span></span></li>
+</ul>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass03_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:25 GMT -->
+</html>

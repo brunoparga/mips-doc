@@ -1,0 +1,113 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 07:54:16 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:10 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee.org">
+<!-- <meta name="copyright" content="2009"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass12_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap12-14.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+How can a particular bit pattern be loaded into a register?
+</p>
+<h3>Answer:</h3>
+<p>
+With an <code>ori</code> instruction.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+<!-- ../Audio/chap12-14.mp3 -->
+
+
+<div class="fifty">
+
+<table   style="margin:  2em auto 2em  auto ;" >
+
+<tr> <td>31....26</td> <td>25...21</td>  <td>20...16</td> <td>15...................0</td> </tr>
+<tr> <td>0xD</td> <td>s</td>  <td>d</td> <td>unsigned const</td> </tr>
+</table>
+
+<p>
+
+Here
+ are the fields of the <code>ori</code> instruction.
+The numbers in the first row are bit positions, numbered from
+the low-order bit on the right.
+The opcode of the instruction is 0xD.
+Since the opcode is six bits wide this
+is understood to stand for <code>001101</code>.
+The source register is <code>s</code>,
+the destination register is <code>d</code>,
+and the immediate operand is <code>const</code>.
+</p>
+
+
+<p>
+Our example program will assemble the machine code that corresponds to the
+assembly language instruction:
+</p>
+
+<pre>
+ori  $8,$9,0x004A
+</pre>
+
+<p>
+The instruction will be assembled in register <code class="register">$25</code> .
+The program uses bitwise logic and shift operations.
+Let us say that this example is part of a larger program.
+To start out,
+initialize <code class="register">$25</code> to all zeros
+(this is called <em>clearing</em> the register).
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+<p>
+What assembly language instruction clears register <code class="register">$25</code> ?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass12_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:11 GMT -->
+</html>

@@ -1,0 +1,160 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:52 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exclusive Or Immediate</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+Is the following instruction correct? What does it do?
+</p>
+<pre>
+andi $8,$0,0xFFFF
+</pre> 
+
+<h3>Answer:</h3>
+<p>
+It is syntactically correct, but not very sensible.
+At runtime, it ANDs the contents of the zero register (all zeros)
+with the zero-extended immediate operand and puts 
+the result in register <code class="register">$8</code>.
+Of course, the result is all zeros, 
+regardless of the immediate operand.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Exclusive Or Immediate</h1>
+
+<a id="clearing"> </a>
+<a id="xori_instruction"> </a>
+<a id="exclusive_OR"> </a>
+<a id="inclusive_OR"> </a>
+<a id="OR,_exclusive"> </a>
+<a id="OR,_inclusive"> </a>
+
+<!-- ../Audio/chap11-12.mp3 -->
+
+ 
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+xori d,s,const     # register d is assigned
+                   # the bitwise XOR of zero-extended
+                   # immediate operand <code>const</code>
+                   # and the contents of register $s.
+                   # <code>const</code> is a 16-bit pattern, so
+                   # 0x0000 ... <code>const</code> ... 0xFFFF
+</pre> 
+
+<div class="left">
+
+<p>
+Filling
+a register with all zero bits is called
+<b>clearing</b> the register.
+Clearing a register is common, but the above instruction is
+not the best way to do it.
+</p>
+
+<p><span class="highlight">
+An <b>exclusive OR</b> is nearly the same as the
+more common OR (the <em>inclusive OR</em>)
+except that when both operands are one the result is zero.</span>
+</p>
+
+<p>
+The machine language for the instruction looks much the same
+as the <code><b>ori</b></code> and the <code><b>andi</b></code> instruction.
+At runtime,
+the immediate operand is extended to 32 bits.
+</p>
+
+<p>
+The three operands of the instruction must appear in the correct order,
+and <code>const</code> must be within the specified range.
+If the immediate operand in the assembly program is less than sixteen bits
+(such as 0x2) the assembler expands it to sixteen.
+If it is more than sixteen bits the assembler writes an error message.
+</p>
+</div>
+
+<div class="right">
+
+<p>
+&nbsp;
+</p>
+
+<table>
+<tr><th colspan="5">XOR operation on Bits</th></tr>
+<tr><td> first operand </td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td> second operand </td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td colspan="5">  <hr /></td></tr>
+<tr><td> result </td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+
+</table>
+
+</div> 
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+<p>
+
+Here are the two patterns, written both in  bit patterns and in hex.
+Perform the bitwise XOR operation.
+(Do it with the bits, then translate the answer to hex).
+</p>
+
+<form>
+<pre>
+0000 1111 1010 0101           0FA5
+0011 0110 1000 1111           368F
+<input type="text" size="22" >    <input type="text" size="8">  
+</pre>
+</form>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:53 GMT -->
+</html>

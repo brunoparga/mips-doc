@@ -1,0 +1,124 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 07 17:30:04 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:11 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store -A</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass17_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap17-19.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+The blanks are filled, below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Store -A</h1>
+<!-- ../Audio/chap17-19.mp3 -->
+
+<div class="left">
+<p>
+The
+ sign bit is shifted right 31 bit positions.
+This puts it in the low-order bit of the
+destination register (<code class="register">$9</code> in this case).
+<span class="highlight">To test if <code class="register">$9</code> is zero, use branch-on-equal
+with register <code class="register">$0</code> (which is always zero).</span>
+</p>
+
+</div>
+
+<div class="right">
+<p>
+Now calculate -A and store it back into word "A".
+The instruction at <code>done</code>
+is a no-op.
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="program">
+## absVal.asm
+##
+## Calculate the absolute value of A
+
+      .text
+      .globl  main
+
+main: 
+# Get A
+        lui   $10,0x1000     #  Init base register
+        lw    $8,0($10)      #  Load A
+        sll   $0,$0,0        #  load delay slot
+
+# Is A negative?
+        srl   $9,$8,<span class="red">31</span>       #  Shift sign bit to position 0
+        beq   $<span class="red">0</span>,$<span class="red">9</span>,done     #  sign bit == zero, done
+        sll   $0,$0,0        # branch delay slot
+
+# Store -A
+        subu  $8,$<input type="text" size="3">,$8     #  negate A
+        
+        sw    $8,<input type="text" size="3">($<input type="text" size="3">)   #  save it
+
+done:   sll   $0,$0,0
+
+      .data
+A:    .word   -1
+
+## End of file
+</pre>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 16:</h3>
+
+<p>
+Fill the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass17_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:12 GMT -->
+</html>

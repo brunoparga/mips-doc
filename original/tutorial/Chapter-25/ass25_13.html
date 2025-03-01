@@ -1,0 +1,138 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 11:37:41 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:48 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pushing Characters</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass25_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap25-15.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap25-15.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Pushing Characters</h1>
+<div class="left">
+
+<p><span class="highlight">
+In
+the next stage, characters from the character
+buffer are pushed one by one onto the stack.</span>
+The first instruction (at <code>pushl:</code>)
+uses indexed addressing to load the current character
+from the buffer (<code>str:</code>) into the least
+significant byte of <code class="register">$t0</code>.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+Next, the current character is tested. 
+If it is null (zero) then control branches out of the loop.</span>
+Otherwise the character is pushed onto the stack.
+Then the process is repeated.
+</p>
+</div>
+
+<br style="clear:both">
+<form>
+<pre class="program">
+# Reverse and output a user-supplied string
+#
+# Settings: Load delays OFF; Branch delays OFF,
+#           Trap file    ON; Pseudoinstructions ON   
+#
+# $t0 --- character pushed or popped
+# $t1 --- index into string buffer str
+
+        .text
+        .globl  main
+
+main:   #input the string
+        li      $v0,8          # service code
+        la      $a0,str        # address of buffer
+        li      $a1,128        # buffer length 
+        syscall
+        
+        li      $t0,<span style="color:blue"><b><u>0</u></b></span>          # push a null 
+        <span style="color:blue"><b><u>subu</u></b></span>    $sp,$sp,4      # onto the stack
+        sw      $t0,(<span style="color:blue"><b><u>$sp</u></b></span>)      # to signal its bottom
+        li      $t1,0          # index of first char in str buffer
+        
+        # push each character onto the stack
+pushl:
+        lbu     $t0,str($t1)   # get current char into
+                               # a full word
+        <input type="text" name="T4" size="5">     $t0,stend    # null byte: end of string
+        
+        subu    $sp,$sp,4      # push the full word
+        <input type="text" name="T5" size="5">      $t0,($sp)   # holding the char
+        
+        addu    $t1,1          # inc the index
+        j       <input type="text" name="T6" size="5">          # loop
+
+stend:           
+        . . . . .
+
+        # pop chars from stack back into the buffer
+
+        # print the reversed string
+        
+        .data
+str:    .space  128            # character buffer 
+</pre>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass25_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:49 GMT -->
+</html>

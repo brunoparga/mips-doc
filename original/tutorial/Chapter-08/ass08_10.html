@@ -1,0 +1,141 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:20 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yet More Addition Practice</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08merge1416.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre class="code">0011 1111 </pre>
+
+<pre class="code">
+  <span class="red">1</span>1
+   1101 0010    210<sub>10</sub>
+  <u> 0110 1101 </u>  <u> 109<sub>10</sub> </u>
+   0011 1111     63<sub>10</sub>
+</pre>
+
+<p>
+The carry bit of <span class="red">1</span> indicates <span class="red">overflow</span> (for 8-bit unsigned addition).
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Yet More Addition Practice</h1>
+<!-- ../Audio/chap08merge1416.mp3 -->
+
+<a id="overflow,_unsigned_binary_addition"> </a>
+
+<p>
+<span class="highlight">The <em> correct application </em> of
+the Binary Addition Algorithm sometimes gives
+<em>incorrect results</em> (because of overflow).</span>
+</p>
+
+<p> 
+With paper-and-pencil arithmetic,
+ overflow is not a
+problem because you can use as many columns as
+needed.
+</p>
+
+<table>
+<tr>
+  <th>Correct <u>Unsigned</u> Binary Addition</th> 
+</tr>
+
+<tr>
+  <td>
+    <p>
+    When the Binary Addition Algorithm is used
+    with <u>unsigned</u> binary integer representation:
+    </p>
+
+    <p>
+    The result is <span class="highlight">CORRECT</span> only if the <span class="highlight"><b>CARRY OUT</b></span> of the
+    high order column is <span class="highlight"><b>ZERO</b>.</span>
+    <p>
+
+  </td>
+</tr>
+</table>
+
+<p>
+But digital computers use fixed
+bit-lengths for integers, 
+so overflow is possible.
+For instance some processors 
+represent integers in 8, 16, or 32 bits.
+When 8-bit operands are added,
+overflow is certainly possible.
+Our MIPS processor
+uses 32-bit integers,
+but even  then, overflow is possible.
+</p>
+
+<p>
+For interesting videos showing the consequences of overflow,
+google
+Ariane flight V88.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+
+<p>
+Compute the following sum using 8 bits:
+</p>
+
+<pre class="code">
+   0000 0001
+   <u>1111 1111</u>
+ <input type="text" size="10" name="answer" />   
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:21 GMT -->
+</html>

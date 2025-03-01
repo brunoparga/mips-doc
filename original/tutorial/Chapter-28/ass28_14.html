@@ -1,0 +1,126 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:40 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:26 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete   mysub()  </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-19.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-19.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+See Below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete <code> mysub() </code></h1>
+
+<!--INDEX></INDEX-->
+<p>
+Here
+is the complete subroutine.
+Notice that the code in the body of the subroutine is
+only five statements long.
+But the entire subroutine, including the code for subroutine linkage,
+is 22 statements long!
+Subroutine linkage can be expensive.
+</p>
+
+<form>
+<pre class="program">
+#  int mysub( int arg )
+#  {
+#    int b,c;                     // b: 0($fp)
+#                                 // c: 4($fp)
+#    b = arg*2;
+#    c = b + 7;
+#    
+#    return c;  
+#  }
+         .text
+         .globl  mysub
+mysub:
+                                  # prolog        
+         sub     $sp,$sp,4        #   1. Push return address
+         sw      $ra,($sp)
+         sub     $sp,$sp,4        #   2. Push caller's frame pointer
+         sw      $fp,($sp)
+         sub     $sp,$sp,4        #   3. Push register $s1
+         sw      $s1,($sp)
+         sub     $fp,$sp,8        #   4. $fp = $sp - space_for_variables
+         move    $sp,$fp          #   5. $sp = $fp
+         
+                                  # body of subroutine     
+         mul     $s1,$a0,2        #     arg*2
+         sw      $s1,0($fp)       # b = "   "
+         
+         lw      $t0,0($fp)       # get b
+         add     $t0,$t0,7        #     b+7
+         sw      $t0,4($fp)       # c = "  "
+         
+                                  # epilog
+         lw      $v0,4($fp)       #   1. Put return value in $v0        
+         add     $sp,$fp,8        #   2. $sp = $fp + space_for_variables
+         lw      $s1,($sp)        #   3. Pop register $s1
+         add     $sp,$sp,4        #          
+         lw      $fp,($sp)        #   4. Pop $fp
+         add     $sp,$sp,4        #           
+         lw      $ra,($sp)        #   5. Pop $ra
+         add     $sp,$sp,4        #            
+         jr      $ra              #   6. return to caller 
+</pre>
+</form>
+
+<br style="clear:both">
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+<p>
+What must the caller do when control returns to it?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:27 GMT -->
+</html>

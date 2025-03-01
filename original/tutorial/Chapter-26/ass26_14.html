@@ -1,0 +1,176 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:24 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Symbols</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26-17.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre class="program">
+         .text
+         .globl  main
+
+main:
+         jal     <span style="color:blue"><u>pread</u></span>            # read first integer
+         nop                      #  
+         move    $s0,$v0          # save it in $s0
+         jal     <span style="color:blue"><u>pread</u></span>            # read second integer
+         nop                      # 
+         move    $s1,$v0          # save it in $s1
+         jal     <span style="color:blue"><u>pread</u></span>            # read third integer
+         nop                      #  
+         move    $s2,$v0          # save it in $s2
+         
+         addu    $s0,$s0,$s1      # compute the sum
+         addu    $s3,$s0,$s2      # result in $s3
+ 
+         li      $v0,4            # print a heading
+         la      $a0,heading         
+         syscall
+
+         move    $a0,$s3          # move sum into parameter
+         li      $v0,1            # print the sum
+         syscall
+        
+         li      $v0,10           # exit
+         syscall
+          
+         .data
+heading:
+         .asciiz "The sum is: "   
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Global Symbols</h1>
+<!-- ../Audio/chap26-17.mp3 -->
+
+<a id="global_symbols"> </a>
+<a id="local_symbols"> </a>
+<a id=".globl"> </a>
+<a id="external_symbols"> </a>
+ 
+
+<p>
+Recall
+that modules (for us, subroutines) should not know about
+each other's symbolic addresses.
+It would violate the idea of modularity for <code>main</code>
+to do something to <code>pread</code>'s <code>prompt</code>,
+for example.
+</p>
+
+<p>
+But some symbolic addresses need to be used between modules.
+For example, <code>pread</code> is a symbolic address, and
+<code>main</code> must know about it and use it in the <code>jal</code>
+instruction.
+</p>
+
+<p>
+<span class="highlight">A symbol that a subroutine makes visible to other subroutines is
+a <b>global</b> symbol.</span>
+Global symbols often label entry points.
+Symbols that are not global are called <b>local</b> symbols.
+<span class="highlight">A symbol is made global by
+placing it in a list of symbols following the <code>.globl</code> directive.</span>
+Some languages use the word <b>external</b> for what we are
+calling global.
+</p>
+
+<pre class="code">
+         .globl  main
+</pre>
+
+<p>
+In the language C, a symbol that is visible to another module  is called
+an <b>external</b> symbol.
+For example, the names of functions in C are external symbols.
+</p>
+
+<p>
+Source programs for PC-SPIM (the older version of SPIM) are contained in a single file,
+which includes all subroutines.
+However,
+in professional software development each subroutine might be
+placed in a separate source file.
+Each file must say which of its symbolic addesses  are
+global and might be referenced by other source files.
+</p>
+
+<p>
+With QtSpim (the most recent version of SPIM) you can create separate source files and load them separately.
+For this example program:
+</p>
+
+<ol>
+<li>Create separate source files <code>addthree.asm</code> and <code>pread.asm</code> (see next page)</li>
+<li>Start QtSPIM.  Check the settings. </li>
+<li>Click "File"</li>
+<li>Select the "Reinitalize and Load File" menu, then pick <code>addThree.asm</code></li>
+<li>Click "File"</li>
+<li>Select the "Load File" menu, then pick <code>pread.asm</code></li>
+<li>You will now have the two files linked together in memory, with one text section and one data section</li>
+<li>Click "Run" (as always)</li>
+</ol>
+
+
+<p>
+<span class="highlight">There is only ONE text section and ONE data section when the program is in memory.</span>
+The picture of memory after linking and loading is the same as above.
+It is the job of the system software (for qtSPIM and for a real OS) to put the separate
+sections from each source file into the run-time memory sections where they belong.
+Note in particular that there is only one run-time stack (although this program does not use it.)
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+<p>
+What global symbols are in the subroutine <code>pread</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:25 GMT -->
+</html>

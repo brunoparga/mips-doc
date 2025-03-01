@@ -1,0 +1,153 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Apr 23 14:15:06 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:06 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decimal to Base 2 Algorithm</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="appH_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Perform modulo division by 2 on the integer.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Decimal to Base 2 Algorithm</h1>
+
+<a id="decimal_to_binary,_repeated_division_method"> </a>
+
+<p>
+So now you can find the two rightmost bits of N.
+</p>
+
+<p></p>
+For example, say that N is 13.
+Then N mod 2 is 1
+and the binary starts out as:
+<code>_ _ _ <u>1</u></code> .
+</p>
+
+<p>
+To get the next bit, do this: 13 div 2 is 6, and 6 mod 2 is 0.
+</p>
+
+<p>
+So a 0 is added to the binary: <code>_ _ <u>0</u> <u>1</u> </code>.
+</p>
+
+
+<p>
+To get the third bit, do this: 6 div 2 is 3, and 3 mod 2 is 1.
+</p>
+
+<p>
+So a 1 is added to the binary: <code>_ <u>1</u> <u>0</u> <u>1</u> </code>.
+</p>
+
+<p>
+To get the fourth bit, do this: 3 div 2 is 1, and 1 mod 2 is 1.
+</p>
+
+<p>
+So a 1 is added to the binary: <code><u>1</u> <u>1</u> <u>0</u> <u>1</u> </code>.
+</p>
+
+<p>
+To get a bit of the binary representation of a number,
+do integer division of the number.
+The remainder (the mod) is the bit, and the quotient (the div) is the new number.
+Do this enough times and you get all the bits of the integer.
+The bits come out in order from right to left.
+</p>
+
+<p>
+Here is that process described in pseudo-code.
+The algorithm converts <em>number</em>
+from decimal to base 2 representation.
+</p>
+
+<table>
+<tr>
+<th>Algorithm: Convert a positive integer<br> from base 10 to Binary Representation</th>
+</tr>
+
+<tr>
+<td>
+
+
+<pre style="text-align: left;">
+number = positive integer ;
+bitstring = ""
+
+while (number > 0 )
+{
+  bit      = number mod 2 ;
+  put bit to the left of the bitstring ;
+  quotient = number div 2 ;
+  number = quotient ;
+}
+</pre>
+</div>
+
+</td>
+</tr>
+</table>
+
+
+<p>
+This is the same algorithm that was presented in chapter 7 (but there the algorithm was for any
+base B).
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+<p>
+Of course, you want to see this algorithm in action.
+</p>
+
+<p>
+What is the rightmost bit of the binary representation of 23?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="appH_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:07 GMT -->
+</html>

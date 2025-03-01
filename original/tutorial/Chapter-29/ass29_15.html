@@ -1,0 +1,161 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Nov 04 19:28:58 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:57 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Non-terminating Result</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass29_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass29_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap29merge171819.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<table>
+<tr><td>&nbsp; </td><th>Decimal</th><th>Binary so far</th></tr>
+<tr><th>Start  </th><td>0.750  </td><td> 0.  </td></tr>
+<tr><th>&#215;2</th><td>1.50 </td><td> 0.1  </td></tr>
+<tr><th>erase </th><td>.50 </td><td> &nbsp;  </td></tr>
+<tr><th>&#215;2</th><td>1.00 </td><td> 0.11  </td></tr>
+<tr><th>erase </th><td>.00 </td><td> &nbsp;  </td></tr>
+<tr><th>Result </th><td>&nbsp; </td><td> 0.11  </td></tr>
+</table>
+
+<p>
+So <code>0.75<sub><sub>10</sub></sub> = 0.11<sub><sub>2</sub></sub></code>.
+</p>
+
+<p>
+To check this, go in the other direction:
+  <code>0.11<sub><sub>2</sub></sub> = 2<sup>-1</sup> + 2<sup>-2</sup> = 0.5 + 0.25 = 0.75</code>
+</p>
+ 
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Non-terminating Result</h1>
+<!-- ../Audio/chap29merge171819.mp3 -->
+
+
+<a id="0.1_in_binary"> </a>
+
+<div class="right">
+<table> 
+<tr><th>&nbsp; </th><th>Decimal</th><th>Binary So Far</th></tr>
+<tr><td>Start  </td><td>0.1  </td><td style="text-align:left"> 0.  </td></tr>
+<tr><td>&#215;2</td><td>0.2</td><td style="text-align:left"> 0.0  </td></tr>
+<tr><td>&#215;2</td><td>0.4 </td><td style="text-align:left"> 0.00  </td></tr>
+<tr><td>&#215;2</td><td>0.8 </td><td style="text-align:left"> 0.000  </td></tr>
+<tr><td>&#215;2</td><td>1.6 </td><td style="text-align:left"> 0.0001  </td></tr>
+<tr><td>&nbsp; </td><td>.6 </td><td style="text-align:left"> 0.0001  </td></tr>
+<tr><td>&#215;2 </td><td>1.2 </td><td style="text-align:left"> 0.00011  </td></tr>
+<tr><td>&nbsp; </td><td>0.2</td><td style="text-align:left"> 0.00011  </td></tr>
+<tr><td>&#215;2</td><td>0.4 </td><td style="text-align:left"> 0.000110  </td></tr>
+<tr><td>&#215;2</td><td>0.8 </td><td style="text-align:left"> 0.0001100  </td></tr>
+<tr><td>&#215;2</td><td>1.6 </td><td style="text-align:left"> 0.00011001  </td></tr>
+<tr><td>&nbsp; </td><td> .6 </td><td style="text-align:left"> 0.00011001  </td></tr>
+<tr><td>&#215;2</td><td>1.2 </td><td style="text-align:left"> 0.000110011  </td></tr>
+<tr><td>&nbsp; </td><td>0.2 </td><td style="text-align:left"> 0.000110011  </td></tr>
+<tr><td>&#215;2</td><td>0.4 </td><td style="text-align:left"> 0.0001100110 </td></tr>
+<tr><td>&#215;2</td><td>0.8 </td><td style="text-align:left"> 0.00011001100  </td></tr>
+<tr><td>Result </td><td>&nbsp; </td><td style="text-align:left"> 0.00011001100...   </td></tr>
+</table>
+</div>
+
+<div class="left">
+
+<!-- make the text look nice with the long table on the right -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<p>
+At
+right the algorithm is used to
+convert <code>0.1<sub><sub>10</sub></sub></code>
+to binary.
+(The "erase" steps are not shown when a 0 is copied to the "binary so far" column.)
+</p>
+
+<p>
+The algorithm does not end.
+After it has started up,
+  the same pattern <code>0.2, 0.4, 0.8, 1.6, 0.6, 1.2, 0.2</code>
+  repeats endlessly.
+  The pattern <code>0011</code> is appended to the
+  growing binary fraction for each repetition.
+</p>
+
+<blockquote>
+<span class="highlight">
+<b>Unexpected Fact:</b> The value "one tenth" cannot be
+represented precisely using a binary fraction.
+</span>
+</blockquote>
+
+<p>
+This 
+  is true in the base two positional notation used here,
+  and also in floating point representation used in programming
+  languages.
+  This is sometimes an important consideration when
+  high accuracy is needed.
+</p>
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+<p>
+Can "one third" be represented accurately in decimal?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass29_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass29_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:58 GMT -->
+</html>

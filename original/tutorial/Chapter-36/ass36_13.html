@@ -1,0 +1,118 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:02 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Implementation of an Object</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+jalr     $t0                # call the object's method
+</pre>
+
+<p>
+This instruction transfers control to the address in register <code class="register">$t0</code>.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Implementation of an Object</h1>
+<!-- ../Audio/chap36-13.mp3 -->
+
+
+<p>
+<span class="highlight">After
+the print method runs
+control returns to the instruction 
+after the <code>jalr</code> </span>
+(if delays are set to <b>off</b> in SPIM).
+</p>
+
+<p>
+Now look at the implementation of <code>object1</code>.
+It follows this plan:
+</p>
+
+<pre>
+byte 0-3: address of print()                # single-entry jump table
+byte 4- : null terminated string            # as many bytes as needed
+</pre>
+
+<p>
+Here is the actual code:
+</p>
+
+<pre>
+          .data
+object1:
+          .word    print                    # Jump Table
+          .asciiz  "Hello World\n"          # This object's data
+</pre>
+
+
+<p>
+<span class="highlight">A larger object, with more methods,  would have more entries in its 
+jump table.</span>
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+<p>
+Complete the declaration for <code>object2</code>:
+</p>
+
+<form>
+<pre>
+object2:
+          .word    <input type="text" name="T1" size="10" />          # Jump Table <br> 
+          .asciiz  <input type="text" name="T1" size="10" />          # This object's data
+</pre>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:03 GMT -->
+</html>

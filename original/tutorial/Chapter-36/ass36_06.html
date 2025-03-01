@@ -1,0 +1,162 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:40 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete, Impractical, Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-06.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre class="program">
+          .text
+main:     
+          lw      $t0,<span class="blue">sub1add</span>   # get the first entry point in the Jump Table
+          
+          jalr    <span class="blue">$t0</span>           # pass control to sub1
+          
+          li      $v0,10        # return to OS
+          syscall
+
+          .data
+sub1add:  .word sub1            # Jump Table
+sub2add:  .word sub2
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete, Impractical, Program</h1>
+<!-- ../Audio/chap36-06.mp3 -->
+
+ 
+
+<div class="left">
+
+<p>
+Confusion Alert:
+the
+<span class="highlight">instruction used to load <code class="register">$t0</code> with
+the entry point to <code>sub1</code>
+is <code><b>lw</b> $t0,sub1add</code> .</span>
+</p>
+
+<p>
+We want <code class="register">$t0</code> to get what is stored in 
+the location <code>sub1add</code>,
+which is what a <code>lw</code>
+instruction does.
+
+<p>
+If you tried <code><b>la</b> $t0,sub1add</code>
+then <code class="register">$t0</code> would get the
+address that
+<code class="register">sub1add</code>
+stands for
+not the address stored in that location.
+</p>
+
+</p>
+</div>
+
+<div class="right">
+
+
+<p>
+Here is the full program.
+<code>main</code>
+calls the two subroutines.
+This is a contrived example
+that shows a jump table and a 
+<code>jalr</code> instruction.
+It is not a sensible way to write a "Hello World" program.
+</p>
+</div>
+
+<br style="clear:both">
+
+<pre class="program">
+          .globl   main
+          .text
+main: 
+          
+          lw       $t0,sub1add        # get first entry point
+          jalr     $t0                # pass control
+          
+          lw       $t0,sub2add        # get second entry point
+          jalr     $t0                # pass control
+          
+          li      $v0,10              # return to OS
+          syscall
+ 
+<img src="helloWorld.gif" class="rightimage" alt="Hello World" />
+
+          .data
+sub1add:  .word sub1                  # Jump Table
+sub2add:  .word sub2
+
+          .text          
+sub1:     li       $v0,4
+          la       $a0,messH
+          syscall
+          jr       $ra
+          .data
+messH:    .asciiz  "Hello "
+
+          .text
+sub2:     li       $v0,4
+          la       $a0,messW
+          syscall
+          jr       $ra
+          .data
+messW:    .asciiz  "World\n"
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+How many bytes are in each entry in the Jump Table?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:42 GMT -->
+</html>

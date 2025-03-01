@@ -1,0 +1,141 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:35 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example   jal   Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26merge0708.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Usually the branch delay slot is filled with a <code>nop</code> instruction.
+This does nothing.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example <code> jal </code> Instruction</h1>
+<!-- ../Audio/chap26merge0708.mp3 -->
+
+<img src="jalEg.gif" class="rightimage" alt="jump and link working" />
+
+<div class="left">
+
+<p>
+It
+would not be a disaster to return control
+to an instruction that does nothing.
+<span class="highlight">But sometimes   programmers or  compilers put something
+clever in the branch delay slot, 
+so it is best not to pass control to it.</span>
+</p>
+
+<p>
+The diagram shows the execution of a <code>jal</code> instruction.
+The <code>jal</code> is at address <code>0x00400014</code>.
+The return address is   <code>0x0040001C</code> which is the
+address of the <code>jal</code> plus eight.
+(The  <code>addu</code> instruction there is just used as an example
+of what might be at the return address).
+</p>
+
+<p><span class="highlight">
+Return from the subroutine to the caller is done with
+a  <code>jr</code> instruction. This will be discussed
+in a few pages.</span>
+</p>
+
+<p>
+Here
+is how the <code>jal</code> instruction works in brief:
+</p>
+</div>
+<br style="clear:both"> 
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+jal sub    # $ra &larr; PC+4  (the address 8 bytes away from the jal) 
+           # PC  &larr; sub   load the PC with the subroutine entry point
+           # a branch delay slot follows this instruction
+</pre>
+
+<div class="left">
+
+<p>
+Here is how it works in this example.
+Say that the <code>jal</code> is at address <code>0x00400014</code>
+The entry point of  <code>sub</code> is     <code>0x00400100</code>.
+</p>
+ 
+
+<pre>
+Fetch:      When the jal is fetched the PC has 0x00400014.
+
+Increment:  The PC is incremented to 0x00400018.
+            
+Execute:    $ra &larr; 0x0040001C = 0x00400018+4 
+            PC  &larr; 0x00400100
+</pre>
+
+<p>
+The <code>nop</code> instruction in the
+branch delay slot is executed.
+Then execution continues with the first instruction 
+of the subroutine at <code>0x00400100</code>.
+Control has been passed to the subroutine and
+the return address is in <code class="register">$ra</code>.
+</p>
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+<p>
+The subroutine has the return address in  <code class="register">$ra</code>.
+Can an ordinary jump instruction be used to return to the caller?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:37 GMT -->
+</html>

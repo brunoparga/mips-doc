@@ -1,0 +1,104 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Feb 20 17:09:32 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:49 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Run of the Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass14_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap14-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<ul>
+<li><code>addu</code> &nbsp; &nbsp;  &nbsp;<span class="blue">Do not trap on overflow.</span> </li>
+<li><code>multu</code> &nbsp; &nbsp;<span class="blue">Operands are unsigned.</span>  </li>
+</ul>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>A Run of the Program</h1>
+<!-- ../Audio/chap14-08.mp3 -->
+ 
+<img src="newMultRun.gif" class="center" alt="A Run of the Program" />
+
+
+<div class="left">
+<p>
+The
+<code>mult</code> instruction assumes two's complement operands.
+Run the program by 
+pushing F10 (single step) five times.
+</p>
+ 
+<p>
+The result is as expected.
+</p>
+
+<pre>
+Register $9 contains
+<span class="highlight">
+5 &times; 12 - 74 = -14 = 0xFFFFFFF2</span>
+</pre>
+
+<p>
+The product <code>5  &times; 12 = 60<sub>ten</sub> = 0x3C</code> remains in <code>lo</code>.
+</p>
+</div> 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+
+<p>
+Use integer division (in base ten) 
+to calculate the quotient and remainder of:
+</p>
+
+<pre>
+99 /  2   =  <input type="text" size="5"  /> Remainder <input type="text" size="5"  /> 
+
+99 / 50   =  <input type="text" size="5"  /> Remainder <input type="text" size="5"  />  
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass14_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:51 GMT -->
+</html>

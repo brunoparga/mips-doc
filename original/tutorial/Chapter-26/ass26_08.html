@@ -1,0 +1,141 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:02 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Use</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. Typically the caller has  important information in some registers,
+and others (such as the stack pointer) are used for special purposes.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Register Use</h1>
+<!-- ../Audio/chap26-11.mp3 -->
+
+
+<p>
+To 
+determine which registers <code>sub</code> can use, you could look at the
+code for <code>main</code> 
+to see which registers
+contain information and so
+can not be altered.
+Do this  
+every place in <code>main</code> that <code>sub</code> is called,
+because different registers are likely to be in use
+at different places.
+Now write <code>sub</code> using only those registers
+that are not in use before any call.
+</p>
+
+<p>
+This is tedious and error prone.
+Worse, if you make a change to <code>main</code> ,
+you now might have to
+re-code
+<code>sub</code> using different registers.
+</p>
+
+<p>
+Also,
+Many different programs may use 
+your subroutine if it is useful.
+Different
+<code>main</code>s ,
+will likely have different data in <code>S</code> and <code>T</code> registers.
+</p>
+
+<p>
+<span class="highlight">One of the goals in writing a subroutine is to create a module
+that is independent of the rest of the code.</span>
+It should work as a "black box" that is useful in many different programs.
+We have not achieved that, yet.
+</p>
+
+<p>
+Another issue is how data 
+is passed into and out of the
+subroutine.
+Often data is in registers, and the results are in registers.
+Which registers?
+</p>
+
+<p>
+<span class="highlight">By software convention (not by hardware)
+registers have been assigned different roles:</span>
+</p>
+
+<ul>
+<li><code class="register">$t0 - $t9</code>  &#8212;  The subroutine is free to change these registers. 
+                                                      The subroutine should not assume what main has put in these registers.</li>
+<li><code class="register">$s0 - $s7</code>  &#8212;  The subroutine must not change these registers.
+                                                      The subroutine should not assume what main has put in these registers.</li>
+<li><code class="register">$a0 - $a3</code>  &#8212;  These registers contain arguments for the subroutine.
+                                     The subroutine can change them.</li>
+<li><code class="register">$v0 - $v1</code>  &#8212;  These registers contain values returned from the subroutine.</li>
+</ul>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+Is the following code fragment correct?
+</p>
+
+<pre class="code">
+  add    $t0,$s5,$s3   # calculate an important sum in $t0
+  jal    somesub       # call a subroutine
+  nop                  # branch delay
+  mul    $s4,$t0,$v1   # multiply the sum
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:03 GMT -->
+</html>

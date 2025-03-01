@@ -1,0 +1,134 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:56 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pushing S Registers</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+The S registers used by the subroutine
+must be saved on the stack. 
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Pushing S Registers</h1>
+
+
+<p>
+The subroutine now looks like:
+</p>
+
+<pre class="program">
+## maxExp -- compute the maximum of three expressions
+##
+## Input:
+## $a0 -- a signed integer, x
+## $a1 -- a signed integer, y
+##           
+## Returns: 
+## $v0 -- the maximum of x*x,  x*y, or 5*y
+##
+## Registers:
+## $s0 --  x*x
+## $s1 --  x*y
+## $s2 --  5*y
+
+         .text
+         .globl maxExp
+
+maxExp:
+         # prolog
+         sub     $sp,$sp,4        # push the return address
+         sw      $ra,($sp)
+         
+         sub     $sp,$sp,4        # push $s0
+         sw      $s0,($sp)
+         
+         sub     $sp,$sp,4        # push $s1
+         sw      $s1,($sp)
+         
+         sub     $sp,$sp,4        # push $s2
+         sw      $s2,($sp)
+         
+         # body
+
+         # subroutine maxInt call with x*x and x*y
+         # subroutine maxInt return
+
+         # subroutine maxInt call with current max and x*y
+         # subroutine maxInt return
+
+         # epilog
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 18:</h3>
+<p>
+Do you now know what the epilog looks like?
+</p>
+
+<p>
+<b><span class="highlight">Subroutine Epilog</span></b>
+(done by the subroutine just before it returns to the caller)
+</p>
+
+<blockquote>
+<ol start="8">
+<li>Put returned values in  <code>$v0-$v1</code></li>
+<li>Pop from the stack
+    (in reverse order)
+    any registers <code class="register">$s0-$s7</code>
+    that were pushed in the prolog (step 5).</li>
+<li>If it was pushed in the prolog (step 4), pop the return address
+    from the stack into <code class="register">$ra</code>.
+<li>Return to the caller using  <code>jr $ra</code>.</li>
+</ol>
+</blockquote>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:57 GMT -->
+</html>

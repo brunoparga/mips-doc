@@ -1,0 +1,121 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:07 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Memory Allocation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap33-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+dynamic memory allocation
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Dynamic Memory Allocation</h1>
+<!-- ../Audio/chap33-03.mp3 -->
+
+
+<a id="dynamic_memory_allocation"> </a>
+
+<img src="fragmentation.gif" class="rightimage" alt="Memory Fragmentation">
+
+
+<div class="left">
+
+<p>
+Dynamic memory allocation
+is when an executing program
+requests that the operating system 
+give it a block
+of main memory.
+The program then uses this memory for some purpose.
+Usually the purpose is to add a node to a data structure.
+In object oriented languages, dynamic memory allocation
+is used to get the memory for a new object.
+</p>
+
+<a id="fragmentation,_memory"> </a>
+
+<p>
+The memory comes from above the static 
+part of the data segment.
+<span class="highlight">Programs may request memory and may also return previously
+dynamically allocated memory. </span>
+Memory may be returned whenever it is no longer needed.
+Memory can be returned in any order without any relation
+to the order in which it was allocated.
+<span class="highlight">The heap may develop "holes"
+where previously allocated memory has been returned 
+between blocks of memory still in use.</span>
+</p>
+
+<p>
+A new dynamic request for memory might return a range of addresses
+out of one of the holes.
+But it might not use up all the hole, so further dynamic requests 
+might be satisfied out of the original hole.
+</p>
+
+<p>
+<span class="highlight">If too many small holes develop, memory is wasted</span> because
+the total memory used by the holes may be large, but
+the holes cannot be used to satisfy dynamic requests.
+<span class="highlight">This situation is called <b>memory fragmentation</b>.</span>
+Keeping track of allocated and deallocated memory is complicated.
+A modern operating system does all this.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+Does the Stack Segment also have memory holes in it?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:09 GMT -->
+</html>

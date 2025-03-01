@@ -1,0 +1,253 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:59 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Programming Exercises</title>
+<meta name="copyright" content="2009,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 06/29/2003; revised 06/30/2015</p>
+
+<hr />
+<h1> 
+Chapter 21 Programming Exercises
+</h1>
+
+<hr />
+ 
+<p>
+For these programming exercises,
+use only those instructions that have been
+discussed so far in these notes:
+</p>
+
+ 
+<table style="width:400px;  margin: 2em auto 2em  auto ; ">
+<tr>
+<th colspan="4">Basic Instructions</th>
+</tr>
+<tr>
+<td>add   </td><td>div    </td><td>mflo    </td><td>slt, slti</td>
+</tr>
+<tr>
+<td>addi  </td><td>divu   </td><td>mult    </td><td>sltu, sltiu</td>
+</tr>
+<tr>
+<td>addiu </td><td>j      </td><td>multu   </td><td>sra</td>
+</tr>
+<tr>
+<td>addu  </td><td>lb     </td><td>nor     </td><td>srl</td>
+</tr>
+<tr>
+<td>and   </td><td>lbu    </td><td>or      </td><td>sub</td>
+</tr>
+<tr>
+<td>andi  </td><td>lh     </td><td>ori     </td><td>subu</td>
+</tr>
+<tr>
+<td>beq   </td><td>lhu    </td><td>sb      </td><td>sw</td>
+</tr>
+<tr>
+<td>bgez  </td><td>lui    </td><td>sh      </td><td>xor</td>
+</tr>
+<tr>
+<td>bltz  </td><td>lw     </td><td>sll     </td><td>xori</td>
+</tr>
+<tr>
+<td>bne   </td><td>mfhi   </td><td>&#160;  </td><td>&#160;  </td>
+</tr>
+<tr>
+<th colspan="4">&#160;</th>
+</tr>
+
+<tr>
+<th colspan="4">PseudoInstructions</th>
+</tr>
+<tr>
+<td>la  </td><td>lw     </td><td>nop     </td><td>&#160; </td>
+</tr>
+<tr>
+<td>li   </td><td>move   </td><td>sw  </td><td>&#160;  </td>
+</tr>
+</table>
+ 
+ 
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine OFF, <span style="color:red">Accept Pseudo Instructions ON</span>,
+Enable Branch Delays ON,
+Enable Load Delays ON, Enable Mapped IO OFF, Load Exception Handler OFF.
+</p>
+
+<p>
+Run programs by 
+single stepping (pushing F10)
+or by  clicking <em>run</em> and allowing control to go beyond the program.
+Implement while loops by branching to a no-op (sll $0,$0,0) at the end of the loop when the loop finishes.
+</p>
+
+
+<p>
+In these programs do not set up a base register as has been done in previous chapters.
+Use the <code>lw</code> and  <code>sw</code> instructions
+with symbolic addresses.
+Use mnemonic register names in your programs and use
+registers in their conventional ways.
+</p>
+
+<hr />
+
+<!-- tested 07/31/03 -->
+
+<h2>*Exercise 1 &#8212; Horner's Method </h2>
+
+<p>
+(see Exercise 4 of chapter 15)
+</p>
+
+<p>
+Evaluate the following  polynomial using Horner's method:
+</p>
+
+<pre class="code">
+ax<sup>3</sup> + bx<sup>2</sup> + cx + d
+</pre>
+
+<p>
+Now the values  for the coefficients <code>a, b, c, d</code>
+as well as for <code>x</code> come from the <code>.data</code>
+section of memory:
+</p>
+
+<pre class="code">
+        .data
+x:      .word    7
+a:      .word   -3
+bb:     .word    3
+c:      .word    9
+d:      .word  -24
+result: .word    0
+</pre>
+
+<p>
+Use the pseudoinstruction <code>lw</code> to
+get the coefficients from memory, and  <code>sw</code>
+to write the result back to memory.
+</p>
+
+<p>
+(Recall that the symbolic address <code>b</code> cannot be used in SPIM.)
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- tested 07/31/03 -->
+
+<h2>*Exercise 2 &#8212; Pair-wise Addition</h2>
+
+<p>
+Declare three arrays, each of the same size:
+</p>
+
+<pre class="code">
+         .data
+size     .word       7
+array1:  .word     -30, -23, 56, -43, 72, -18, 71
+array2:  .word      45,  23, 21, -23, -82,  0, 69
+result:  .word       0,   0,  0,   0,   0,  0,  0
+</pre>
+
+<p>
+Initialize a base register for each array
+(use the <code>la</code> instruction.)
+Now implement a loop that
+adds corresponding elements in the first two arrays
+and stores the result in the corresponding element of the
+<code>result</code> array.
+Do this by moving each of the three base registers to its next array element after each addition.
+Of course, write your program so that it works with arrays of all sizes (not just 7).
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<!-- tested 07/31/03 -->
+
+<h2>***Exercise 3 &#8212; String Comparison</h2>
+
+<p>
+Declare two null-terminated strings:
+</p>
+
+<pre class="code">
+         .data
+result:  .word     0
+string1: .asciiz   "puffin"
+string2: .asciiz   "puffins"
+</pre>
+
+<p>
+Initialize a base register for each string
+(use the <code>la</code> instruction.)
+Write a program that sets <code>result</code> 
+to 1 if the two
+strings are equal 
+and to 0 if the strings are not equal.
+</p>
+
+<p>
+Two strings are equal if they are the same length and
+contain the same character in each location.
+Otherwise the strings are not equal.
+</p>
+
+<p>
+Test your program for a variety of strings.
+You will have to edit the data section
+of your program for each pair of
+strings tested.
+</p>
+
+<p>
+<b>Extra:</b> write the program so that it does
+<em>case insensitive</em> string comparison.
+Here, two strings are equal if they are the same
+length and have the same letter (disregarding case)
+in each location.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:59 GMT -->
+</html>
+

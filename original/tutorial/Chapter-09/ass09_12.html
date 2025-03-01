@@ -1,0 +1,136 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Sep 17 18:05:34 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-09/ass09_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:51 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explanation of the Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass09_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass09_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap09-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+The program returns control to the
+operating system.
+</p>
+
+<p>
+But we have no operating system. Just a bare machine.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Explanation of the Program</h1>
+<!-- ../Audio/chap09-12.mp3 -->
+
+
+<pre class="program">
+## Program to add two plus three 
+        .text
+        .globl  main
+
+main:
+        ori     $8,$0,0x2       # put two's comp. two into register 8
+        ori     $9,$0,0x3       # put two's comp. three into register 9
+        addu    $10,$8,$9       # add register 8 and 9, put result in 10
+
+## End of file
+</pre>
+
+<div class="left">
+<p>
+There
+ are various ways for a program executing
+on a real machine to return control to the 
+operating system.
+But we have no OS,
+so for now we will single step instructions.
+Hopefully you are wondering how the program works.
+</p>
+
+<a id="comment_assembler"> </a>
+<p>
+The first line 
+of the program is a comment.
+It is ignored by the assembler and results in no machine instructions.
+</p>
+
+<p>
+<span class="highlight">
+<b><code>.text</code></b> is a <em>directive</em>.</span>
+A directive is a statement that tells the assembler something about
+what the programmer wants, but does not itself result in any
+machine instructions.
+This directive tells the assembler that the following lines are
+".text" -- source code for the program.
+</p>
+</div>
+
+<a id="directive_assembler"> </a>
+<a id=".text_directive"> </a>
+
+<div class="right">
+<a id=".globl_directive"> </a>
+<p>
+<span class="highlight">
+<b><code>.globl main</code></b> is another directive. </span>
+It says that the identifier <em>main</em> will be used outside
+of this source file (that is, used "globally") as the label of
+a particular location in main memory.
+</p>
+
+<p>
+Blank
+lines are ignored by the assembler. 
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+<p>
+(Memory test) Where was the first machine instruction placed in memory?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass09_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass09_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-09/ass09_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:52 GMT -->
+</html>

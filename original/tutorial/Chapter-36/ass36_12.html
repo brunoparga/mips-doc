@@ -1,0 +1,161 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:22 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Static Objects</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+Hello World
+Silly Example
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Static Objects</h1>
+<!-- ../Audio/chap36-12.mp3 -->
+
+<a id="object,_static"> </a>
+
+
+<pre class="program">
+          .globl   main
+          .text
+main:                                 # object1.print();
+          la       $a0,object1        #   get address of first object
+          lw       $t0,0($a0)         #   get address of object's method
+          jalr     $t0                #   call the object's method
+                                      
+                                      # object2.print();
+          la       $a0,object2        #   get address of second object
+          lw       $t0,0($a0)         #   get address of object's method
+          jalr     $t0                #   call the object's method
+          
+          li      $v0,10              # return to OS
+          syscall
+
+# code for print method
+          . . .
+          
+          .data
+object1:  .word    print                    # Jump Table
+          .asciiz  "Hello World\n"          # object data
+          
+object2:  .word    print                    # Jump Table
+          .asciiz  "Silly Example\n"        # object's data
+</pre>
+
+<br style="clear:both">
+ 
+<div class="left">
+
+<p>
+In Java,
+objects are constructed from dynamic memory as the program runs.
+However, to simplify the discussion (and the code) 
+<span class="highlight">this example uses
+static memory for objects.</span>
+This means that the objects already exist
+in the <code>.data</code> section 
+in memory when the program starts running.
+</p>
+
+<p>
+The  program uses two objects 
+in static memory
+declared in the source file.
+</p>
+
+<p>
+Each object is implemented like this:
+</p>
+ 
+
+<pre>
+byte 0-3: address of a method      # single-entry jump table
+byte 4- : null terminated string   # as many bytes as needed
+</pre>
+ 
+<a id="object,_calling_a_method"> </a>
+ 
+
+<p>
+<span class="highlight">The jump table contains just one address,</span>
+the entry point of <code>print()</code>,
+at the start of the object.
+The following code  copies this address from <code>object1</code>
+to <code class="register">$t0</code>:
+</p>
+ 
+
+<pre>
+la       $a0,object1        # get address of first object
+lw       $t0,0($a0)         # get address of object's method
+</pre>
+ 
+
+<p>
+Now  the entry point is in <code class="register">$t0</code>.
+Then object1's method is called.
+</p>
+
+<p>
+Both objects contain the same address for the method.
+<span class="highlight">The program has only one copy of the code for the method.</span>
+</p>
+
+</div> 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+<p>
+What instruction is used to call object1's method?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:23 GMT -->
+</html>

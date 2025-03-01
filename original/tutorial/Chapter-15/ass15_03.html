@@ -1,0 +1,179 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:42 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Endian and Little Endian</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15merge0306.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+Any integer that is a multiple of 4 looks like <code>4*N</code>
+for some <code>N</code>.
+</p>
+
+<p>
+How can you multiply by four in binary? 
+<span class="red">By shifting left 2 positions.</span>
+So a multiple of 4 looks like some <code>N</code> shifted left two
+positions.
+So the low order two bits of a multiple of 4 are both 0.
+</p>
+
+<ul>
+<li><code>0x000AE430 &nbsp;  <span class="green">Yes</span></code></li>
+<li><code>0x00014432 &nbsp;  <span class="red">No</span></code></li>
+<li><code>0x000B0737 &nbsp;  <span class="red">No</span></code></li>
+<li><code>0x0E0D8844 &nbsp;  <span class="green">Yes</span></code></li>
+</ul>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Big Endian and Little Endian</h1>
+<!-- ../Audio/chap15merge0306.mp3 -->
+
+<a id="endian,_big"> </a>
+<a id="endian,_little"> </a>
+
+<div class="right">
+<figure>
+<img src="bigLittleEndian.gif" 
+     alt="Big Endian and Little Endian" title="Two Different Byte Orders" />
+<figcaption> 
+<br> 
+Bit pattern 0x12345678 stored in four bytes of memory.
+</figcaption>
+</figure>
+</div>
+
+<div class="left">
+<p>
+A load word or store word instruction uses only one memory address.
+<span class="highlight">The <b>lowest address</b> of the four bytes is 
+the address of a block of four contiguous bytes.</span>
+</p>
+
+<p>
+How is a 32-bit pattern
+held in the four bytes of memory?
+There are 32 bits in the four bytes and 32 bits
+in the pattern, but a choice has to be made
+about which byte of memory gets what part of the
+pattern.
+There are two ways that computers commonly do this:
+</p>
+
+<blockquote>
+<p>
+<b>Big Endian Byte Order:</b>
+<span class="highlight">
+The <b>most significant</b> byte (the "big end") of the
+data is placed at the byte with the lowest address.</span>
+The rest of the data is placed in order in the next three 
+bytes in memory.
+</p>
+
+<p>
+<b>Little  Endian Byte Order:</b>
+<span class="highlight">
+The <b>least significant</b> byte (the "little end") of the
+data is placed at the byte with the lowest address.</span>
+The rest of the data is placed in order in the next three 
+bytes in memory.
+</p>
+</blockquote>
+
+<p>
+In 
+these definitions, the data, a 32-bit pattern, is regarded as
+a 32-bit unsigned integer.
+The "most significant" byte is the one  
+for the largest powers of two: 2<sup>31</sup>, ..., 2<sup>24</sup>.
+The "least significant" byte is the one  
+for the smallest powers of two: 2<sup>7</sup>, ..., 2<sup>0</sup>.
+</p>
+ 
+<p>
+For example, say that the 32-bit pattern 0x12345678
+is stored at address 0x00400000.
+The most significant byte is 0x12; the least significant is 0x78.
+</p>
+
+<p>
+Within a <b>byte</b> the order of the bits is the
+same for all computers (no matter how the bytes themselves are arranged).
+</p>
+
+<p>
+It makes little difference if a processor is little endian or big endian,
+as long as the electronics are consistent with whatever order is used.
+</p>
+
+<p>
+In books and documentation,
+numbers are usually printed with highest power of the base on the left. 
+To print a number that is stored in memory in little endian order,
+the bytes should be printed with the highest address first and decreasing
+addresses to the right.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+What bit pattern that is contained in the byte at 
+the <b>big end</b> of this 32-bit word:
+</p>
+
+<pre>
+0x001122AA
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:44 GMT -->
+</html>

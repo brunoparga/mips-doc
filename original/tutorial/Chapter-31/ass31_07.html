@@ -1,0 +1,109 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:24 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-07.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.  The decimal point is needed in the constant (at least for SPIM).
+This, of course, depends on which assembler you are using.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+<!-- ../Audio/chap31-07.mp3 -->
+
+<pre class="program">
+## swap.asm
+##
+## Exchange the values in valA and valB
+
+        .text
+        .globl  main
+
+main:
+        l.s     $f0,valA        # $f0  &lt;-- valA
+        l.s     $f1,valB        # $f1  &lt;-- valB
+        s.s     $f0,valB        # $f0  --&gt; valB
+        s.s     $f1,valA        # $f1  --&gt; valA
+
+        li      $v0,10          # code 10 == exit
+        syscall                 # Return to OS.
+                
+        .data
+valA:   .float  8.32            # 32 bit floating point value
+valB:   .float  -0.6234e4       # 32 bit floating point value
+                                # small 'e' only
+</pre>
+
+<div class="middle">
+<p><span class="highlight">
+This program exchanges (swaps) the floating point values
+at <code>valA</code> and <code>valB</code>.</span>
+Notice how the two floating point values are written.
+The first in the ordinary style;
+the second in scientific notation.
+</p>
+<a id=".float_directive"> </a>
+
+
+<p>
+Remember to use a small "e" in the floating point constant.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+(Thought Question: ) Can a general purpose register hold a
+floating point value?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:25 GMT -->
+</html>

@@ -1,0 +1,192 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:46 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-13.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-13.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Program</h1>
+
+<div class="left">
+<p>
+The   
+program is complete and can be copied into your
+program editor for running and play.
+Remember in the SPIM settings to
+allow pseudoinstructions and to load the trap handler
+file.
+</p>
+
+</div>
+ 
+
+<br style="clear:both"> 
+
+<pre class="program">
+## rest.asm
+##
+## Total restaurant bill calculator
+##
+## Register Use:
+##
+##    $s0 meal cost 
+##    $s1 tip rate
+##    $s2 tax rate
+##    $s3 total rate
+##    $s4 tax+tip dollars
+##    $s5 total bill
+
+        .globl  main
+
+        # Get meal cost
+main:   li      $v0,4            # print prompt
+        la      $a0,prompt   
+        syscall
+        li      $v0,5            # input meal cost
+        syscall
+        move    $s0,$v0          # save it in $s0
+
+        # Calculations
+        lw      $s1,tip          # get tip rate
+        lw      $s2,tax          # get tax rate
+        nop
+        addu    $s3,$s1,$s2      # (tax + tip) in percent
+        mul     $s4,$s0,$s3      # mealcost*(total rate)
+        div     $s4,$s4,100      # mealcost*(total rate)/100 
+        addu    $s5,$s0,$s4      # total bill
+
+        # Output
+        li      $v0,4            # print string
+        la      $a0,head1        # "tax plus tip"
+        syscall
+
+        move    $a0,$s4          # get tax+tip
+        li      $v0,1            # print integer
+        syscall                  # 
+
+        li      $v0,4            # print string
+        la      $a0,head2        # "total cost"
+        syscall
+
+        move    $a0,$s5          # get total
+        li      $v0,1            # print integer
+        syscall                  # 
+
+        li      $v0,10           # exit
+        syscall
+
+        .data
+tip:    .word   15               # tip rate in percent
+tax:    .word    8               # tax rate in percent
+
+prompt: .asciiz "Enter food cost: "
+head1 : .asciiz "   Tax plus tip: "
+head2 : .asciiz "\n     Total cost: "
+</pre>
+
+<br style="clear:both"> 
+
+<div class="left"> 
+<p>
+The program has three sections.
+The sections are reflected in
+the documentation.
+</p>
+
+<pre>
+#data input
+#calculation
+#output
+</pre>
+
+<p>
+This is a common design pattern.
+Keep the phases of a computation together.
+</p>
+
+</div>
+
+<div class="right"> 
+<p>
+This design scheme 
+fits many situations.
+In a big program, the
+three stages might each
+be implemented as a subroutine.
+</p>
+
+<p>
+Each subroutine could be designed
+and tested separately.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+
+
+<p>
+What is the bit pattern in register <code class="register">$t1</code> after the following:
+</p>
+
+<pre class="code">
+li   $t0,0x12345678
+sll  $t1,$t0,8
+</pre> 
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:47 GMT -->
+</html>

@@ -1,0 +1,721 @@
+<!doctype html> 
+
+<!-- 07/07/2015  bpk  HTML5 validation; added color to answer box; put answer box in table -->
+<!-- 03/29/2023  bpk  fixed question 8 -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:56 GMT -->
+<head>
+<meta charset="utf-8">
+
+<meta name="copyright" content="2003">
+<meta name="author" content="Bradley Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+
+<title>
+Quiz on Extended Assembler
+</title>
+
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/QUIZstyle.css">
+
+<script type="text/javascript">
+function gradeQuiz( reportForm ) 
+{
+  var totalRight = 0;
+  
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == '' ) { alert("Question " + (count+1) + " has not been answered" ); return; }
+  }
+  
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+    {
+      document.forms[ count ].correct.style.background = "#80FF80" ;
+      totalRight++ ;
+    }
+   else
+      document.forms[ count ].correct.style.background = "#FF8080" ;
+       
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+</script>
+
+<style>
+table
+{
+  padding: 15px;
+}
+
+td
+{
+  padding: 5px;
+}
+</style>
+
+</head>
+<body>
+<p class="revisions">Created 6/26/03; replaced question 7 (thanks to Z. Li) 05/22/11; 07/07/15</p>
+<hr/>
+
+<h1  style="text-align:center" >
+<img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/quizPencil.gif" alt="Quiz" >
+ on Set Instructions
+</h1>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br>
+
+<hr/>
+<form name="question1">
+<p>
+1.
+
+Examine the following program fragment:
+</p>
+
+<pre>
+        ori   $8,$0,13
+        ori   $9,$0,1
+        bltz  $8,target
+        sll   $0,$0,0
+        ori   $9,$0,0
+      
+target: sll   $0,$0,0       # arbitrary instruction
+      
+</pre>
+
+<p>
+What value is found in $9 when control
+reaches <em>target</em>?
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+4
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+13
+
+</td></tr>
+
+<tr><td>
+
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question2">
+<p>
+2.
+
+<b>Trick Question:</b>
+Examine the following program fragment:
+</p>
+
+<pre>
+        ori   $8,$0,-57
+        ori   $9,$0,1
+        bltz  $8,target
+        ori   $9,$0,0       # think about the delay
+                            # slot
+target: sll   $0,$0,0       # arbitrary instruction
+      
+</pre>
+
+<p>
+What value is found in $9 when control
+reaches <em>target</em>?
+</p>
+
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+3
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+4
+
+</td></tr>
+
+<tr><td>
+
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question3">
+<p>
+3.
+
+Examine the following program fragment:
+</p>
+
+<pre>
+        ori   $8,$0,13
+        ori   $9,$0,1
+        bgez  $8,target
+        sll   $0,$0,0
+        ori   $9,$0,0
+      
+target: sll   $0,$0,0       # arbitrary instruction
+      
+</pre>
+
+<p>
+What value is found in $9 when control
+reaches <em>target</em>?
+</p>
+
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+4
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+13
+
+</td></tr>
+
+<tr><td>
+
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question4">
+<p>
+4.
+
+Examine the following program fragment
+(slightly different from the previous):
+</p>
+
+<pre>
+        ori   $8,$0,13
+        bgez  $8,target
+        ori   $9,$0,1
+        ori   $9,$0,0
+      
+target: sll   $0,$0,0       # arbitrary instruction
+      
+</pre>
+
+<p>
+What value is found in $9 when control
+reaches <em>target</em>?
+</p>
+
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+4
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+13
+
+</td></tr>
+
+<tr><td>
+
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question5">
+<p>
+5.
+
+Examine the following program fragment:
+</p>
+
+<pre>
+        addiu    $3,$0,-13
+        addiu    $7,$0,23
+        ?????
+</pre>
+
+<p>
+Pick the instruction to replace <code>?????</code>
+that will set register $10 to one.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sltu $3,$7,$10</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>slt  $10,$7,$3</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>slt  $10,$3,$7</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>sltu $10,$3,$7</code>
+
+</td></tr>
+
+<tr><td>
+
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question6">
+<p>
+6.
+
+Examine the following program fragment:
+</p>
+
+<pre>
+        addiu    $3,$0,-13
+        slti     $5,$3,-8
+</pre>
+
+<p>
+What value is in $5 after both instructions
+exectute?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+-8
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+-13
+
+</td></tr>
+
+<tr><td>
+
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question7">
+<p>
+7. Examine the following program fragment:
+</p>
+
+<pre>
+        ori      $3,$0,25
+        slti     $5,$3,53
+</pre>
+
+<p>
+What value is in $5 after both instructions
+exectute?
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+25
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+53
+
+</td></tr>
+
+<tr><td>
+
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question8">
+<p>
+8.
+
+(<b>Very Tricky:</b>) Examine the following program fragment:
+</p>
+
+<pre>
+        addiu    $3,$0,-1
+        sltiu    $5,$3,17
+</pre>
+
+<p>
+What value is in $5 after both instructions
+exectute?
+(If your answer is incorrect, 
+look at the description of each instruction and
+notice what the "u" means for each.)
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+-8
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+-13
+
+</td></tr>
+
+<tr><td>
+
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question9">
+<p>
+9.
+
+Which style of implementing a 
+counting loop
+is usually easiest to understand?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+data driven loop
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+bottom driven loop
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+conditional driven
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+top driven loop
+
+</td></tr>
+
+<tr><td>
+
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question10">
+<p>
+10.
+
+Examine the following program fragment:
+</p>
+
+<pre>
+       ori    $5,$0,5       # initialize count
+       ori    $8,$0,0       # initialize accumulator
+       
+test:  bltz   $5,done
+       sll    $0,$0,0
+       addu   $8,$8,$5      # add count to accumulator
+       addiu  $5,$5,-1
+       j      test
+       sll    $0,$0,0
+       
+done:  sll    $0,$0,0
+</pre>
+
+<p>
+How many times is the <code>addu</code> instruction
+executed?
+
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+5
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+6
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+7
+
+</td></tr>
+
+<tr><td>
+
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+<hr>
+<form name="evaluateQuest">
+
+
+<p  style="text-align:center">
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+&nbsp;&nbsp;
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+<p  style="text-align:center">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part7"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/homeIcon.gif" alt="Click here" > </a>
+</p>
+
+<p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:56 GMT -->
+</html>

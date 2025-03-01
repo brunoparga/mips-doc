@@ -1,0 +1,168 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Sep 19 21:41:21 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:34 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Model</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass10_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap10merge020304.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+No &#8212; you use a "drivers view" of the car which is
+appropriate for driving and omits details not needed for that task.
+Of course you don't <em>always</em> use that view.
+If it starts raining and your car starts sputtering you
+might start thinking about the coil.
+</p>
+
+<p>
+Part of what makes a professional is the ability to pick a
+useful model for the task at hand.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Memory Model</h1>
+<!-- ../Audio/chap10merge020304.mp3 -->
+
+<p>
+<img src="memory01.gif" class="rightimage" alt="Picture of Memory" />
+</p>
+
+<div class="left">
+
+<p>
+Modern 
+computer systems nearly always use 
+<a href="../Chapter-04/ass04_07.html" target="_blank">cache memory</a>
+and
+<a href="../Chapter-04/ass04_06.html"  target="_blank">virtual memory</a>. 
+But our abstract view of memory
+does not include them.
+The purpose of virtual memory is to
+make it appear as if a program has the full address space available.
+</p>
+
+<p><span class="highlight">
+So our programming model has the full 32-bit address space.</span>
+The purpose of cache is to transparently speed up memory
+access.
+So our programming model does not include cache.
+Memory in the programming model is as follows:
+</p>
+
+<a id="memory,_abstract_view"> </a>
+
+<p>
+<span class="highlightred"><b>DATA: </b></span>
+</p>
+
+<p><span class="highlight">
+MIPS memory is an array of 2<sup>32</sup> bytes.</span>
+Each byte has a 32-bit address.
+Each byte can hold an 8-bit pattern,
+one of the 
+256 possible 8-bit patterns.
+The addresses of MIPS main memory range
+from 0x00000000 to 0xFFFFFFFF.
+</p>
+
+<p>
+However, user programs and data are
+restricted to the first 2<sup>31</sup> bytes.
+The last half of the address space is used
+for the operating system and for specialized purposes.
+</p>
+
+<p>
+<span class="highlightred"><b>OPERATIONS:</b></span>
+</p>
+
+<p>
+<span class="highlight">The processor chip contains <em>registers</em>,
+which are electronic components that can store bit patterns.</span>
+The processor interacts with memory by moving bit patterns
+between memory and its registers.
+</p>
+
+<ul>
+<li><span class="highlight"><b>Load:</b></span> a bit pattern starting at a designated address
+                 in memory
+                 is copied <u>into</u> a register inside the processor.
+                 The bit pattern in memory does not change.
+                 </li>
+<li><span class="highlight"><b>Store:</b></span> a bit pattern
+                 is copied 
+                 <u>from</u> a processor register to memory at a designated address.
+                 The bit pattern in the register does not change.
+                 </li>
+</ul>
+
+<p>
+Bit patterns are copied between the memory and the processor
+in groups of one, two, four, or eight contiguous bytes.
+</p>
+
+<p> 
+<span class="highlight">
+When a group of bytes are copied in a load or store operation,
+only the address of the first byte of the group is specified.
+</span>
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<ul>
+<li>Does a <b>load</b> operation change the bit pattern in memory?</li>
+<li>Does a <b>store</b> operation change the bit pattern in memory?</li>
+</ul>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass10_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:38 GMT -->
+</html>

@@ -1,0 +1,124 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 07 17:30:04 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:32 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass17_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap17-20.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+The complete program is given below
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Program</h1>
+<!-- ../Audio/chap17-20.mp3 -->
+
+<div class="left">
+<p>
+Here
+ is the complete program, suitable for copying
+to a text file and running with SPIM.
+</p>
+</div>
+
+<div class="right">
+<p> 
+Remember to initialize the PC (to 0x00400000).
+Execute the program step at a time by pushing F10.
+</p>
+</div>
+<br style="clear:both"> 
+
+<pre class="program">
+## absVal.asm
+##
+## Calculate the absolute value of A
+##
+## Registers:
+##   $8  --- A, two's comp. integer
+##   $9  --- sign bit of A
+##   $10 --- base register for .data section
+
+        .text
+        .globl  main
+
+main: 
+# Get A
+        lui   $10,0x1000     #  Init base register
+        lw    $8,0($10)      #  Load A
+        sll   $0,$0,0        #  load delay slot
+
+# Is A Negative?
+        srl   $9,$8,31       #  Shift sign bit to position 0
+        beq   $0,$9,done     #  sign bit == zero, done
+        sll   $0,$0,0        #  branch delay slot
+
+# Store -A
+        subu  $8,$0,$8       #  negate A
+        sw    $8,0($10)      #  save it
+
+done:   sll   $0,$0,0        #  target of the branch
+
+        .data
+A:      .word   -1
+
+## End of File
+</pre>
+
+<p>
+&#160;
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+
+<p>
+What would happen if the no-op were removed from the
+branch delay slot?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass17_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:33 GMT -->
+</html>

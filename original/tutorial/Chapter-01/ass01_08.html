@@ -1,0 +1,129 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Jul 06 10:45:00 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:34 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2019"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Several Translations</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass01_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap01-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Several Translations</h1>
+<!-- ../Audio/chap01-09.mp3 -->
+
+<div class="left">
+<p>
+<span class="highlight">All 
+programming 
+languages other than machine language
+must be translated
+into machine language
+before they can be executed.</span>
+A high level language is independent of architecture.
+It requires a specific translator 
+(compiler) for each architecture.
+</p>
+</div>
+
+<div class="right">
+<p>
+The more modern the language, 
+the more distant 
+the source code is
+from the machine language.
+FORTRAN is 50 years old and
+is closer to machine language than modern languages.
+Here is a statement in FORTRAN:
+</p>
+</div>
+<br style="clear:both"> 
+<pre class="program">
+result = 6*alpha+beta
+</pre>
+
+<p>
+Here is a translation of that statement into MIPS
+assembly language:
+</p>
+
+<pre class="program">
+lw  $t0,alpha           # copy alpha to register $t0
+lw  $t1,beta            # copy beta  to register $t1
+mul $t2,$t0,6           # multiply $t0 times 6; result in $t2
+add $t2,$t2,$t1         # add $t2 and $t1; result in $t2
+sw  $t2,result          # copy answer to result
+</pre>
+
+<a id="VAX"> </a>
+<p>
+Here is a translation of that statement into 
+Digital Equipment Corporation VAX
+assembly language:
+</p>
+
+<pre class="program">
+MULL3   #6,ALPHA,R5
+ADDL3   R5,BETA,RESULT
+</pre>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+
+<p>
+Is the architecture of the VAX
+similar to that of MIPS?
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass01_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:35 GMT -->
+</html>

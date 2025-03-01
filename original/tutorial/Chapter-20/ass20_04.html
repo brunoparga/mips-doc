@@ -1,0 +1,145 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 26 18:18:41 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:44 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Program continued</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass20_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap20-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+You would like:
+</p>
+
+<pre>
+length( string1 ) + length( string2 )   =  length( concat( string1, string2) )
+</pre>
+
+<p> 
+  If the null at the end of each string counted as part of its length, then 
+  this would be false, because the combined string has only one null (at the 
+  end) but there are two nulls in the two original strings.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Program continued</h1>
+<!-- ../Audio/chap20-04.mp3 -->
+
+
+<a id="base_register,_initializing"> </a>
+
+<div class="left">
+<p>
+  There
+ are several ways to do what the second box of the chart
+calls for: <em>"point at the first character".</em>
+In a few chapters,
+ doing this will be much easier.<span class="highlight">
+But, for now, remember that the
+data section starts at the address <code>0x10000000</code>.</span>
+The top halfword of this is <code>0x1000</code>.
+This is loaded into the top halfword of the
+base register with 
+<span class="red"><code>lui</code></span>
+</p>
+</div>
+
+<br style="clear:both"> 
+ 
+<pre class="program"> 
+<img src="strlen.gif" class="rightimage" alt="string length flow chart" />
+## strlen.asm 
+## 
+## Count the characters in a string 
+## 
+## Registers: 
+##  $8 -- count 
+##  <span class="red">$9 -- pointer to the char</span> 
+## $10 -- the char (in low order byte) 
+
+.text 
+.globl main 
+
+# Initialize 
+
+main: 
+      ori $8,$0,0           # count = 0 
+      <span class="red">lui $9,0x1000         # point at first char</span> 
+  
+# while not ch==null do 
+  
+loop: 
+       lbu $10,<input type="text" size="4" />($9)    # get the char 
+       
+       sll   $0,$0,0        # load delay slot
+
+       <input type="text" size="4" /> $10,$0,done    # exit loop if char == null 
+       
+       sll   $0,$0,0        # branch delay slot
+   
+       . . .
+   
+       j loop               # finish 
+       sll   $0,$0,0        # branch delay slot
+
+done:  sll $0,$0,0          # target for branch 
+
+.data 
+string: .asciiz "Time is the ghost of space." 
+
+ 
+</pre>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+<p>
+A few more statements have been added to get and test the
+current character.
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass20_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass20_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-20/ass20_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:45 GMT -->
+</html>

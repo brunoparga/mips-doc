@@ -1,0 +1,125 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:07 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Negative Integers</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-17.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre class="code">
+  <span class="red">1</span>1111 111
+   0000 0001     1<sub>10</sub>
+   <u>1111 1111</u>   <u>255<sub>10</sub></u>
+   0000 0000    00<sub>10</sub>
+</pre>
+
+<p>
+The carry bit of <span class="red">1</span> out of the high order column
+(leftmost) indicates an <span class="red">overflow</span> (for 8-bit unsigned addition).
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Negative Integers</h1>
+<!-- ../Audio/chap08-17.mp3 -->
+
+<p>
+<span class="highlight"><em>Unsigned binary</em> representation 
+can not represent negative integers.</span>
+With paper and pencil numbers,
+a number is made negative by putting
+a negative sign in front of it: 24<sub>10</sub>  negated =  -24<sub>10</sub>.
+You might hope to do the same with
+binary integers:
+</p>
+
+<pre class="code">
+0001 1000    negated =   -0001 1000  ???
+</pre>
+
+<p>
+Unfortunately, you can't
+put a negative sign in front of a bit pattern in 
+computer memory.
+Memory holds only
+patterns of 0's and 1's.
+<span class="highlight">Somehow negative integers must be represented
+using bit patterns.</span>
+This is certainly possible.
+Remember those advantages of binary?
+</p>
+
+<ol>
+<li> Easy to build.</li>
+<li> Unambiguous signals (hence noise immunity).</li>
+<li> Can be copied flawlessly.</li>
+<li> <b><span class="highlight">Anything that can be represented with
+     symbols can be represented with patterns of bits.</span></b>
+</ol>
+
+<p>
+If we can represent negative integers with paper and pencil
+(thus using symbols) we certainly can represent negative
+integers with patterns of bits.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+Let us say that you need to represent an
+equal number of positive and
+negative integers in eight bits.
+How many negative numbers can represented?
+How many positive numbers?
+</p>
+
+<p>
+Just for fun, can you think of a way to do this?
+Get out some scratch paper and scratch for a while with eight-bit patterns.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:08 GMT -->
+</html>

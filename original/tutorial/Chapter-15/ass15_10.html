@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:28 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filling in the bottom Half</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+lui $13, 0x0004
+lw  $12, 0x10($13)
+</pre>
+
+<p>
+After the <code>lui</code>
+instruction <code class="register">$13</code> contains 0x<b>0004</b>0000.
+To get to the address we need,
+use an offset of  0x10.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Filling in the bottom Half</h1>
+<!-- ../Audio/chap15-13.mp3 -->
+
+<a id="base_register,_filling_low_order_bytes"> </a>
+
+<div class="right">
+<img src="lwProblemTwo.gif"  class="rightimage" width="250" height="285" alt="Part of Memory" >
+</div>
+
+
+<div class="left">
+<p><span class="highlight">
+By
+using the <code>lui</code>
+instruction,
+the base register
+can be loaded with multiples
+of 0x00010000.</span>
+But often you want a more specific address in the base register.
+Use the
+<code>ori</code>
+instruction
+to fill the bottom 16 bits.
+
+</p>
+
+<pre>
+ori d,s,imm
+</pre>
+
+<p> 
+Recall that <code>ori</code> zero-extends <code>imm</code>
+to 32 bits then does a bitwise OR of that with the contents of register <code class="register">$s</code>.
+The result goes into register <code class="register">$d</code>.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+
+<p>
+Say that
+memory is as above.
+The <code>lw</code>
+instruction (below) loads the word
+at 0x0060500C into <code class="register">$12</code>.
+</p>
+
+<form>
+<pre>
+lui $13, 0x<input type="text" name="I1" size="12" />
+
+ori $13, $13, 0x<input type="text" name="I2" size="12" />
+
+lw  $12, 0xC($13)
+</pre>
+</form>
+
+<p>
+Complete the instruction sequence so that the base register contains the address <code>0x00605000 </code>,
+which will be used with a displacement of <code>0x0C</code>.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:30 GMT -->
+</html>

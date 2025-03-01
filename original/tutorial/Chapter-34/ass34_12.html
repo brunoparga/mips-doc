@@ -1,0 +1,129 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon May 31 12:11:38 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:19 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Address of a word vs. Contents of a word</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass34_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap34-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<ul>
+<li>la  --- load a register with the <u>address</u> corresponding to a symbolic address</li>
+</ul>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Address of a word vs. Contents of a word</h1>
+<!-- ../Audio/chap34-12.mp3 -->
+ 
+
+<pre class="program">
+## linked.asm --- hard-coded linked list
+##
+          .text
+          .globl main
+          
+main:
+          <span style="color:blue;">la</span>   $s0,elmnt01      # get the address of the first node
+          
+loop:     beqz   $s0,done       # while not null
+
+          . . .          
+done:    
+
+          . . .
+                     
+          .data
+
+elmnt01:  .word  1
+          .word  elmnt02
+
+elmnt02:  .word  2
+          .word elmnt03 
+
+          . . . 
+</pre>
+
+<a id="content_vs._address"> </a>
+
+<div class="left">
+
+<p>
+<span class="highlight"><b>Bug Alert!</b> To get the address in memory corresponding to a
+symbolic address, use the <b><code>la</code></b> instruction.</span>
+The <b><code>lw</code></b> loads the value stored at that address.
+</p>
+</div>
+
+<div class="right">
+<p>
+In this program, register <code class="register">$s0</code> contains the
+address of each node as it is visited.
+So to start it out correctly use the <b><code>la</code></b> instruction.
+</p>
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+ 
+<pre>
+          la      $s0,head
+          lw      $s1,head
+          . . .
+          
+          .data
+head:     .word   7
+</pre>
+
+<p>
+Which register, <code class="register">$s0</code> or <code class="register">$s1</code>,
+contains the value <code>7</code> after this fragment executes?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass34_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:20 GMT -->
+</html>

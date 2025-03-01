@@ -1,0 +1,128 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Jul 06 10:45:00 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:07 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2019"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Instructions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass01_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap01-06.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+In sequential order, one after another.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Machine Instructions</h1>
+<!-- ../Audio/chap01-06.mp3 -->
+
+<div class="left">
+<p>
+<span class="highlight">Instructions 
+ are normally executed in sequence.</span>
+The program counter advances forward through memory one
+instruction at a time.
+Each cycle of the machine cycle executes one instruction and 
+advances the program counter by one instruction.
+</p>
+
+<p>
+Operations like
+"add two integers" and "compare two integers"
+are operations that a processor
+does in one machine cycle.
+<span class="highlight">Loops and branches require machine 
+instructions that alter the normal sequence.</span>
+</p>
+
+<p>
+<span class="highlight">A machine instruction is a pattern 
+of bits that directs the processor to
+perform one machine operation.</span>
+Here is the machine instruction 
+that directs the MIPS processor to add
+two 32-bit registers together
+(a <b>register</b> is a part of the processor
+that holds a bit pattern).
+</p>
+
+<pre class="code">
+0000 0001 0010 1011 1000 0000 0010 0000
+</pre>
+</div>
+
+<div class="right">
+<p>
+The instruction is 32 bits long.
+Each bit is 0 or 1.  
+When bit patterns are displayed in a book 
+they are usually shown in groups of
+four (as here).
+Of course, the spaces between groups are a convention of 
+printing and are not actually part of the bit pattern.
+</p>
+
+<p>
+Some of the bits in the instruction 
+specify the operation (adding two registers), other
+bits specify which two registers to add.
+A few more bits say were to put the result.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+
+<p>
+Inspect the instruction.
+Is it clear what the bits of the instruction
+mean?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass01_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:08 GMT -->
+</html>

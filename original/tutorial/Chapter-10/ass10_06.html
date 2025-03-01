@@ -1,0 +1,197 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Sep 19 21:41:21 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:06 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Code</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass10_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap10merge111213.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<pre>
+subu    $25,$16,$17 
+</pre>
+
+<h3>Answer:</h3>
+<ol>
+<li>The operation: <span class="blue">subtraction of two 32-bit integers</span> </li>
+<li>The location of one operand: <span class="blue">register $16</span> </li>
+<li>The location of the other operand: <span class="blue">register $17</span> </li>
+<li>The destination of the result: <span class="blue">register $25</span></li>
+</ol>
+
+<p>
+At run time: Register $25  is set to (Register $16) - (Register $17)
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Machine Code</h1>
+<div class="left">
+<!-- ../Audio/chap10merge111213.mp3 -->
+<p>
+On some processors (such as the VAX) the ALU
+can operate directly on data contained in main memory.
+However, this requires extra data paths and control
+logic and slows down execution.<span class="highlight">
+On the MIPS, operands for the ALU and the destination
+for the result are usually registers.</span>
+</p>
+
+<p>
+Here is the assembly language for the add instruction:
+</p>
+
+<pre class="code">
+addu    $10,$8,$9 
+</pre> 
+
+<p>
+Here is the machine code it translates into:
+</p>
+
+<pre class="code">
+0x01095021
+</pre> 
+
+<p>
+Here is that as a bit pattern:
+</p>
+
+<pre class="code">
+0000 0001 0000 1001 0101 0000 0010 0001
+</pre> 
+
+<a id="field"> </a>
+
+<p>
+Here is the bit pattern arranged into different groups.
+Under each group is what the pattern means as a machine
+instruction.
+(A group of bits that is part 
+of a larger bit pattern
+is often called a <b>field</b>).
+Each field of a machine instruction has a
+specific function.
+</p>
+</div>
+<br style="clear:both"> 
+
+ 
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+  0    1    0    9    5    0    2    1     -- machine instruction in hex
+
+<span class="blue">0000 00</span><span class="red">01 000</span><span class="blue">0 1001</span><span class="red"> 0101 0</span><span class="blue">000 00</span><span class="red">10 0001</span>    -- machine instruction in bits
+                                                                                                                                                                                                       
+<span class="blue">000000</span> <span class="red">01000</span> <span class="blue">01001</span> <span class="red">01010</span> <span class="blue">00000</span> <span class="red">100001</span>      -- fields of the instruction
+
+opcode oprnd oprnd dest  ----- 2ndary      -- meaning of the fields
+
+ALUop   $8    $9   $10           addu
+</pre> 
+<br style="clear:both"> 
+ 
+
+<a id="secondary_opcode"> </a>
+<a id="opcode,_secondary"> </a>
+<a id="opcode"> </a>
+
+<div class="left">
+<p>
+Inspect the groups until you see how the instruction specifies
+the four things: </p>
+<ol>
+<li>the <span class="highlight">operation</span></li>
+<li>the register that contains <span class="highlight">operand 1</span></li>
+<li>the register that contains <span class="highlight">operand 2</span></li>
+<li>the register that is the destination of the <span class="highlight">result.</span></li>
+</ol>
+
+<p>
+A machine instruction consists of fields
+that specify a machine operation
+and other fields that designate the data.
+</p>
+
+<p><span class="highlight">
+The 12 bits that specify the 
+<code><b>addu</b></code> 
+operation are split into two groups.
+The first group is called the <b>opcode</b> and
+the second group is called the <b>secondary opcode</b>.</span>
+</p>
+
+<p>
+The register numbers are coded as binary integers.
+Some bits of the instruction are left as zero.
+You have to look at MIPS documentation to figure 
+all this out.
+</p>
+
+<p><span class="highlight">
+Notice that the order of the registers in the machine
+instruction is not the same order as in the assembly language statement.</span>
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+Here
+ is another machine instruction, but the pattern
+that specifies the destination is blank.
+Fill it in so the destination is register $11.
+</p>
+
+<pre class="code">
+000000 01000  01001 <span class="blue">_ _ _ _ _</span> 00000 100001
+
+ALUop   $8    $9    <span class="blue">$11</span>             addu
+       op1   op2    <span class="blue">dest</span>
+</pre> 
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass10_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:07 GMT -->
+</html>

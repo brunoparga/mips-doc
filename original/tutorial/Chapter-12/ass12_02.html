@@ -1,0 +1,156 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 07:54:16 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:39 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee.org">
+<!-- <meta name="copyright" content="2009"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shift Left Logical</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass12_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap12-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+2N, twice the original integer. 
+</p>
+
+<p>
+<code>0110 0001</code> = 97<sub>10</sub>. 
+</p>
+
+<p>
+<code>1100 0010</code> = 194<sub>10</sub>.
+</p>
+
+<p>
+(However, if a 1-bit is shifted off the left side,
+then the number is ruined).
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Shift Left Logical</h1>
+<!-- ../Audio/chap12-02.mp3 -->
+
+
+<a id="shift_left_logical"> </a>
+<a id="logical_shift"> </a>
+
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+sll  d,s,shft      # $d gets the bits in $s 
+                   # shifted left logical
+                   # by shft positions,
+                   # where  0 &le; shft &lt; 32
+</pre>
+
+<br style="clear:both"> 
+
+<img src="lshiftLeft.gif" class="rightimage" alt="Bits shifted left" />
+
+<div class="left">
+
+<p>
+
+<span class="highlight">A <b>shift left logical</b> of one position
+moves each bit to the left 
+by one.</span>
+The low-order bit (the right-most bit) is replaced by a zero bit
+and the high-order  bit (the left-most bit) is discarded.
+</p>
+
+<p>
+Shifting by two positions is 
+the same as performing a one-position shift two times.
+Shifting by zero positions leaves the pattern unchanged.
+Shifting an N-bit pattern left by N 
+or more positions changes all of the bits to zero.
+</p>
+
+<p>
+The picture shows the operation performed on eight bits.
+The original pattern is 
+<code>1010 0111</code>.
+The resulting pattern is 
+<code>0100 1110</code>.
+</p>
+
+<p>
+<span class="highlight">The MIPS processor always performs the operation on a 32-bit
+register and puts the result in a 32-bit
+register.</span>
+</p>
+
+<p>
+The ALU (arithmetic/logic unit) which does the
+operation pays no attention to
+what the bits mean.
+If the bits represent an unsigned integer,
+then a left shift is equivalent to multiplying
+the integer by two.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<form>
+<p>
+Here is an 8-bit pattern.
+Shift it left (logical) by two.
+Then write the new 8-bit pattern as hex.
+</p>
+
+<table>
+<tr><th>Original</th><th>Shift Left Two</th></tr>
+<tr><td>0110 1111</td><td> <input type="text" size="20"> </td></tr>
+<tr><td>0x6F</td><td><input type="text" size="20"> </td></tr>
+</table>
+
+</form>
+ 
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass12_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:41 GMT -->
+</html>

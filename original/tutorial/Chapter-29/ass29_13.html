@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Nov 04 19:28:58 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:52 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Converting Representations from Decimal to Binary</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass29_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass29_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap29merge131415.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+What does shifting left by one bit do?
+</p>
+<h3>Answer:</h3>
+<p>
+Multiplies   by two.
+This is the same as with unsigned integers.
+Also, shifting one bit right is equivalent to division by two.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Converting Representations from Decimal to Binary</h1>
+<!-- ../Audio/chap29merge131415.mp3 -->
+
+
+<table class="center">
+<tr><th>&nbsp;</th><th>Decimal</th><th>Binary Fraction</th></tr>
+<tr><td>Start</td><td>0.625</td><td> 0.</td></tr>
+<tr><td>&#215;2</td><td><b>1</b>.250</td><td> 0.<b>1</b></td></tr>
+<tr><td>&nbsp; </td><td>        .250</td><td>  </td></tr>
+<tr><td>&#215;2</td><td><b>0</b>.500</td><td> 0.1<b>0</b></td></tr>
+<tr><td>&nbsp; </td><td>        .500</td><td>  </td></tr>
+<tr><td>&#215;2</td><td><b>1</b>.000</td><td> 0.10<b>1</b></td></tr>
+<tr><td>&nbsp; </td><td>        .000</td><td>  </td></tr>
+<tr><td>Result</td><td>.000</td><td> 0.101</td></tr>
+</table>
+
+<div class="left">
+
+<p>
+Often
+you need to convert a decimal expression like 7.625 into
+a binary expression.
+To do this, first convert the whole number (7 in this case) to binary
+(111 in this case), append a binary point, and
+convert the decimal fraction to binary.
+</p>
+
+<a id="converting_base_10_to_base_2_(fractions)"> </a>
+<blockquote>
+To convert a decimal fraction to Base 2:
+</blockquote>
+
+<blockquote>
+<span class="highlight">Repeatedly multiply the decimal fraction by two.
+After each multiplication,
+a one or a zero moves into the one's place
+(the place just left of the decimal point).
+Copy that bit to the right of the binary fraction,
+then erase it from the decimal fraction.</span>
+</blockquote>
+
+<blockquote>
+Stop when the decimal fraction is zero.
+(If this never happens, stop when you
+have enough bits in the binary fraction.)
+</blockquote>
+ 
+</div>
+
+<div class="right">
+
+
+<p>
+For our example: 
+0.625 is 0.101<sub>2</sub>.
+In this case the conversion stops when the decimal
+fraction changes to zero.
+This does not always happen.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+<p>
+(Thought Question: ) Why will no other digit but 0 or 1 move into the one's place?
+(Hint: consider the biggest possible decimal fraction).
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass29_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass29_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:53 GMT -->
+</html>

@@ -1,0 +1,100 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_01.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:04 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHAPTER 26  &#8212; Simple Subroutine Linkage</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<p class="revisions">
+created: 06/10/02; small corrections: 11/30/02, 07/05/03, 04/24/23; 
+audio: 02/14/04; revised 05/27/15, 04/10/16, 04/14/2021
+</p>
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_02.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26-01.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>CHAPTER 26  &#8212; Simple Subroutine Linkage</h1>
+<!-- ../Audio/chap26-01.mp3 -->
+
+<p>
+<span class="highlight">All 
+high level languages have the concept of a <b>subroutine</b></span> 
+(sometimes called <em>procedure</em>, <em>function</em>, or <em>method</em>).
+A subroutine is a logical division of the code that
+may be regarded as a self-contained operation.
+For example, the sine function is usually implemented as a subroutine.
+It can be regarded as an operation that can be used 
+as needed in a program. 
+</p>
+
+<p>
+<span class="highlight">This chapter looks at a simple implementation in assembly
+language of this idea.</span>
+The simple implementation is not adequate for the full
+power of subroutines (as implemented in high level languages),
+but is a good starting point.
+It corresponds to the type of subroutines implemented 
+in the early days of programming.
+</p>
+
+<h4>Chapter Topics:</h4>
+<ul>
+<li>Subroutine call</li>
+<li>Caller and Callee routines</li>
+<li><code>jal</code> and  <code>jr</code>  instructions  </li>
+<li>The <code class="register">$ra</code> register </li>
+<li>The simple linkage calling convention</li>
+<li>Register use in subroutines</li>
+</ul>
+
+
+<p>
+The two chapters after this one
+discuss subroutine call methods that are
+similar to those of modern languages.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 1:</h3>
+<p>
+(Review: ) What instructions  
+unconditionally transfer control from one
+address to another?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_02.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_01.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:05 GMT -->
+</html>

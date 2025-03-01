@@ -1,0 +1,117 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:27 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The   jr   Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.  An ordinary jump instruction has its 
+target encoded as an unchanging part of the instruction.
+(like  <code>j someSpot</code>).
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The <code> jr </code> Instruction</h1>
+<!-- ../Audio/chap26-09.mp3 -->
+
+
+<a id="jr,_instruction"> </a>
+<a id="instruction,_jr"> </a>
+
+
+<img src="jalEg.gif" class="rightimage" alt="section of memory" />
+
+
+<div class="left">
+
+<p><span class="highlight"> 
+The
+<b><code>jr</code></b> 
+instruction returns control to
+the caller.
+It copies the contents of  <code class="register">$ra</code> into the PC.</span>
+</p>
+ 
+<p>
+Usually you think of this as "jumping 
+to the address in <code class="register">$ra</code>."
+</p>
+
+<p>
+To make the instruction more general, it can be
+used with any register, not just  <code class="register">$ra</code>.
+Like all jump and branch instructions,
+the  <code>jr</code> instruction is
+followed by a branch delay.
+</p>
+
+<p>
+The diagram shows the subroutine returning
+to the return address that was loaded into  <code class="register">$ra</code> 
+by the <code>jal</code> instruction in the caller.
+</p>
+</div>
+<br style="clear:both"> 
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+jr  $ra      # PC &lt;&#8213; $ra 
+             # A branch delay 
+             # slot follows this instruction.
+</pre>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+Do we now have a mechanism that enables us to call the same subroutine
+from many points in a program?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:28 GMT -->
+</html>

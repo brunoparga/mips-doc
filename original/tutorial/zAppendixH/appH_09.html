@@ -1,0 +1,84 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Apr 23 14:15:06 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:11 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Representing Negative Integers in Binary</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="appH_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes: <code>1001010</code> == <code>2<sup>6</sup> + 2<sup>3</sup> + 2<sup>1</sup></code> == <code>64 + 8 + 2</code> == <code>74 </code>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Representing Negative Integers in Binary</h1>
+
+<a id="negative_integers,_in_binary"> </a>
+<p>
+The algorithm just presented works only for positive integers (and zero).
+To convert the representation of a negative integer from decimal to binary:
+</p>
+
+<ul>
+<li>Use the algorithm with the positive version of the integer (its absolute value).</li>
+<li>Decide how many bits you need in the final representation.
+    <ul><li>Usually this will be 8, 16, 24, or 32.</li></ul>
+<li>Put enough zero-bits on the left of the bits from step one to get the total number of bits you need.</li>
+<li>Form the two's compliment of the binary result.
+    <ul><li>This is the "reflect, add one" procedure from chapter 8</li></ul>
+</li>
+</ul>
+
+<p>
+Let us represent -85 in binary using 8-bit two's compliment.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+What is the first step?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="appH_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:12 GMT -->
+</html>

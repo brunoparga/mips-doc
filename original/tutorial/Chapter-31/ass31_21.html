@@ -1,0 +1,109 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:20 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operands must be Consistent with the Operation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Operands must be Consistent with the Operation</h1>
+
+<div class="left">
+
+<p><span class="highlight">
+The <code>addu</code> instruction performs the binary addition algorithm with whatever bit patterns it is given as operands.</span>
+In the program, one operand is in IEEE format, the other in two's complement. The instruction will combine 
+these bit patterns using the binary addition algorithm
+and produce garbage.
+</p>
+</div>
+
+<div class="right">
+<p>
+Of course, using floating point registers and floating point addition will also not work because the floating point addition require two floating point operands:
+</p>
+</div>
+
+<br style="clear:both"> 
+<pre class="program">
+
+##  Another Failure
+##
+        .text
+        .globl main
+main:   l.s     $f0,af              # get a one
+        l.s     $f2,ai              # get another one
+        add.s   $f4,$f0, $f2        # 1 + 1 = ??
+
+        
+        .data
+af:     .float  1.0
+ai:     .word   1
+</pre>
+
+<div class="left">
+
+<p>
+Recall that the data movement instructions (<code>mtc1</code> and <code> mfc1</code>) merely copy bit patterns, they don't convert formats.
+So they are of no help, here.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 21:</h3>
+
+<p>
+(Thought Question: ) Would it be possible for a program to have a section (perhaps a subroutine) that converts data from two's complement into IEEE?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_20.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_22.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_21.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:21 GMT -->
+</html>

@@ -1,0 +1,120 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 26 20:00:27 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:07 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RISC</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass19_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap19-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+You must use assembly language to write some
+functions of the game.
+Or (more likely) use a graphics library that utilizes these instructions.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>RISC</h1>
+<!-- ../Audio/chap19-11.mp3 -->
+
+<a id="RISC"> </a>
+
+<div class="left">
+<p>
+Reduced
+Instruction Set Computers 
+(RISC) have a small number of instructions.
+The idea of RISC is 
+<span class="highlight">that it is better to have a 
+small, sleek, fast instruction set
+than to have a big collection</span>
+of poorly coordinated, ungainly, complex instructions.
+</p>
+
+<p>
+If  a small set of instructions is implemented on a chip,
+the chip now has room for 
+more general purpose registers,
+a larger on-chip memory cache,
+an instruction pipeline,
+and other features that add speed.
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">
+But modern CISC chips now include many of the features
+of RISC chips (such as cache and pipelining).</span>
+Modern CISC chips have greater throughput
+than older RISC chips.
+Consumer and office computers use CISC chips
+to be compatible with existing Windows software.
+High-end workstations and
+recently designed systems (such as embedded systems)
+typically use RISC.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+
+<p>
+Examine the following program excerpt.
+(Trick question:) Is it correct?
+</p>
+
+<pre>
+start:   ori   $8,$0,4      # $8 = 4
+         ori   $9,$0,12     # $9 = 12
+         addu  $10,$8,$9    # $10 = 12+4 = 16
+         sll   $10,$10,2    # $10 = 16*4 = 64
+         
+</pre>
+         
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass19_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:08 GMT -->
+</html>

@@ -1,0 +1,896 @@
+<!doctype html> 
+
+<!-- 07/25/2015  bpk  HTML5 validation; added color to answer box; put answer box in table -->
+<!-- 02/24/2023  bpk  added questions 11-15 -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:49 GMT -->
+<head>
+<meta charset="utf-8">
+
+<meta name="copyright" content="2003">
+<meta name="author" content="Bradley Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+
+<title>
+Quiz on Bitwise Logic
+</title>
+
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/QUIZstyle.css">
+
+<script type="text/javascript">
+function gradeQuiz( reportForm ) 
+{
+  var totalRight = 0;
+  
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == '' ) { alert("Question " + (count+1) + " has not been answered" ); return; }
+  }
+  
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+    {
+      document.forms[ count ].correct.style.background = "#80FF80" ;
+      totalRight++ ;
+    }
+   else
+      document.forms[ count ].correct.style.background = "#FF8080" ;
+       
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm...."
+}
+</script>
+
+<style>
+table
+{
+  padding: 15px;
+}
+
+td
+{
+  padding: 5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<p class="revisions">
+Created 03/14/03, revised 02/24/23
+</p>
+
+<hr/>
+
+<h1 style="text-align:center" >
+<img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Chapter-11/quizPencil.gif" alt="Quiz"/>
+ on Bitwise Logic
+</h1>
+ 
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, 
+the correct answers will appear in the box after each question.
+</p>
+
+<br>
+
+
+<hr/>
+<form name="question1">
+<p>
+1.
+With some machine instructions, one of the operands is contained in 16 bits of the instruction itself.
+What is such an operand called?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+immediate operand
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+embedded operand
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+binary operand
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+machine operand
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question2">
+<p>
+2.
+
+What is it called when a logical operation
+is performed between the bits of each column of the operands to
+produce a result bit for each column?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+logic operation
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+bitwise operation
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+binary operation
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+column operation
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question3">
+<p>
+3.
+
+When an operation is actually performed,
+what is true of the operands in the ALU?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+At least one operand must be 32 bits wide.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+Each operand can be any size.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Both operands must come from registers.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Both operands must each be 32 bits wide.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question4">
+<p>
+4.
+
+Sixteen bits of data from an <b><code>ori</code></b> instruction are
+used as an immediate operand. 
+During execution, what first happens with those 16 bits?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+The data is zero-extended by 16 bits on the right.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+The data is zero-extended by 16 bits on the left.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Nothing needs to be done.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Only 16 bits are used from the other operand.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question5">
+<p>
+5.
+
+What is it called with a bit pattern is copied
+into a register?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+The register is <b>loaded</b> with the pattern.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+The register is <b>stuffed</b> with the pattern.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+The register is <b>filled</b> with the pattern.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+The register is <b>set</b> with the pattern.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question6">
+<p>
+6.
+
+Which of the following instructions loads
+register <code>$5</code> with the bit pattern
+that represents positive 48<sub>10</sub>?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>ori $5,$0,0x48</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>ori $5,$5,0x48</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>ori $5,$0,48</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>ori $0,$5,0x48</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question7">
+<p>
+7.
+
+Can the <code>ori</code> instruction put the
+two's complement representation of a <b>negative</b>
+integer into a register?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+No. 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question8">
+<p>
+8.
+
+Which of the following instructions clears all the
+bits in register $8 except for the low order byte,
+which is unchanged?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>ori $8,$8,0xFF</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>ori $8,$0,0x00FF</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>xori $8,$8,0xFF</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>andi $8,$8,0xFF</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question9">
+<p>
+9.
+
+What is the result of performing an exclusive or
+of a bit pattern with itself?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+The result is all zero bits.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+The result is the same as the original.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+The result is all one bits.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+The result is the reverse of the original.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr/>
+<form name="question10">
+<p>
+10.
+
+Do all machine instructions have the same parts?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+No. Different types of machine instructions
+are made of different fields.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+No. Each machine instruction is completely
+different from any other.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes. All machine instructions have the same parts
+in the same order.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Yes. All machine instructions have the same parts,
+but they might be in different orders.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<!-- ..................................  11 ................................. -->
+
+
+<hr/>
+<form name="question11">
+<p>
+11.
+What is the result of bit-wise OR between the following two patterns?
+</p>
+
+<pre>
+0110 1001
+1010 0101
+</pre>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<pre>
+1110 1101
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+0100 1001
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+0101 1111
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+  
+<pre>
+0110 1000
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<!-- ..................................  12 ................................. -->
+
+<hr/>
+<form name="question12">
+<p>
+12.
+What is the result of bit-wise AND between the following two patterns?
+</p>
+
+<pre>
+0110 1001
+1010 0101
+</pre>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<pre>
+1100 1101
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+0010 0001
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+1101 1111
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+  
+<pre>
+0110 1000
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+
+<!-- ..................................  13 ................................. -->
+
+<hr/>
+<form name="question13">
+<p>
+13.
+What is the result of bit-wise XOR between the following two patterns?
+</p>
+
+<pre>
+0110 1001
+1010 0101
+</pre>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<pre>
+1110 1101
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+0010 0001
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+1100 1100
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+  
+<pre>
+0110 1000
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+
+
+<!-- ..................................  14 ................................. -->
+
+<hr/>
+<form name="question14">
+<p>
+14.
+What is the result of bit-wise AND between the following two patterns?
+</p>
+
+<pre>
+1110 1101
+0010 0101
+</pre>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<pre>
+1110 1001
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+0010 0001
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+0010 0101
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+  
+<pre>
+0110 1000
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+
+
+<!-- ..................................  15 ................................. -->
+
+<hr/>
+<form name="question15">
+<p>
+15.
+What is the result of bit-wise OR between the following two patterns?
+</p>
+
+<pre>
+1110 1101
+0010 0101
+</pre>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<pre>
+1110 1001
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+0010 0001
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+0010 0101
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+  
+<pre>
+1110 1101
+</pre>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr>
+<form name="evaluateQuest">
+
+
+<p  style="text-align:center">
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</p>
+
+
+<p  style="text-align:center">
+The number you got right:
+
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+<p  style="text-align:center">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part3"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/homeIcon.gif" alt="Click here" > </a>
+</p>
+
+<p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:49 GMT -->
+</html>

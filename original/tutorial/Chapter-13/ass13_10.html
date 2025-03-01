@@ -1,0 +1,135 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Mar 01 18:06:44 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:26 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>  addiu   Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass13_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap13merge1516.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<p>
+A 16-bit two's complement negative one:
+</p>
+
+<pre>FF FF  = 1111 1111 1111 1111</pre>
+<p>
+Sign-extended:
+</p>
+<pre>FF FF FF FF  =  1111 1111 1111 1111 1111 1111 1111 1111 </pre>
+<p>
+The sign-extended version is a 32-bit negative one.
+</p>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1><code> addiu </code> Instruction</h1>
+
+<!-- ../Audio/chap13merge1516.mp3 -->
+
+
+<a id="addiu"> </a>
+<a id="addi"> </a>
+
+
+
+<pre style="border: 2px dotted green; padding:10px; background-color:white">
+addiu   d,s,const        # d <span style="font-size: 30px;">&larr;</span>  s + const
+                         # Const is 16-bit two's comp. sign-extended to 32 bits
+                         # when the addition is done. No overflow trap.
+</pre>
+ 
+<div class="left">
+<p><span class="highlight">
+The <code>addiu</code> 
+instruction
+includes a 16-bit immediate operand.</span>
+When the ALU executes the instruction, 
+the immediate operand is <span class="highlight">sign-extended to 32 bits.</span>
+If two's complement overflow occurs during the addition, it is ignored.
+</p>
+</div>
+<br style="clear:both"> 
+
+<pre style="border: 2px dotted green; padding:10px; background-color:white">
+addi    d,s,const        # d <span style="font-size: 30px;">&larr;</span>  s + const
+                         # Const is 16-bit two's comp. sign-extended to 32 bits
+                         # when the addition is done. Two's comp. overflow trap.
+</pre> 
+
+<div class="left"> 
+<p>
+The <code>addi</code> 
+instruction <u>does</u> trap
+if overflow is detected during addition.
+We won't use it.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+
+
+<p>
+Here is the previous program, that added +146 with -82.
+Rewrite it using the <code>addiu</code> instruction.
+Put the result in <code class="register">$10</code>.
+</p>
+
+<pre>
+    ori      $7, $0, 146        # put +146 into $7
+    ori      $8, $0,  82        # put 82 into $8
+    nor      $8, $8,  $0        # reflect
+    ori      $9, $9,   1        # 
+    addu     $8, $8,  $9        # add 1: $8 = -82
+    addu    $10, $7,  $8        # (+146) + (-82)
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass13_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:27 GMT -->
+</html>

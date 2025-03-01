@@ -1,0 +1,108 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Apr 23 14:15:06 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:27 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repeated Subtraction Method</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="appH_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<p>
+20 == 16 + 4
+</p>
+
+<p>
+16 is 10000, 4 is 00100, so 20 must be 10100.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Repeated Subtraction Method</h1>
+
+<a id="decimal_to_binary,_repeated_subtraction_method"> </a>
+
+<p>
+The above ideas lead to the repeated subtraction method of converting a reprsentation
+of a positive integer from decimal to binary.
+</p>
+
+<table>
+<tr>
+<th>Algorithm: Convert a positive integer<br> from base 10 to Binary Representation</th>
+</tr>
+
+<tr>
+<td>
+<pre  style="margin-left:0.25cm;text-align:left;">
+number = positive integer;
+
+while (number > 0 )
+{
+  determine the largest  2<sup>B</sup> that is less than or equal to number; &nbsp; &nbsp;
+  put a 1 in the B's place of the binary ;
+  number = number - 2<sup>B</sup> ;
+}
+
+Put 0s in the binary for the powers of 2 not used;
+
+</pre>
+
+</td>
+</tr>
+</table>
+
+<p>
+You are (of course) eager to practice this method.
+Let us convert 23 to binary.
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 16:</h3>
+<p>
+What is the greatest power of two less than 23?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="appH_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:28 GMT -->
+</html>

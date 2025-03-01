@@ -1,0 +1,160 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Jul 06 10:45:00 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:12 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2019"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Main Storage</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass01_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap01-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Problems that involve the very computer the program is
+running on.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Main Storage</h1>
+<!-- ../Audio/chap01-12.mp3 -->
+
+<a id="assembly_language,_uses"> </a>
+
+ 
+<figure class="middle">
+<img src="IMSAI.jpg" alt="IMSAI computer">
+<figcaption>A Beautiful Computer </figcaption>
+</figure>
+<br style="clear:both"> 
+
+<div class="left">
+
+<p>
+Assembly 
+language <em>does</em> match the problem when the
+problem is the operation of the computer system.
+<span class="highlight">Assembly language is used for operating systems,
+compilers, communications, low-level graphics, and other
+programs where the architecture of the processor
+must be visible.</span>
+Often  the crucial parts of these programs are written
+in assembly and the rest
+in a high level language (usually C.)
+</p>
+
+<p>
+The most common use of assembly language is in programming
+<b>embedded systems</b>.
+Here a processor chip is
+part of a machine built for a specific purpose.
+Examples are 
+aviation electronics, 
+communication satellites, DVD players, 
+robots, automobile electronics,
+cell phones,
+and game consoles.
+MIPS chips are commonly used in these. 
+</p>
+
+
+<a id="byte"> </a>
+<a id="bit"> </a>
+
+<p>
+Now let us move on to the memory of a computer system.
+<span class="highlight">Eight bits make up a <b>byte</b>. 
+A <b>bit</b> is a single on/off value.</span>
+Early computers had rows of toggle switches
+which were used to set the values of bits in main memory.
+You could program these computers by entering
+the bits of each machine instruction from the front panel switches.
+A light above each switch 
+showed whether it was on or off (1 or 0).
+Modern computers have more convenient methods
+for moving bit patterns into memory.
+</p>
+</div>
+
+
+<div class="right">
+<a id="vonNeumann"> </a>
+<a id="main_memory"> </a>
+
+<p>
+<span class="highlight"><a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap01-13.mp3" target="audioPlayer" class="audio">T</a>he 
+bytes that make up the
+machine instructions of a program are stored in
+<b>main memory</b></span>
+and fetched into the processor as needed.
+<span class="highlight">Data is also kept in main memory.</span>
+Keeping both data and instructions in main memory
+is one of the characteristics of a <b>Von Neumann</b> machine, 
+the name for the basic design of most modern computers.
+</p>
+
+<p>
+In the MIPS, as in most computers,
+<span class="highlight">each byte of main memory has an address.
+An address is an integer that uniquely identifies the byte.</span>
+The addresses run from 0 up to about four billion.
+However, on the MIPS, user programs and data 
+(such as you will write) are
+restricted to the first two billion addresses.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+
+<p>
+It it necessary to install four billion bytes of RAM on a MIPS
+computer?
+(Hint: the address range of a MIPS is the same as that of a 32-bit Pentium).
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass01_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:14 GMT -->
+</html>

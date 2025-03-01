@@ -1,0 +1,109 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_25.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:16 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>  main   Subroutine</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_24.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_26.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap27-21.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Four levels deep:
+<code>main</code> calls <code>doLines</code> which calls <code>convert</code>
+ which calls <code>conCh</code>.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1><code> main </code> Subroutine</h1>
+<!-- ../Audio/chap27-21.mp3 -->
+
+<div class="middle">
+<p>
+An
+advantage of modular programming is that each subroutine
+can be displayed and explained independently of the others.
+Here is the design of &nbsp;<code>main</code>.
+</p>
+
+<p>
+To simplify the discussion,
+branch delays and load delays have been turned OFF in SPIM.
+</p>
+</div>
+
+<pre class="program">
+<img src="main.gif" class="rightimage" alt="main flowchart" >
+         .text
+         .globl  main
+main:
+         ??????                   # what goes here?
+         
+         la      $a0,mainPr       # prompt the user
+         li      $v0,4            # service 4
+         syscall
+
+         jal     doLines          # process lines of input
+         
+         ??????                   # what goes here?
+         
+         jr      $ra              # return to OS 
+
+         .data
+mainPr:  .ascii  "Type each line of text followed by ENTER.\n"
+         .asciiz "Type Q at the start of a line to finish.\n"
+</pre>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 25:</h3>
+<p>
+According to the 
+<GOTO>Stack-based Linkage Convention</GOTO>Stack-based Linking convention
+does <code>main</code> need to push and later pop the return address?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_24.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_26.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_25.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:18 GMT -->
+</html>

@@ -1,0 +1,139 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:07 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review of Memory</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap33-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+2<sup>32</sup>  &#8212; about four billion
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Review of Memory</h1>
+<!-- ../Audio/chap33-02.mp3 -->
+
+
+<a id="memory_layout,_picture"> </a>
+
+<img src="../Chapter-10/memoryLayout.gif" class="centerimage" alt="Memory Layout" />
+
+<div class="left">
+
+<p>
+Recall 
+(from chapter 10) that there are 2<sup>32</sup> bytes
+available in main memory, each one with its own address.
+Most of these bytes are <em>virtual</em>.
+They are implemented by the virtual memory system and do
+not directly correspond to bytes in RAM chips.
+But to executing programs it looks as if all the bytes are present.
+</p>
+
+<p>
+Usually, with a multitasking system,
+the processor is shared among many executing programs.
+But the operating system makes it appear to each
+executing program as if it is the only one running on the system.
+Also, the operating system makes it look to each program as if
+2<sup>31</sup> bytes are there for it alone.
+(The other half of memory is for the operating system.)
+</p>
+
+<p>
+For these chapters,
+ignore these details
+and just think of a program as running by itself
+in two billion bytes of memory and the
+operating system running in the other two billion bytes.
+</p>
+ 
+</div>
+<div class="right">
+<p>
+The picture shows a program running in the bottom half
+of memory
+and the operating system in the top half.
+The operating system divides the memory available 
+to a program into sections.
+This is not required by hardware, 
+but makes managing computer operations easier.
+</p>
+
+<ul>
+<li>The <em>Text Segment</em> holds the machine language of the program.</li>
+<li>The <em>Data Segment</em> holds the memory that has been allocated to the
+program just as it starts.</li>
+<li>The <em>Stack Segment</em> is for the run-time stack.</li>
+</ul>
+</p>
+
+<p><span class="highlight">
+Between the data segment and the stack segment there is unallocated memory.
+It is used for growing the stack (shown as the downward-pointing arrow at the top)
+or for creating dynamic data structures (shown as the upward-pointing arrow at the bottom).</span>
+Both of these activities occur as the program is running.
+</p>
+
+<a id="heap"> </a>
+
+<p><span class="highlight">
+The <b>heap</b> is the portion of memory above the fixed data segment  
+used for dynamic memory allocation.</span>
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+<p>
+What is the process of allocating memory from the heap called?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:09 GMT -->
+</html>

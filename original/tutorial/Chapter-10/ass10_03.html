@@ -1,0 +1,171 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Sep 19 21:41:21 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:32 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Layout</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass10_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap10merge0506.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<ul>
+<li>Does a <b>load</b> operation change the bit pattern in memory?  
+<span class="blue">NO: a register gets a copy of the bit pattern in memory.</span></li>
+<li>Does a <b>store</b> operation change the bit pattern in memory? 
+<span class="blue">YES: the bit pattern in the register replaces the contents of memory
+at the designated addresses.</span></li>
+</ul>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Memory Layout</h1>
+<!-- ../Audio/chap10merge0506.mp3 -->
+
+
+<img src="memoryLayout.gif" class="rightimage" alt="Picture of Memory Organization" />
+
+
+<div class="left">
+<p>
+Load and store operations copy the bit pattern 
+from the source into the destination.
+The source (register or memory) does not change.
+Of course, the pattern at the destination 
+is replaced by the pattern at the source.
+</p>
+
+<a id="memory,_conventional_layout"> </a>
+
+<p>
+Memory is built to store bit patterns.
+Both instructions and data are bit patterns, and either of these
+can be stored anywhere in memory (at least, so far as the hardware is concerned.)
+However, 
+<span class="highlight">it is convenient for programmers and systems software to organize
+memory so that instructions and data are separated.</span>
+The picture shows how memory is laid out for a typical operating system.
+QtSpim lays out memory this way.
+</p>
+
+<p>
+Although the address space is 32 bits,
+<span class="highlight">the top addresses from 0x80000000
+to 0xFFFFFFFF are not available to user
+programs.</span>
+They are used for the operating system
+and for ROM.
+When a MIPS chip is used in an
+embedded controller 
+the control program
+exists in ROM in
+this upper
+half of the address space.
+</p>
+
+<p>
+The parts of address space accessible 
+to a user program are divided as follows:
+</p>
+
+<blockquote>
+<p>
+<span class="highlightred"><b>Text Segment:</b></span> 
+This holds the
+machine language of the user
+program (the <em>text</em>).
+</p>
+
+<p>
+<span class="highlightred"><b>Data Segment:</b></span>
+This holds the data that the program
+operates on.
+Part of the data is <em>static</em>.
+This is data that is allocated by the
+assembler and whose size does not change as a program executes.
+Values in it <u>do</u> change; "static"
+means the size in bytes does not change
+during execution.
+</p>
+
+<p> 
+On top of the static data is the
+<em>dynamic</em> data.
+This is data that is allocated 
+and deallocated as the
+program executes.
+In C programming, dynamic allocation 
+and deallocation is done with
+<em>malloc()</em> and <em>free()</em>.
+</p>
+
+<p>
+<span class="highlightred"><b>Stack Segment:</b></span>
+At the top of user address space
+is the stack.
+With high level languages,
+local variables and parameters
+are pushed and popped on the
+stack as procedures are activated
+and deactivated.
+</p>
+</blockquote>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+(Thought Question)
+As the program runs, the data segment
+grows upward (as dynamic variables are allocated)
+and the stack grows downward (as procedures get
+called).
+Is this sensible?
+(Hint: how much user memory is left when the two
+segments meet?)
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass10_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:33 GMT -->
+</html>

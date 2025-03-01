@@ -1,0 +1,926 @@
+<!doctype html> 
+
+<!-- 08/18/2015  bpk  HTML5 validation; added color to answer box; put answer box in table -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-06/ass06quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:43 GMT -->
+<head>
+<meta charset="utf-8">
+
+<meta name="copyright" content="2003">
+<meta name="author" content="Bradley Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+
+<title>
+Quiz on Extended Assembler
+</title>
+
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/QUIZstyle.css">
+
+<script type="text/javascript">
+function gradeQuiz( reportForm ) 
+{
+  var totalRight = 0;
+  
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == '' ) { alert("Question " + (count+1) + " has not been answered" ); return; }
+  }
+  
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+    {
+      document.forms[ count ].correct.style.background = "#80FF80" ;
+      totalRight++ ;
+    }
+   else
+      document.forms[ count ].correct.style.background = "#FF8080" ;
+       
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+</script>
+
+<style>
+table
+{
+  padding: 15px;
+}
+
+td
+{
+  padding: 5px;
+}
+</style>
+
+</head>
+<body>
+<p class="revisions">Created 06/12/03 </p>
+<hr/>
+
+<h1   style="text-align:center" >
+<img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/quizPencil.gif" alt="Quiz" >
+ on Number Representation
+</h1>
+ 
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, 
+the correct answers will appear in the box after each question.
+</p>
+ 
+
+<hr/>
+<form name="question1">
+<p>
+1.
+
+Which of the following could represent the number eight?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+8
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+//// ////
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+iix
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+They all could represent the number.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question2">
+<p>
+2.
+
+The number thirteen is a prime number,
+a number that has no divisors other
+than itself and one.
+Which of the following represent a prime number?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+13
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+XIII
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+1101<sub>2</sub>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+All of them.
+The properties of a number do
+not depend on how it is represented.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question3">
+<p>
+3.
+
+What are some of the advantages of
+<b>positional notation</b>?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+Compact, easy to compute with.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+Uses familiar characters, always uses base ten.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Does not need a symbol for zero,
+easy to learn.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Numbers of any size can be represented,
+more accurate than other methods.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question4">
+<p>
+4.
+
+What is the value of B<sup>0</sup>,
+where B is an integer?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+2
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+B
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question5">
+<p>
+5.
+
+What are the "digits" ordinarily used
+for base five?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0 1 2 3 4
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1 2 3 4 5
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+0 1 2 3 4 5
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+a b c d e 
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question6">
+<p>
+6.
+
+Here is a number represented in
+base <b>three</b>.
+The expression on the right of =
+is in base ten.
+What should fill the blanks?
+</p>
+
+<pre>
+201<sub>3</sub> = 2 &#215; 3<sup>---</sup> +  0 &#215; 3<sup>---</sup> + 1 &#215; 3<sup>---</sup>
+</pre>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>2 1 0</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>3 2 1</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>1 2 3</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>0 1 2</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question7">
+<p>
+7.
+
+Convert the following to base ten:
+201<sub>3</sub> 
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+5
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+8
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+19
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+98
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='E'">
+<b>E.&nbsp;&nbsp;&nbsp;</b>
+ 
+105
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question8">
+<p>
+8.
+
+Change the representation of
+<code>203<sub>4</sub></code> from
+base four to base ten.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+5<sub>10</sub>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+11<sub>10</sub>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+19<sub>10</sub>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+35<sub>10</sub>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='E'">
+<b>E.&nbsp;&nbsp;&nbsp;</b>
+ 
+67<sub>10</sub>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question9">
+<p>
+9.
+
+What are the "digits" of base two number 
+representations usually called?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+bits
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+bytes
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+quarks
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+dots
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question10">
+<p>
+10.
+
+Change the representation of
+<code>10<sub>2</sub></code> from
+base two to base ten.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+2
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+3
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='E'">
+<b>E.&nbsp;&nbsp;&nbsp;</b>
+ 
+4
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='F'">
+<b>F.&nbsp;&nbsp;&nbsp;</b>
+ 
+5
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question11">
+<p>
+11.
+
+Change the representation of
+<code>101<sub>2</sub></code> from
+base two to base ten.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+2
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+3
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='E'">
+<b>E.&nbsp;&nbsp;&nbsp;</b>
+ 
+4
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='F'">
+<b>F.&nbsp;&nbsp;&nbsp;</b>
+ 
+5
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="F">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question12">
+<p>
+12.
+
+Change the representation of
+<code>1011<sub>2</sub></code> from
+base two to base ten.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>3<sub>10</sub></code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>8<sub>10</sub></code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>11<sub>10</sub></code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>14<sub>10</sub></code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='E'">
+<b>E.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>19<sub>10</sub></code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='F'">
+<b>F.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>32<sub>10</sub></code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question13">
+<p>
+13.
+
+Change the representation of
+<code>24<sub>8</sub></code> from
+base eight to base ten.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>7<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>12<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>17<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>20<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='E'">
+<b>E.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>27<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='F'">
+<b>F.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>32<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question14">
+<p>
+14.
+
+Change the representation of
+<code>010100<sub>2</sub></code> from
+base two to base ten.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>17<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>20<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>21<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>26<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='E'">
+<b>E.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>28<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='F'">
+<b>F.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>32<sub>10</sub></code> 
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question15">
+<p>
+15.
+
+Change the representation of
+<code>24<sub>8</sub></code> from
+base eight to base two
+(hint: look at the previous two questions.)
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>000110<sub>2</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>010110<sub>2</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>010100<sub>2</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>010010<sub>2</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='E'">
+<b>E.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>010111<sub>2</sub></code> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='F'">
+<b>F.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>110110<sub>2</sub></code> 
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+
+<hr>
+<form name="evaluateQuest">
+
+
+<p  style="text-align:center">
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</p>
+
+<p  style="text-align:center">
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+<p  style="text-align:center">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part1"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/homeIcon.gif" alt="Click here" > </a>
+</p>
+
+<p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-06/ass06quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:43 GMT -->
+</html>

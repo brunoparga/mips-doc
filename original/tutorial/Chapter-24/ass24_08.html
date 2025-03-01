@@ -1,0 +1,111 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:00 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blanks Filled</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-09.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Blanks Filled</h1>
+<div class="left">
+<p>
+The
+outline is completed below.
+I/O is left out.
+Detecting the end of input
+by testing for a sentinel value,
+as we do here,
+is usually regarded as poor style.
+It is used here to simplify the example.
+</p>
+</div>
+
+<div class="right">
+<p>
+Notice how the while-loop is implemented.
+<span class="highlight">In assembly language you have to build control structures
+like <code>if</code> and <code>while</code> out of branches.</span>
+It is sometimes tricky to get the logic correct.
+</p>
+
+</div>
+<br style="clear:both"> 
+
+<pre class="program">
+main:   
+        li    $v1,0            # zero the sum
+loop:
+        . . . .                # prompt the user for input
+        li    $v0,5            # read the integer
+        syscall                # into $v0
+
+        <span style="color:blue">beq</span>   $v0,<span style="color:blue">-999</span>,done    # while ( $v0 != -999 )
+        <span style="color:blue">blt</span>   $v0,<span style="color:blue">-32</span>,out         # less than -32
+        <span style="color:blue">bgt</span>   $v0,<span style="color:blue">32</span>,out          # greather than 32
+
+        addu  $v1,$v1,$v0         # if in range add           
+                                  # else skip
+out:    b     loop        
+
+done:   . . . .                # write out result
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+(Memory Test: ) What do <b>set</b> instructions do on MIPS?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:01 GMT -->
+</html>

@@ -1,0 +1,146 @@
+<!doctype html> 
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:49 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 05/17/2016</p>
+<hr />
+
+<h1> 
+Chapter 11 Programming Exercises
+</h1>
+
+<hr />
+ 
+<p>
+For these programming exercises,
+use only those instructions that have been
+discussed so far in these notes:
+</p>
+
+
+<table style="width:50%"> 
+
+<tr> 
+<td>ori</td>	
+<td>xori</td>	
+<td>addu</td>
+<td>andi</td>
+</tr>
+
+</table>
+
+<p>
+In the <em> Simulator/Settings/MIPS</em> menu of SPIM set
+Bare Machine ON, Accept Pseudo Instructions OFF,
+Enable Delayed Branches ON,
+Enable Delayed Loads ON,
+Enable Mapped I/O OFF, 
+Load Exception Handler OFF.
+</p>
+
+<p>
+Run the programs by 
+single stepping (pushing F10).
+Observing the results in the SPIM Int Regs window.
+Check the <em>Registers</em> menu that the registers are displayed in HEX.
+</p>
+
+
+<hr />
+
+<h2>*Exercise 1</h2>
+
+<p>
+Start with this source file:
+</p>
+
+<pre>
+## Mysterious vanishing pattern
+## 
+        .text
+        .globl  main
+
+main:
+        ori     $10,$0,0x2BAD    # put a pattern into $10 
+        xori    $10,$10,0xF3C5   # mess it up with a xor
+        xori    $10,$10,0x????   # what immediate operand will 
+                                 # restore the original pattern in $10 ?
+</pre>
+
+<p>
+Replace <code>0x???</code> with some immediate operand. 
+Run the program by pushing F10 to single step.
+Check the register display after each step.
+Find the bit pattern to use in the third instruction that will return <code>$10</code> to its original pattern.
+</p>
+ 
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part3"> Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+
+<h2>*Exercise 2</h2>
+
+<p>
+Create a source program containing the following lines.
+</p>
+
+<pre>
+## Sixteen bit negative
+## 
+        .text
+        .globl  main
+
+main:
+        ori     $11,$0,0x0001    # put a one into a register $11
+        ori     $10,$0,0x0009    # put a nine into $10 
+        xori    $12,$10,0xFFFF   # reflect the bits
+                                 # add one
+                                 # Add positive nine and negative nine
+</pre>
+
+<p>
+Complete the program as described in the comments. The goal is to create a 16-bit negative nine in register <code>$11</code>
+and then to add the positive and negative together.
+Do you end up with a 16-bit zero?
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part3"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<p>
+<b>End of Exercises</b>
+</p>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:49 GMT -->
+</html>
+

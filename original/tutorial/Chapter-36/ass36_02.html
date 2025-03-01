@@ -1,0 +1,142 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:13 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Addresses in Memory</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Of course.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Addresses in Memory</h1>
+<!-- ../Audio/chap36-02.mp3 -->
+
+<div class="left">
+
+<p>
+An
+address is a 32-bit pattern, 
+and any 32-bit word
+of main storage can hold it.
+For example,
+here is a fragment of a program:
+</p>
+
+</div>
+
+<br style="clear:both">
+
+<pre class="program">
+          .text
+<span class="highlight">sub1:</span>     li       $v0,4                # service code 4, print string
+          la       $a0,messH            # address of string to print
+          syscall                       # invoke the service
+          jr       $ra                  # return to caller
+          .data
+messH:    .asciiz  "Hello "
+
+          .text
+sub2:     li       $v0,4                # service code 4, print string
+          la       $a0,messW            # address of string to print
+          syscall                       # invoke the service
+          jr       $ra                  # return to caller
+          .data
+messW:    .asciiz  "World\n"
+
+          .data
+sub1add:  .word <span class="highlight">sub1</span>                    # address of the first subroutine
+sub2add:  .word sub2                    # address of the second subroutine
+</pre>
+<div class="left">
+
+<p>
+The symbolic address <code>sub1</code>
+stands for whatever 32-bit address
+the first byte of the first subroutine
+gets loaded into at run time.
+</p>
+
+<p>
+In the <code>.data</code> section
+at the end 
+of the program,
+<span class="highlight">the address represented by <code>sub1</code>
+is stored in memory,
+at the symbolic address  <code>sub1add</code>.</span>
+</p>
+</div>
+
+<div class="right">
+
+<p>
+Part of the job of the assembler and the loader is to
+determine where in memory various parts of a program go.
+In source code, you use symbolic addresses for these locations.
+</p>
+
+<p>
+The source code interleaves text and data, but 
+<span class="highlight">the assembler and loader will put all machine code 
+into the text section of memory and all data into the
+data section of memory.</span>
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+<p>
+If the address of <code>sub1</code> is <code>0x00400000</code>,
+what bit pattern do you expect to see in memory
+at the location <code>sub1add</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:14 GMT -->
+</html>

@@ -1,0 +1,105 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_23.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:08 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calling the Methods</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_22.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_24.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-23.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>         
+la       $t0,<span class="blue">print</span>          #   initialize jump table
+sw       $t0,0($v0)         #   
+la       $t0,<span class="blue">read</span>           #
+sw       $t0,4($v0)         #
+</pre>
+
+<p>
+The <b><code>la</code></b> is the correct one
+to use because we need the <u>address</u> that
+<code>print</code> stands for,
+not the contents of that location.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Calling the Methods</h1>
+<!-- ../Audio/chap36-23.mp3 -->
+
+<p>
+After
+constructing the object,
+the program invokes
+each method of the
+object.
+</p>
+
+<pre class="program">     
+                                      # object1.read();
+          lw       $a0,<input type="text" size="5" name="T1" />          #   get address of object1
+          
+          lw       $t0,<input type="text" size="5" name="T2" /> ($a0)    #   get address of read method
+          
+          jalr     <input type="text" size="5" name="T3" />              #   call the method
+          
+                                      # object1.print();
+          lw       $a0,<input type="text" size="5" name="T4" />          #   get address of first object
+          
+          lw       $t0,<input type="text" size="5" name="T5" /> ($a0)    #   get address of print method
+          
+          jalr     <input type="text" size="5" name="T6" />              #   call the method
+          
+          li      $v0,10              # return to OS
+          syscall
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 23:</h3>
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_22.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_24.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_23.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:09 GMT -->
+</html>

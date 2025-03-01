@@ -1,0 +1,115 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 07:54:16 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:30 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee.org">
+<!-- <meta name="copyright" content="2009"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shifting the Opcode</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass12_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap12-17.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+See below
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Shifting the Opcode</h1>
+<!-- ../Audio/chap12-17.mp3 -->
+
+<div class="left">
+<p>
+
+The
+ <code>ori</code> instruction puts its immediate operand in the low
+order bits (the right-most bits) of its destination register.
+So now, with the following code, the registers have the
+correct patterns but the patterns are not in the correct fields. 
+</p>
+
+<pre>
+or    $25,$0,$0        # clear $25
+ori   $11,$0,0xD       # opcode
+ori   $12,$0,0x9       # operand $s
+ori   $13,$0,0x8       # dest. $d
+ori   $14,$0,0x004A    # immediate operand
+</pre> 
+
+<p>
+Register <code class="register">$11</code> contains the opcode in its right-most bits,
+like this:
+</p>
+
+<table>
+<tr> <td>31....26</td> <td>25...21</td>  <td>20...16</td> <td>15...................0</td> </tr>
+<tr> <td>000000</td> <td>00000</td>  <td>00000</td> <td>0000 0000 0000 1101</td> </tr>
+</table>
+
+
+
+<p>
+However, the opcode is required to be in the high-order six bits,
+26 through 31.
+A <code>sll</code> will shift the contents of <code class="register">$11</code> into the correct
+position.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+
+<form>
+<p>
+Fill in the amount by which to shift. 
+(Hint: determine which bit should be the new left-most bit.
+Count the number of bits between its old and new position).
+</p>
+<pre>
+sll   $11,$11,<input type="text" size="12" name="shift">    # left shift $11 by <input type="text" size="12" > places
+</pre> 
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass12_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:31 GMT -->
+</html>

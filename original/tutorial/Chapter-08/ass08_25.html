@@ -1,0 +1,144 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_25.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:15 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electronically Checking Overflow</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_24.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_26.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-38.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<p>
+The result is correct.
+</p>
+
+<pre class="code" style="text-align:left">
+11111 1 1
+ 1011 1101
+<u> 1110 0101 </u>
+ 1010 0010
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Electronically Checking Overflow</h1>
+<!-- ../Audio/chap08-38.mp3 -->
+
+<p>
+Look 
+at the answer: 
+<span class="highlight">since the carry <u>into</u> the high order column is the
+same as the carry <u>out of</u> the high order column,
+the result is correct.</span>
+We don't need to figure out what decimal numbers
+the patterns represent.
+</p>
+
+<pre style="text-align:left">
+11111 1 1
+ 1011 1101  
+<u> 1110 0101 </u> 
+ 1010 0010  
+</pre>
+
+
+<p>
+The electronics of a computer determine if a calculation is
+correct by using a simple circuit that tests the equality of
+the carry-in bit and the carry-out bit of the high order column.
+However, when you do a calculation with paper and pencil
+you can check your work by translating the operands
+and results into decimal: 
+</p>
+
+<table>
+<tr>
+<th>
+Work done in binary.
+</th>
+<th>
+Decimal Equivalent should<br>
+be Consistent <br>
+with the Binary.
+</th>
+<tr>
+<td>
+<pre style="text-align:left">
+
+11111 1 1
+ 1011 1101 
+<u> 1110 0101 </u>
+ 1010 0010  
+</pre>
+</td>
+
+<td>
+<pre style="text-align:left">
+
+&nbsp;
+-67 
+<u>-27 </u>  
+-94 
+</pre>
+</td>
+</tr>
+
+</table>
+
+<p>
+Of course, the computer has no independent means of
+"checking its result."  All it can do is look
+at the carry bits into and out of the high order column.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 25:</h3>
+<p>
+Can the binary addition algorithm be used with
+patterns that represent negative integers?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_24.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_26.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_25.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:16 GMT -->
+</html>

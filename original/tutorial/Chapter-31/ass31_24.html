@@ -1,0 +1,146 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_24.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:57 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slightly More Realistic Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_23.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_25.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes.  The other conversion instruction (<code>cvt.w.s</code>) would be needed.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Slightly More Realistic Program</h1>
+
+<pre class="program">
+##  caffeine.asm
+##
+##  Input the weight of an individual in pounds.
+##  Output the number of cans of Energy Drink that
+##  would kill them 50% of the time.
+
+        .text
+        .globl main
+        
+main:   
+        li      $v0,4               # prompt for individual's
+        la      $a0,prompt          # weight
+        syscall
+        
+        li      $v0,6               # read weight (in lbs)
+        syscall                     # $f0 = weight (float)
+        
+                                    # convert weight to kg
+        l.s     $f2,kgperlb         # kg per lb
+        mul.s   $f4,$f2,$f0         # $f4 == kg
+        
+                                    # calc LD50 for this weight
+        l.s     $f2,ld50            # LD50 per kg
+        mul.s   $f6,$f4,$f2         # $f6 = LD50 in mg for this weight
+        
+                                    # calc LD50 in cans
+        l.s     $f8,mgCan           # get mg per can
+        div.s   $f6,$f6,$f8         # $f6 = (LD50 for this weight)/(mg per can)
+        
+        la      $a0,cans            # print output title
+        li      $v0,4
+        syscall
+        
+        cvt.w.s $f8,$f6             # convert cans to integer  (truncate result)   
+        mfc1    $a0,$f8             # move integer into $a0 
+        li      $v0,1               # print integer
+        syscall
+        
+        la      $a0,newln           # end the line
+        li      $v0,4
+        syscall
+        
+        li      $v0,10              # halt
+        syscall
+
+         .data
+kgperlb: .float  0.453592           # kg per lb
+ld50:    .float  200.0              # ld50 in mg per kg of human
+mgCan:   .float  160.0              # mg caffeine per can
+
+prompt: .asciiz "Your weight in pounds: "
+cans:   .asciiz "LD50 Cans: "
+newln:  .asciiz "\n"
+</pre>
+
+<div class="left">
+
+<p><span class="highlight">
+This program  inputs the weight of an individual in pounds and outputs the number of 
+cans of Energy Drink that would kill them 50% of the time.</span>
+</p>
+
+
+<p>
+The LD50 is the amount of a substance that will kill an individual 50% of the time.
+The LD50 of caffeine is 200 mg (200 milligrams) per kilogram of weight.
+A can of Energy Drink has 160 mg of caffeine per can.
+</p>
+</div>
+
+<div class="right">
+<p>
+The <code>cvt.w.s</code> instruction truncates the floating point number of cans to an integer.
+This makes the output nicer.  Except for that, the entire program could have been written with floating point.
+It could also have been written entirely with integers by using a scale factor.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 24:</h3>
+
+<p>
+What is your LD50 for assembly language?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_23.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_25.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_24.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:58 GMT -->
+</html>

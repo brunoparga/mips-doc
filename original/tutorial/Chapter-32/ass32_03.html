@@ -1,0 +1,138 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue May 04 10:31:43 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:06 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparison Instructions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass32_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap32merge0304.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Maybe.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Comparison Instructions</h1>
+<!-- ../Audio/chap32merge0304.mp3 -->
+
+<a id="comparison_instructions_(floating_point)"> </a>
+<a id="floating_point_comparison_instructions_(floating_point)"> </a>
+
+
+<table class="center">
+<tr><th>Instruction</th><th>Operation</th></tr>
+
+<tr><td><code>c.eq.s fs, ft</code></td>
+    <td style="text-align:left"><code>&nbsp; &nbsp;if $fs == $ft<br > 
+               &nbsp; &nbsp;&nbsp; &nbsp;condition bit = 1<br >
+               &nbsp; &nbsp;else<br > 
+							 &nbsp; &nbsp;&nbsp; &nbsp;condition bit = 0</code></td></tr>
+							 
+<tr><td><code>c.lt.s fs, ft</code></td>
+    <td style="text-align:left"><code>&nbsp; &nbsp;if $fs &lt; $ft<br > 
+               &nbsp; &nbsp;&nbsp; &nbsp;condition bit = 1<br >
+               &nbsp; &nbsp;else<br > 
+							 &nbsp; &nbsp;&nbsp; &nbsp;condition bit = 0</code></td></tr>
+
+<tr><td><code>c.le.s fs, ft</code></td>
+    <td style="text-align:left"><code>&nbsp; &nbsp;if $fs &lt;= $ft<br > 
+               &nbsp; &nbsp;&nbsp; &nbsp;condition bit = 1<br >
+               &nbsp; &nbsp;else<br > 
+							 &nbsp; &nbsp;&nbsp; &nbsp;condition bit = 0</code></td></tr>
+
+
+</table>
+
+<div class="left">
+
+<p>
+<span class="highlight">Testing if two floating point numbers are exactly equal is sometimes
+NOT a good idea.</span> 
+Floating point calculations are not exact.
+Sometimes values are not equal even though mathematically they should be.
+It is best to use "less than" or "less than or equal" instead of 
+testing for exact equality.
+</p>
+
+<p> 
+The table shows some MIPS comparison instructions
+for single precision floating point.
+</p>
+</div>
+
+<div class="right">
+
+<a id="condition_bit"> </a>
+<p><span class="highlight">
+These
+instructions change the value in the <b>condition bit</b>,
+a part of the processor.</span>
+The condition bit is like a one bit register. 
+The bit holds the result of a compare instruction.
+</p>
+
+<p> <span class="highlight">
+The condition bit is set (made equal to one) if the condition is true.</span>
+It is cleared (made equal to zero) if the condition is false.
+</p>
+ 
+<p>
+There are more comparison operations than these.
+But these notes use just these three.
+The others involve the various IEEE 754 codes for
+exceptional results.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+There is no "greater than" instruction! What can we do?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass32_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:07 GMT -->
+</html>

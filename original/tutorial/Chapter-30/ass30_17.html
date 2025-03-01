@@ -1,0 +1,107 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Apr 28 18:51:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:40 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Float Formula</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass30_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap30-27.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+It is not represented.
+(Remember, the biased exponent 0000 0000 is used for the value zero).
+
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Float Formula</h1>
+<!-- ../Audio/chap30-27.mp3 -->
+
+
+<a id="floating_point_formula"> </a>
+ 
+<img src="IEEE754.jpg" class="center" alt="IEEE 754 format">
+<div class="left">
+ 
+<p>
+Here 
+is a formula that summarizes the past several pages.
+In it,<span class="highlight">
+<code>s</code> is the sign bit (0 or 1), <code>M</code> is
+the mantissa (000...000 to 111...111) and  <code>E</code> 
+is the biased exponent.</span>
+</p>
+
+<pre class="code">
+value = (-1)<sup>s</sup> &#215; 1.M &#215; 2<sup>E-127</sup>
+</pre>
+
+<p>
+To convert a paper-and-pencil number into IEEE floating point,
+fill in each piece of the picture.
+Let us represent 1.0 as a 32-bit IEEE 754 float.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+<p>
+Represent 1.0 as an IEEE float.
+</p>
+
+<ul>
+<li>What is the sign bit of 1.0?</li>
+<li><input type="text" size="20"></input></li>
+<li>What is the mantissa of 1.0? (Hint: remember the assumed "1." preceding the mantissa)
+<li><input type="text" size="20"></input></li>
+<li>What is the actual exponent of 1.0?</li>
+<li><input type="text" size="20"></input></li>
+<li>What is the biased exponent of 1.0? (Hint: add the actual exponent to 127)</li>
+<li><input type="text" size="20"></input></li>
+</ul>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass30_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:41 GMT -->
+</html>

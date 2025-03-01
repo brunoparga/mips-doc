@@ -1,0 +1,144 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:07 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-06.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<div class="middle" style="max-width:90%;white-space: nowrap;">
+<table>
+<tr><th>Instruction A</th><th>Instruction B</th><th>Same?</th><th>Different?</th><th>Comment</th></tr>
+<tr><td>ori  $4,$0,0x8</td>  <td>ori  $4,$0,8 </td><td><input type="text" size="5" value="X" ></td>
+    <td><input type="text" size="5"></td><td>0x8 and 8<br> specify same 16-bit pattern:<br>0000 0000 0000 1000</td></tr>
+<tr><td>ori  $4,$0,0x32</td>  <td>ori  $4,$0,50 </td><td><input type="text" size="5" value="X"  ></td>
+    <td><input type="text" size="5"></td><td>0x32 and 26<br> specify same 16-bit pattern:<br>0000 0000 0011 0010</td></tr> 
+<tr><td>ori  $3,$10,26</td>  <td>ori  $3,$0,26 </td><td><input type="text" size="5"  ></td>
+    <td><input type="text" size="5"  value="X" ></td><td>the operand registers differ</td></tr> 
+<tr><td>ori  $9,$10,0x000</td>  <td>ori  $9,$10,0 </td><td><input type="text" size="5" value="X" ></td>
+    <td><input type="text" size="5"></td><td>0x000 and 0<br> specify same 16-bit pattern:<br>0000 0000 0000 0000</td></tr> 
+<tr><td>ori  $10,$9,45</td>  <td>ori  $10,$9,45 </td><td><input type="text" size="5" value="X" ></td>
+    <td><input type="text" size="5"></td><td>same instruction</td></tr> 
+<tr><td>ori  $5,$5,0x21</td>  <td>ori  $5,$5,21 </td><td><input type="text" size="5"  ></td>
+    <td><input type="text" size="5" value="X" ></td><td>different 16-bit<br> immediate operands</td></tr> 
+</table> 
+</div>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example</h1>
+<!-- ../Audio/chap11-06.mp3 -->
+
+<div class="left">
+<p><span class="highlight">
+The destination register can be any general purpose register.</span>
+But it makes no sense to use register <code class="register">$0</code>, 
+because that register always contains all zero bits.
+</p>
+
+<pre>
+# mistaken attempt to change $0
+ori  $0,$9,0x32    
+</pre>
+
+<p>
+The
+assembler part of the SPIM simulator does not
+write an error message for the above mistaken instruction.
+But the instruction does not change register zero when executed.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+Here is a tiny program that bitwise ORs two patterns.</span>
+First one pattern is loaded into register <code class="register">$8</code> , then
+the register is ORed with an immediate operand.
+The result goes into register <code class="register">$10</code> .
+</p>
+
+<p>
+Soon we will assemble and run the program.
+You can do this now, if you want
+(remember you can use copy-and-paste from this page to your
+text editor).
+First, predict the result.
+</p>
+
+</div>
+<br style="clear:both"> 
+<pre class="program">
+## Program to bitwise OR two patterns 
+        .text
+        .globl  main
+
+main:
+        ori      $8,$0,0x0FA5       # put first pattern into register $8
+        ori     $10,$8,0x368F       # or ($8) with second pattern.  Result to $10.
+
+## End of file
+</pre>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+Here are the two patterns, written both in  bit patterns and in hex.
+Perform the bitwise OR operation.
+(Do it column-wise with the bits, then translate the answer to hex).
+</p>
+
+<pre>
+0000 1111 1010 0101           0FA5 
+0011 0110 1000 1111           368F 
+-------------------           ----
+<input type="text" size="40"> 
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:08 GMT -->
+</html>

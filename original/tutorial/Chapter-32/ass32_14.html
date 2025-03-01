@@ -1,0 +1,142 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue May 04 10:31:43 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:29 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass32_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap32-20.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Not even close.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Program</h1>
+<!-- ../Audio/chap32-20.mp3 -->
+
+<p> 
+<span class="highlight">Numerical analysis is tricky.</span>
+You should use a square root method from a
+package of mathematical subroutines if you
+really need one.
+</p>
+
+<p>
+But this code is good enough for a demonstration on the SPIM
+simulator.
+Here is the complete program.
+Copy it to your editor,
+save it to a file,
+and play with it in SPIM.
+</p>
+
+<pre class="program">
+
+## newton.asm -- compute sqrt(n) 
+
+## given an approximation x to sqrt(n),
+## an improved approximation is:
+
+## x' = (1/2)(x + n/x)
+
+## $f0  ---  n
+## $f1  ---  1.0
+## $f2  ---  2.0
+## $f3  ---  x  : current approx.
+## $f4  ---  x' : next approx.
+## $f8  ---  temp
+
+        .text
+        .globl main
+
+main:   
+
+        l.s     $f0,n               # get n
+        li.s    $f1,1.0             # constant 1.0
+        li.s    $f2,2.0             # constant 2.0
+        li.s    $f3,1.0             # x == first approx.
+        li.s    $f10,1.0e-5         # five figure accuracy
+
+loop:   
+        mov.s   $f4,$f0             # x' = n
+        div.s   $f4,$f4,$f3         # x' = n/x
+        add.s   $f4,$f3,$f4         # x' = x + n/x
+        div.s   $f3,$f4,$f2         # x    = (1/2)(x + n/x)
+
+        mul.s   $f8,$f3,$f3         # x^2
+        div.s   $f8,$f0,$f8         # n/x^2
+        sub.s   $f8,$f8,$f1         # n/x^2 - 1.0
+        abs.s   $f8,$f8             # |n/x^2 - 1.0|
+        c.lt.s  $f8,$f10            # |x^2 - n| &lt; small ?
+        bc1t    done                # yes: done
+  
+        j       loop                # next approximation
+        
+done:
+        mov.s   $f12,$f3            # print the result
+        li      $v0,2
+        syscall
+                
+        li      $v0,10              # return to OS
+        syscall
+
+##
+##  Data Segment  
+##
+        .data
+n:      .float  3.0
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+<p>
+What result do you expect if this program calculated the
+square root of 4.000000e+6 ?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass32_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:30 GMT -->
+</html>

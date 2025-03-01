@@ -1,0 +1,107 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 06 15:47:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:54 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPIM Run</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass21_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap21-31.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Six!
+The <code>la</code> instruction is
+translated into  two machine instructions,
+and F10 is pushed once for each.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>SPIM Run</h1>
+<!-- ../Audio/chap21-31.mp3 -->
+
+<div class="left">
+<p>
+Here
+is a run of the program.
+The SPIM listing shows the 
+two machine instructions that
+the assembler used for the
+<code class="register">la</code>
+pseudoinstruction in this context.
+The assembler uses different
+machine instructions in different contexts.
+</p>
+
+<p>
+Recall that the listing shows the source code to the right of the semicolon.
+The machine language it assembled into is in the column that follows 
+the addresses.
+The column after that is the machine language translated back into assembly (disassembled.)
+</p>
+
+</div>
+
+<div class="right">
+<p><span class="highlight">
+Look carefully in the disassebly column at the two instructions
+that SPIM used for the <code>la</code> instruction in the source code.</span>
+They both use register <code class="register">$1</code>.
+</p>
+</div>
+
+<br style="clear:both"> 
+<img src="SPIMla.gif" class="center" alt="Run of SPIM">
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 18:</h3>
+
+<p>
+In the
+Register Table 
+what is the mnemonic name for register <code class="register">$1</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass21_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:56 GMT -->
+</html>

@@ -1,0 +1,149 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:13 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIPS Addresses</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+
+<p>
+The details are slightly complicated.
+But rest assured that there are international standards for this.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>MIPS Addresses</h1>
+<!-- ../Audio/chap15-09.mp3 -->
+
+<div class="left">
+<p>
+
+The
+ MIPS instruction that loads a word into a register is
+the <code>lw</code> instruction.
+The store word instruction is <code>sw</code>.
+Each must specify a register and a memory address.
+A MIPS instruction is 32 bits (always).
+A MIPS memory address is 32 bits (always).
+How can a load or store instruction specify
+an address that is the same size as itself?
+</p>
+
+<p><span class="highlightred">
+An instruction that refers to memory 
+uses a <b>base register</b> and an <b>offset</b>.</span>
+</p>
+
+<ol>
+<li>The <span class="highlight">base register</span> is a general purpose register that contains a 32-bit address.</li>
+<li>The <span class="highlight">offset is a 16-bit <u>signed</u> integer</span> contained in the instruction.</li>
+<li>The <span class="highlight">sum</span> of the address in the base register with the 
+(sign-extended) offset <span class="highlight">forms the memory address</span>.</li>
+</ol>
+
+<p>
+Here is the load word instruction in assembly language:
+</p>
+</div>
+
+<br style="clear:both">
+
+<a id="lw_(instruction)"> </a>
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+lw   d,off(b)       # $d <span style="font-size: 30px;">&larr;</span> Word from memory address b+off
+                    # b is a register. off is 16-bit two's complement.
+                    # (The data from memory is available in $d after
+                    #  a one machine cycle delay.)
+</pre>
+
+<div class="left"> 
+<p><span class="highlightred">
+At execution time two things happen:</span> 
+</p>
+
+<ol>
+<li>An address is calculated by adding
+the base register <code>b</code> with the offset <code>off</code></li>
+<li>Data is fetched from memory at that address</li>
+</ol>
+
+<p>
+Because it takes time to copy data from memory, 
+<span class="highlight">it takes an extra machine cycle before the 
+data is available in register <code class="register">$d</code>.</span>
+This is called a <b>load delay</b>.
+</p>
+
+<p>
+In terms of assembly language this means the instruction immediately after <code>lw</code>
+should not use <code class="register">$d</code>.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+
+<form>
+<p>
+Write the instruction that loads
+ the word at address 0x00400060 into
+register $8.
+Assume that register $10 contains 0x00400000.
+</p>
+
+<blockquote><pre>lw $8, <input type="text" name="I1" size="8" />( <input type="text" name="I2" size="5" />  )</pre></blockquote>
+
+</form>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:14 GMT -->
+</html>

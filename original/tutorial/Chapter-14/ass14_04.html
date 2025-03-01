@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Feb 20 17:09:31 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:38 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Significant Bits</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass14_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap14-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+If the result is small enough 
+all the significant bits will be contained in <code>lo</code>,
+and <code>hi</code> will contain all zeros.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Significant Bits</h1>
+<!-- ../Audio/chap14-04.mp3 -->
+
+
+<a id="significant_bits"> </a>
+
+<div class="left">
+
+
+<p>
+<span class="highlight">The <b>significant bits</b> in a 
+positive or unsigned number represented in
+binary are the most
+significant 1 bit (the leftmost 1 bit)
+and all bits to the right of it. </span>
+For example,
+the following has 23 significant bits:
+</p>
+
+<pre>
+0000 0000 0100 0011 0101 0110 1101 1110
+</pre>
+
+<p>
+We 
+will mostly write programs that keep the result
+under 32 bits in length.
+When this is true, the result of a multiplication
+will be in <code>lo</code>.
+</p>
+</div>
+
+
+<div class="right">
+<p>
+The <b>significant bits</b> in a 
+negative number represented in
+two's complement are the most
+significant 0 bit (the leftmost 0 bit)
+and all bits to the right of it. 
+For example,
+the following has 23 significant bits:
+</p>
+
+<pre>
+1111 1111 1011 1100 1010 1001 0010 0010
+</pre>
+
+<p>
+<span class="highlight">To ensure that a product has no more than 32 significant bits,
+ensure that the sum of the 
+number of significant bits in each operand
+is 32 or less.</span>
+For the programming in this course you will not need to
+be careful about this.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+
+<p>
+About how many significant bits do you expect in this product:
+</p>
+
+<pre>
+01001010 &times; 00010101
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass14_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:39 GMT -->
+</html>

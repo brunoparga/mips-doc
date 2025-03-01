@@ -1,0 +1,114 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 07 17:30:04 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:05 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jump Practice</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass17_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap17-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+No. Addresses are 32-bit patterns, machine instructions are 32-bit
+patterns, and many data are 32-bit patterns. 
+There is no way to tell them apart, except by context.
+Here is an example. Say that this bit pattern got fetched
+as an instruction: <code>0x00000000.</code>
+Is this the address of the first byte of memory,
+or the <code>sll $0,$0,0</code> instruction?
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Jump Practice</h1>
+<!-- ../Audio/chap17-10.mp3 -->
+
+<div class="left">
+<p><span class="highlight">
+The
+following  illustrates how the jump instruction is constructed.</span>
+For simplicity, all instructions other than the jump instruction are
+no-ops.
+The jump instruction jumps to the first instruction of the program.
+The very last instruction fills the delay slot.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+The left-most six bits of the <code>j</code>
+machine instruction are the opcode.
+You need to decide if the next 26 bits are correct.</span>
+Do this by filling in the blanks of the question.
+(Copy-and-paste works well for this.)
+</p>
+</div>
+<br style="clear:both"> 
+
+<table>
+<tr><th>Address</th><th>Machine Instruction</th> <th>Assembly Instruction</th></tr>
+<tr><td>00400000</td><td>0000 0000 0000 0000 0000 0000 0000 0000</td><td><code>sll $0,$0,0</code></td></tr>
+<tr><td>00400004</td><td>0000 0000 0000 0000 0000 0000 0000 0000</td><td><code>sll $0,$0,0</code></td></tr>
+<tr><td>00400008</td><td>0000 0000 0000 0000 0000 0000 0000 0000</td><td><code>sll $0,$0,0</code></td></tr>
+<tr><td>0040000C</td><td>0000 0000 0000 0000 0000 0000 0000 0000</td><td><code>sll $0,$0,0</code></td></tr>
+<tr><td>00400010</td><td>000010 <span class="blue">00 0001 0000 0000 0000 0000 0000</span></td><td><code>j  firstInstruction</code></td></tr>
+<tr><td>00400014</td><td>0000 0000 0000 0000 0000 0000 0000 0000</td><td><code>sll $0,$0,0</code></td></tr>
+</table>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+
+<table>
+<tr><td style="border-width:  0px 0px  0px  0px;">1.</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"> Write the jump address <br />0x00400000 as 32 bits</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"><input type="text" size="70"></td></tr>
+<tr><td style="border-width:  0px 0px  0px  0px;">2.</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"> Write the <span class="blue">26-bit field</span><br /> of the jump instruction:</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"><input type="text" size="70"> </td></tr>
+<tr><td style="border-width:  0px 0px  0px  0px;">3.</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"> Shift <span class="blue">it</span> left two positions: </td><td style="border-width:  0px 0px  0px  0px;text-align:left;"><input type="text" size="70"></td></tr>
+<tr><td style="border-width:  0px 0px  0px  0px;">4.</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"> What are the high-order <br />four bits of the PC?</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"><input type="text" size="20"></td></tr>
+<tr><td style="border-width:  0px 0px  0px  0px;">5.</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"> Copy (4) to the left of (3):</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"><input type="text" size="70"> </td></tr>
+<tr><td style="border-width:  0px 0px  0px  0px;">6.</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"> Is (5) the same as (1)?</td><td style="border-width:  0px 0px  0px  0px;text-align:left;"><input type="text" size="20"></td></tr>
+</table>
+<br />
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass17_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:06 GMT -->
+</html>

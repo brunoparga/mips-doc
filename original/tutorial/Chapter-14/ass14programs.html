@@ -1,0 +1,288 @@
+<!doctype html> 
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:52 GMT -->
+<head>
+
+<title>Programming Exercises</title>
+<meta charset="utf-8">
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+
+<style>
+
+.myTable
+{
+  border-width: 1px; border-style: solid; border-color:#705030;background-color:white;
+}
+
+.myTable td,th
+{
+  padding: 10px;
+  border-width: 1px;
+  border-style: dotted;
+  border-color:#705030;;
+}
+
+
+</style>
+
+</head>
+
+<body>
+<p class="revisions">created 06/19/2003; edited 07/22/15</p>
+<hr />
+
+<h1> 
+Chapter 14 Programming Exercises
+</h1> 
+
+<hr />
+
+<p>
+For these programming exercises,
+use only those instructions that have been
+discussed so far in these notes:
+</p>
+
+ 
+<table style="width:50%">
+<tr>
+<td>add</td>	<td>mfhi</td>	<td>sll</td>
+</tr>
+<tr>
+<td>addi</td>	<td>mflo</td>	<td>sra</td>
+</tr>
+<tr>
+<td>addiu</td>	<td>mult</td>	<td>srl</td>
+</tr>
+<tr>
+<td>addu</td>	<td>multu</td>	<td>sub</td>
+</tr>
+<tr>
+<td>and</td>	<td>nor</td>	<td>subu</td>
+</tr>
+<tr>
+<td>andi</td>	<td>or</td>	<td>xor</td>
+</tr>
+<tr>
+<td>div</td>	<td>ori</td>	<td>xori</td>
+</tr>
+<tr>
+<td>divu</td>	<td>&nbsp;</td>	<td>&nbsp;</td>
+</tr>
+</table>
+ 
+
+<p>
+In the <em> Simulator/Settings/MIPS</em> menu of SPIM set
+Bare Machine ON, Accept Pseudo Instructions OFF,
+Enable Delayed Branches ON,
+Enable Delayed Loads ON,
+Enable Mapped I/O OFF, 
+Load Exception Handler OFF.
+</p>
+
+<p>
+Run the programs by 
+single stepping (pushing F10).
+Observing the results in the SPIM Int Regs window.
+Check the <em>Registers</em> menu that the registers are displayed in HEX.
+For some exercises, decimal display of registers might be more useful.
+</p>
+
+
+<hr />
+
+<h2>*Exercise 1</h2>
+
+<p>
+Write a program to evaluate a polynomial,
+similar to <code>newMult.asm</code> from
+the chapter.
+Evaluate the polynomial:
+</p>
+
+<pre class="code">
+3x<sup>2</sup> + 5x - 12
+</pre>
+
+<p>
+Pick a register to contain <code>x</code> and
+initialize it to an integer value (positive or negative)
+at the beginning of the program.
+Assume that  <code>x</code> is small enough so that
+all results remain in the  <code>lo</code> result register.
+Evaluate the polynomial and leave its value in
+a register.
+</p>
+
+<p>
+Verify that the program works by using several
+initial values for <code>x</code>.
+Use  <code>x = 0</code> and  <code>x = 1</code>
+to start since this will make debugging easy.
+</p>
+
+<p>
+<b>Optional:</b>
+write the program following the hardware rule that
+two or more instructions must follow a <code>mflo</code>
+instruction before another  <code>mult</code> instruction.
+Try to put useful instructions in the two slots that follow
+the  <code>mflo</code>.
+Otherwise put no-op instructions,  <code>sll $0,$0,0</code>,
+in the two slots.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+
+<h2>*Exercise 2</h2>
+
+<p>
+Write a program similar to <code>divEg.asm</code>
+from the chapter
+to evaluate a rational function:
+</p>
+
+<pre class="code">
+(3x+7)/(2x+8)
+</pre>
+
+<p>
+Verify that the program works by using several
+initial values for <code>x</code>.
+Use  <code>x = 0</code> and  <code>x = 1</code>
+to start since this will make debugging easy.
+Try some other values,
+then check what happens when  <code>x = -4</code>.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<h2>*Exercise 3</h2>
+
+<p>
+Write a program
+that multiplies the contents of two registers
+which you have initialized
+using an immediate operand with the 
+<code>ori</code> 
+instruction.
+Determine (by inspection)
+the number of significant bits in each
+of the following numbers,
+represented in two's complement.
+Use the program to form their product and
+then determine the number of significant bits in it.
+</p>
+
+
+<table class="myTable">
+
+<tr>
+<th>Operand 1</th>           
+<td>0x00001000</td><td>0x00000FFF</td><td>0x0000FF00</td><td>0x00008000</td>
+</tr>
+
+<tr>
+<th>Significant Bits</th>
+<td>13</td><td>&#160;</td><td>&#160;</td><td>&#160;</td>
+</tr>
+
+<tr>
+<th>Operand 2</th>           
+<td>0x00001000</td><td>0x00000FFF</td><td>0x0000FFFF</td><td>0x00001000</td>
+</tr>
+
+<tr>
+<th>Significant Bits</th>
+<td>13</td><td>&#160;</td><td>&#160;</td><td>&#160;</td>
+</tr>
+
+<tr>
+<th>Product</th>           
+<td>0X1000000</td><td>&#160;</td><td>&#160;</td><td>&#160;</td>
+</tr>
+
+<tr>
+<th>Significant Bits</th>
+<td>25</td><td>&#160;</td><td>&#160;</td><td>&#160;</td>
+</tr>
+
+</table>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+
+
+<hr />
+
+<h2>*Exercise 4</h2>
+
+<p>
+Write a program
+that determines the value of
+the following expression:
+</p>
+
+<pre>
+(x*y)/z
+</pre>
+
+<p>
+Use <code>x = 1600000</code>
+    (=0x186A00),
+    <code>y =   80000</code>
+    (=0x13880),
+and <code>z =  400000</code>
+    (=61A80).
+Initialize three registers to these values.
+Since the immediate operand of the
+<code>ori</code> instruction is only 16 bits
+wide, use shift instructions to move bits
+into the correct locations of the registers.
+</p>
+
+<p>
+Choose wisely the order of multiply
+and divide operations so that the
+significant bits always remain in
+the <b><code>lo</code></b> result
+register.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part4"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:52 GMT -->
+</html>
+

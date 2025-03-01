@@ -1,0 +1,144 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:57 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jump Instruction does not work for Subroutine Call</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. You would like to call a useful
+subroutine from many locations in a program.
+</p>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Jump Instruction does not work for Subroutine Call</h1>
+<!-- ../Audio/chap26-03.mp3 -->
+
+
+<a id="return_address"> </a>
+
+ 
+<img src="subMany.gif" class="rightimage" alt="subroutine called three times" />
+ 
+
+<div class="left">
+
+
+<p>
+<span class="highlight">Especially useful subroutines are put into
+subroutine libraries and can be called from many locations</span>
+in many programs, and so, of course, they must
+return to many different locations.
+</p>
+
+<p>
+<span class="highlight">There is a problem with using <code>j</code>
+for the call of and return from a subroutine.</span>
+</p>
+
+<p>
+The
+problem is illustrated at right.
+The <code>main</code> routine is written
+to call a useful subroutine
+<code>sub</code> at several locations 
+in the code.
+But, as it is written, <code>sub</code> always returns
+control to the same location.
+Usually this will not work.
+</p>
+
+<p>
+In the past, before the concept
+was completely understood,
+hardware support for
+subroutines was missing.
+Various nasty software tricks were used to
+implement the idea.
+</p>
+
+<p><span class="highlight">
+What is needed is a way 
+to send
+a <b>return address</b>
+to the subroutine when it is called.</span>
+Now when the subroutine finishes,
+it passes control to that return address.
+</p>
+
+<p>
+Of course, "passing control to a return address"
+means that 
+<span class="highlight">the subroutine loads the 
+PC (program counter) with the return address.</span>
+The next instruction fetch of the machine cycle
+will get the instruction from that address.
+</p>
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+(Hardware Design Question: )
+How should the return address be passed to
+the subroutine?
+</p>
+
+<ol>
+<li> By placing it in main memory somewhere, or</li>
+<li> By placing it in a register designated for this purpose.</li>
+</ol>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:59 GMT -->
+</html>

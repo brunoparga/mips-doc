@@ -1,0 +1,133 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Aug 31 19:18:25 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:22 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patterns of Bits</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass03_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap03-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+ 
+<p>
+How many patterns can be formed with a single bit?
+</p>
+
+<h3>Answer:</h3>
+<p>
+Two &#8213; 0 and 1  (or "off" and "on", or "false" and "true")
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Patterns of Bits</h1>
+<!-- ../Audio/chap03-02.mp3 -->
+
+
+<script src="../../ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+var sound;
+
+$(document).ready(function() {
+    sound = document.createElement("audio");
+    sound.src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/click.mp3";
+    sound.volume=0.40;
+    sound.autoPlay=false;
+    sound.preLoad=true;       
+})
+
+var currentImage = [1, 1];
+var my_images = new Array(2);
+my_images[0] = "toggleOn.gif";
+my_images[1] = "toggleOff.gif";
+
+function loadImage( img )
+{
+  if ( currentImage[img]==0 ) currentImage[img]=1;
+  else                        currentImage[img]=0;
+  document.images[5+img].src = my_images[currentImage[img]];
+  sound.play();
+}
+
+</script>
+
+<p>
+<img src="toggleOff.gif"  class="rightimage" height="212" width="145" alt="toggle"
+     onMouseOver="loadImage(0)"  onClick="loadImage(0)" >
+
+<img src="toggleOff.gif" class="rightimage" height="212" width="145"  alt="toggle"
+     onMouseOver="loadImage(1)" onClick="loadImage(1)" >
+</p>
+
+<div class="left">
+<p>
+A
+bit can be 0 or 1.
+With
+one bit there are two possible patterns.
+<span class="highlight">How many patterns can be formed with two bits?</span>
+Here is a complete list:
+</p>
+
+<pre class="code">
+    0 0
+    0 1
+    1 0
+    1 1
+</pre>
+
+<p>
+<span class="highlight">Looks like 4 patterns.</span>
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+<p>
+Is the pattern <code>0 1</code> different
+from the pattern <code>1 0</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass03_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:23 GMT -->
+</html>

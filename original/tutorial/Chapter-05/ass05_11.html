@@ -1,0 +1,136 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 11:48:16 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:04 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executable Files</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass05_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap05-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. ASCII characters are wasteful of bits,
+since only seven of the eight bits are used.
+A compressed file makes better use of bit patterns.
+The bytes in the compressed file do not correspond directly to ASCII. 
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Executable Files</h1>
+<!-- ../Audio/chap05-10.mp3 -->
+
+<div class="left">
+<p>
+When 
+one says "executable file" one
+really means:
+</p>
+
+
+<a id="executable_file"> </a>
+<a id="file,_executable"> </a>
+
+<blockquote>
+<span class="highlight"><b>Executable File:</b> 
+A file containing a sequence of bytes.</span>
+Each byte holds a bit pattern  
+that represents part of a machine instruction
+for a particular processor. 
+The operating system
+can load (copy) an executable file into main storage  
+and can then execute the program.
+</blockquote>
+
+<p>
+A byte  in an executable file
+can contain any possible 8-bit pattern.
+A file like this
+often is called a <b>Binary File</b>.
+This is  misleading vocabulary.
+All files represent their information
+as binary patterns.
+</p>
+</div>
+
+<div class="right">
+<p> 
+When one says "MS Word file" one
+really means:
+</p>
+
+<a id="Word_file"> </a>
+<blockquote>
+<span class="highlight"><b>Word File:</b> A file containing a sequence of bytes.</span>
+Each byte holds a bit pattern 
+created by the MS Word program, 
+which encodes data only that program
+(and a few others) can process.
+</blockquote>
+
+<p>
+There is nothing special about the various "types"
+of files.
+Each is a sequence of bytes.
+Each byte holds a bit pattern.
+A byte can hold one of 256 possible patterns
+(although some file types allow only 128 or fewer of these patterns).
+When longer bit patterns are needed
+they are held in several contiguous bytes.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+Say that you compress 
+a text file with a file compression
+utility.
+What is the minimum compression can you expect?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass05_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:05 GMT -->
+</html>

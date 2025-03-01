@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/spim.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:51:55 GMT -->
+<HEAD>
+<TITLE>SPIM S20: A MIPS R2000 Simulator1 `` the performance at none of the
+cost''</TITLE>
+<META NAME="description" CONTENT="SPIM S20: A MIPS R2000 Simulator1 `` the performance at none of the
+cost''">
+<META NAME="keywords" CONTENT="spim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="spim.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html16"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up_g.html"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev_g.html">   
+<BR>
+<B> Next:</B> <A NAME="tex2html17"
+  HREF="node1.html">SPIM</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<P>
+
+<P>
+
+<P>
+
+<P>
+<H1 ALIGN="CENTER">SPIM S20: A MIPS R2000 Simulator<A NAME="tex2html1"
+  HREF="footnode.html#foot22"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A>
+
+<BR><SMALL CLASS="SMALL">``<!-- MATH
+ $\frac{1}{25}^{th}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="35" HEIGHT="46" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\frac{1}{25}^{th}$"></SPAN> the performance at none of 	the
+cost''</SMALL></H1>
+<DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>James R. Larus</STRONG></P>
+<P ALIGN="CENTER"><I>	 larus@cs.wisc.edu</I></P>
+<P ALIGN="CENTER"><STRONG>Copyright &#169;1990-2004 by James R. Larus 
+<BR>      (This document may be copied without royalties, 
+<BR>
+so long as this copyright notice remains on it.)</STRONG></P>
+<P ALIGN="LEFT"><SMALL>	 Computer Sciences Department</SMALL></P>
+</DIV>
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html18"
+  HREF="node1.html">SPIM</A>
+<UL>
+<LI><A NAME="tex2html19"
+  HREF="node2.html">Simulation of a Virtual Machine</A>
+<LI><A NAME="tex2html20"
+  HREF="node3.html">SPIM Interface</A>
+<UL>
+<LI><A NAME="tex2html21"
+  HREF="node4.html">Terminal Interface</A>
+<LI><A NAME="tex2html22"
+  HREF="node5.html">X-Window Interface</A>
+</UL>
+<LI><A NAME="tex2html23"
+  HREF="node6.html">Surprising Features</A>
+<LI><A NAME="tex2html24"
+  HREF="node7.html">Assembler Syntax</A>
+<LI><A NAME="tex2html25"
+  HREF="node8.html">System Calls</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html26"
+  HREF="node9.html">Description of the MIPS R2000</A>
+<UL>
+<LI><A NAME="tex2html27"
+  HREF="node10.html">CPU Registers</A>
+<LI><A NAME="tex2html28"
+  HREF="node11.html">Byte Order</A>
+<LI><A NAME="tex2html29"
+  HREF="node12.html">Addressing Modes</A>
+<LI><A NAME="tex2html30"
+  HREF="node13.html">Arithmetic and Logical Instructions</A>
+<LI><A NAME="tex2html31"
+  HREF="node14.html">Constant-Manipulating Instructions</A>
+<LI><A NAME="tex2html32"
+  HREF="node15.html">Comparison Instructions</A>
+<LI><A NAME="tex2html33"
+  HREF="node16.html">Branch and Jump Instructions</A>
+<LI><A NAME="tex2html34"
+  HREF="node17.html">Load Instructions</A>
+<LI><A NAME="tex2html35"
+  HREF="node18.html">Store Instructions</A>
+<LI><A NAME="tex2html36"
+  HREF="node19.html">Data Movement Instructions</A>
+<LI><A NAME="tex2html37"
+  HREF="node20.html">Floating Point Instructions</A>
+<LI><A NAME="tex2html38"
+  HREF="node21.html">Exception and Trap Instructions</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html39"
+  HREF="node22.html">Memory Usage</A>
+<LI><A NAME="tex2html40"
+  HREF="node23.html">Calling Convention</A>
+<LI><A NAME="tex2html41"
+  HREF="node24.html">Input and Output</A>
+<LI><A NAME="tex2html42"
+  HREF="node25.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Ian Moor
+2009-03-11
+</ADDRESS>
+</BODY>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/spim.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:26 GMT -->
+</HTML>

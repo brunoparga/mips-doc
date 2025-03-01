@@ -1,0 +1,125 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:47 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indexes start at Zero</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-15.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-15.mp3 -->
+
+
+<h3>Answer:</h3>
+<p>
+Index zero
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Indexes start at Zero</h1>
+
+<a id="array_index"> </a>
+
+<div class="left">
+<p>
+Experience 
+has shown that indexing
+arrays starting at zero works best.
+The first element of an array is
+at a displacement of zero from the beginning
+of the array.
+</p>
+
+<p><span class="highlight">
+To move through an array
+start the index at
+zero and increment it by the element size
+to move to the next element.</span>
+</p>
+
+<p>
+Here is a program fragment that adds up all
+the bytes in the array:
+</p>
+</div>
+
+<div class="right">
+
+<p>
+(Recall that branch delays and load delays have been turned off, for this chapter.
+To run this program on real hardware, several no-op instructions are needed.)
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="program">
+        li    $v1,0              # zero the sum
+        li    $t1,0              # init index to 0
+        li    $t2,0              # init loop counter
+        
+for:    beq   $t2,5,endfor       # for ( i=0; i &lt; 5 ;i++ )
+        lb    $v0,data($t1)
+        addu  $v1,$v1,$v0        #     sum = sum+data[i]
+        addi  $t1,$t1,1          #     increment index
+        addi  $t2,$t2,1          #     increment counter
+        b     for
+
+endfor: 
+        . . . 
+      
+data: .byte  6,34,12,-32, 90   
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+<p>
+When indexed addressing is used with an array of 32-bit integers,
+by how much should the index be incremented to move to the
+next array element?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:48 GMT -->
+</html>

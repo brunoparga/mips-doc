@@ -1,0 +1,162 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:40 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-10.mp3 -->
+
+<p>
+What total amount is given to a waiter if the
+bill is $25, the tax rate is 8%, and the tip is 15% ?
+(Use integer math).
+</p>
+
+<h3>Answer:</h3>
+<pre>
+total = 25 + (25*(8+15))/100 = 25 + (25*23)/100 = 25 + 575/100 = 30
+</pre>
+
+<p>
+If the waiter grumbles about getting $30 instead of $31, just explain
+that in integer math   575/100 =  5.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+
+<div class="left">
+<p>
+Write
+a program that calculates the total cost
+given the
+amount for the meal, plus 8% tax, plus 15% tip.
+The meal amount is input from the user.
+The tax and tip rates are fixed.
+Here is a run of the program:
+</p>
+
+<pre class="code">
+Enter food cost: 25
+   Tax plus tip:  5
+     Total cost: 30
+</pre>
+
+<p>
+Here is a start on the program:
+</p>
+</div>
+
+<br style="clear:both"> 
+<pre class="program">
+## rest.asm
+##
+## Total restaurant bill calculator
+##
+## Register Use:
+##
+##    $s0 meal cost 
+##    $s1 tip rate
+##    $s2 tax rate
+##    $s3 total rate
+##    $s4 tax+tip dollars
+##    $s5 total bill
+
+
+        .globl  main
+
+        # Get meal cost
+main:   li      $v0,4       # print a prompt (code 4 put in $v0)
+        la      $a0,prompt  # address of prompt put in $a0
+        syscall
+
+        li      $v0,5       # input an integer  (code 5 put in $v0)
+        syscall             # 32-bit result returned in $v0
+        move    $s0,$v0     # save it in $s0
+        
+        . . . . .
+
+        .data
+tip:    .word   15          # tip rate in percent
+tax:    .word    8          # tax rate in percent
+
+prompt: .asciiz "Enter food cost: "
+head1 : .asciiz "   Tax plus tip: "
+head2 : .asciiz "     Total cost: "
+
+</pre>
+<br style="clear:both"> 
+
+<div class="left">
+<p>
+The only information needed from the user is the cost of the food.
+This is prompted for and then read in (as text) and converted
+(by part of the exception handler) into a 32-bit two's complement integer.
+The SPIM exception handler expects the service code to be
+in register <code class="register">$v0</code>.
+Arguments are passed into and returned from
+the services in other registers.
+See the previous chapter or
+<a href="../zAppendixG/SPIMtraps.html">Appendix G</a>.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+
+
+<p>
+<img src="highlight.gif" alt="Mental Highlighter">
+With your mental highlighter, mark the mnemonics
+in the code fragment (above) which are <em>pseudoinstructions</em>.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:42 GMT -->
+</html>

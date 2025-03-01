@@ -1,0 +1,116 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon May 31 12:11:38 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:59 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Following a Link</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass34_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap34-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+<code class="register">$s1</code>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Following a Link</h1>
+<!-- ../Audio/chap34-13.mp3 -->
+ 
+
+<pre class="program">
+## linked.asm --- hard-coded linked list
+##
+          .text
+          .globl main
+          
+main:
+          la     $s0,elmnt01    # get a pointer to the first node
+          
+loop:     beqz   $s0,done       # while the pointer is not null
+          lw     $a0,0($s0)     #   get the data of this node
+
+          . . .                 #   do something with the node
+
+          <span style="color:red">lw</span>     $s0,4($s0)     #   get the pointer to the next node
+          b      loop
+          
+done:    
+          .data
+
+elmnt01:  .word  1              # displacement 0 off the pointer
+          .word  elmnt02        # displacement 4 off the pointer
+        
+          . . .
+</pre>
+
+<div class="left">
+
+<p>
+<span class="highlight">The program starts with the first node.
+Then (after doing something with the first node)
+it moves on to the second node by loading the
+address contained in the link field of the node.</span>
+</p>
+</div>
+
+<div class="right">
+<p>
+In this case, you want to load data <u>from</u> an
+address into a register.
+So the <span style="color:red"><b><code>lw</code></b></span> instruction
+is the correct one to use.
+</p>
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+<p>
+What does it mean if the link field (the pointer) of a node contains
+a <code>null</code> ?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass34_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:00 GMT -->
+</html>

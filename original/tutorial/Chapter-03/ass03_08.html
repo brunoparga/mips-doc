@@ -1,0 +1,164 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Aug 31 19:18:25 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:37 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pattern Names</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass03_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap03-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Unless memory is at a premium, use 8 bits per pixel.
+With 6 bits, the image could only have 2<sup>6</sup> = 64 colors;
+with 8 bits, it can have 2<sup>8</sup> = 256 colors, a considerable
+improvement.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Pattern Names</h1>
+<!-- ../Audio/chap03-08.mp3 -->
+
+<a id="bit_patterns,_names"> </a>
+<a id="nibble"> </a>
+
+<div class="right">
+<table>
+<tr><th colspan="4">Hexadecimal Names</th></tr>
+<tr><th>nibble</th><th>pattern<br>  name</th><th>nibble</th><th>pattern<br>  name</th></tr>
+
+<tr><td>0000</td>  <td>0</td>  <td>1000</td>  <td>8</td>  </tr>
+<tr><td>0001</td>  <td>1</td>  <td>1001</td>  <td>9</td>  </tr>
+<tr><td>0010</td>  <td>2</td>  <td>1010</td>  <td>A</td>  </tr>
+<tr><td>0011</td>  <td>3</td>  <td>1011</td>  <td>B</td>  </tr>
+<tr><td>0100</td>  <td>4</td>  <td>1100</td>  <td>C</td>  </tr>
+<tr><td>0101</td>  <td>5</td>  <td>1101</td>  <td>D</td>  </tr>
+<tr><td>0110</td>  <td>6</td>  <td>1110</td>  <td>E</td>  </tr>
+<tr><td>0111</td>  <td>7</td>  <td>1111</td>  <td>F</td>  </tr>
+</table>
+</div>
+
+<div class="left">
+
+<p>
+Consider the following pattern: 
+</p> 
+
+<pre class="code">
+0010100010101100
+</pre>
+
+<p>
+It is not easy to work with.
+<span class="highlight">It is convenient to break
+bit patterns into 4-bit groups
+(called <b>nibbles</b>):</span>
+</p> 
+
+<pre class="code">
+0010 1000 1010 1100
+</pre>
+
+<p>
+There are 16 ( = 2<sup>4</sup> ) possible patterns in a nibble.
+<span class="highlight">Each pattern has a name</span>, as seen in the table.
+</p>
+
+<p>
+You might be tempted to call those 4-bit patterns "binary numbers".
+<u><em>Resist that temptation</em></u>.
+The bit patterns in computer main memory are used for very many
+purposes. 
+Representing integers is just one of them.
+<span class="highlight">The fundamental concept is "bit patterns".</span>
+Don't confuse this concept with one of its many uses: 
+"representing  numbers".
+</p>
+
+<p>
+The above bit pattern can be written using the pattern names:
+</p>
+
+<pre class="code">
+0010 1000 1010 1100 = 28AC
+</pre>
+
+<a id="hexadecimal"> </a>
+<p>
+Bits are grouped into nibbles starting at the
+right. 
+Then each nibble is named.
+<span class="highlight">This method of giving names to patterns is called <b>hexadecimal</b>.</span>
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<script src="../../ajax/libs/jquery/1.11.2/jquery.min.js">
+</script>
+
+<script>
+$(document).ready(function(){
+    $(".quest").mouseover(function(){$(this).children().css("color", "blue").fadeIn("fast");});
+    $(".quest").mouseout (function(){$(this).children().fadeOut("slow");});
+    });
+</script>
+
+<p>
+Name the following patterns:
+</p>
+
+<ul style="font-size:1.5em;list-style-type: none;">
+<li class="quest">0001 0001 &nbsp; &nbsp; <span style="display:none;"> 11 </span></li>
+<li class="quest">0011 1001 &nbsp; &nbsp; <span style="display:none;"> 39 </span></li>
+<li class="quest">1011 1111 &nbsp; &nbsp; <span style="display:none;"> BF </span></li>
+<li class="quest">0100 0110 &nbsp; &nbsp; <span style="display:none;"> 46 </span></li>
+<li class="quest">0000 0000 &nbsp; &nbsp; <span style="display:none;"> 00  <span style="font-size:0.75em">(be sure to show both zeros)</span></span></li>
+</ul>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass03_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:38 GMT -->
+</html>

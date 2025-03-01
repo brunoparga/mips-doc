@@ -1,0 +1,140 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 06 15:47:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:03 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unknown  Addresses  </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass21_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap21merge2425.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+A symbolic address is 
+the  name used in source code
+for a location in memory.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Unknown  Addresses <img src="addressUnknown.gif" style="border-width: 0px 0px 0px 0px;" alt="Return to Sender; Address Unknown"></h1>
+<!-- ../Audio/chap21merge2425.mp3 -->
+
+<a id="symbolic_address,_systems_software"> </a>
+
+<div class="left">
+ 
+<p>
+<span class="highlight">
+A symbolic address stands for whatever location in memory a
+particular datum or instruction ends up at.</span>
+<em>Usually this is not known in advance.</em>
+Often a program is built using several 
+object modules, library modules,
+and assembler source files.
+(See Chapter One on separate assembly.)
+The various modules refer to locations in each
+other by using symbolic addresses.
+The actual addresses are determined by system software
+when all the modules are linked together and loaded into
+memory.
+It is very hard (and not necessary) for a programmer
+to determine what  addresses various items will eventually have.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+The
+assembler enables a programmer to refer to an address
+by a symbol, even when the address will not be known until
+much later in the process of building an executable.</span>
+The assembler and subsequent systems software (linker and loader)
+keep track of the symbolic address
+until the  address it represents
+is finally determined.
+Just before run time,
+everything is resolved. 
+A machine language program
+and data can then be loaded into memory and executed.
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+
+<p>
+Here is a program fragment and a picture of memory at run-time.
+Assume that for this run the data section begins at 0x10000000
+</p>
+
+
+<pre>
+        .data
+val0:   .word   0 
+val1:   .word   1 
+val2:   .word   2  
+val3:   .word   3 
+val4:   .word   4 
+val5:   .word   5 
+</pre>
+
+<br> 
+
+<blockquote>
+<img src="memPicture.gif" alt="Section of Memory">
+</blockquote> 
+
+<p>
+In the picture, what data is in the word starting
+at address <code>0x1000000C? </code>  <input type="text" size="15">
+</p>
+
+<p>
+What is the address of the word containing <code>0x00000002</code>? <input type="text" size="15">
+</p>
+ 
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass21_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:06 GMT -->
+</html>

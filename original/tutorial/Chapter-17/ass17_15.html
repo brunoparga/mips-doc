@@ -1,0 +1,123 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 07 17:30:04 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:44 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shifting the Sign Bit</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass17_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap17-18.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+The program below has the blanks filled.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Shifting the Sign Bit</h1>
+<!-- ../Audio/chap17-18.mp3 -->
+
+<div class="left">
+<p><span class="highlight">
+To
+determine if "A" is negative, check if its
+sign bit is one.</span>
+To do this, 
+logically shift the sign bit
+into bit position 0 of a register.
+The register will be zero if "A"
+is positive.
+The program  assumes that
+integer values are represented with two's complement.
+</p>
+
+<p>
+The branch delay slot is filled with a no-op.
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="program">
+## absVal.asm
+##
+## Calculate the absolute value of A
+
+      .text
+      .globl  main
+
+main: 
+# Get A
+        lui   $10,0x1000     #  Initialize the base register
+        lw    $8,<span class="red">0</span>($10)      #  Load A
+        <span class="red">sll</span>   $0,$0,0        #  load delay slot
+
+# Is A negative?
+        srl   $9,$8,<input type="text" size="3">       #  Shift sign bit to position 0
+        
+        beq   $<input type="text" size="3">,$<input type="text" size="3">,done  #  sign bit == zero, done
+        
+        sll   $0,$0,0                   # branch delay slot
+
+
+# Store -A
+
+
+done:   
+
+      .data
+A:    .word   -1
+
+## End of file
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+
+<p>
+Fill the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass17_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:45 GMT -->
+</html>

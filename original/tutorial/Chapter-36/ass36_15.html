@@ -1,0 +1,164 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:04 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete OO Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-15.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete OO Program</h1>
+<!-- ../Audio/chap36-15.mp3 -->
+
+<a id="calling_conventions,_with_objects"> </a>
+<div class="left">
+
+<p>
+<span class="highlight">Here is the complete program,
+similar to what a compiler might output
+for the example program</span> (four pages back)
+in our imaginary OO language.
+</p>
+
+<p>
+<span class="highlight">The
+methods (subroutines)
+of objects in actual programs
+would be called using a
+stack-based linkage convention.</span>
+</p>
+
+<p>
+Local variables of methods
+would be locations in a stack frame
+that is pushed onto the run-time stack
+with each method activation.
+Parameters would be passed to methods
+and values returned to the caller
+as described by the convention.
+But let us avoid these complications.
+</p>
+</div>
+
+<div class="right">
+<p>
+Copy the program
+to a file  
+and run it with SPIM.
+Your understanding
+of object oriented programming
+will greatly increase.
+</p>
+
+<p>
+You would probably never  
+code a program like this 
+directly in assembly language.
+<span class="highlight">But OO concepts help,
+even when designing assembly
+laguage programs.</span>
+</p>
+
+</div>
+
+<br style="clear:both">
+<pre class="program">
+#
+#  CompleteOO.asm
+#
+          .globl   main
+          .text
+main:                                 # object1.print();
+          la       $a0,object1        #   get address of first object
+          lw       $t0,0($a0)         #   get address of object's method
+          jalr     $t0                #   call the object's method
+                                      
+                                      # object2.print();
+          la       $a0,object2        #   get address of second object
+          lw       $t0,0($a0)         #   get address of object's method
+          jalr     $t0                #   call the object's method
+          
+          li      $v0,10              # return to OS
+          syscall
+
+# Objects constructed in static memory.  An object consists of the data 
+# for each object and a jump table of entry points common to all objects
+# of its type.
+          .data
+object1:
+          .word    print                    # Jump Table
+          .asciiz  "Hello World\n"          # This object's data
+
+object2:
+          .word    print                    # Jump Table
+          .asciiz  "Silly Example\n"        # This object's data
+
+# Single copy of the print method
+# Parameter: $a0 == address of the object
+          .text         
+print:
+          li       $v0,4                   # print string service
+          addu     $a0,$a0,4               # address of object's string
+          syscall                          # 
+          jr       $ra
+</pre>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+<p>
+(Thought Question: )
+What two things would have to be done to add a second
+method to the objects of this program?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:05 GMT -->
+</html>

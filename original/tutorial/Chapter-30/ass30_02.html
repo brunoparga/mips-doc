@@ -1,0 +1,130 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Apr 28 18:51:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:03 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Floating Point?</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass30_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap30-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.  All that a processor needs is
+a small set of basic instructions that operate on bit patterns.
+Everything else can be built up from them.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Why Floating Point?</h1>
+<!-- ../Audio/chap30-02.mp3 -->
+
+
+<a id="floating_point,_advantages"> </a>
+<div class="left">
+
+<p><span class="highlight">
+Floating 
+point representation makes numerical
+computation much easier.</span>
+</p>
+
+<p>
+<span class="highlight">You <u>could</u> write all your programs using
+integers or fixed-point representation,</span>
+but this is tedious and error-prone.
+For example, you could write a program
+with the understanding that all integers 
+in the program are
+100 times bigger than the number they represent.
+The integer 2345, for example, 
+would represent the number 23.45.
+As long as you are consistent,
+everything works.
+</p>
+
+<p>
+This is actually the same as using fixed point notation.
+In fixed point binary notation the binary point is assumed
+to lie between two of the bits.  
+This is the same
+as an understanding that
+the integer the bits represent
+should be divided by a particular power of two.
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">But it is very hard to stay consistent using integers.</span>
+A programmer must remember where the decimal (or binary) point
+"really is" in each number.
+Sometimes one program needs to deal with several different ranges of
+numbers.
+Consider a program that must deal with both the measurements
+that describe the dimensions of components on a silicon chip 
+(say 0.000000010 to 0.000010000 meters) and also the
+speed of electrical signals on that chip, 
+100000000.0 to 300000000.0 meters/second.
+It is hard to find a place to fix the decimal point so that
+all these values can be represented.
+</p>
+
+<p>
+Notice that in writing those numbers 
+(0.000000010, 0.000010000, 100000000.0,  300000000.0)
+I was able to put the decimal point where it was needed
+in each number.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+<p>
+(Take a guess: ) When the decimal point moves to where it
+is needed in an expression, the decimal point is said to ____________.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass30_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:04 GMT -->
+</html>

@@ -1,0 +1,116 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Sep 19 21:41:21 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:44 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Cycle</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass10_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap10merge1518.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No, because register <code class="register">$0</code> always contains a zero.
+You may try to copy a value into it,
+and the instruction will appear to execute correctly,
+but register zero will not be changed.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Machine Cycle</h1>
+<!-- ../Audio/chap10merge1518.mp3 -->
+
+<img src="machinecycle.gif" class="rightimage" alt="machine cycle"  />
+
+
+<a id="MIPS_machine_cycle"> </a>
+
+<div class="left">
+
+<p><span class="highlight">
+The MIPS processor endlessly cycles through
+three basic steps.
+Each cycle executes one machine instruction.</span>
+Everything the processor does is done by a
+sequence of machine operations.
+So, everything that a program does is
+the result of performing
+millions of machine cycles.
+</p>
+
+<p>
+As execution proceeds through a sequence of instructions in memory,
+<span class="highlight">a special register, the <b>program counter</b>,
+contains the address the instruction that is next in line to execute.</span>
+</p>
+
+<blockquote>
+<span class="highlightred"><b>Fetch the next Instruction.</b></span>
+The program counter contains the address of the next
+machine instruction.
+The instruction is fetched from memory.
+</blockquote>
+
+<blockquote>
+<span class="highlightred"><b>Increment the PC.</b></span>
+The address in the program counter is incremented by four.
+</blockquote> 
+
+<blockquote>
+<span class="highlightred"><b>Execute the Instruction.</b></span>
+The machine operation specified by the
+instruction is performed.
+</blockquote>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+Why is the program counter (PC) incremented by four each time?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass10_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:46 GMT -->
+</html>

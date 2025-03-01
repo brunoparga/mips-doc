@@ -1,0 +1,172 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:00 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>  malloc()  </title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+A program in ANSI C asks for memory to be allocated with <code> malloc() </code>.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1><code> malloc() </code></h1>
+ 
+<div class="left">
+<p>
+If you don't know C, the remaining pages of this chapter can be skipped.
+However, they should be readable by everyone.
+The ideas are similar to other modern languages.
+</p>
+
+<p><span class="highlight">
+The <code> malloc() </code> function from the C standard library
+requests a block of memory.</span>
+</p>
+
+<pre>
+void *malloc(size_t size)
+</pre>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">The function allocates a block of memory of <code>size</code> number of
+bytes, and returns the address of the first byte of that block.</span>
+(The data type of <code>size</code> is an unsigned integer.
+The return type of the function is <code>void *</code> which is the
+way ANSI C describes a memory address.)
+</p>
+
+<p>
+Here is the start of our example assembly program:
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="program">
+main:    
+        # create the first struct 
+        li      $v0,9             # allocate memory
+        li      $a0,12            # 12 bytes
+        syscall                   # $v0 &lt;-- address
+        move    $s1,$v0           # $s1 first struct
+        . . . .
+
+</pre>
+
+<p>
+And here is how this would be done in C:
+</p>
+
+<pre class="program">
+#include &lt;stdlib.h&gt;    /* include a header file of standard definitions */
+
+struct EMPLOYEE              /* Declaration of a type of struct */
+{                            /* This does not allocate any memory */
+  int age;                   
+  int pay;
+  int class;
+};
+
+main()
+{
+  struct EMPLOYEE *empA;     /* declaration of the pointer variable empA */
+
+  empA = (struct EMPLOYEE *)malloc( sizeof( struct EMPLOYEE) );
+
+  . . . .
+</pre>
+<br style="clear:both"> 
+
+<div class="left">
+<p>
+The source code starts by including a file of standard definitions
+that the compiler may use in compiling this source program.
+Then the  <code>EMPLOYEE</code> structure is declared. 
+This describes a layout of a memory block
+but does not itself request memory.
+</p>
+
+<p>
+<span class="highlight">The <code>main()</code> routine of C is equivalent to the <code>main</code>
+entry point of an assembly language program.</span> 
+It is where the operating
+system first sends control when it starts the program running.
+</p>
+</div>
+
+<div class="right">
+<p>
+The declaration of <code>empA</code> describes it as a variable that
+is expected to contain an address of a block of memory suitable for
+an <code>EMPLOYEE</code> structure.
+In C, <span class="highlight">this type of variable is called a <b>pointer</b>.</span>
+</p>
+
+<p>
+The final statement (in this fragment) requests a block of memory.
+The number of bytes is the size needed the structure.
+The compiler determines this using the <code>sizeof</code> operator.
+(Or we could explicitly put "12", but this is poor coding technique.)
+</p>
+
+<p>
+<span class="highlight">The address of the dynamically allocated block of memory is returned
+by <code> malloc() </code> and assigned to the variable <code>empA</code>.</span>
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+<p>
+Where in memory will the allocated bytes of memory come from? 
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:01 GMT -->
+</html>

@@ -1,0 +1,116 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 11:37:41 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:43 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reversing a String</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass25_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap25-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap25-12.mp3 -->
+
+
+<h3>Answer:</h3>
+<p>
+The text segment.
+</p>
+
+<p>
+Traditionally 
+a segment containing machine instructions
+is called "text".
+A <b>process</b> is when the processor is actively executing those machine instructions.
+(This is analogous to the phrase "text of a play"
+and "performance of a play").
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Reversing a String</h1>
+
+<a id="text_segment"> </a>
+<a id="process"> </a>
+
+<img src="stackHello.gif" class="center" alt="stack of characters">
+
+<div class="left">
+
+
+<p>
+Here is a classic example of how a stack is used.
+The user enters a string, which is stored as a
+null-terminated string in a character buffer.
+The program then reverses the order of the characters in the buffer, 
+and then writes out the reversed buffer.
+To understand how the program works 
+inspect the diagram.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+The string "Hello" is pushed onto the stack, 
+from the buffer,
+character by character,
+starting with the 'H'.
+Then the characters are then popped from the stack back into the
+original string buffer.
+The last character pushed is the first one out.
+This reverses the order of the characters.</span>
+</p>
+
+<p>
+We will always push and pop full words (four bytes).
+Each character on the stack will be contained in the low order byte
+of a fullword.
+</p>
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+(Review: ) What does the following instruction do? <code>lbu  $t0,string</code>
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass25_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:45 GMT -->
+</html>

@@ -1,0 +1,132 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 13 19:19:52 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:14 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Run of the Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass16_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap16-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+What is the <em>symbolic address</em> of the first byte
+of the <code>.data</code> section?
+&nbsp; &nbsp; <span class="red">tape</span> &nbsp; &nbsp;
+What main storage address will it have at run time?
+&nbsp; &nbsp; <span class="red">0x10000000</span>
+</p>
+
+<p>
+<span class="highlight">The main storage address for the first byte of
+the data section is 0x10000000 by default
+(of the SPIM assembler).</span>
+There is nothing in the program that says this.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>A Run of the Program</h1>
+<!-- ../Audio/chap16-08.mp3 -->
+
+
+<a id="SPIM,_display_of_data"> </a>
+ 
+<img src="endianRun.gif" class="center" alt="SPIM Display" />
+
+<div class="left">
+
+
+<p>
+<span class="highlight">The 
+SPIM display shows data in groups of 4-byte words with
+the most significant byte on the left.</span>
+This makes the data readable by humans.
+Within each group of four, the byte with the
+lowest address is on the right.
+The picture show SPIM looks after the low-order byte of
+register <code>$9</code> has been stored to the buffer.
+</p>
+
+<p>
+In the dis-assembly part of the SPIM display of the second statement,
+the instruction is showh as
+</p>
+
+<pre>
+<code>ori  $9,$9,22136</code>
+</pre>
+
+<p>
+Here, the bit pattern <code>0x5678</code> has been translated into decimal representation by SPIM.
+</p>
+
+</div>
+ 
+
+<div class="right">
+<p>
+Register <code class="register">$9</code> has been loaded with the bit pattern <code class="register">0x12345678</code>.
+</p>
+
+<p>
+The low-order byte has been stored where it should be in memory,
+although you have to look at the
+display carefully to see this.
+(Recall that SPIM displays each group of four bytes in backwards order to make reading little-endian integers easier.)
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+
+<p>
+Which byte of <code class="register">$9</code> should go into address $0x10000000?
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass16_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:16 GMT -->
+</html>

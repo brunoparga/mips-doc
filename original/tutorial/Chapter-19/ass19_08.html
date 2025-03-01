@@ -1,0 +1,130 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 26 20:00:27 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:55 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bug-free Software</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass19_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap19-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre>
+start:   ori   $8,$0,4      # $8 = 4
+         ori   $9,$0,12     # $9 = 12
+         addu  $10,$8,$9    # $10 = 12+4 = 16
+         sll   $10,$10,2    # $10 = 16*4 = 64
+</pre>
+
+<p>
+Ordinarily, you would say "yes",
+assuming that the comments are correct.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Bug-free Software</h1>
+<!-- ../Audio/chap19-12.mp3 -->
+
+<div class="left">
+<p>
+The
+answer assumes that execution starts
+at <code>start</code>.<span class="highlight">
+What if execution started at the
+<code>addu</code>
+instruction? </span>
+Registers <code class="register">$8</code> and <code class="register">$9</code> would probably contain
+different numbers.
+That could happen if
+the following code
+were somewhere 
+in the program:
+</p>
+
+<pre>
+ori   $8,$0,99     # $8 = 99
+ori   $9,$0,43     # $9 = 43
+j     start+8      # jump to the 
+                   # second statement 
+                   # after start
+</pre>
+
+<p>
+<code>start</code>
+is a symbolic address that stands for
+the first instruction's run time address.
+<code>start+8</code>
+stands for the address 8 bytes away.
+The jump instruction transfers control to that address.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+If control can jump into the middle of a block of code, 
+then that block might compute something other than intended.</span>
+Somehow, there needs to be restrictions on where control can go.
+</p>
+
+<p>
+(QtSPIM does not allow the <code>j</code> instuction used here,
+but most assembler will allow something similar.)
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+
+<p>
+Is there a way  to <em>prevent</em>
+distant statements from jumping into the 
+middle of a block?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass19_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:56 GMT -->
+</html>

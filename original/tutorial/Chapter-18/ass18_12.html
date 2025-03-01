@@ -1,0 +1,121 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Mar 05 21:12:52 EST 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:59 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Loop</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass18_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap18-12.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+See Below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Loop</h1>
+<!-- ../Audio/chap18-12.mp3 -->
+
+<img src="countiToTen.gif" class="rightimage" alt="Flowchart" />
+
+<div class="left">
+
+<p>
+Here
+ is the loop with the branch delay slots
+filled.
+One could be clever and eliminate the last no-op, but
+let's not.
+</p>
+
+
+<p><span class="highlight">
+The no-op at <code>endLp</code>
+is not filling a branch delay slot.
+It is there as a  convenient target for the branch instruction.</span>
+</p>
+
+<p>
+With a few assembly language directives, the
+code is ready to run.
+Step through the code and watch <code class="register">$8</code> (count)
+increase from 0 to 0xA.
+</p>
+
+<br> 
+
+<pre class="code">
+#
+#  branch delay slots  filled
+#
+init:   
+        ori    $8,$0,0        # count = 0
+
+test:   sltiu  $9,$8,10       # count &lt; 10
+        beq    $9,$0,endLp    # end loop if count &gt;= 10
+        <span class="blue">sll    $0,$0,0        # delay</span>
+
+                              # do stuff
+
+        addiu  $8,$8,1        # count++ ;
+        j      test
+        <span class="blue">sll    $0,$0,0        # delay</span>
+
+endLp:  sll    $0,$0,0        # branch target
+</pre>
+</div>
+
+<br style="clear:both"> 
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 12:</h3>
+
+<p>
+Examine the program.  How could you modify it
+to compute the sum of the integers 0 through 9?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass18_11.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_13.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_12.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:00 GMT -->
+</html>

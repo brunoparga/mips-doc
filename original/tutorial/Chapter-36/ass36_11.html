@@ -1,0 +1,133 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:43 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No. The machine code for all objects of
+the same type are shared, and not part
+of any one object.
+</p>
+
+<p>
+However, 
+when thinking about objects,
+coded in an object oriented language,
+it is convenient to think of an object as one
+"thing" consisting of all of its parts.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+<!-- ../Audio/chap36-11.mp3 -->
+
+ 
+<img src="twoObjects.gif"  class="rightimage" alt="Two Objects" />
+ 
+
+ <div class="left">
+
+
+<p>
+<span class="highlight">Here is a program 
+in an imaginary object-oriented language
+that
+contains two objects.</span>
+Conceptually,
+each object consists of a text
+message and a <code>print()</code> method
+that prints the message.
+</p>
+
+<p> 
+In implementation,
+the code for the method will is outside of the object.
+The picture shows
+the program conceptually.
+</p>
+
+<pre class="program"> 
+main()
+{
+  MyClass object1("Hello World");
+  MyClass object2("Silly Example");
+  
+  object1.print();
+  object2.print();
+}
+</pre>
+
+<p>
+<span class="highlight">The <code>main()</code> routine
+holds the address of each object.</span>
+This is symbolized by the arrows that
+point to each object.
+The program will first call
+the <code>print()</code> method of
+the first object,
+and then call 
+the <code>print()</code> method of
+the second object.
+</p>
+ 
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+What output do you expect from
+this program?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:45 GMT -->
+</html>

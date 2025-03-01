@@ -1,0 +1,118 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_28.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:30 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More Practice Subtraction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_27.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_29.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-41.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<p>
+Subtract 0101 1001 from 0010 0101
+</p>
+
+<h3>Answer:</h3>
+
+<p>
+1100 1100 
+</p>
+
+<p>
+  (correct)
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>More Practice Subtraction</h1>
+<!-- ../Audio/chap08-41.mp3 -->
+
+<p>
+<span class="highlight">The
+ number to be subtracted is negated by the
+usual means (reflect the bits, add one):</span>
+</p>
+
+<pre>
+0101 1001 <span style="font-size:200%">&#8594;</span>  1010 0111
+</pre>
+
+<p>
+<span class="highlight">Then the binary addition algorithm is used:</span>
+</p>
+
+<pre  class="code" style="text-align:left">
+00100 111         
+ 0010 0101   =  37<sub>10</sub>
+ 1010 0111   = -89<sub>10</sub>
+ &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;     &#8212;&#8212;&#8212;&#8212;
+ 1100 1100     -52<sub>10</sub>
+</pre>
+
+<p>
+Since the carry into the most significant column is the same
+as the carry out of that column the result is correct.
+The answer came out negative, but that is fine.
+</p>
+
+<p>
+Computer scientists and computer engineers are
+expected to understand the binary addition algorithm.
+Practice it.
+Or you can change your major to Art History
+(and leave the high-paying jobs to the rest of us). 
+Here is another problem:
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 28:</h3>
+<p>
+Subtract 0101 1001 from 1110 0101.
+</p>
+
+<p>
+Is the result correct or not?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_27.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_29.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_28.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:31 GMT -->
+</html>

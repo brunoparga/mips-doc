@@ -1,0 +1,132 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:40 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:05 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-13.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+No.  As many variables as needed may be pushed onto the stack.
+</p>
+
+<p>
+This results in the rule that a subroutine (in a language like C or Java)
+can have as many local variables as needed.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+
+<pre class="program">
+main()
+{
+  int a;
+  a = mysub( 6 );
+  print( a );
+}
+
+int mysub( int arg )
+{
+  int b,c;
+  
+  b = arg*2;
+  c = b + 7;
+  
+  return c;  
+}
+
+</pre>
+<div class="left">
+
+<p>
+The number of registers that MIPS (or other processor) has does not
+limit the number of variables that subroutines can have.
+As many variables as you want can be allocated on the stack.
+Here is an example program, written in a C-like language.
+</p>
+
+<p>
+To the operating system, <code>main()</code> is a subroutine.
+<span class="highlight">When <code>main()</code> first gets control
+the stack pointer <code class="register">$sp</code>
+will be initialized correctly to point to the top of stack.</span>
+<code>main()</code> then  follows the rules under "subroutine prolog".
+</p>
+</div>
+
+<div class="right">
+<p>
+The prolog for <code>main()</code> must push the caller's registers
+and set up its local variables.
+</p>
+
+<p>
+For qtSPIM, return to the system is done using
+trap handler service 10 and the
+<code class="register">syscall</code> instruction.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+
+<form>
+<p>
+How many bytes on the stack are needed for the
+variables in <code>main()</code>? <input type="text" size="8" style="font-size:125%;" />
+</p>
+
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:06 GMT -->
+</html>

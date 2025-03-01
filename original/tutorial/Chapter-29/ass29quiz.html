@@ -1,0 +1,1032 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:08 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="B. P. Kjell">
+<meta name="robots" content="noindex,nofollow">
+<title>
+Quiz on Binary Fractions
+</title>
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/QUIZstyle.css">
+
+<script>
+function gradeQuiz( reportForm ) 
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+    {
+      document.forms[ count ].correct.style.background = "#80FF80" ;
+      totalRight++ ;
+    }
+   else
+      document.forms[ count ].correct.style.background = "#FF8080" ;
+       
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+  
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+</script>
+
+
+</head>
+<body>
+<p class="revisions">Created 12/09/02; edits 11/19/14, 08/02/2020</p>
+<hr>
+
+<h1 style="text-align:center">
+<img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/quizPencil.gif" alt="Quiz"> on Binary Fractions
+</h1>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br style="clear:both">
+
+
+<hr>
+<form name="question1">
+<p>
+1.
+
+In the <b>decimal</b> fraction 12.345 what power of 10 is the digit 5 associated with?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+-3
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+-2
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+-1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question2">
+<p>
+2.
+
+In the <b>binary</b> fraction 10.001 what power of 2 is the rightmost bit associated with?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+-3
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+-2
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+-1
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question3">
+<p>
+3.
+
+Express <code>1 + 4/10 + 3/100</code> using base 10 positional notation.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.043
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+143.00
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.43
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.143
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question4">
+<p>
+4.
+
+Express <code>1 + 1/2 + 0/4+ 1/8</code> using base 2 positional notation.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.11
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.011
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+11.1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.101
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question5">
+<p>
+5.
+
+What is <code>2<sup>-1</sup></code> ? (Express the answer in base 10)
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+1/2
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1/4
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+1/8
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+2
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question6">
+<p>
+6.
+
+Write <code>1.01<sub>2</sub></code> as a base 10 expression.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.125
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.25
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.5
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.625
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question7">
+<p>
+7.
+
+Say that the following is a four bit binary fixed-point expression
+and that the point is fixed between the middle two bits.
+</p>
+<p>
+1011
+</p>
+<p>
+What value does it represent? (Write the answer in decimal.)
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+10.75
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+2.3
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+2.75
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.625
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question8">
+<p>
+8.
+
+Here is another four bit binary fixed-point expression
+with the point fixed between the middle two bits.
+</p>
+<p>
+0001
+</p>
+<p>
+What value does it represent? (Write the answer in decimal.)
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.25
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+2.2
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.625
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.25
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question9">
+<p>
+9.
+
+Perform the following addition of fixed-point binary operands using the Binary Addition Algorithm.
+Assume that the binary point is in the middle.
+What value does the sum represent?
+</p>
+<pre>
+1011
+0001
+----
+</pre>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+1100  represents 12<sub>10</sub>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+0110 represents 1.5<sub>10</sub>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+1100 represents 3.5<sub>10</sub> 
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+1100  represents 3<sub>10</sub>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question10">
+<p>
+10.
+
+A method that uses only four bits can represent only 16 values.
+This is described as a limit on its ________.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+Accuracy
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+Precision
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Magnitude
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Resolution
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question11">
+<p>
+11.
+
+Which one of the following statments is true?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+Computer arithmetic is so precise that if the input values
+are correct, all calculations will be accurate.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+Computer arithmetic is always much more precise than
+an ordinary electronic calculator.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+Even when using double precision floating point it is easy
+for errors in a calculation to accumulate until the result is meaningless.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question11.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+Sixty-four bits of precision is more than anyone could ever want.
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question12">
+<p>
+12.
+
+The number 0.625 is here represented as a decimal fraction.
+Multiply it by two. Copy the one's place digit 
+of the result to the beginning of a binary fraction.
+</p>
+
+<p></p>
+What is the first bit after the binary point of the
+binary fraction that represents 0.625?
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question12.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+2.0
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question13">
+<p>
+13.
+After multiplying 0.625 by two and dropping the one's place digit 
+you are left with 0.25.  Multiply this by two and copy the one's place digit 
+of the result to the binary fraction.
+What is the binary fraction so far?
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.11
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.10
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.01
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question13.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.01
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question14">
+<p>
+14.
+
+The number you are working on now looks like: 0.5.  Repeat the
+above process to complete the binary fraction.
+The number 0.625 represented as a binary fraction is:
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.111
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+1.011
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.110
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question14.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.101
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question15">
+<p>
+15.
+
+Represent the decimal fraction 0.375 as a binary fraction.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.11
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.111
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.011
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question15.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.001
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question16">
+<p>
+16.
+
+Which of the following binary fractions is an
+approximation to the decimal fraction 0.8?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question16.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.11001
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question16.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.10101
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question16.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.11010
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question16.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.0111
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question17">
+<p>
+17.
+
+If you know how many times a loop should execute,
+the loop control variable should be:
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question17.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+float
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question17.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+double
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question17.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+boolean
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question17.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+int
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question18">
+<p>
+18.
+
+Say that you have a <code>while</code> loop that uses
+a conditional expression that involves floating point variables.
+Which one of the following comparison operators should <b>not</b>
+be used in the conditional expression?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question18.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>==</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question18.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>&gt;</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question18.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>&lt;</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question18.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>&lt;=</code>
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question19">
+<p>
+19.
+
+Which one of the following decimal fractions cannot be
+represented accurately using a binary fraction?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question19.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.5
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question19.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.0
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question19.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.1
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question19.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+0.125
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="question20">
+<p>
+20.
+
+Most programs that do floating point calculations should
+use variables of what type?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question20.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+double
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question20.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+float
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question20.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+single
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question20.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+real
+
+</td></tr>
+
+<tr><td>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</td></tr>
+</table>
+</form>
+<hr>
+<form name="evaluateQuest">
+
+<p  style="text-align:center">
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</p>
+
+<p  style="text-align:center"> 
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+<p  style="text-align:center">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/homeIcon.gif" alt="Click here" > </a>
+</p>
+
+<p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:08 GMT -->
+</html>

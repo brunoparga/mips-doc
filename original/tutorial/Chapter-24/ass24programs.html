@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:02 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 07/03/2003; revised 07/04/2015</p>
+<hr />
+ 
+
+<h1> 
+Chapter 24 Programming Exercises
+</h1> 
+
+<hr />
+
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine OFF, Accept Pseudo Instructions ON,
+Enable Branch Delays ON,
+Enable Load Delays ON, Enable Mapped IO OFF, Load Exception Handler ON.
+</p>
+
+ 
+<hr />
+
+<!-- tested 08/01/03 -->
+
+<h2>*Exercise 1 &#8212; String Length</h2>
+
+<p>
+Write a program that repeatedly asks the user for a
+string and then calculates and prints out the string length.
+Stop the program when the string is empty
+(when the user hits "enter" without anything else on the line.)
+</p>
+
+<p>
+Be sure to reserve enough memory in the <code>.data</code>
+for the string.
+Use indexed addressing to scan through the string.
+Strings read in with the trap handler service include a
+'\n' character at the end, followed by the null termination.
+Don't count the '\n' or the null as part of the string length.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part6"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+<!-- tested 08/01/03 -->
+
+<h2>***Exercise 2 &#8212; String Reversal</h2>
+
+<p>
+Write a program that asks the user for a string.
+After reading the string into a buffer,
+copy it in reversed order to a second buffer.
+Write out the reversed string.
+End the program when the first string entered is empty
+(when it consists only of the end of line character.)
+</p>
+
+<p>
+The input strings will be terminated with "\n\0".
+Don't include these characters in the middle of the
+concatenated string.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part6"> Click here </a> to go back to the main menu.
+</p>
+
+
+<hr />
+<!-- tested 08/01/03 -->
+
+<h2>***Exercise 3 &#8212; String Concatenation</h2>
+
+<p>
+Write a program that repeatedly asks the user for two strings. 
+The strings are placed in separate buffers in memory.
+Now, in a third buffer, create a string that is the concatenation
+of the two strings.
+Print out the new string.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part6"> Click here </a> to go back to the main menu.
+</p>
+
+
+<hr />
+<!-- tested 08/01/03 -->
+
+<h2>***Exercise 4 &#8212; Triangle of Stars</h2>
+
+<p>
+Write a program that 
+writes the following pattern to the simulated terminal:
+</p>
+
+<pre>
+    *
+   ***
+  *****
+ *******
+*********    
+</pre>
+
+<p>
+The last row starts in column one.
+Use a counting loop to print the five lines.
+The body of the counting loop contains two
+other loops which, in sequence, fill the line
+buffer with the right number of spaces and stars
+for the current line.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part6"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+
+<!-- tested 5/16/2016 -->
+
+<h2>***Exercise 5 &#8212; Dot Product</h2>
+
+<p>
+Compute the <b>dot product</b> of two vectors.
+A vector is an array of integers.
+Both vectors are the same length.
+Ask the user for the length of the vectors.
+Then prompt for and read in the value of each
+element of each vector.
+Reserve space in memory for vectors of up to 10
+elements, but allow vectors of any size one through 10.
+</p>
+
+<pre>
+          .data
+length:   .word 0
+vectorA:  .space 40    # space for 10 integers
+vectorB:  .space 40    # space for 10 integers
+</pre>
+
+<p>
+The dot product of two vectors is the sum
+of the product of the corresponding elements.
+For example, <code>(1, 2, 3) dot (4, 5, 6)</code>
+is 1*4 + 2*5 + 3*6 = 32.
+</p>
+
+<p>
+After computing it,
+write out the dot product to the monitor.
+</p>
+
+<p>
+Here are sample runs of the program:
+</p>
+
+<pre>
+How many elements: 5
+
+Next element in A: 1
+Next element in A: 2
+Next element in A: 3
+Next element in A: 4
+Next element in A: 5
+
+Next element in B: 3
+Next element in B: -1
+Next element in B: 0
+Next element in B: 2
+Next element in B: -2
+
+Dot Product is   : -1
+</pre>
+
+<p>
+and
+</p>
+
+<pre>
+How many elements: 25
+Bad number of elements!
+</pre>
+
+<p>
+and
+</p>
+
+<pre>
+How many elements: -2
+Bad number of elements!
+</pre>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part6"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+<!-- untested -->
+
+<h2>***Exercise 6 &#8212; Linear Search</h2>
+
+<p>
+Declare an array of integers:
+</p>
+
+<pre>
+          .data
+size:     .word 12
+array:    .word 50,12,52,-78,03,12,99,32,53,77,47,00
+</pre>
+
+<p>
+Write a program that 
+repeatedly asks the user for an integer to search for.
+After the user enters the integer,
+the program scans through the array element by element looking for
+the integer.
+When it finds a match it writes a message 
+and reports the index where the integer was found.
+If the integer is not in the array it writes a failure message.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part6"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+<!-- untested -->
+
+<h2>***Exercise 7 &#8212; Averaging Filter</h2>
+
+<p>
+Write a program that processes an array by
+applying an averaging filter to it.
+An averaging filter works like this:
+create a new array where each element at index J
+is the average of the three elements from the old array
+at indexes J-1, J, and J+1
+</p>
+
+<pre>
+          .data
+size:     .word 12
+array:    .word 50,53,52,49,48,51,99,45,53,47,47,50
+result:   .word 0,0,0,0,0,0,0,0,0,0,0,0
+</pre>
+
+<p>
+In the above, the second element of the result is
+the average of 50, 53, and 52.
+The first and last elements of the new array are
+copies of the corresponding first and last elements
+of the old array.
+</p>
+
+<p>
+After processing, write the old and new arrays to the monitor.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part6"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- untested -->
+
+<h2>****Exercise 8 &#8212; Selection Sort</h2>
+
+<p>
+Perform selection sort on an array in memory:
+</p>
+
+<pre>
+          .data
+size:     .word 20
+array:    .word 99,23,45,82,09,34,71,64,88,42,12,87,33,36,83,18,17,04,52,46
+</pre>
+
+<p>
+The selection sort algorithm looks like this:
+</p>
+
+<pre>
+int out, in, min, temp;
+
+// each time the outer loop is
+// executed, replace the element
+// at out with the minimum of the
+// elements to its right.
+for ( out=0; out&lt;size-1; out++ )
+{
+  min = out;
+ 
+  // find the location of the minimum
+  // in the remaining elements 
+  for ( in=out+1; in&lt;size; in++ )
+    if ( array[in] &lt; array[min] )
+      min = in;
+ 
+  // swap the element at out with
+  // the minimun of the remaining elements     
+  temp       = array[out];
+  array[out] = array[min];
+  array[min] = temp;  
+}
+</pre>
+
+<p>
+Write out the array after it has been sorted.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part6"> Click here </a> to go back to the main menu.
+</p>
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<hr />
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:02 GMT -->
+</html>
+

@@ -1,0 +1,123 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:25 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immediate Operand in Branch</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24merge0607.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24merge0607.mp3 -->
+
+<h3>Answer:</h3>
+
+<pre class="program">
+        lw    $t0,val          # $t0 has the value
+        andi  $t8,$t0,1        # one's place in $t8 is zero or one
+        
+        <span style="color:blue">bnez</span> $t8,odd           # if even
+                               # {
+        addu  $t2,$t2,$t0      #     add to even sum
+        b     endif            # }
+        
+odd:                           # else
+        addu  $t1,$t1,$t0      #     add to odd sum
+endif:
+</pre>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Immediate Operand in Branch</h1>
+
+<a id="immediate_operands,_branch_instructions"> </a>
+
+<div class="left">
+<p><span class="highlight">
+If
+a branch instruction has a second operand, it can be
+an immediate operand or a register.</span>
+The extended assembler will implement this using several basic instructions.
+For example, from the previous table:
+</p>
+</div>
+
+<br style="clear:both"> 
+<table style="width:50%">
+
+<tr style="height:30px" >
+<td>bge</td><td>s,t,label</td><td>branch if s&gt;=t</td><td> signed </td>
+</tr>
+
+</table>
+
+<p>
+Here
+are examples:
+</p>
+
+<pre class="code">
+bge    $t1,$t2,spot     # if ( $t1 &gt;= $t2 ) goto spot
+
+bge    $t1,23,spot      # if ( $t1 &gt;= 23  ) goto spot
+
+bge    $t1,-98,spot     # if ( $t1 &gt;= -98 ) goto spot
+
+bge    12,$t1,oops      # <span class="red">WRONG:</span> first op must be a register
+
+bge    $t1,value,oops   # <span class="red">WRONG:</span> second op can't be a symbolic address
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+Is the following instruction correct?
+</p>
+<pre class="code">
+bge     $t1,-67,spot     # if ( $t1 &gt;= -67 ) goto spot
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:26 GMT -->
+</html>

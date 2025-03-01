@@ -1,0 +1,144 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:40 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:01 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Implementation of Local Variables</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-02.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+A <em>local variable</em> holds values
+for a subroutine while the subroutine is active. 
+</p>
+
+<p>
+For example, in the following function
+(written in C), <code>b</code> and <code>c</code> are local variables.
+</p>
+
+<pre>
+int mysub( int arg )
+{
+  int b, c;  
+  
+  b = arg*2;
+  c = b + 7;
+  return c;  
+}
+</pre>
+
+<p>
+Other programming languages have the same idea, implemented with different syntax.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Implementation of Local Variables</h1>
+
+<a id="local_variable"> </a>
+<a id="stack_frame"> </a>
+<a id="activation_record"> </a>
+<a id="frame_pointer"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">In a high-level language a <b>local variable</b> is
+implemented as a location on the
+run-time stack.</span>
+Each time a subroutine is activated,  
+locations for its variables are  pushed onto the stack.
+</p>
+
+
+<p> 
+<span class="highlight">The section of the stack for each activation
+is called a <b>stack frame</b> or an <b>activation record.</b></span>
+A <b>frame pointer</b> holds the address of the stack frame
+for a subroutine.
+</p>
+
+<p>
+<span class="highlight">When a subroutine returns to its caller the stack frame
+is popped from the stack.
+Thus, local variables only exist as memory locations while
+a subroutine is active.</span>
+A subroutine is active if it is currently executing, or
+if a subroutine it has called is active.
+</p>
+</div>
+
+<div class="right">
+<p>
+The format of a stack frame used by MIPS 
+language processors is complicated.
+There are many situations that must be
+handled and many optimizations.
+It takes a compiler to do it correctly.
+These notes describe a much simplified
+stack frame.
+</p>
+
+<p>
+The important part is to understand what a
+local variable is, in general: 
+a location on the run-time stack.</span>
+This is an important idea in computer science,
+one you will run into repeatedly as you study
+advanced topics.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+<p>
+In a high-level language are there variables that are not local?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:02 GMT -->
+</html>

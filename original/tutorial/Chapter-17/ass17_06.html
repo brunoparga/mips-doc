@@ -1,0 +1,146 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 07 17:30:04 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:16 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Most Jumps (and Branches) are Local</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass17_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap17-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+The PC contains the address of the instruction that follows the jump instruction.
+Recall that the machine cycle is "fetch - increment PC - execute" so the PC
+will have been incremented.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Most Jumps (and Branches) are Local</h1>
+<!-- ../Audio/chap17-08.mp3 -->
+
+<div class="left">
+<p><span class="highlight">
+Most jumps and branches are to nearby addresses.</span>
+The target of the jump instruction 
+and the
+instruction following the jump instruction 
+are likely to be close together in memory.
+The high-order four bits of their addresses will be identical.
+<span class="highlight">So the high-order four bits of the PC 
+are  the same as needed for the target address.</span>
+</p>
+
+<p>
+Of course,
+an assembly language programmer must be careful 
+to make sure that
+this is so.
+When a compiler translates a source program into
+machine language it also must pay attention to addresses.
+For the tiny programs  you will write for this course
+the high four bits of the PC will always be the high four
+bits of the jump address.
+</p>
+</div>
+
+<div class="right">
+
+<a id="j_instruction,_range_of_addresses"> </a>
+<p>
+A jump instruction can't jump to any arbitrary location in the
+full 32-bit address space.
+It must jump to an address
+within the following range:
+</p>
+
+<pre>
+wxyz 0000 0000 0000 0000 0000 0000 0000
+                   .
+                   .
+                   .
+wxyz 1111 1111 1111 1111 1111 1111 1100
+</pre>
+
+<p>
+Here, <b>wxyz</b> represents the high-order four bits of the PC.
+Almost always the jump instruction and the jump address
+are both within this range.
+</p>
+
+<p>
+All these details may look terrible to you at this point.
+Don't worry: (1) its not as bad as it looks, and
+(2) usually the assembler does all the work.
+(But for now, <em>you</em> get to do the work).
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+
+<p>
+Some 32-bit processors have instructions of several lengths.
+Such processors can include the full 32-bit address in a jump instruction
+thats long enough to hold it.
+But MIPS instructions are always 32 bits.
+Some sort of trick must be used with its jump instruction.
+</p>
+
+<p>
+Here is a great idea!
+Why not implement the jump instruction
+without using an explicit op-code?
+Build the processor so that
+when execution encounters 
+a 32-bit address it automatically
+jumps to that address.
+</p>
+
+<p>
+Will this scheme work?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass17_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:17 GMT -->
+</html>

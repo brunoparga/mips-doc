@@ -1,0 +1,179 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 07 17:30:04 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:45 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How a Jump Works</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass17_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap17merge0203.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Yes. Each byte of main memory has an address. 
+The address of a machine instruction is the address of the first of its four bytes.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>How a Jump Works</h1>
+<!-- ../Audio/chap17merge0203.mp3 -->
+
+<a id="branch_delay"> </a>
+<a id="branch_delay_slot"> </a>
+<a id="pipeline"> </a>
+
+
+<img src="MachineCycle.gif" class="rightimage" alt="Machine Cycle" />
+
+
+<div class="left">
+
+<p><span class="highlight">
+When a program is executing,
+its instructions
+are located in main memory.</span>
+Each instruction has an address.
+</p>
+
+<p>
+Each machine cycle 
+executes one 
+machine instruction.
+<span class="highlight">At the top of the machine cycle, 
+the <b>PC</b> (program counter) 
+contains the address of an
+instruction to fetch from memory.</span>
+The instruction is fetched into the
+processor and is prepared for execution.
+</p>
+
+<p>
+In the middle of the machine cycle the
+<b>PC</b> is incremented 
+by four so that it points to
+the instruction that follows the one just fetched.
+Then the fetched instruction is executed
+and the cycle repeats.
+The machine cycle automatically executes
+instructions
+in sequence.
+</p>
+
+<p><span class="highlight">
+When a <b>jump</b> instruction executes
+(in the last step of the machine cycle),
+it puts a new address into the PC.</span>
+Now the fetch 
+at the top of the next machine cycle would fetch the
+instruction at that new address.
+Instead of executing the instruction that follows
+the jump instruction in memory,
+the processor would "jump" to an instruction
+somewhere else in memory.
+</p>
+</div>
+<br style="clear:both"> 
+
+<div class="left">
+<p><span class="highlight">
+However,
+it takes an extra machine cycle before
+the change in the PC takes effect.</span>
+Before the PC changes,
+the instruction that follows 
+the jump instruction in memory is
+fetched and executed.
+After that instruction executes,
+the next instruction to execute is the one
+that was jumped to.
+<span class="highlight">The instruction that follows
+a jump instruction in memory
+is said to be in the <b>branch delay</b> slot.</span>
+</p>
+
+<p>
+<span class="highlight">The reason for this delay 
+is that MIPS
+is <b>pipelined.</b></span>
+Logically, instructions are executed one after another in sequence.
+However, in order to gain speed, the processor  works on 
+several sequential instructions simultaneously.
+These instructions are in an instruction <b>pipe</b>.
+When a jump instruction is about to change the PC,
+the work already started on the instruction that follows it is allowed to finish.
+</p>
+</div>
+
+<div class="right">
+
+
+<p><span class="highlight">
+The instruction that 
+follows a jump instruction in memory
+(in the branch delay slot)
+is always executed.</span>
+Often this is a no-op instruction.
+After it executes, 
+the next instruction to
+execute is the one that was 
+the target of the jump instruction.
+</p>
+
+<p>
+The SPIM simulator allows you to turn the pipeline
+feature off, but this is not an option 
+with actual hardware.
+So, for now, leave this option on.
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<p>
+(Review:) What does a no-op instruction do?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass17_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:47 GMT -->
+</html>

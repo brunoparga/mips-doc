@@ -1,0 +1,141 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 07 17:30:04 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:14 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Absolute Value</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass17_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap17-17.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+No.  
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Absolute Value</h1>
+<!-- ../Audio/chap17-17.mp3 -->
+
+ 
+<img src="absValChart.gif"  class="rightimage" alt="Absolute Value Flow Chart" />
+ 
+
+
+<div class="left">
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+You can build a real rats-nest of code with assembly language.
+Avoid this by implementing the structures of a high level language.
+<span class="highlight">Draw a flowchart of the program or rough it out
+in C or Java <u>before</u> coding.</span>
+Put comments in the assembly source program 
+before you add code to show 
+how the code and the flowchart correspond.
+</p>
+
+<p>
+The flowchart at right shows a program that calculates
+the absolute value of the integer at symbolic address "A".
+The program follows that logic.
+</p>
+
+<p>
+Assume that "A" starts at 
+address 0x10000000.
+The <code>lui</code> instruction
+points the base register <code class="register">$10</code> at that address.
+</p>
+
+</div>
+
+<br style="clear:both">
+<br>
+<br> 
+<pre class="program">
+## absVal.asm
+##
+## Calculate the absolute value of A
+
+    .text
+    .globl  main
+
+main: 
+# Get A
+      lui   $10,0x1000     #  Initialize the
+                           #  base register
+                           
+      lw    $8,<input type="text" size="3">($10)    #  Load A
+      
+      <input type="text" size="3">   $0,$0,0        #  load delay slot
+
+# Is A Negative?
+
+# Store -A
+
+done:   
+
+    .data
+A:  .word   -1
+</pre>
+
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+
+<p>
+Fill in the blanks.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass17_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass17_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-17/ass17_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:16 GMT -->
+</html>

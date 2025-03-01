@@ -1,0 +1,142 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Mar 05 21:12:52 EST 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:32 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counting Loop</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass18_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap18-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Load instructions are followed by a load delay slot.
+The data loaded from memory into a register does not arrive until after the following instruction has executed. 
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Counting Loop</h1>
+<!-- ../Audio/chap18-10.mp3 -->
+
+<a id="counting_loop"> </a>
+<a id="loop,_counting"> </a>
+
+ 
+<img src="countingLoop.gif" class="rightimage" alt="Flowchart" title="Counting Loop Flowchart" />
+ 
+
+<div class="left">
+
+<p><span class="highlight">
+A
+<b>counting loop</b>
+is controlled by an integer that
+counts up from a initial value to
+an upper limit.</span>
+The integer is called a
+<em>loop control variable</em>.
+Loops are implemented
+with the conditional branch,
+jump, and conditional set
+instructions.
+</p>
+
+<p><span class="highlight">
+A loop has three parts
+that must be correct:</span>
+</p>
+
+<ol>
+<li>The counter must be initialized.</li>
+<li>The test must end the loop on the correct count.</li>
+<li>The counter must be increased.</li>
+</ol>
+
+
+<p>
+It is easy to get these wrong
+in a high-level programming
+language.
+It is remarkably easy to get
+them wrong in assembly language.
+</p>
+
+<p><span class="highlight">
+Usually you want a <b>top-driven</b> loop </span>
+such as the one at right,
+where the test is performed 
+at the top
+before
+control enters the loop body.
+Be clear about the loop you want
+before you program it,
+because assembly language allows
+any sort of weird loop.
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+
+<p>
+Is the following loop (in C)
+correct in all three parts?
+It is intended to execute 10
+times starting at zero.
+</p>
+
+<pre class="code">
+int j;
+   
+j = 0;
+while ( j &lt; 10 )
+{
+    . . .
+    j++ ;
+}
+</pre> 
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass18_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass18_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-18/ass18_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:34 GMT -->
+</html>

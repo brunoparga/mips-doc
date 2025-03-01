@@ -1,0 +1,168 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 07:54:16 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:36 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee.org">
+<!-- <meta name="copyright" content="2009"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shifting in Place</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass12_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap12-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<pre>
+        ori      $8, $0, 0x6F       # put bit pattern register into $8
+        sll      <span class="red">$8, $8,</span> 2          # shift left logical by two
+</pre>
+
+<h3>Answer:</h3>
+<p>
+Yes, this is OK.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Shifting in Place</h1>
+<!-- ../Audio/chap12-04.mp3 -->
+
+
+<a id="in_place,_shifting"> </a>
+
+<div class="left">
+<p>
+When  an ALU operation is performed:
+</p>
+
+<ol>
+<li><span class="highlight">data is copied from the register(s) into the ALU, </span></li>
+<li><span class="highlight">the ALU does the operation </span></li>
+<li><span class="highlight">the result is written to the designated result register.</span> </li>
+</ol>
+
+<p>
+There is no problem when an operand register is also the result register
+because the operand data was transferred to the ALU in the first step,
+leaving the register open to receive the result.
+</p>
+
+<p>
+The assembly language statement in the example program is:
+</p>
+
+ 
+<pre>
+sll      $9, $8, 2          # shift left logical by two
+</pre>
+ 
+<p>
+Here is the machine instruction corresponding to  that statement:
+</p>
+</div>
+<br style="clear:both">  
+
+<pre>
+   0    0    0    8    4    8    8    0    -- machine instruction in hex
+
+<span class="blue">0000 00</span><span class="red">00 000</span><span class="blue">0 1000</span><span class="red"> 0100 1</span><span class="blue">000 10</span><span class="red">00 0000</span>    -- machine instruction in bits
+
+<span class="blue">000000</span> <span class="red">00000</span> <span class="blue">01000</span> <span class="red">01001</span>  <span class="blue">00010</span> <span class="red">000000</span>    -- fields of the instruction
+
+opcode ----- source dest   shft  2ndary    -- meaning of the fields
+
+ALUop          $8    $9     2    sll       -- fields decoded
+</pre>
+
+<div class="left"> 
+<p>
+The <code>sll</code> operation is designated 
+by the 6-bit zero at the beginning
+of the instruction and the 6-bit zero at the end.
+The remaining fields give the source register (<code class="register">$8</code> in this case), 
+the destination
+register (<code class="register">$9</code> in this case), 
+and the number of positions to shift (2 in this case).
+Notice that in the machine
+language the register designators are reversed
+from how they occur
+in the assembly language.
+</p>
+
+<p>
+The five zero bits after the opcode are not used.
+All MIPS instructions are 32 bits.
+These bits are arbitrarily given the value zero.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+<p>
+Study the above machine instruction.
+Write the machine instruction for 
+<em>shift-left-logical the pattern in <code class="register">$0</code> 
+by zero positions and leave the result in <code class="register">$0</code></em>.
+Here is the instruction in assembly language:
+<p>
+
+<pre>
+sll      $0, $0, 0          # fun machine instruction
+</pre>
+
+<p>
+Write your machine instruction (as a bit pattern) here:
+</p>
+
+ 
+<p>
+<input type="text" size="60" >
+</p>
+ 
+
+
+<p>
+Hint: on the midterm, I expect you to write the
+32-bit pattern for this instruction without hesitation!
+Memorize it now!
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass12_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:37 GMT -->
+</html>

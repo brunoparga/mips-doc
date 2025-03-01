@@ -1,0 +1,110 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:43 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Second Struct</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Of course!
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>A Second Struct</h1>
+ 
+
+<p>
+The assembly language program continues by allocating memory for 
+a second struct and copying values from the first struct to the second:
+</p>
+
+<pre class="program">
+        # create the second struct 
+        li      $v0,9             # allocate memory
+        li      $a0,12            # 12 bytes
+        syscall                   # $v0 &lt;-- address
+        move    $s2,$v0           # $s2 second struct
+           
+        # copy data from first struct to second     
+        lw      $t0,0($s1)        # copy age from first
+        sw      $t0,0($s2)        # to second struct
+        lw      $t0,4($s1)        # copy pay from first
+        sw      $t0,4($s2)        # to second struct
+        lw      $t0,8($s1)        # copy class from first
+        sw      $t0,8($s2)        # to second struct
+</pre>
+
+<p>
+And so does the C program:
+</p>
+
+<pre class="program">
+  struct EMPLOYEE *empB;     /* declaration of a second pointer variable empB */
+
+  empB = (struct EMPLOYEE *)malloc( sizeof( struct EMPLOYEE) );
+
+  empB-&gt;age = empA-&gt;age;
+  empB-&gt;pay = empA-&gt;pay;
+  empB-&gt;class = empA-&gt;class;  
+</pre>
+
+<p>
+<span class="highlight">The pointer variables <code>empA</code> and <code>empB</code>
+act as base addresses.</span>
+The a field  of a struct is located at a displacement  off of a base address.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+<p>
+What do you think would be the result of the following  C statement?
+</p>
+
+<pre>
+empB = empA;
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:44 GMT -->
+</html>

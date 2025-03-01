@@ -1,0 +1,109 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon May 31 12:11:38 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:56 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pointers</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass34_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap34-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+ <img src="coreDump.gif" class="center" alt="core dump" /> 
+ 
+<h3>Answer:</h3>
+<p>
+At what address is the first node in the linked list?
+<span style="color:blue;">0x10010000</span>
+</p>
+
+<p>
+What is the address in its link field?
+<span style="color:blue;">0x10010008</span>
+</p>
+
+<p>
+What is the address of the second node in the linked list?
+<span style="color:blue;">0x10010008</span>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Pointers</h1>
+<!-- ../Audio/chap34-10.mp3 -->
+
+<a id="pointer"> </a>
+
+<div class="left">
+
+<p>
+<span class="highlight"> When
+ a memory address is used as a link between nodes of a
+data structure it is sometimes called a <b>pointer</b>.</span>
+In some higher level languages (such as C) a pointer is exactly the
+same as a main memory address.
+Other languages (such as object oriented languages)   
+require a pointer to have more features
+than a raw memory address can provide.
+In these languages a "pointer" is more elaborate than a memory address.
+</p>
+</div>
+
+<div class="right">
+<p>
+For this course,
+<span class="highlight">let us regard "pointer" and "memory address" as exactly the same.</span>
+Sometimes the word "reference" is used for the link to a node.
+In Java (for example), 
+an object reference 
+is <u>not</u> a raw memory address.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+(Review:) What bit pattern is used to represent <code>null</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass34_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass34_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:57 GMT -->
+</html>

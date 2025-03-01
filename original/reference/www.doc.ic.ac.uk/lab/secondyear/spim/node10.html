@@ -1,0 +1,454 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node10.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:37 GMT -->
+<HEAD>
+<TITLE>CPU Registers</TITLE>
+<META NAME="description" CONTENT="CPU Registers">
+<META NAME="keywords" CONTENT="spim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="spim.css">
+
+<LINK REL="next" HREF="node11.html">
+<LINK REL="previous" HREF="node9.html">
+<LINK REL="up" HREF="node9.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html158"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html156"
+  HREF="node9.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html150"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html159"
+  HREF="node11.html">Byte Order</A>
+<B> Up:</B> <A NAME="tex2html157"
+  HREF="node9.html">Description of the MIPS</A>
+<B> Previous:</B> <A NAME="tex2html151"
+  HREF="node9.html">Description of the MIPS</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00021000000000000000">
+CPU Registers</A>
+</H2>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="349"></A>
+<TABLE>
+<CAPTION><STRONG>Table:</STRONG>
+MIPS registers and the convention governing their use.</CAPTION>
+<TR><TD>  <SMALL CLASS="SMALL">  </SMALL>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL">
+     </SMALL><SMALL CLASS="SMALL"><B>Register Name</B> </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> </SMALL><SMALL CLASS="SMALL"><B>Number</B> </SMALL></TD>
+<TD ALIGN="CENTER" COLSPAN=1><SMALL CLASS="SMALL"> <SPAN></SMALL><SMALL CLASS="SMALL"><B>Usage</B></SPAN> </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL">
+
+      zero </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 0 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Constant 0 </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      at </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 1 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Reserved for assembler </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      v0 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 2 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Expression evaluation and </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      v1 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 3 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL">     results of a function </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      a0 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 4 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Argument 1 </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      a1 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 5 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Argument 2 </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      a2 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 6 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Argument 3 </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      a3 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 7 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Argument 4 </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      t0 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 8 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Temporary (not preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      t1 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 9 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Temporary (not preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      t2 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 10 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Temporary (not preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      t3 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 11 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Temporary (not preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      t4 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 12 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Temporary (not preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      t5 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 13 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Temporary (not preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      t6 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 14 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Temporary (not preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      t7 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 15 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Temporary (not preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      s0 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 16 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Saved temporary (preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      s1 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 17 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Saved temporary (preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      s2 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 18 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Saved temporary (preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      s3 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 19 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Saved temporary (preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      s4 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 20 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Saved temporary (preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      s5 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 21 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Saved temporary (preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      s6 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 22 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Saved temporary (preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      s7 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 23 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Saved temporary (preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      t8 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 24 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Temporary (not preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      t9 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 25 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Temporary (not preserved across call) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      k0 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 26 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Reserved for OS kernel </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      k1 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 27 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Reserved for OS kernel </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      gp </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 28 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Pointer to global area </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      sp </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 29 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Stack pointer </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      fp or s8 </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 30 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Frame pointer </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+      ra </SMALL></TD>
+<TD ALIGN="RIGHT"><SMALL CLASS="SMALL"> 31 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Return address (used by function call) </SMALL></TD>
+</TR>
+</TABLE></DIV><SMALL CLASS="SMALL">
+  
+  <A NAME="tab:reg"></A></SMALL></TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+The MIPS (and SPIM) central processing unit contains 32 general
+purpose 32-bit registers that are numbered 0-31.  Register <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$n$"></SPAN> is designated
+by <TT>$n</TT>.  Register <TT>$0</TT> always contains the hardwired value
+0.  MIPS has established a set of conventions as to how registers
+should be used.  These suggestions are guidelines, which are not
+enforced by the hardware.  However a program that violates them will
+not work properly with other software.  Table&nbsp;<A HREF="#tab:reg"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="../../../usr/share/latex2html/icons/crossref.html"></A> lists the
+registers and describes their intended use.
+
+<P>
+Registers <TT>$at</TT> (1), <TT>$k0</TT> (26), and <TT>$k1</TT> (27) are
+reserved for use by the assembler and operating system.
+
+<P>
+Registers <TT>$a0</TT>-<TT>$a3</TT> (4-7) are used to pass the first
+four arguments to routines (remaining arguments are passed on the
+stack).  Registers <TT>$v0</TT> and <TT>$v1</TT> (2, 3) are used to return
+values from functions.  Registers <TT>$t0</TT>-<TT>$t9</TT> (8-15, 24,
+25) are caller-saved registers used for temporary quantities that do
+not need to be preserved across calls.  Registers <TT>$s0</TT>-<TT>$s7</TT> (16-23) are callee-saved registers that hold long-lived values
+that should be preserved across calls.
+
+<P>
+Register <TT>$sp</TT> (29) is the stack pointer, which points to the last
+location in use on the stack.<A NAME="tex2html8"
+  HREF="footnode.html#foot1030"><SUP><SPAN CLASS="arabic">4</SPAN></SUP></A>  Register <TT>$fp</TT> (30) is the frame
+pointer.<A NAME="tex2html9"
+  HREF="footnode.html#foot1031"><SUP><SPAN CLASS="arabic">5</SPAN></SUP></A> Register <TT>$ra</TT>
+(31) is written with the return address for a call by the <TT>jal</TT>
+instruction.
+
+<P>
+Register <TT>$gp</TT> (28) is a global pointer that points into the
+middle of a 64K block of memory in the heap that holds constants and
+global variables.  The objects in this heap can be quickly accessed
+with a single load or store instruction.
+
+<P>
+In addition, coprocessor 0 contains registers that are useful to
+handle exceptions.  SPIM does not implement all of these registers,
+since they are not of much use in a simulator or are part of the
+memory system, which is not implemented.  However, it does provide the
+following:
+<DIV ALIGN="CENTER">
+<SMALL CLASS="SMALL">  </SMALL><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL">
+    </SMALL><SMALL CLASS="SMALL"><B>Register Name</B> </SMALL></TD>
+<TD ALIGN="CENTER"><SMALL CLASS="SMALL"> </SMALL><SMALL CLASS="SMALL"><B>Number</B> </SMALL></TD>
+<TD ALIGN="CENTER" COLSPAN=1><SMALL CLASS="SMALL"> <SPAN></SMALL><SMALL CLASS="SMALL"><B>Usage</B></SPAN> </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL">
+
+    BadVAddr </SMALL></TD>
+<TD ALIGN="CENTER"><SMALL CLASS="SMALL"> 8 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Memory address at which address exception occurred </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    Status </SMALL></TD>
+<TD ALIGN="CENTER"><SMALL CLASS="SMALL"> 12 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Interrupt mask and enable bits </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    Cause </SMALL></TD>
+<TD ALIGN="CENTER"><SMALL CLASS="SMALL"> 13 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Exception type and pending interrupt bits </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    EPC </SMALL></TD>
+<TD ALIGN="CENTER"><SMALL CLASS="SMALL"> 14 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Address of instruction that caused exception </SMALL></TD>
+</TR>
+</TABLE></DIV>
+These registers are part of coprocessor 0's register set and are
+accessed by the <TT>lwc0</TT>, <TT>mfc0</TT>, <TT>mtc0</TT>, and <TT>swc0</TT>
+instructions.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:status_reg"></A><A NAME="1033"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+The <TT>Status</TT> register.</CAPTION>
+<TR><TD><IMG
+ WIDTH="772" HEIGHT="173" BORDER="0"
+ SRC="img10.png"
+ ALT="\begin{figure}\centerline{\psfig{figure=status_reg.id}}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<DIV ALIGN="CENTER"><A NAME="fig:cause_reg"></A><A NAME="1035"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+The <TT>Cause</TT> register.</CAPTION>
+<TR><TD><IMG
+ WIDTH="771" HEIGHT="137" BORDER="0"
+ SRC="img11.png"
+ ALT="\begin{figure}\centerline{\psfig{figure=cause_reg.id}}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+Figure&nbsp;<A HREF="#fig:status_reg"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="../../../usr/share/latex2html/icons/crossref.html"></A> describes the bits in the <TT>Status</TT>
+register that are implemented by SPIM.  The <TT>interrupt mask</TT>
+contains a bit for each of the eight interrupt levels.  If a bit is
+one, interrupts at that level are allowed.  If the bit is zero,
+interrupts at that level are disabled.  The low six bits of the <TT>Status</TT> register implement a three-level stack for the <TT>kernel/user</TT> and <TT>interrupt enable</TT> bits.  The <TT>kernel/user</TT>
+bit is 0 if the program was running in the kernel when the interrupt
+occurred and 1 if it was in user mode. If the <TT>interrupt enable</TT>
+bit is 1, interrupts are allowed.  If it is 0, they are disabled. At an
+interrupt, these six bits are shifted left by two bits, so the current
+bits become the previous bits and the previous bits become the old
+bits.  The current bits are both set to 0 (i.e., kernel mode with
+interrupts disabled).
+
+<P>
+Figure&nbsp;<A HREF="#fig:cause_reg"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="../../../usr/share/latex2html/icons/crossref.html"></A> describes the bits in the <TT>Cause</TT>
+register.  The eight <TT>pending interrupt</TT> bits correspond to the
+eight interrupt levels.  A bit becomes 1 when an interrupt at its level
+has occurred but has not been serviced.  The <TT>exception code</TT>
+bits contain a code from the following table describing the cause
+of an exception.
+<DIV ALIGN="CENTER">
+<SMALL CLASS="SMALL">  </SMALL><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL">
+    </SMALL><SMALL CLASS="SMALL"><B>Number</B> </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> </SMALL><SMALL CLASS="SMALL"><B>Name</B> </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> </SMALL><SMALL CLASS="SMALL"><B>Description</B> </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL">
+
+    0 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> INT </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> External interrupt </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    4 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> ADDRL </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Address error exception (load or instruction fetch) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    5 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> ADDRS </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Address error exception (store) </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    6 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> IBUS </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Bus error on instruction fetch </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    7 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> DBUS </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Bus error on data load or store </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    8 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> SYSCALL </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Syscall exception </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    9 </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> BKPT </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Breakpoint exception </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    10</SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL">  RI </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Reserved instruction exception </SMALL></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SMALL CLASS="SMALL"> 
+    12</SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL">  OVF </SMALL></TD>
+<TD ALIGN="LEFT"><SMALL CLASS="SMALL"> Arithmetic overflow exception </SMALL></TD>
+</TR>
+</TABLE></DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html158"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html156"
+  HREF="node9.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html150"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html159"
+  HREF="node11.html">Byte Order</A>
+<B> Up:</B> <A NAME="tex2html157"
+  HREF="node9.html">Description of the MIPS</A>
+<B> Previous:</B> <A NAME="tex2html151"
+  HREF="node9.html">Description of the MIPS</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Ian Moor
+2009-03-11
+</ADDRESS>
+</BODY>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node10.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:39 GMT -->
+</HTML>

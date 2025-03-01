@@ -1,0 +1,103 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Sep 17 18:05:33 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-09/ass09_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:29 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setting the PC</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass09_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass09_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap09-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<ol>
+<li>What machine instruction (bit pattern) did your
+    first instruction assemble into?
+    <ul><li><span class="blue">0x34080002</span></li></ul></li>
+<li>At what address in memory was it loaded?
+    <ul><li><span class="blue">0x00400000</span></li></ul></li>
+</ol>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Setting the PC</h1>
+<!-- ../Audio/chap09-09.mp3 -->
+
+<a id="program_counter"> </a>
+<a id="SPIM_program_counter_setting"> </a>
+
+<img src="setValue.gif"  class="centerimage" alt="Set Value Menu" />
+<br style="clear:both"> 
+
+<div class="middle">
+<p>
+The
+ <b>program counter</b> is the part of the processor that
+contains the address of the current machine instruction.
+<span class="highlight">The PC should be initialized to 0x00400000, 
+the address of the first instruction.</span>
+Sometimes you need to explicitly set the value of the PC.
+To do this, select (click on)
+<u>S</u>imulator; click on <u>R</u>un Parameter; type the address in the top text box. 
+Click on OK and the PC (in the register display)
+should change.
+</p>
+
+<p>
+To rerun a program you need to re-initialize the PC to 0x00400000.
+</p> 
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+A user types "400000" into the value box,
+and clicks OK.
+The PC changes to
+00061a80.  
+What happened?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass09_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass09_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-09/ass09_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:31 GMT -->
+</html>

@@ -1,0 +1,166 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Mar 01 18:06:44 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:35 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Extension</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass13_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap13-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+146 - 82 = 64  &nbsp; &nbsp; &nbsp; in hex = 0x40  
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Sign Extension</h1>
+
+<!-- ../Audio/chap13-14.mp3 -->
+
+ 
+<img src="handMadeNeg.gif" class="center" alt="register display" />
+
+<br style="clear:both"> 
+
+<div class="right">
+<img src="signExtention.gif"  alt="stop sign extension" class="rightimage" />
+</div> 
+
+
+<div class="left">
+<p>
+A 
+run of the program produces the expected result.
+</p>
+
+<p><span class="highlight">
+So
+that one could be added to register <code class="register">$8</code>,
+the one was first loaded into another register.</span>
+It would be nice if there were an "add one" instruction.
+Many processors have such an instruction.
+</p>
+
+<p>
+MIPS has an "add immediate unsigned" instruction:
+<code>addiu d,s,const</code> (see next page.)
+It could be used to add one to register <code class="register">$8</code> like this:
+</p>
+
+<blockquote>
+<code>addiu $8,$8,1</code>
+</blockquote>
+
+
+<a id="sign_extension"> </a>
+
+<p>
+The 
+immediate operand of this instruction is 16 bits 
+(as are all MIPS immediate operands).
+<span class="highlight">When extended to a 32-bit operand by the ALU
+it is <b>sign extended</b>:
+the value of the left-most bit of the immediate operand (bit 15)
+is copied to all bits to the left (into the high-order bits).</span> 
+</p>
+
+<p> 
+If the 16-bit immediate operand is a 16-bit two's complement
+negative integer,
+the 32-bit ALU operand is a 32-bit version of the same negative integer.
+The left-most bit of a two's complement integer is sometimes
+called the "sign bit".  
+(But this is a somewhat deceptive term because negating
+a two's complement integer involves all of its bits, as seen here.)
+</p>
+
+<p>
+<span class="highlight">Some instructions (such as <code>addiu</code>)  
+sign-extend immediate operands at run time,
+others (such as <code>ori</code>) do zero extention.</span>
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+
+
+<form>
+<p>
+Here is a 16-bit two's complement negative one:
+</p>
+
+<pre>1111 1111 1111 1111</pre>
+
+<p>
+Sign-extend it to 32 bits:
+</p>
+
+<p>
+<input type="text" size="65" name="negativeOne">
+</p>
+
+<p>
+Here is a 16-bit two's complement negative one written in hex:
+</p>
+
+<pre>FFFF</pre>
+
+<p>
+Write a 32-bit negative one in hex:
+</p>
+
+<p>
+<input type="text" size="65" name="negativeOneHex">
+</p>
+
+
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass13_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:38 GMT -->
+</html>

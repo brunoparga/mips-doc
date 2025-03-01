@@ -1,0 +1,155 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:46 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORI Machine Code</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+[0x00400000]    0x3408<span class="red">0fa5</span>      ori  $8, $0, 4005     ori  $8,$0,0x<span class="red">0FA5</span>
+</pre>
+
+<p>
+Yes. How could you miss? The last 16 bits are the immediate operand.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>ORI Machine Code</h1>
+<!-- ../Audio/chap11-08.mp3 -->
+
+
+<a id="ori,_machine_code"> </a>
+<a id="opcode"> </a>
+<a id="bit_field"> </a>
+<a id="fields"> </a>
+
+<div class="left">
+<p>
+Below
+is the machine code for the instruction.
+In the third line the bits have been grouped
+into fields that have various functions.
+</p>
+
+<p>
+Look this over to get an idea of how it works:
+</p>
+
+<ul>
+  <li>The left six bits of the instruction are the <span class="highlight"><b>opcode</b></span>
+      <ul><li> the bit pattern that specifies the machine operation.</li></ul>
+  </li>
+  <li>The next group of five bits specifies the <span class="highlight">operand register.</span></li>
+  <li>The group of five after that specifies the <span class="highlight">destination register.</span></li>
+  <li>The remaining 16 bits are the <span class="highlight">immediate operand.</span></li>
+</ul>
+</div>
+ 
+<div class="right">
+<p>
+Documentation for the MIPS shows the fields for each
+instruction.
+The designers of the MIPS processor decided what information
+was needed in a machine instruction and how to arrange it.
+</p> 
+
+<p><span class="highlight">
+Other machine instructions follow other formats.
+See the documentation or a MIPS green card.</span>
+</p>
+
+</div>
+
+<br style="clear:both"> 
+<pre class="program">
+   3    4    0    8    0    f    a    5    -- machine instruction in hex
+
+<span class="blue">0011 01</span><span class="red">00 000</span><span class="blue">0 1000</span><span class="red"> 0000 1111 1010 0101</span>    -- machine instruction in bits
+
+<span class="blue">001101</span><span class="red">  00000</span><span class="blue"> 01000</span><span class="red"> 0000 1111 1010 0101</span>    -- fields of the instruction
+
+ori     $0     $8     0    f    a    5
+opcode  oper-  dest  immediate operand     -- meaning of the fields
+        and    reg.
+        reg. 
+                      
+ori     $8,  $0,  0x0fa5                   -- assembly language instruction
+                                              (Notice that the register numbers
+                                               are not in the same order as they
+                                               are in the machine instruction).
+</pre> 
+
+<br style="clear:both"> 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+Here is another <code><b>ori</b></code> instruction. 
+The patterns
+that specify the operand register,  the destination register,
+and the immediate operand are blank.
+Fill in the blanks 
+with bit patterns
+so the operand register is <code class="register">$10</code> , the destination register is 
+<code class="register">$9</code> ,
+and the immediate operand is <code>0xAFF0</code>
+</p>
+<pre>
+001101  <input type="text" size="6"> <input type="text" size="6">  <input type="text" size="30">  
+        <span class="blue">_ _ _ _ _   _ _ _ _ _  _ _ _ _  _ _ _ _  _ _ _ _  _ _ _ _</span>
+
+ori     $10          $9         a         f        f        0 
+
+     operand        dest           immediate operand
+     reg.           reg.
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:47 GMT -->
+</html>

@@ -1,0 +1,108 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Mar 01 18:06:44 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:41 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arithmetic as Bit Manipulation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass13_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap13-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes. (And it can do floating point arithmetic as well).
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Arithmetic as Bit Manipulation</h1>
+
+<!-- ../Audio/chap13-02.mp3 -->
+
+<div class="left">
+<p><span class="highlight">
+Integers are represented with bit patterns,
+so integer operations are bit manipulation operations.</span>
+Some very small, very fast processors provide no data
+manipulation instructions other than bit pattern manipulation.
+Adding two integers is done by implementing
+the Binary Addition Algorithm (see Chapter 8)
+with these bit instructions.
+</p>
+
+<p>
+Luckily, MIPS has instructions that perform integer arithmetic.
+<span class="highlight">The normal size of an integer is 32 bits 
+(the same as the size of a register).</span>
+Longer or shorter integer arithmetic is done using
+bit manipulation instructions in combination with 32-bit
+arithmetic instructions.
+</p>
+
+</div>
+
+<div class="right">
+<p>
+The MIPS <code>addu</code> instruction performs the
+Binary Addition Algorithm on two 32-bit patterns held in two 32-bit registers
+(details in a few pages.)
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<p>
+What integer representation method can be used with the <code>addu</code> instruction?
+</p>
+
+<ul>
+<li>Unsigned Binary?</li>
+<li>Two's Complement?</li>
+<li>Both?</li>
+</ul>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass13_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass13_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-13/ass13_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:42 GMT -->
+</html>

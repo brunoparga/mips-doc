@@ -1,0 +1,123 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:55 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maximum of Three Expressions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+Must the <code>nop</code> follow the <code>jr</code>?
+</p>
+
+<h3>Answer:</h3>
+<p>
+Yes. (Assuming a real MIPS chip with branch delays.)
+At run-time, there is no predicting what will be in memory after this <code>jr</code>.
+</p>
+
+<p> 
+This subroutine will be linked with other subroutines
+so we better be careful.
+It is likely that the linker will put
+another subroutine immediately after this
+one in memory, and that subroutine's prolog starts with:
+</p>
+
+<pre>
+sub     $sp,$sp,4      # push the return address
+sw      $ra,($sp)
+</pre>
+
+<p>
+<span class="highlight">It would be disastrous to unintentionally execute that first instruction
+when our subroutine returns to its caller.</span>
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Maximum of Three Expressions</h1>
+
+<p>
+For the next example, the <code>main</code> program 
+asks the user for integers <code>x</code> and <code>y</code>
+and writes out the maximum of <code>x*x</code>, <code>x*y</code>, 
+and <code>5*y</code>.  
+Look ahead to page 22 to see <code>main</code>.
+</p> 
+
+<p>
+<code>main</code> uses this sub-task:
+</p>
+
+<blockquote>
+<span class="highlight">Write a subroutine that returns the maximum of
+three expressions: <code>x*x</code>, <code>x*y</code>, 
+and <code>5*y</code></span> 
+for integer arguments <code>x</code> and <code>y</code>.
+The integers use two's complement representation.
+Use stack-based linking.
+</blockquote>
+
+<p>
+With our stack-based linkage convention this is:
+</p>
+
+<pre>
+Subroutine maxExp
+
+  Input:   $a0 -- x, a two's complement integer
+           $a1 -- y, a two's complement integer
+           
+  Returns: $v0 -- the maximum of x*x, x*y, or 5*y
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+<p>
+Can this  program use the subroutine maxInt?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:56 GMT -->
+</html>

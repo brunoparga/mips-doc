@@ -1,0 +1,619 @@
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:56:24 GMT -->
+<head>
+<meta charset="utf-8">
+
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="keywords" content="assembly language programming, MIPS, SPIM, assembly language tutorial, programmed learning, MIPS32, binary arithmetic, two's complement">
+<meta name="description" content="Interactive first course in assembly language programming using the MIPS32 processor and the SPIM simulator.">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" type="text/css" href="assemblyStyle.css" />
+
+<title>Programmed Introduction to MIPS Assembly Language</title>
+
+<style>
+body
+{
+  max-width:1200px;  /* might not be a good idea.  Seems to help on really wide monitors, though */
+  background-color:#FAF5F5;
+  font-family:arial,sans-serif; 
+  font-size:100%;
+  background-image:url("zeroOnes2.gif");
+  padding: 20px 20px 20px 20px;
+  margin: 0 auto 0 auto;
+  border: 2px solid  #a030a0;
+}
+
+h2
+{
+  margin-left:1%;
+}
+
+h4
+{
+  text-align: center;
+}
+
+span.big
+{
+  font-size:20px
+}
+ 
+</style>
+
+</head>
+
+<body>
+
+<img src="title.gif" class="center" alt="Programmed Introduction to MIPS Assembly Language">
+ 
+
+<h4>Central Connecticut State University</h4>
+<h4>QtSpim Edition, August 2015</h4>
+
+<table style="margin-left:0.0cm" width="100%">
+<tr>
+<td width="50%" style="vertical-align:top">
+<p>
+  This is a course in 
+  assembly language programming of 
+  the MIPS processor. 
+  It emphasizes the topics needed for study 
+  of computer architecture: 
+  bits, bit patterns, 
+  operations on bit patterns, 
+  and how bit patterns represent
+  instructions and data.
+  This course is equivalent to a semester-long 
+  junior college or university course 
+  (except, perhaps, for the emphasis on bit patterns).
+<p>
+
+<p>
+  The emphasis of the course is on
+  understanding how computers work.
+  This
+  will provide a basis for further
+  study of computer architecture
+  and computer software.
+  The MIPS processor,
+  the subject of this course,
+  has a well designed architecture
+  and is particularly fruitful to study.
+  However, the goal of the course is not to turn you into
+  a MIPS programmer, but to
+  give you an understanding
+  of all computer systems.
+</p>
+
+<p>
+  The only equipment you need for this course is a PC.
+  The only software you need is the 
+  SPIM simulator of the MIPS32 processor
+  and a text editor.
+  The simulator is available by free download
+  (see  appendix A).
+  Example programs are presented
+  using an MS Windows
+  operating system.
+  However, you can use any
+  platform that runs SPIM.
+  (There are many).
+</p>
+</td>
+
+<td width="50%" style="vertical-align:top">
+<p>
+Assembly Language is normally taken
+the semester after a course in a high level programming
+language (such as Java or C).
+This course assumes that you have this background
+although no specific programming language is required.
+</p>
+
+<p>
+Read the pages of this course <em>actively</em>.
+Think about and answer the question at
+the bottom of each page.
+(This style of tutorial is called <em>programmed learning</em>.
+It is very effective for technical material).
+Most questions call for
+just a little thought.
+Some call for pencil and paper.
+Keep a pencil and a scrap of paper   next to your keyboard.
+Each chapter is about 15 pages long.
+Spend several minutes per page.
+You can read each chapter in about 30 minutes.
+However, for maximum benefit, you should run some of the 
+example programs, 
+write some programs of your own, 
+and then think about
+your results.
+This may take several hours.
+</p>
+
+</td>
+</tr>
+</table>
+
+<a name="part1"></a>
+
+<h2>Part 1: Prelude to Assembly Language</h2>
+
+
+<p> <span class="big">A</span>ssembly language: 
+  what it is, why it is studied, and where it is used. </p>
+
+<ul>
+
+<li> 
+<a href="Chapter-01/ass01_01.html"> 
+Chapter 1</a> 
+&#8212; Computer Architecture and Assembly Language.
+&nbsp; <a href="Chapter-01/ass01quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-01/flashCardsAsm01.html">Flash Cards</a> 
+</li>
+
+<li> 
+<a href="Chapter-02/ass02_01.html"> 
+Chapter 2</a> 
+&#8212; Analog and Binary Signals.
+&nbsp; <a href="Chapter-02/ass02quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-02/flashCardsAsm02.html">Flash Cards</a> 
+</li>
+
+<li> 
+<a href="Chapter-03/ass03_01.html"> 
+Chapter 3</a> 
+&#8212; Bits and Bit Patterns.
+&nbsp; <a href="Chapter-03/ass03quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-03/flashCardsAsm03.html">Flash Cards</a> 
+</li>
+
+<li> 
+<a href="Chapter-04/ass04_01.html"> 
+Chapter 4</a> 
+&#8212; Computer Organization.
+&nbsp; <a href="Chapter-04/ass04quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-04/flashCardsAsm04.html">Flash Cards</a> 
+</li>
+
+</ul>
+
+<A name="part2"></a>
+ 
+<h2>Part 2:  Data Representation</h2>
+ 
+
+<p>
+<span class="big">D</span>ata: characters
+and integers.
+The <em>binary addition algorithm</em>.
+</p>
+
+
+<ul>
+<li> 
+<a href="Chapter-05/ass05_01.html"> 
+Chapter 5</a> 
+&#8212; Characters.
+&nbsp; <a href="Chapter-05/ass05quiz.html">Quiz</a>
+</li>
+
+<li> 
+<a href="Chapter-06/ass06_01.html"> 
+Chapter 6</a> 
+&#8212; Number Representation.
+&nbsp; <a href="Chapter-06/ass06quiz.html">Quiz</a> 
+</li>
+
+<li> 
+<a href="Chapter-07/ass07_01.html"> 
+Chapter 7</a> 
+&#8212; Binary and Hex Representation. 
+&nbsp; <a href="Chapter-07/ass07quiz.html">Quiz</a>  
+&nbsp; <a href="Chapter-07/assFlash07.html">Flash Cards</a> 
+</li>
+
+<li> 
+<a href="Chapter-08/ass08_01.html"> 
+Chapter 8</a> 
+&#8212; Binary Addition and Two's Complement Representation.
+&nbsp; <a href="Chapter-08/ass08quiz.html">Quiz</a>
+</li>
+
+</ul>
+
+<A name="part3"></a>
+ 
+<h2>Part 3: Running SPIM; Bitwise Logic</h2>
+ 
+
+<p>
+<span class="big">R</span>unning SPIM.
+MIPS programming.
+Bitwise logic operations.
+</p>
+
+
+<ul>
+<li> 
+<a href="Chapter-09/ass09_01.html"> 
+Chapter &nbsp; 9</a> 
+&#8212; A Simple SPIM Program.
+&nbsp; <a href="Chapter-09/ass09quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-09/ass09programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-10/ass10_01.html"> 
+Chapter 10</a> 
+&#8212; MIPS Programming Model.
+&nbsp; <a href="Chapter-10/ass10quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-10/ass10programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-11/ass11_01.html"> 
+Chapter 11</a> 
+&#8212; Bitwise Logic with Immediate Operands. 
+&nbsp; <a href="Chapter-11/ass11quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-11/ass11programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-12/ass12_01.html"> 
+Chapter 12</a> 
+&#8212; Shift Instructions and Logic Instructions.
+&nbsp; <a href="Chapter-12/ass12quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-12/ass12programs.html">Programs</a>
+</li>
+</ul>
+
+<A name="part4"></a>
+ 
+<h2>Part 4: Integer Arithmetic and Memory Access</h2>
+ 
+
+<p>
+<span class="big">I</span>nteger arithmetic.
+Moving data to
+and from memory.
+</p>
+
+<ul>
+<li> 
+<a href="Chapter-13/ass13_01.html"> 
+Chapter 13</a> 
+&#8212; Integer Addition and Subtraction Instructions.
+&nbsp; <a href="Chapter-13/ass13quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-13/ass13programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-14/ass14_01.html"> 
+Chapter 14</a> 
+&#8212; Integer Multiplication, Division, and Arithmetic Shift.
+&nbsp; <a href="Chapter-14/ass14quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-14/ass14programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-15/ass15_01.html"> 
+Chapter 15</a> 
+&#8212;  Memory Access<b>:</b> Loading and Storing Registers.
+&nbsp; <a href="Chapter-15/ass15quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-15/ass15programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-16/ass16_01.html"> 
+Chapter 16</a> 
+&#8212;  More Memory Access: Bytes and Halfwords.
+&nbsp; <a href="Chapter-16/ass16quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-16/ass16programs.html">Programs</a>
+</li>
+</ul>
+
+<A name="part5"></a>
+ 
+<h2>Part 5: Branches, Decisions, and Loops</h2>
+ 
+
+<p>
+<span class="big">P</span>rogram flow<b>:</b>  branch, jump, and set instructions;
+loops,
+and
+decisions.
+</p>
+
+<ul>
+<li> 
+<a href="Chapter-17/ass17_01.html"> 
+Chapter 17</a> 
+&#8212;  Jump and Branch Instructions.
+&nbsp; <a href="Chapter-17/ass17quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-17/ass17programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-18/ass18_01.html"> 
+Chapter 18</a> 
+&#8212;  Set Instructions and more Branch Instructions.
+&nbsp; <a href="Chapter-18/ass18quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-18/ass18programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-19/ass19_01.html"> 
+Chapter 19</a> 
+&#8212;   Structured Programming.
+&nbsp; <a href="Chapter-19/ass19quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-19/ass19programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-20/ass20_01.html"> 
+Chapter 20</a> 
+&#8212;   Programming Examples.
+&nbsp; <a href="Chapter-20/ass20quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-20/ass20programs.html">Programs</a>
+</li>
+</ul>
+
+<A name="part6"></a>
+ 
+<h2>Part 6: Extended Assembly Language</h2>
+
+<p>
+<span class="big">T</span>he assembler  extends bare
+machine language.
+Registers have mnemonic names.
+<em>Pseudoinstructions</em> extend the bare hardware.
+</p>
+
+<ul>
+<li> <a href="Chapter-21/ass21_01.html"> Chapter 21</a> 
+&#8212; The Extended Assembler.
+&nbsp; <a href="Chapter-21/ass21quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-21/ass21programs.html">Programs</a>
+</li>
+
+<li> <a href="Chapter-22/ass22_01.html"> Chapter 22</a> 
+&#8212; The SPIM Exception Handler.
+&nbsp; <a href="Chapter-22/ass22quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-22/ass22programs.html">Programs</a>
+</li>
+
+<li> <a href="Chapter-23/ass23_01.html"> Chapter 23</a> 
+&#8212; Instructions for Bitwise Logic and Math. 
+&nbsp; <a href="Chapter-23/ass23quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-23/ass23programs.html">Programs</a>
+</li>
+
+<li> <a href="Chapter-24/ass24_01.html"> Chapter 24</a> 
+&#8212; Branch Instructions, Set Instructions, and Indexed Addressing.
+&nbsp; <a href="Chapter-24/ass24quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-24/ass24programs.html">Programs</a>
+</li>
+</ul>
+
+<A name="part7"></a>
+
+<h2>Part 7: The Stack and Subroutine Linkage</h2>
+<p>
+<span class="big">P</span>rograms are divided into
+sections called subroutines.
+At run time,
+the stack is used to save and to restore a
+subroutine's values.
+</p>
+
+<ul>
+<li> 
+<a href="Chapter-25/ass25_01.html"> 
+Chapter 25 </a> 
+&#8212; The Run-time Stack.  
+&nbsp; <a href="Chapter-25/ass25quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-25/ass25programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-26/ass26_01.html"> 
+Chapter 26</a> 
+&#8212; Simple Subroutine Linkage.  
+&nbsp; <a href="Chapter-26/ass26quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-26/ass26programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-27/ass27_01.html"> 
+Chapter 27 </a> 
+&#8212; Stack-based Linkage Convention.  
+&nbsp; <a href="Chapter-27/ass27quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-27/ass27programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-28/ass28_01.html"> 
+Chapter 28 </a> 
+&#8212; Frame-based Linkage Convention, Variables, and Recursion.
+&nbsp; <a href="Chapter-28/ass28quiz.html">Quiz</a>
+&nbsp; <a href="Chapter-28/ass28programs.html">Programs</a>
+</li>
+</ul>
+
+
+<a name="part8"></a>
+<h2>Part 8:  Floating Point Data</h2>
+
+<p>
+<span class="big">B</span>it patterns are used to represent
+floating point numbers.
+More machine instructions are used to do floating point
+arithmetic.
+</p>
+
+<ul>
+<li> 
+<a href="Chapter-29/ass29_01.html"> 
+Chapter 29 </a> 
+&#8212; Binary Fractions.   
+&nbsp; <a href="Chapter-29/ass29quiz.html">QuizA&nbsp; </a> 
+&nbsp; <a href="Chapter-29/ass29quizB.html">QuizB&nbsp; </a> 
+</li>
+
+<li> 
+<a href="Chapter-30/ass30_01.html"> 
+Chapter 30 </a> 
+&#8212; IEEE 754 Floating Point.  
+&nbsp; <a href="Chapter-30/ass30quiz.html">Quiz</a> 
+</li>
+
+<li> 
+<a href="Chapter-31/ass31_01.html"> 
+Chapter 31</a> 
+&#8212;  Floating Point Arithmetic on MIPS.
+&nbsp; <a href="Chapter-31/ass31quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-31/ass31programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-32/ass32_01.html"> 
+Chapter 32 </a> 
+&#8212;   Floating Point Comparison Instructions.
+&nbsp; <a href="Chapter-32/ass32quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-32/ass32programs.html">Programs</a>
+</li>
+</ul>
+
+<a name="part9"></a>
+
+<h2>Part 9: Data Structures in Assembly Language</h2>
+
+
+<ul>
+<li> 
+<a href="Chapter-33/ass33_01.html"> 
+Chapter 33</a> 
+&#8212; Dynamic Memory Allocation.  
+&nbsp; <a href="Chapter-33/ass33quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-33/ass33programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-34/ass34_01.html"> 
+Chapter 34</a> 
+&#8212;   Data Structures.
+&nbsp; <a href="Chapter-34/ass34quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-34/ass34programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-35/ass35_01.html"> 
+Chapter 35</a> 
+&#8212;  Linked Lists. 
+&nbsp; <a href="Chapter-35/ass35quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-35/ass35programs.html">Programs</a>
+</li>
+
+<li> 
+<a href="Chapter-36/ass36_01.html"> 
+Chapter 36</a> 
+&#8212;    Objects. 
+&nbsp; <a href="Chapter-36/ass36quiz.html">Quiz</a> 
+&nbsp; <a href="Chapter-36/ass36programs.html">Programs</a>
+</li>
+</ul>
+
+
+<a name="Appendix"></a>
+<h2>Appendices</h2>
+
+<ul>
+
+<li> 
+<a href="zAppendixA/appA_01.html"> 
+Appendix A</a> 
+&#8212; Downloading and Installing SPIM.
+</li>
+
+<li> 
+<a href="zAppendixB/registerUseChart.html"> 
+Appendix B</a> 
+&#8212; Register Use Chart
+</li>
+
+<li> 
+<a href="zAppendixC/basicInstructions.html"> 
+Appendix C</a> 
+&#8212; MIPS Assembly Instructions
+</li>
+
+<!--
+<li> 
+<a href="zAppendixD/AppD1.html"> 
+Appendix D</a> 
+&#8212; MIPS Machine Language Format
+</li>
+-->
+
+<li> 
+<a href="zAppendixE/binaryAdd.html"> 
+Appendix E </a> 
+&#8212; Binary Addition Calculator (Applet)
+</li>
+
+<li> 
+<a href="zAppendixF/ascii.html"> 
+Appendix F </a> 
+&#8212; ASCII Chart
+</li>
+
+<li> 
+<a href="zAppendixG/SPIMtraps.html"> 
+Appendix G </a> 
+&#8212; SPIM Exception Handler Services
+</li>
+
+<li> 
+<a href="zAppendixH/appH_01.html"> 
+Appendix H </a> 
+&#8212; Converting Decimal Representation to Binary Representation(Discussion)
+</li>
+
+
+<li> 
+<a href="zAppendixI/converter.html"> 
+Appendix I </a> 
+&nbsp; &#8212; Decimal to Binary Converter (Applet)
+</li>
+
+</ul>
+
+<h2>Index</h2>
+
+<ul>
+<li><a href="subjectIndex.html">Index</a></li>
+</ul>
+
+<hr />
+<p>
+<a href="../external.html?link=https://chortle.ccsu.edu/index.html"><img src="contents.gif" alt="Click here" align="center"/> Main Tutorial Menu </a> 
+</p>
+
+ 
+<p>
+  <span xmlns:dct="http://purl.org/dc/terms/" href="../external.html?link=http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
+  <em>Programmed Introduction to MIPS Assembly Language</em> </span> is licensed under a  
+  <a rel="license" href="../external.html?link=http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+  <a rel="license" href="../external.html?link=http://creativecommons.org/licenses/by-nc/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="../l/by-nc/4.0/88x31.png" />
+  </a>
+</p>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:24 GMT -->
+</html>

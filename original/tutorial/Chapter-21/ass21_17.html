@@ -1,0 +1,116 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 06 15:47:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:35 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPIM Example</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass21_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap21-30.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+This <code>la</code>
+translates into a <code>lui</code>
+followed by a <code>ori</code>
+(just as we previously did by hand).
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>SPIM Example</h1>
+<!-- ../Audio/chap21-30.mp3 -->
+
+<div class="left">
+<p>
+Here
+is a SPIM example using
+<code>la</code>.
+Execute the program by pushing F10 for
+each machine instruction.
+Look in the display of registers
+and observe that <code class="register">$t0</code> gets the address
+of <code>val2</code>.
+It now can be used as a base register
+for loading <code class="register">$t1</code> and <code class="register">$t2</code> with two 
+words from memory.
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="program">
+## addEm.asm
+## program to add two integers
+##
+        .text
+        .globl  main
+
+main:
+        la    $t0,val2     #  put a 32-bit address into $t0
+        lw    $t1,0($t0)   #  load value 2
+        lw    $t2,4($t0)   #  load value 3
+        sll   $0,$0,0      #  load delay slot
+        addu  $t1,$t1,$t2  #  calc. sum
+
+        .data
+val0:   .word   0 
+val1:   .word   1 
+val2:   .word   2 
+val3:   .word   3 
+val4:   .word   4 
+val5:   .word   5 
+
+</pre>
+
+<p>
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+
+<p>
+(Trick Question:) How many times will F10 be pushed?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass21_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:36 GMT -->
+</html>

@@ -1,0 +1,180 @@
+<!doctype html> 
+<!-- 05/31/2015  bpk  HTML5 validation -->
+ 
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:13 GMT -->
+<head>
+<meta charset="utf-8">
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+
+<body>
+<p class="revisions">created 07/08/2003</p>
+<hr />
+
+<h1> 
+Chapter 34 Programming Exercises
+</h1>
+
+<hr />
+
+<p>
+<b>NOTE:</b>
+If you have read the chapters on
+subroutine linkage,
+write each exercise as a
+main program calling a subroutine.
+Use either the stack-based linkage or the
+frame-based linkage convention.
+<p>
+
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine OFF, Accept Pseudo Instructions ON,
+Enable Branch Delays OFF,
+Enable Load Delays OFF, Enable Mapped IO OFF, Load Exception Handler ON.
+</p>
+ 
+<hr />
+
+<!-- untested -->
+
+<h2>Exercise 1 &#8212; Rearranged Linked List</h2>
+
+<p>
+Copy the final program of the chapter,
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_16.html">linked.asm</a>
+and get it to work.
+Now rearrange the order of the elements
+of the linked list that are declared in memory.
+Check that the program still works.
+</p>
+
+<p>
+Next, add more elements to the list.
+If you wish to keep this a list of prime numbers,
+add elements for 11, 13, 17, 19, and 23.
+Add these to scattered locations in the data section.
+Check that the program still works.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<!-- untested -->
+
+<h2>Exercise 2 &#8212; Two Linked Lists</h2>
+
+<p>
+In the data section declare linked list nodes 
+for the integers 1 through 25 
+(using copy and paste in your text editor will help here.)
+Declare two symbolic addresses <code>headP</code> for the
+address of the node that contains 1, and
+<code>headC</code> for the
+address of the node that contains 4. 
+</p>
+
+<p>
+Regard <code>headP</code> as the head element for
+a linked list of primes.
+Edit the nodes that belong in this list so that
+they are linked together in order.
+</p>
+
+<p>
+Regard <code>headC</code> as the head element for
+a linked list of composite numbers (all those not prime).
+Edit the nodes that belong in this list so that
+they are linked together in order.
+</p>
+
+<p>
+Write a program (much like the one above) that
+first prints out the elements in the list of primes
+and then prints out the elements in the list of composites.
+Writing a subroutine that traverses a linked list would
+be very useful here.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<!-- untested -->
+
+<h2>Exercise 3 &#8212; Sum of Elements</h2>
+
+<p>
+Copy the final program of the chapter,
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_16.html">linked.asm</a>.
+Modify it so that instead of printing
+the elements of the linked list it
+adds them all together.
+Upon reaching the end of the list it
+prints out the sum.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<!-- untested -->
+
+<h2>Exercise 4 &#8212; Linear Search</h2>
+
+<p>
+Copy the final program of the chapter,
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34_16.html">linked.asm</a>.
+Modify it so that it does the following:
+The user enters an integer and then
+the program traverses the list looking at
+each node until it finds that integer.
+It prints out a message when it finds the integer.
+If it continues to the end of the list without
+finding the integer it prints out a failure message.
+</p>
+
+<p>
+Keep doing this until the user enters a negative
+value to signal the end.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+
+<hr />
+
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-34/ass34programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:13 GMT -->
+</html>
+

@@ -1,0 +1,157 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Jun 03 18:01:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:57 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>  $s1   as the Current node</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass35_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass35_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap35merge1011.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre class="program">
+
+        # create the second node 
+        li      $v0,9             # allocate memory
+        li      $a0,8             # 8 bytes
+        syscall                   # $v0 &lt;-- address 
+        
+        # link the second node to the first
+        sw      <span style="color:green"><b>$v0</b></span>,4(<span style="color:red">$s1</span>)        # copy address of second node
+                                  # into the first node
+        
+        # make the new node the current node
+        move    <span style="color:green"><b>$s1</b></span>,<span style="color:green"><b>$v0</b></span>           # $s1 = &amp;(second node)
+
+        # initialize the second node
+        li      $t0,2             # store 2
+        sw      $t0,0(<span style="color:green"><b>$s1</b></span>)        # at displacement 0
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1><code> $s1 </code> as the Current node</h1>
+<!-- ../Audio/chap35merge1011.mp3 -->
+
+<a id="current_node"> </a>
+ 
+<img src="threeNodeListThird.gif" class="center" alt="Three Node List"/>
+
+<div class="left">
+
+<p>
+After 
+ the above code has finished, the first two nodes have been created.
+Register <code class="register">$s1</code> is now pointing to the second node.
+The first node has not been lost, because the field <code>first</code>
+points to it.
+</p>
+
+<p><span class="highlight">
+When a register is used to point at the node were work is being done
+(as does <code class="register">$s1</code>) it is  called a
+<b>pointer to the current node</b>.</span>
+</p>
+</div>
+
+<div class="right">
+<p>
+Now let us work on the third node.
+Again, <code class="register">$s1</code> 
+is used as the pointer to the current node.
+</p>
+</div>
+ 
+<br style="clear:both">
+
+<pre class="program">
+        # create the third node 
+        li      $v0,9             # allocate memory
+        li      $a0,8             # 8 bytes
+        syscall                   # <span style="color:blue"><b>$v0</b></span> &lt;-- <span style="color:blue">address</span>
+        
+        # link the third node to the second
+        sw      <span style="color:blue"><b>$v0</b></span>,4(<span style="color:green"><b>$s1</b></span>)        # copy address of third node
+                                  # into the second node
+        
+        # make the new node the current node
+        move    <span style="color:blue"><b>$s1</b></span>,<span style="color:blue"><b>$v0</b></span>           # $s1 = &amp;(third node)
+
+        # initialize the third node
+        li      $t0,3             # store 3
+        sw      $t0,0(<span style="color:blue"><b>$s1</b></span>)        # at displacement 0
+
+        # end the list
+        sw      $0,4(<span style="color:blue"><b>$s1</b></span>)         # put null in the link field
+</pre>
+
+<div class="left">
+
+<p>
+Linked 
+ lists can be aggravating. Look at the line of code
+where the current pointer is changed from the second node to the third:
+</p>
+
+<pre>
+# make the new node the current node
+move    <span style="color:blue"><b>$s1</b></span>,<span style="color:blue"><b>$v0</b></span>  # $s1 = &amp;(third node)
+</pre>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+This "change in meaning" of <code class="register">$s1</code> must be done in the correct sequence.
+The previous value of  <code class="register">$s1</code> must already be saved in the second node.</span>
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+Register <code class="register">$s1</code> no longer points at the second node.
+Has the second node been lost?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass35_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass35_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:59 GMT -->
+</html>

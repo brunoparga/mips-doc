@@ -1,0 +1,117 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:59 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> div  and  divu  Pseudoinstruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-08.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-08.mp3 -->
+
+
+<h3>Answer:</h3>
+
+<pre class="code">
+div $t0,$s1,$s2
+</pre>
+
+<p>
+Translates into:
+</p>
+
+<pre class="code">
+div   $s1,$s2
+mflo  $t0
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1><b>div</b> and <b>divu</b> Pseudoinstruction</h1>
+
+
+<a id="div_(pseudoinstruction)"> </a>
+<a id="divu_(pseudoinstruction)"> </a>
+<div class="left">
+<p>
+The
+SPIM extended assembler includes these
+instructions:
+</p>
+</div>
+<br style="clear:both"> 
+
+<pre  class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+div  d,s,t # divide $s by $t. Put the
+           # quotient in $d. Operands are
+           # two's complement.
+           # (pseudoinstruction)
+</pre>
+<br style="clear:both"> 
+<div class="left">
+
+<p>
+and
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre  class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+divu d,s,t # divide $s by $t. Put the
+           # quotient in $d. Operands are
+           # unsigned.
+           # (pseudoinstruction)
+</pre>
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+
+<p>
+Is the <u>remainder</u> of an integer division
+sometimes useful?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:00 GMT -->
+</html>

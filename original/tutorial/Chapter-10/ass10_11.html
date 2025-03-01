@@ -1,0 +1,122 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Sep 19 21:41:21 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:13:13 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multitasking</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass10_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap10-22.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+What must the application do when it is finished
+running?
+</p>
+<h3>Answer:</h3>
+<p>
+Pass control back to the operating system.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Multitasking</h1>
+<!-- ../Audio/chap10-22.mp3 -->
+
+<a id="DOS"> </a>
+<a id="multitasking"> </a>
+
+<div class="left">
+<p>
+With 
+Microsoft's DOS, programs were passed control, ran until completion,
+then passed control back to DOS.
+So only one application ran at a time.
+Worse, an application that messed up might never
+return control to DOS and the whole system would freeze.
+</p>
+
+<p>
+Modern computer systems 
+include features that
+can interrupt the control flow of an
+executing program.
+After the flow is interrupted,
+the operating system can give control to
+another application.
+<span class="highlight">If this is done many times a second the computer
+system appears to be simultaneously executing
+several applications.</span>
+</p>
+</div>
+
+<div class="right">
+<p> <span class="highlight">
+This trick is called 
+<b>multitasking</b>.</span>
+It has been used from about 1960 for mainframes,
+from 1978 for many microcomputers,
+and from about 1995 for Windows PCs.
+</p>
+
+<p>
+The MIPS chip has very good
+support for multitasking.
+But this is an advanced topic
+not included
+in our basic programming model.
+</p>
+
+<p>
+MS-DOS was the operating system that came with the original
+IBM PC in 1981. The final release was the year 2000. 
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+Do human brains do multitasking?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass10_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:13:13 GMT -->
+</html>

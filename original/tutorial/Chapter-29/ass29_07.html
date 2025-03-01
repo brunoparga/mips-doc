@@ -1,0 +1,179 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Nov 04 19:28:58 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:22 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixed Point Notation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass29_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass29_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap29-07.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+<code>100.01<sub>2</sub> = 4.25</code>
+</p>
+
+<table>
+<tr><th> Power of 2</th> <th>3</th><th> 2</th><th> 1</th> <th> 0</th><th><b>.</b></th><th>-1</th><th>-2</th><th>-3</th><th>-4</th></tr>
+<tr><th> &nbsp; </th> <td>8 </td><td>4</td><td> 2</td> <td> 1</td><td><b>.</b></td><td>0.5 </td><td>0.25</td><td>0.125</td><td>0.0625</td></tr>
+<tr><th> Include?</th> <td> &nbsp; </td><td>  1 </td><td> 0 </td><td>  0 </td><td><b>.</b></td><td> 0 </td><td> 1 </td><td>  &nbsp; </td><td> &nbsp; </td></tr>
+</table>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Fixed Point Notation</h1>
+<!-- ../Audio/chap29-07.mp3 -->
+
+<form>
+<script>
+<!-- Hide from old browsers
+var compiledOK = false;
+
+function calc( inputForm )
+{
+  sum = 0;
+  if ( inputForm.buttonA.value==' 1 ' ) sum += 8;
+  if ( inputForm.buttonB.value==' 1 ' ) sum += 4;
+  if ( inputForm.buttonC.value==' 1 ' ) sum += 2;
+  if ( inputForm.buttonD.value==' 1 ' ) sum += 1;
+  if ( inputForm.buttonE.value==' 1 ' ) sum += 0.5;
+  if ( inputForm.buttonF.value==' 1 ' ) sum += 0.25;
+  if ( inputForm.buttonG.value==' 1 ' ) sum += 0.125;
+  if ( inputForm.buttonH.value==' 1 ' ) sum += 0.0625;
+  
+  inputForm.result.value = sum;
+}
+
+// finish hiding -->
+</script>
+
+
+<table class="center">
+<tr><th> Power of 2</th>
+<th>3</th><th> 2</th><th> 1</th>
+<th> 0</th><th><b>.</b></th><th>-1</th><th>-2</th><th>-3</th><th>-4</th></tr>
+<tr><th> &nbsp; </th>
+<td>8 </td><td>4</td><td> 2</td>
+<td> 1</td><td><b>.</b></td><td>0.5 </td><td>0.25</td><td>0.125</td><td>0.0625</td></tr>
+<tr><th> Include?</th>
+<td> <input type="button" value=" 0 " name="buttonA" onClick="if (buttonA.value==' 0 ' ) buttonA.value=' 1 '; else buttonA.value=' 0 '; calc(this.form );" /> </td>
+<td> <input type="button" value=" 0 " name="buttonB" onClick="if (buttonB.value==' 0 ' ) buttonB.value=' 1 '; else buttonB.value=' 0 '; calc(this.form );" /> </td>
+<td> <input type="button" value=" 0 " name="buttonC" onClick="if (buttonC.value==' 0 ' ) buttonC.value=' 1 '; else buttonC.value=' 0 '; calc(this.form );" /> </td>
+<td> <input type="button" value=" 0 " name="buttonD" onClick="if (buttonD.value==' 0 ' ) buttonD.value=' 1 '; else buttonD.value=' 0 '; calc(this.form );" /> </td>
+<td><b>.</b></td>
+<td> <input type="button" value=" 0 " name="buttonE" onClick="if (buttonE.value==' 0 ' ) buttonE.value=' 1 '; else buttonE.value=' 0 '; calc(this.form );" /> </td>
+<td> <input type="button" value=" 0 " name="buttonF" onClick="if (buttonF.value==' 0 ' ) buttonF.value=' 1 '; else buttonF.value=' 0 '; calc(this.form );" /> </td>
+<td> <input type="button" value=" 0 " name="buttonG" onClick="if (buttonG.value==' 0 ' ) buttonG.value=' 1 '; else buttonG.value=' 0 '; calc(this.form );" /> </td>
+<td> <input type="button" value=" 0 " name="buttonH" onClick="if (buttonH.value==' 0 ' ) buttonH.value=' 1 '; else buttonH.value=' 0 '; calc(this.form );" /> </td>
+</tr>
+<tr><th>Sum:</th><td colspan="9"><input type="text" name="result" size="10" /></td></tr>
+</table>
+
+<br style="clear:both"> 
+
+
+<div class="left">
+<p>
+With
+paper-and-pencil arithmetic you can use as many digits or bits
+as are needed.
+But computers (usually) use a fixed number of bits for a particular
+data type.
+For example, MIPS integers are 32 bits.
+</p>
+
+<p> 
+Can a fixed number of bits be used to express fractions?
+</p>
+
+<a id="fixed_point_notation"> </a>
+<p>
+Yes.
+</p>
+
+<p> 
+Let us look briefly at an older method, not much used anymore.
+In the past, some electronic calculators and some
+computers used <b>fixed point</b> notation for expressing a
+fractional number.
+</p>
+
+</div>
+
+<div class="right">
+
+<p><span class="highlight">
+With fixed point notation, a number is expressed using a certain number of bits
+and the binary point is assumed to be permanently fixed
+at a certain position.</span>
+</p>
+
+<p>
+For example, let us say that fixed point numbers use eight bits
+and that the binary point is fixed between the middle two bits,
+like in the table.
+(In actual practice, the number of bits would be much more than eight.)
+Now to interpret an eight-bit expression, just copy the bits
+to the table.
+</p>
+<p>
+(Fill in the table by clicking the buttons. The powers of two above each 1-bit are included in the sum. )
+</p>
+</div>
+
+</form>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+
+
+<p>
+In this scheme, what does the bit pattern <code>01101001 </code> represent
+in decimal?
+</p>
+
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass29_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass29_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:23 GMT -->
+</html>

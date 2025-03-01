@@ -1,0 +1,112 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Feb 09 12:35:36 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:24 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Converting Base 3 to base 7</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass07_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap07-22.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<p>
+See Below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Converting Base 3 to base 7</h1>
+<!-- ../Audio/chap07-22.mp3 -->
+
+<p>
+Since
+ the base is 3, the algorithm calls for repeatedly
+dividing by 3 until the number is reduced to zero.
+</p>
+
+<p>
+100<sub class="base">ten</sub> =
+</p>
+
+<pre class="code">
+100 div 3 = 33 r 1; 
+ 33 div 3 = 11 r 0;  
+ 11 div 3 =  3 r 2;
+  3 div 3 =  1 r 0;  
+  1 div 3 =  0 r 1
+</pre>
+
+<p>
+So 100<sub class="base">ten</sub> = 10201<sub class="base">3</sub>.
+</p>
+
+<p>
+Checking the answer:
+</p>
+
+<pre class="code">
+10201<sub class="base">3</sub> = 1 &#215; 3<sup>4</sup> + 0 &#215; 3<sup>3</sup> + 2 &#215; 3<sup>2</sup>  + 0 &#215; 3<sup>1</sup> + 1 &#215; 3<sup>0</sup>
+
+       = 1 &#215; 81 + 0 &#215; 27 + 2 &#215; 9 + 0 &#215; 3 + 1
+       
+       = 81 + 18 + 1 = 100
+</pre>
+
+<div class="left">
+<p>
+To convert from a representation in base three to a representation in base seven,
+use base ten as an intermediate:
+convert from base three into base ten, then from base ten to base seven.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 20:</h3>
+
+<p>
+What is the base 7 representation of 10201<sub class="base">3</sub> &nbsp; ?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass07_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:25 GMT -->
+</html>

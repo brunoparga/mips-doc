@@ -1,0 +1,111 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 09:30:06 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-04/ass04_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:22 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input/output Controllers</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass04_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass04_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap04-04.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+No. The various devices must cooperate somehow so their data
+and signals don't get mixed.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Input/output Controllers</h1>
+<!-- ../Audio/chap04-04.mp3 -->
+
+<div class="left">
+<p>
+The
+ way in which devices connected to a bus cooperate is another part
+of a bus standard.
+</p>
+
+<a id="device_controller"> </a>
+<a id="I/O_controller"> </a>
+<p>
+<span class="highlight"><b>Input/output controllers</b> receive
+input and output requests from the central processor,</span>
+and then send device-specific control
+signals to the device they control.
+They also manage the data flow to and from the device.
+This frees the central processor
+from involvement with the details of controlling each device.
+I/O controllers are needed only for those
+I/O devices that are part of the system.
+</p>
+</div>
+
+<div class="right">
+<p>
+Often the I/O controllers are part of the electronics
+on the main circuit board (the <em>mother board</em>)
+of the computer.
+Sometimes an uncommon device requires its own controller
+which must be plugged into a connector (an expansion slot)
+on the mother board.
+</p>
+
+<p>
+<span class="highlight">I/O controllers are sometimes called <b>device controllers</b>.</span>
+The software that directly interacts with a device controller
+is called a <b>device driver</b>.
+When you install a new device on your computer (say, a new graphics board)
+you must also install a device driver for it.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+(Review:) Is there a difference between the memory used to
+hold programs and the memory used to hold data?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass04_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass04_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-04/ass04_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:23 GMT -->
+</html>

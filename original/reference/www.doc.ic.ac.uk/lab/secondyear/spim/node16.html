@@ -1,0 +1,331 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node16.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:43 GMT -->
+<HEAD>
+<TITLE>Branch and Jump Instructions</TITLE>
+<META NAME="description" CONTENT="Branch and Jump Instructions">
+<META NAME="keywords" CONTENT="spim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="spim.css">
+
+<LINK REL="next" HREF="node17.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node9.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html218"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html216"
+  HREF="node9.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html210"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html219"
+  HREF="node17.html">Load Instructions</A>
+<B> Up:</B> <A NAME="tex2html217"
+  HREF="node9.html">Description of the MIPS</A>
+<B> Previous:</B> <A NAME="tex2html211"
+  HREF="node15.html">Comparison Instructions</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00027000000000000000">
+Branch and Jump Instructions</A>
+</H2>
+
+<P>
+In all instructions below, <TT>Src2</TT> can either be a register or an
+immediate value (integer).  Branch instructions use a signed 16-bit
+offset field; hence they can jump <SPAN CLASS="MATH"><IMG
+ WIDTH="58" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$2^{15}-1$"></SPAN> <EM>instructions</EM> (not
+bytes) forward or <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$2^{15}$"></SPAN> instructions backwards.  The <EM>jump</EM>
+instruction contains a 26 bit address field.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>b label</TT>Branch instruction <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Unconditionally branch to the instruction at the label.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>bc<EM>z</EM>t label</TT>Branch Coprocessor <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$z$"></SPAN> True
+<BR></EM>
+<EM><TT>bc<EM>z</EM>f label</TT>Branch Coprocessor <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$z$"></SPAN> False
+<BR></EM>
+Conditionally branch to the instruction at the label if coprocessor
+<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$z$"></SPAN>'s condition flag is true (false).
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>beq Rsrc1, Src2, label</TT>Branch on Equal
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of register <TT>Rsrc1</TT> equals <TT>Src2</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>beqz Rsrc, label</TT>Branch on Equal Zero <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of <TT>Rsrc</TT> equals 0.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>bge Rsrc1, Src2, label</TT>Branch on Greater Than Equal <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+<EM><TT>bgeu Rsrc1, Src2, label</TT>Branch on GTE Unsigned <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of register <TT>Rsrc1</TT> are greater than or equal to <TT>Src2</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>bgez Rsrc, label</TT>Branch on Greater Than Equal Zero
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of <TT>Rsrc</TT> are greater than or equal to 0.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>bgezal Rsrc, label</TT>Branch on Greater Than Equal Zero And Link
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of <TT>Rsrc</TT> are greater than or equal to 0. Save the address of
+the next instruction in register 31.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>bgt Rsrc1, Src2, label</TT>Branch on Greater Than <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+<EM><TT>bgtu Rsrc1, Src2, label</TT>Branch on Greater Than Unsigned <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of register <TT>Rsrc1</TT> are greater than <TT>Src2</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>bgtz Rsrc, label</TT>Branch on Greater Than Zero
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of <TT>Rsrc</TT> are greater than 0.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>ble Rsrc1, Src2, label</TT>Branch on Less Than Equal <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+<EM><TT>bleu Rsrc1, Src2, label</TT>Branch on LTE Unsigned <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of register <TT>Rsrc1</TT> are less than or equal to <TT>Src2</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>blez Rsrc, label</TT>Branch on Less Than Equal Zero
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of <TT>Rsrc</TT> are less than or equal to 0.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>bgezal Rsrc, label</TT>Branch on Greater Than Equal Zero And Link
+<BR></EM>
+<EM><TT>bltzal Rsrc, label</TT>Branch on Less Than And Link
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of <TT>Rsrc</TT> are greater or equal to 0 or less than 0,
+respectively. Save the address of the next instruction in register 31.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>blt Rsrc1, Src2, label</TT>Branch on Less Than <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+<EM><TT>bltu Rsrc1, Src2, label</TT>Branch on Less Than Unsigned <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of register <TT>Rsrc1</TT> are less than <TT>Src2</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>bltz Rsrc, label</TT>Branch on Less Than Zero
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of <TT>Rsrc</TT> are less than 0.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>bne Rsrc1, Src2, label</TT>Branch on Not Equal
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of register <TT>Rsrc1</TT> are not equal to <TT>Src2</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>bnez Rsrc, label</TT>Branch on Not Equal Zero <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="${}^{\dagger}$"></SPAN>
+<BR></EM>
+Conditionally branch to the instruction at the label if the contents
+of <TT>Rsrc</TT> are not equal to 0.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>j label</TT>Jump
+<BR></EM>
+Unconditionally jump to the instruction at the label.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>jal label</TT>Jump and Link
+<BR></EM>
+<EM><TT>jalr Rsrc</TT>Jump and Link Register
+<BR></EM>
+Unconditionally jump to the instruction at the label or whose address
+is in register <TT>Rsrc</TT>.  Save the address of the next
+instruction in register 31.
+
+<P>
+
+<P><P>
+<BR>
+<EM><TT>jr Rsrc</TT>Jump Register
+<BR></EM>
+Unconditionally jump to the instruction whose address is in register
+<TT>Rsrc</TT>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html218"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html216"
+  HREF="node9.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html210"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html219"
+  HREF="node17.html">Load Instructions</A>
+<B> Up:</B> <A NAME="tex2html217"
+  HREF="node9.html">Description of the MIPS</A>
+<B> Previous:</B> <A NAME="tex2html211"
+  HREF="node15.html">Comparison Instructions</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Ian Moor
+2009-03-11
+</ADDRESS>
+</BODY>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node16.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:46 GMT -->
+</HTML>

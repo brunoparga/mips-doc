@@ -1,0 +1,148 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:36 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The   print()   Method</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+object2:
+          .word    print                    # Jump Table
+          .asciiz  "Silly Example\n"        # This object's data
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The <code> print() </code> Method</h1>
+<!-- ../Audio/chap36-14.mp3 -->
+
+<div class="left">
+
+<p>
+<span class="highlight">The
+ <code>print()</code> method is put in the <code>.text</code>
+section of memory:</span>
+</p>
+</div>
+<br style="clear:both"> 
+
+<pre class="program">
+# Single copy of the print method
+# Parameter: $a0 == address of the object
+          .text         
+print:
+          li       $v0,4                   # print string service
+          addu     $a0,$a0,4               # address of object's string
+          syscall                          # 
+          jr       $ra                     # return to caller
+</pre>
+<br style="clear:both">
+<div class="left">
+
+<p>
+<span class="highlight">There is only one copy of the method.
+But it  acts as if were
+a part of each object.</span>
+This is done by
+copying 
+into <code class="register">$a0</code>
+the address of the object 
+using <code>print</code>.
+</p>
+
+<p>
+Here is how 
+<code>main()</code>
+does this:
+</p>
+</div> 
+<br style="clear:both">
+
+<pre class="program">
+                            # object1.print();
+la       $a0,object1        #   Get address of first object.
+lw       $t0,0($a0)         #   Get address of object's method.
+jalr     $t0                #   Call the object's method.
+                            #   The address of the object is
+                            #   in $a0.
+</pre>
+<br style="clear:both">
+
+<div class="left">
+<p>
+In <code>print()</code>,
+the address of the string
+<em>within the object that is using</em>
+<code>print()</code>
+is computed by:
+</p>
+</div> 
+
+<br style="clear:both">
+<pre>
+addu     $a0,$a0,4           # address of object's string
+</pre>
+<br style="clear:both">
+
+<div class="left">
+<p>
+This places the string's address in
+<code class="register">$a0</code>
+where the print string service expects it.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+<p>
+(Thought Question: ) In a real-world program,
+should a subroutine calling convention be
+used when object methods are called?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:37 GMT -->
+</html>

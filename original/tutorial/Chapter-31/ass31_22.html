@@ -1,0 +1,138 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_22.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:36 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Converting Between Number Formats</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_21.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_23.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<p>
+Of course. The various bit manipultion instructions could be used for this.
+</p>
+
+<p>
+Early microprocessors had no direct support for floating point and such manipulation was common.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Converting Between Number Formats</h1>
+
+
+<table class="center">
+<tr><th>Instruction</th><th>Operation</th></tr>
+<tr><td>cvt.s.w fs, fw</td><td>
+                             <p>
+                             Convert the 32-bit integer in float register <code class="register">$fw</code> <br> 
+                             to an IEEE float in register <code class="register">$fs</code>
+                             </p>
+                             </td></tr>
+                             
+<tr><td>cvt.w.s fw, fs</td><td>                            
+                             <p>
+                             Convert the 32-bit float in register <code class="register">$fs</code> <br> to an integer in float register <code class="register">$fw</code>
+                             </p>
+                             </td></tr>
+                             
+<tr><td>the "w" means 32-bit integer full word.</td><td></td></tr>
+<tr><td>the "s" means 32-bit single precision.</td><td></td></tr>
+</table>
+
+<div class="left">
+
+
+<p>
+High level languages allow you to write statments like this:
+</p>
+
+<pre>
+float val = 1.0 + 1;
+</pre>
+
+<p>
+The operands are of mixed types. <span class="highlight">
+The statement compiles into machine operations that convert the integer into floating point
+and perform a floating point addition.</span>
+Operations are always between data of the same type, even when that is not what the programmer wrote.
+</p>
+
+
+<p>
+Rather than use bit manipulation instructions to convert an integer to floating point, MIPS (and QtSpim) has machine instructions that do this.
+</p>
+
+
+<p>
+There are other instructions that convert between double precision and other data types, but we will not use them.
+</p> 
+
+<a id="cvt.s.w"> </a>
+<a id="cvt.w.s"> </a>
+
+</div>
+
+<div class="right">
+
+<ul>
+<li><span class="highlight">Both registers in these instructions are floating point registers.</span></li>
+<li>Integer data to be converted, or integer data results, must be in one of the floating point registers.</li>
+<li>Use data movement instructions to copy integer data between floating point registers and general purpose registers.</li>
+<li>In both of the above, the bit pattern in the source register is unchanged (unless it is also the destination).</li>
+<li>Floating point data is truncated when converted to an integer.</li>
+</ul>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 22:</h3>
+
+<p>
+Is it possible to lose accuracy when converting a 32-bit integer into a 32-bit IEEE float?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_21.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_23.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_22.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:37 GMT -->
+</html>

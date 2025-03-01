@@ -1,0 +1,151 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Mar 05 19:29:50 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:01 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Instruction for Load Word</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass15_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap15-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre>
+0x00400060 --- address of data
+0x00400000 --- address in $10
+$8         --- destination register
+</pre>
+
+<p>
+The instruction is:
+</p>
+
+<pre>lw $8,0x60($10)</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Machine Instruction for Load Word</h1>
+<!-- ../Audio/chap15-10.mp3 -->
+
+<div class="middle">
+<p>
+Here
+ is the machine code version of the instruction.
+<span class="highlight">It specifies the <em>base register</em>, 
+the <em>destination register</em>,
+and the <em>offset</em>.</span>
+It does not directly contain the memory address.
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="program">
+<span class="blue">100011</span><span class="red">  01010</span><span class="blue"> 01000</span><span class="red"> 0000 0000 0110 0000</span> -- fields of the instruction
+
+lw      $10   $8     0    0    6    0
+opcode  base  dest        offset        -- meaning of the fields
+
+lw      $8, 0x60($10)                   -- assembly language
+
+</pre>
+
+<div class="middle">
+<p>
+Here is how this instruction 
+is executed.
+Say that register <code class="register">$10 </code> already contains address 0x00400000.
+</p>
+<a id="lw,_operations"> </a>
+
+<ol style="text-align:left">
+ <li>The 32-bit address in $10 is: &nbsp; <span class="blue">0x00400000</span></li>
+ <li>The offset is sign-extended to 32 bits: &nbsp; <span class="blue">0x00000060</span></li>
+ <li>The memory address is the 32-bit sum of the above: &nbsp; <span class="blue">0x00400060</span></li>
+ <li>Main memory is asked for data from that address. </li>
+ <li>After a <u>one machine cycle delay</u> the data reaches $8. &nbsp; <code>$8 = the 4 bytes starting at 0x00400060</code></li>
+</ol>
+
+<a id="load_delay_slot"> </a>
+<p>
+<span class="highlight">There is a one machine cycle delay before the data from memory is available.</span>
+Reaching outside of the processor chip into main memory takes time.
+But the processor does not wait
+and executes one more instruction while the load is going on.
+</p>
+
+<p>
+<span class="highlight">This is the <b>load delay slot</b>.</span>
+The instruction immediately <u>after</u> a <code>lw</code> instruction
+should not use the register that is being loaded.
+Sometimes the instruction after the <code>lw</code>
+is a no-operation instruction.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+
+<img src="lwProblem.gif"  class="rightimage" alt="Picture of the Problem" />
+
+<div class="left">
+<p>
+Look at registers <code class="register">$12</code> and <code class="register">$13</code> and memory (at right).
+Write the instruction  that puts the value 0x00000004 into
+register <code class="register">$12</code>.
+</p>
+
+<ul>
+ <li>Register <code class="register">$12</code> contains <code>0xFFFFFFFF</code></li>
+ <li>Register <code class="register">$13</code>  contains <code>0x00040000</code></li>
+</ul>
+
+<blockquote>
+<pre>lw $<input type="text" name="T3" size="5">, <input type="text" name="T4" size="5"> ($ <input type="text" name="T5" size="5">)</pre>
+</blockquote>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass15_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass15_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-15/ass15_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:03 GMT -->
+</html>

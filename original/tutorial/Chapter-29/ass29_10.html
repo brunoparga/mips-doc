@@ -1,0 +1,141 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Nov 04 19:28:58 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:49 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limited Precision</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass29_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass29_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap29-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+<code>2<sup>8</sup> = 256</code>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Limited Precision</h1>
+<!-- ../Audio/chap29-10.mp3 -->
+
+<a id="precision,_of_fixed_point"> </a>
+
+
+<img class="center" src="numberLine.jpg" alt="Number Line" />
+
+<div class="left">
+<p>
+This
+is an easy question.<span class="highlight">
+If <code>N</code> bits are used, then only <code>2<sup>N</sup></code>
+things can be represented, no matter what type of things they are.</span>
+Eight bits can represent 256 positive integers
+(unsigned binary), 256 positive and negative integers (two's complement),
+256 fractional numbers (our fixed point method), and so on.
+Above is a number line showing the 256 values that can be represented
+with this fixed notation.
+</p>
+
+<p>
+The smallest value is zero (<code>00000000</code>). 
+The largest value
+is 15.9375 (<code>11111111</code>).
+The smallest non-zero value is 0.0625.
+Every represented value is a multiple of 0.0625.
+</p>
+
+<p>
+Another way to think of fixed point notation is that the eight bits
+represent an integer from 0 to 255.
+The integer is a multiplier of the value 0.0625.
+</p>
+
+<p>
+The range between any two integers is divided into 16 numbers
+(because 16*0.0625 = 1.0).
+This is not very many divisions.
+There are big gaps between represented numbers.
+</p>
+</div>
+
+<div class="right">
+<p>
+<b>Important points:</b> <span class="highlight">
+With our version of 8-bit fixed point, 
+the only numbers that can be represented lie in the range zero to 15.9375.
+This is called a limit in <b>range</b>.
+Also, only a few real numbers within that range can be represented.
+This is called a limit in <b>precision</b>.</span>
+</p>
+
+<p>
+All schemes for representing real numbers with bit patterns
+have limited range and limited precision.
+This is true for the usual floating point representations
+of computers.
+No matter how many bits are used, there are
+limits on the range and precision.
+</p>
+
+<p>
+A fixed number of patterns can be formed with a fixed number of bits.
+Those patterns could be spread out over a wide range of numbers
+(but now there are large gaps between the numbers, decreasing precision.)
+Or those patterns could be use to narrow the gap between numbers
+(but now range is decreased.)
+Or the gaps between numbers could be made small for small numbers
+and large for large numbers.
+This is what floating point representation does.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+(Calculus Review: ) How many <b>real numbers</b>
+lie between 0.0 and 0.0625?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass29_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass29_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-29/ass29_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:51 GMT -->
+</html>

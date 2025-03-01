@@ -1,0 +1,130 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 25 21:28:27 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:55 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass31_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap31-15.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<p>
+Memory access is much slower than copying between registers.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+<!-- ../Audio/chap31-15.mp3 -->
+
+<pre class="program">
+## Move data between the coprocessor and the CPU
+
+        .text
+        .globl main
+
+main:   
+        li      $t0,1           # $t0 &lt;-- 1
+                                # (move to the coprocessor)
+        mtc1    $t0,$f0         # $t0 --&gt; $f0 
+        
+        li.s    $f1,1.0         # $f1 &lt;-- 1.0
+                                # (move from the coprocessor)
+        mfc1    $t1,$f1         # $t1 &lt;-- $f1 
+        
+        li      $v0,10          # exit
+        syscall
+</pre>
+
+<div class="left">
+
+<p><span class="highlight">
+Here is a program that moves bit patterns between 
+floating point and general purpose registers.</span>
+The program loads a general purpose register with
+a two's complement 1 and copies that pattern to
+a floating point register.
+Then it loads a floating point register with
+an IEEE 1.0 and moves that pattern to a general
+purpose register.
+</p>
+<p>
+The bit pattern <code>00000001</code> is the two's complement representation of one.
+It is now in registers <code class="register">$t0</code> and <code class="register">$f0</code>.
+</p>
+
+<p>
+Here is what the SPIM registers contain after running the program:
+</p>
+</div>
+
+<div class="right">
+
+
+<p>
+The bit pattern <code>3f800000</code> is the IEEE representation of 1.0.
+That pattern is now in registers <code class="register">$f1</code> and <code class="register">$t1</code>.
+(It is also in register <code class="register">$at</code> which is used in implementing the pseudoinstruction <code>li.s</code>).
+</p>
+
+</div> 
+
+<br style="clear:both"> 
+<img src="moveRegsFloat.jpg" alt="Screen Dump of Registers">
+&nbsp; &nbsp; &nbsp;
+<img src="moveRegsGeneral.jpg" alt="Screen Dump of Registers">
+ 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+<p>
+Could floating point arithmetic be done with the
+value in register <code class="register">$f0</code>?  
+Inspect the contents for FP0 in the SPIM register display.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass31_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass31_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:58 GMT -->
+</html>

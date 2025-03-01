@@ -1,0 +1,420 @@
+<!doctype html> 
+
+<!-- 06/30/2015  bpk  HTML5 validation  -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:57 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Programming Exercises for Chapter 17</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p  class="revisions">created 06/29/2003; prime and phi added 05/14/2016</p>
+
+<hr />
+
+<h1> 
+Chapter 19 Programming Exercises
+</h1>
+
+<hr />
+
+<p>
+For these programming exercises,
+use only those instructions that have been
+discussed so far in these notes:
+</p>
+
+ 
+<table style="width:50%">
+<tr>
+<td>add   </td><td>div    </td><td>mflo    </td><td>slt, slti</td>
+</tr>
+<tr>
+<td>addi  </td><td>divu   </td><td>mult    </td><td>sltu, sltiu</td>
+</tr>
+<tr>
+<td>addiu </td><td>j      </td><td>multu   </td><td>sra</td>
+</tr>
+<tr>
+<td>addu  </td><td>lb     </td><td>nor     </td><td>srl</td>
+</tr>
+<tr>
+<td>and   </td><td>lbu    </td><td>or      </td><td>sub</td>
+</tr>
+<tr>
+<td>andi  </td><td>lh     </td><td>ori     </td><td>subu</td>
+</tr>
+<tr>
+<td>beq   </td><td>lhu    </td><td>sb      </td><td>sw</td>
+</tr>
+<tr>
+<td>bgez  </td><td>lui    </td><td>sh      </td><td>xor</td>
+</tr>
+<tr>
+<td>bltz  </td><td>lw     </td><td>sll     </td><td>xori</td>
+</tr>
+<tr>
+<td>bne   </td><td>mfhi   </td><td>&#160;  </td><td>&#160;  </td>
+</tr>
+</table>
+
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine ON, Allow Pseudo Instructions OFF,
+Delayed Branches ON,
+Delayed Loads ON, Mapped IO OFF, Load Exception Handler OFF.
+</p>
+
+<p>
+Run programs by 
+single stepping (pushing F10)
+or by  clicking <em>run</em> and allowing control to go beyond the program.
+Implement while loops by branching to a no-op (sll $0,$0,0) at the end of the loop when the loop finishes.
+</p>
+
+<hr />
+
+<!-- tested 07/28/2003, 05/14/2016 -->
+
+<h2>*Exercise 1 &mdash; Sequential Memory Locations</h2>
+
+<p>
+Write a program that stores the number 0 in the first
+four bytes of the <code>.data</code> section,
+then stores the number 1 in the next
+four bytes,
+then stores the number 2 in the
+four bytes after that and so on.
+Do this for numbers 0 through 24.
+</p>
+
+<p>
+Of course you will do this in a counting loop.
+The address in the data section is contained in
+a base register.
+Increment the base register each time a number is
+stored.
+</p>
+
+<p>
+The data section of your program should look like
+</p>
+
+<pre>     
+         .data
+array:   .space    100
+</pre>
+
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- tested 07/28/2003, 05/14/2016 -->
+<h2>***Exercise 2 &mdash; Perfect Number Verifier</h2>
+
+<p>
+A perfect number is an integer 
+whose proper divisors sum up to the number. 
+A proper divisior is an integer that divides the number and is smaller than the number.
+For example, 
+6 is perfect because 6 is divided by 1, 2,
+and 3 and 6 = 1 + 2 + 3. 
+Other perfect numbers are 28 and 496.
+</p>
+
+<p>
+Write a program that determines if an integer
+stored in memory is a perfect number.
+Set a location in memory to 1 if the number is perfect,
+to 0 if not.
+</p>
+
+<pre>
+            .data
+N:          .word      496
+isperfect:  .word      0
+</pre>
+
+<p>
+It would be enormously helpful to first do this by
+hand with a couple of examples.
+Then draw a flowchart.
+Check the flowchart by following it with  a few examples.
+Then write the program.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+
+<!--  -->
+<h2>***Exercise 3 &mdash; Smallest Odd Abundant Number</h2>
+
+<p>
+An abundant number is an integer 
+whose proper divisors form a sum greater than the number. 
+For example, 
+12 is abundant because 12 is divided by 1, 2, 3, 4
+and 6, which add up to 16. 
+Other abundant numbers are  18 and  20.
+</p>
+
+<p>
+Write a program that finds the smallest <b>odd</b> abundant number.
+Store the result in memory.
+</p>
+
+<pre>
+            .data
+result:     .word      0
+</pre>
+
+<p>
+The base two representation of an odd number has bit zero set.
+Testing if a number is odd is easy.
+</p>
+
+<p>
+An integer whose proper divisors add up to less than the integer is a <em>deficient</em> number.
+Of course, every integer is either deficient, perfect, or abundant.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+
+
+<!-- tested 07/28/03, 05/14/2016 -->
+
+<h2>****Exercise 4 &mdash; Perfect Number Searcher</h2>
+
+<p>
+This exercise continues exercise 2.
+</p>
+
+<p>
+Write a program that searches for
+perfect numbers.
+It has an outer loop that counts
+upward from two to some limit.
+Each number is tested (as above)
+to see if it is a perfect number.
+If it is a perfect number it is stored
+at a memory location.
+Store perfect numbers at successive
+full-word memory locations.
+Look at exercise 1 for a way to do this.
+</p>
+
+<p>
+Again, to save time and effort,
+create a flowchart first.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- tested 05/14/2016 -->
+
+<h2>**Exercise 5 &mdash; Prime Number Tester</h2>
+
+<p>
+Write a program that determines if an integer is prime.
+An integer is prime if it cannot be divided by any positive integer other than one and itself.
+The integer N to be tested will be in memory.
+Set the location <code>isprime</code> to 1 if N is prime, 0 otherwise.
+</p>
+
+<pre>
+          .data
+N:        .word     223
+isprime:  .word      0
+</pre>
+
+<p>
+To determine if N is prime, try to divide it with trial divisors from 2 up to N/2.
+If one of them divides N without a remainder, then N is not prime.
+You only have to try trial divisors up to N/2 because if N = trial*X, then trial = N/X and the only integer X less than 2 is 1.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<p>
+Write a program that computes the greatest common divisor (GCD) of two integers.
+The two integers and the GCD will be in memory.
+</p>
+
+<!-- tested 05/14/2016 -->
+
+<h2>***Exercise 6 &mdash; Greatest Common Divisor</h2>
+
+<p>
+Write a program that computes the greatest common divisor (GCD) of two integers.
+The two integers and the GCD will be in memory.
+</p>
+
+
+<pre>
+        .data
+N:      .word     21
+M  :    .word     14
+GCD:    .word      0
+</pre>
+
+<p>
+The GCD of two integers is the largest integer that divides them both with a remainder of zero.
+</p>
+
+<ul>
+<li>GCD(21,14) = 7</li>
+<li>GCD(14,21) = 7</li>
+<li>GCD(27,36) = 9</li>
+<li>GCD(25,50) = 25</li>
+<li>GCD(19,36) = 1</li>
+<li>GCD(12,55) = 1</li>
+</ul>
+
+<p>
+Notice that <code>GCD(X,Y) = GCD(Y,x)</code>.
+If the GCD of two integers is one, then the two integers are <em>relatively prime</em>.
+Two integers might be relatively prime without either one of them being prime.
+</p>
+
+<p>
+If two integers have a common divisor, the
+difference of the two integers has the same divisor.
+To find the common divisor, keep subtracting one
+integer from the other until a common value is
+reached.
+Why is this? Say x and y have a common divisor, say d.
+</p>
+
+<ul>
+<li>Then x = md and y = nd</li>
+<li>Then (x – y) = md – nd = (m – n)d = kd</li>
+<li>So the difference kd has the same divisor d</li>
+</ul>
+
+<p>
+Your program can follow this algorithm:
+</p>
+
+<pre>
+get N
+get M
+
+while (N != M)
+    if ( N > M )
+        N = N - M;
+    else
+        M = M - N;
+
+GCD =  N;
+</pre>
+
+<p>
+Load N and M integer registers and implement the algorithm using registers.
+There is no need to change the N and M in memory.
+When the loop finishes, store the resulting GCD into memory.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+
+<!-- tested 05/15/2016 -->
+
+<h2>****Exercise 7 &mdash; Euler Phi Function</h2>
+
+<p>
+Write a program that computes the Euler phi function.
+The phi function is important in cryptography and internet security.
+</p>
+
+<p>
+The phi function of an integer N is the number of positive integers less than N that do not share a common factor greater than one with N.
+Another way to say this is that phi( N ) is the number of positive integers less than N that are relatively prime to N.
+</p>
+
+<p>
+Two integers share a common factor if there is an integer greater than one that divides them both with no remainder.
+For example, 14 and 21 share a common factor of 7. Also, 7 and 21 share a common factor of 7. 
+But 5 and 21 do not have a common factor.
+</p>
+
+<p>
+Two integers have a factor in common if they have greatest commmon divisor greater than one.
+The greatest common divisor of 14 and 21 is 7.
+The greatest common divisior of 5 and 21 is 1.
+</p>
+
+<p>
+So the phi function of N is the number of positive integers x less than N for which <code>gcd(N,x) = 1</code>.
+</p>
+
+<p>
+Write a program that computes phi(N) for an integer N in the data section.
+Store the result back into the data section
+</p>
+
+<pre>
+        .data
+N:      .word     21
+phi:    .word      0
+</pre>
+
+<p>
+The logic of your program could be:
+</p>
+
+<pre>
+phi = 0;
+trial = 1;
+while ( trial &lt; N)
+{
+    if ( gcd(N,trial) == 1 ) phi++;  
+}
+</pre>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:57 GMT -->
+</html>
+

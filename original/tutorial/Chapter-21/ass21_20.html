@@ -1,0 +1,145 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 06 15:47:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:31 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Load Word (pseudoinstruction)</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass21_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap21merge3435.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+The assembler temporary register, <code class="register">$at</code> (which is also <code class="register">$1</code>.)
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Load Word (pseudoinstruction)</h1>
+<!-- ../Audio/chap21merge3435.mp3 -->
+
+<a id="lw_(pseudoinstruction)"> </a>
+<a id="pseudocomputer"> </a>
+
+<img src="pseudocomputer.gif" class="rightimage" alt="levels inside a computer system">
+
+<div class="left">
+
+<p><span class="highlight">
+The
+<code>lw</code> pseudoinstruction
+copies a word of data from memory into a register 
+seemingly in one instruction:</span>
+</p>
+
+<pre>
+lw    d,exp    #  Load register $d with the value at 
+               #  address exp.  exp can be any
+               #  of several expression types 
+               #  that evaluate to  an address
+               #  (<em>pseudoinstruction</em>) 
+</pre>
+
+
+<p>
+Here is a possible translation the pseudoinstruction
+<code>lw</code>.
+Say that the symbol 
+<code>data</code>
+stands for the address <code class="register">0x10000004</code>
+</p>
+
+<pre>
+lw $t0,data   ==   lui $1,0x1000
+                   lw $8,4($1)
+</pre>
+
+<p>
+The base address in <code class="register">$1</code> is <code class="register">0x10000000</code> after
+the <code>lui</code> instruction executes.
+The <code>lw</code> instruction adds 4 to that address
+to form the desired address.
+</p>
+
+<p><span class="highlight">
+The
+extended assembler and its 
+pseudoinstructions 
+make it look like you 
+are programming a 
+<em>pseudo</em>computer &#8212; a computer system
+that is richer in features and more convenient 
+to program than the actual hardware.</span>
+(Often this is called  a "virtual computer"; 
+but to avoid confusion I'll say that 
+pseudoinstructions run on
+the pseudocomputer.)
+This idea of implementing a virtual machine on top of
+another machine (which may also be virtual)
+is very important in computer science.
+</p>
+
+<a id="layer_of_abstraction"> </a>
+<p><span class="highlight">
+The pseudocomputer built on top of the hardware is a
+<em>layer of abstraction</em>.</span>
+When you write programs using 
+the extended assembler and its pseudoinstructions
+you think in terms of the pseudocomputer and its capabilities.
+You can pretend that the pseudocomputer will directly
+execute your program.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 20:</h3>
+
+<p>
+Should the <code>lw</code>
+pseudoinstruction be followed by a load delay slot?
+(Hint: look at its translation.)
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass21_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass21_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-21/ass21_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:33 GMT -->
+</html>

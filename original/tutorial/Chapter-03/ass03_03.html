@@ -1,0 +1,132 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Aug 31 19:18:25 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:21 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Many Patterns with Three Bits?</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass03_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap03-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Yes &#8213; the position of a bit matters.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>How Many Patterns with Three Bits?</h1>
+<!-- ../Audio/chap03-03.mp3 -->
+
+
+<script src="../../ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+var sound;
+
+$(document).ready(function() {
+    sound = document.createElement("audio");
+    sound.src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/click.mp3";
+    sound.volume=0.40;
+    sound.autoPlay=false;
+    sound.preLoad=true;       
+})
+
+var currentImage = [1, 1, 1];
+var my_images = new Array(2);
+my_images[0] = "toggleOn.gif";
+my_images[1] = "toggleOff.gif";
+
+function loadImage( img )
+{
+  if ( currentImage[img]==0 ) currentImage[img]=1;
+  else                        currentImage[img]=0;
+  document.images[5+img].src = my_images[currentImage[img]];
+  sound.play();
+}
+
+</script>
+
+<img src="toggleOff.gif"  class="rightimage" height="212" width="145" alt="toggle"
+     onMouseOver="loadImage(0)"  onClick="loadImage(0)" >
+
+<img src="toggleOff.gif" class="rightimage" height="212" width="145"  alt="toggle"
+     onMouseOver="loadImage(1)" onClick="loadImage(1)" >
+
+<img src="toggleOff.gif" class="rightimage" height="212" width="145"  alt="toggle"
+     onMouseOver="loadImage(2)" onClick="loadImage(2)" >
+ 
+    
+<div class="left">
+
+<p>
+How
+many patterns can be formed with <span class="highlight">three bits?</span>
+Let's list them:
+</p>
+
+<pre class="code">
+    0 0 0
+    0 0 1
+    0 1 0
+    0 1 1
+    1 0 0
+    1 0 1
+    1 1 0
+    1 1 1
+</pre>
+
+<p>
+Looks like <span class="highlight">8 patterns</span>.
+</p>
+
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+<p>
+Is the number of patterns that can be formed with N bits greater than the
+number of bits?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass03_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass03_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-03/ass03_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:22 GMT -->
+</html>

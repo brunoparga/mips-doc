@@ -1,0 +1,125 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:02 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program with Struct</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap33-09.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre>
+lw $t0,4($s1)    # load the pay
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program with Struct</h1>
+<!-- ../Audio/chap33-09.mp3 -->
+
+
+<p>
+Here
+is a program that allocates memory for a
+struct, then puts data in each field.
+It then makes a copy of the struct by
+allocating another block of memory and
+copying corresponding fields from the first struct
+to the second struct.
+</p>
+
+<pre class="program">
+# StructCopy.asm
+#
+        .text
+        .globl  main
+
+main:    
+        # create the first struct 
+        li      $v0,9             # allocate memory
+        li      $a0,12            # 12 bytes
+        syscall                   # $v0 &lt;-- address
+        move    $s1,$v0           # $s1 first struct
+ 
+        # initialize the first struct       
+        li      $t0,34            # store 34
+        sw      $t0,0($s1)        # in age
+        lw      $t0,pay           # store 24000
+        sw      $t0,4($s1)        # in pay
+        li      $t0,12            # store 12
+        sw      $t0,8($s1)        # in class
+
+        # create the second struct 
+        li      $v0,9             # allocate memory
+        li      $a0,12            # 12 bytes
+        syscall                   # $v0 &lt;-- address
+        move    $s2,$v0           # $s2 second struct
+           
+        # copy data from first struct to second     
+        lw      $t0,0($s1)        # copy age from first
+        sw      $t0,0($s2)        # to second struct
+        
+        lw      $t0,<input type="text" size="8" name="T1">($s1)     # copy pay from first
+        
+        sw      $t0,<input type="text" size="8" name="T2">($s2)     # to second struct
+        
+        lw      $t0,<input type="text" size="8" name="T3">($s1)     # copy class from first
+        
+        sw      $t0,<input type="text" size="8" name="T4">($s2)     # to second struct
+
+        li      $v0,10            # return to OS
+        syscall       
+
+        .data
+pay:    .word   24000             # rate of pay, in static memory
+</pre>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+Fill in the blanks to compete the program.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:03 GMT -->
+</html>

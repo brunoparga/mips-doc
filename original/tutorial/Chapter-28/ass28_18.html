@@ -1,0 +1,156 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:40 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:57 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activation Chain</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-23.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-23.mp3 -->
+
+<h3>Answer:</h3>
+<pre>
+fact(5) == 5*fact(4)
+        == 5*( 4*fact(3) ) 
+        == 5*( 4*( 3*fact(2)) )
+        == 5*( 4*( 3*(2*fact(1))) ) 
+        == 5*( 4*( 3*(2*1)) ) 
+        == 5*4*3*2*1 
+        == 120
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Activation Chain</h1>
+
+<img src="factChain.gif" class="rightimage" alt="activation chain">
+<div class="left">
+
+<p>
+If
+the subroutine <code>fact()</code> 
+is called with an argument
+greater than one, it calls itself, 
+<code>fact()</code>, with a new argument.
+This is a new activation of the same code.
+This is not  a problem because 
+<span class="highlight">the data for the first activation of <code>fact()</code>
+is on
+the stack.
+The new activation has a fresh stack frame for its data.</span>
+</p>
+
+<p>
+<span class="highlight">Each activation of <code>fact()</code> gets its own
+stack frame which it uses for its own data.</span>
+In the diagram,
+each activation corresponds to a green circle
+which contains the data for that activation.
+Each activation works with its own data in
+its own stack frame.
+The activations do not interfere with each other.
+</p>
+
+<p>
+When the first activation gets control again,
+its data is available at the top of the stack.
+It also has the value returned from the
+call it made.
+</p>
+
+<p>
+In the code, <code>n</code> is the value in
+the stack frame and <code>fact(n-1)</code>
+is the value returned by the call it made.
+</p>
+
+
+<pre class="code">
+
+#  int fact( int n )
+#  {
+#    if ( n &lt;= 1 )
+#      return 1;
+#    else
+#      return n*fact(n-1);
+#  }
+</pre>
+
+<p>
+<span class="highlight">
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-24.mp3" target="audioPlayer" class="audio">E</a>ach 
+bead on the activation chain represents an activation of
+a subroutine.</span>
+The label on a downward arc is the argument to an activation.
+The label on an upward arc is the returned value.
+</p>
+
+<p>
+<span class="highlight">Each bead on the activation chain corresponds to one stack frame.</span>
+The picture of the stack shows what it looks like when
+the activation <code>fact(1)</code> is running.
+The upward arrows have not happened yet.
+</p>
+
+<p>
+When the value 120 is returned to <code>main</code>, 
+only <code>main</code> is active, the stack
+contains only its stack frame, and the activation chain consists only of
+<code>main</code>.
+</p>
+</div>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 18:</h3>
+
+<form>
+<p>
+A downward arc corresponds to a <input type="text" size="5" style="font-size:125%;" /> of one stack frame.
+An upward arc corresponds to a <input type="text" size="5" style="font-size:125%;" /> of one stack frame.
+</p>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:59 GMT -->
+</html>

@@ -1,0 +1,121 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Oct 13 19:19:52 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:52 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storing Halfwords</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass16_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap16-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+It is a multiple of two. 
+Such addresses have a zero in the low-order bit.
+</p>
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Storing Halfwords</h1>
+<!-- ../Audio/chap16-10.mp3 -->
+
+
+<a id="sh_(instruction)"> </a>
+
+<div class="left">
+<p><span class="highlight">
+Only 
+one store halfword instruction is needed.</span>
+The low-order two bytes of the designated register
+are copied to memory, no matter what the upper
+two bytes are.
+Of course, the register is not changed when its data is copied to memory.
+</p>
+ 
+
+<pre>
+sh  t,off(b)    
+
+# Halfword at off+b <span style="font-size: 30px;">&larr;</span>  <u>low-order</u> 
+# two bytes from $t.
+# b is a base register. 
+# off is 16-bit two's complement.
+</pre>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">MIPS arithmetic instructions that use registers
+always use full registers, </span>
+regardless of
+how data was
+loaded into the register.
+For example, an <code>addu</code>
+instruction does a full 32-bit addition
+even if one of the operand registers was loaded with
+<code>lh</code>
+(or <code>lb</code>).
+</p>
+</div> 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+
+<p>
+Perform these two addition problems:
+</p>
+
+<pre>
+ 0110 1110           0000 0000 0000 0000 0000 0000 0110 1110
+ <u>1100 0110</u>           <u>0000 0000 0000 0000 0000 0000 1100 0110</u>
+ 
+<input type="text" size="12" >    <input type="text" size="60" >
+ 
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass16_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass16_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-16/ass16_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:53 GMT -->
+</html>

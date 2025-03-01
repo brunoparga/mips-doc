@@ -1,0 +1,123 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:14 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-08.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-08.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+
+<div class="left">
+<p>
+Let
+us write a program that reads integers
+from the user and adds up those integers x
+that are in the range <code>-32 &lt;= x &lt;= +32</code>
+and discards the rest.
+The user signals the end by entering -999
+(which is not added to the sum).
+</p>
+
+<p>
+Here is the basic outline:
+</p>
+</div>
+
+
+<div class="right">
+<p>
+(For this chapter, load delays and branch delays
+have been turned off in the simulator.)
+</p>
+</div>
+<br style="clear:both"> 
+
+<pre class="program">
+main:   
+        li    $v1,0            # zero the sum
+loop:
+        . . . .                # prompt the user for input
+        li    $v0,5            # read the integer
+        syscall                # into $v0
+
+        <input type="text" size="3">  $v0,<input type="text" size="3"> ,done    # while ( $v0 != -999 )
+
+        <input type="text" size="3"> $v0,<input type="text" size="3"> ,out          # less than -32
+        
+        <input type="text" size="3"> $v0,<input type="text" size="3"> ,out          # greater than 32
+               
+        addu  $v1,$v1,$v0          # if in range add           
+                                   # else skip
+out:    b     loop        
+        
+done:   . . . .                # write out result
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+Fill in the blanks. Look at the table three pages back.
+</p>
+
+<p>
+Copy and paste from these possibilities:
+</p>
+
+<pre>
+bne &nbsp; &nbsp; beq &nbsp; &nbsp; bgt  &nbsp; &nbsp; blt
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:15 GMT -->
+</html>

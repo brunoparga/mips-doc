@@ -1,0 +1,114 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Jul 06 10:45:00 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:03 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2019"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture vs. Implementation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass01_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap01-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+No.  Both processors have the same range of logical addresses,
+but there need not be actual RAM behind each address.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Architecture vs. Implementation</h1>
+<!-- ../Audio/chap01-14.mp3 -->
+
+<div class="left">
+<p>
+The 
+<em>architecture</em> of a computer is a logical description of
+its components and its basic operations.
+</p>
+
+<p>
+<span class="highlight">The MIPS family of computers all have the same
+assembly-level architecture.</span>
+This means that all MIPS machines can be programmed
+using the same assembly language.
+<span class="highlight">The actual electronics that implement the
+architecture may differ greatly between versions of the chip.</span>
+</p>
+
+<p>
+This is analogous to "car architecture".
+Two Jaguars may appear the same to a driver
+(same styling, same user controls, same operation)
+but have different components under the hood.
+The architecture is the same, but the implementation
+(and performance) is different.
+Keep this in mind as you visit the used car lots in
+Silicon Valley.
+</p>
+</div>
+
+<div class="right">
+<p>
+The architecture of a MIPS is different from the architecture
+of a Pentium.
+Both are Von Neumann machines, so they look the same in general,
+but the details of operation are completely different.
+They have different machine languages, and hence different
+assembly languages.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+
+<p>
+(Hard Thought Question:)
+Must a machine language program
+be run on an actual processor chip (i.e., on hardware)?
+Hint: Think about Java.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass01_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:03 GMT -->
+</html>

@@ -1,0 +1,109 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Apr 28 18:51:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:00 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1.0</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass30_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap30-28.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<ul>
+<li>What is the sign bit of 1.0? <span  style="color:blue;">0 (for positive)</span></li>
+<li>What is the mantissa of 1.0? <span  style="color:blue;">000 0000 0000 0000 0000 0000</span></li>
+<li>What is the actual exponent of 1.0? <span  style="color:blue;">0</span></li>
+<li>What is the biased exponent of 1.0? <span  style="color:blue;">127<sub>10</sub> &nbsp; = &nbsp; 0111 1111<sub>2</sub></span></li>
+</ul>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>1.0</h1>
+<!-- ../Audio/chap30-28.mp3 -->
+
+
+<a id="1.0_(as_float)"> </a>
+<a id=".float_directive"> </a>
+
+ 
+<img src="ieee10.jpg" alt="IEEE representation of one point zero" class="center">
+
+<div class="left">
+ 
+<p><span class="highlight">
+Fitting 
+each of these pieces into their proper fields gives us the full 32 bits.</span>
+</p>
+
+<p>
+The bit pattern written in hexadecimal is <code>0x3F800000</code>.
+</p>
+
+<p>
+To check that this is correct,
+use SPIM.
+Write a program that declares a floating point 1.0,
+then run SPIM.
+</p>
+
+<pre class="code">
+## Program to represent 1.0
+        .text
+        .globl  main
+main:
+        .data<span class="highlight">
+val:    .float    1.0</span>
+## End of file
+</pre>
+</div>
+
+<p>
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 18:</h3>
+<p>
+When you load this program in SPIM, where will the 1.0 be?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass30_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:02 GMT -->
+</html>

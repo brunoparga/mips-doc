@@ -1,0 +1,63 @@
+<!doctype html>
+
+<!-- revised 05/24/2015 -->
+<!-- revised 04/18/2022 -->
+
+
+<html>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixG/SPIMtraps.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:17 GMT -->
+<head>
+ <meta charset="utf-8">
+ <meta name="robots" content="noindex,nofollow">
+
+<title>SPIM Trap Handler Services</title>
+ <link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/AssemblyStyle.css">
+</head>
+
+<body>
+
+<h1>SPIM Exception Handler Service</h1>
+
+<center>
+<table>
+<tr><th>Service</th><th>Code in $v0</th><th>Arguments</th><th>Returned Value</th></tr>
+<tr><td>print integer</td><td>1</td><td> $a0 <tt>==</tt> integer</td><td>&nbsp;  </td></tr>
+<tr><td>print float  </td><td>2</td><td> $f12 <tt>==</tt> float </td><td>&nbsp;  </td></tr>
+<tr><td>print double </td><td>3</td><td> $f12 <tt>==</tt> double </td><td>&nbsp;  </td></tr>
+<tr><td>print string </td><td>4</td><td> $a0 <tt>==</tt> address of string</td><td>&nbsp;  </td></tr>
+<tr><td>read  integer</td><td>5</td><td>&nbsp;  </td><td>$v0 &larr; integer</td></tr>
+<tr><td>read  float  </td><td>6</td><td>&nbsp;  </td><td>$f0 &larr; float</td></tr>
+<tr><td>read  double </td><td>7</td><td>&nbsp;  </td><td>$f0 &larr; double</td></tr>
+<tr><td>read  string </td><td>8</td><td> $a0 <tt>==</tt> buffer address<br>$a1 <tt>==</tt> buffer length</td><td>&nbsp;  </td></tr>
+<tr><td>allocate memory </td><td>9</td><td> $a0 <tt>==</tt> number of bytes</td><td>$v0 &larr; address</td></tr>
+<tr><td>exit         </td><td>10</td><td>&nbsp;  </td><td>&nbsp;  </td></tr>
+</table>
+ 
+
+
+ 
+<p style="width:40%;">
+For double precision, the register given is the even numbered register of
+the even/odd register pair used for the 64 bit double.
+For example, the read double service 7 returns a 64 bit value in the pair $f0,$f1.
+</p>
+
+<p style="width:40%;">
+Warning: some of these services change T registers, so be careful about what
+registers a calling program uses! See:<br>
+<a href="../../external.html?link=https://programmedlessons.org/AssemblyTutorial/Chapter-21/ass21_04.html" target="_blank">
+Chapter 21 page 4
+</a>
+</p>
+
+<p>
+<hr />
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#Appendix"><img src="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/homeIcon.gif" alt="Click here" > </a>
+</p>
+</center>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixG/SPIMtraps.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:17 GMT -->
+</html>

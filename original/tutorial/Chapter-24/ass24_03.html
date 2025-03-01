@@ -1,0 +1,122 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 15:19:12 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:54 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unconditional Branch Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass24_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap24-03.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap24-03.mp3 -->
+
+
+<h3>Answer:</h3>
+
+<pre class="code">
+<span style="color:blue">beq</span>    $s1,<span style="color:blue">$0</span>,label          # branch to label if register $s1 == 0
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Unconditional Branch Instruction</h1>
+
+<a id="branch_instruction"> </a>
+<a id="b_(instruction)"> </a>
+<a id="unconditional_branch"> </a>
+<div class="left">
+<p>
+The
+pseudocomputer has an <span class="highlight"><b>unconditional branch</b>
+instruction that always causes a branch.</span>
+The mnemonic for the instruction is <code>b</code>:
+</p>
+</div>
+<br style="clear:both"> 
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+b     label       # branch to label 
+                  # (pseudoinstruction)
+</pre>
+
+<div class="left">
+<p>
+This instruction behaves like the jump instruction:
+it unconditionally loads the PC with the address specified by
+<code>label</code>.
+</p>
+
+<p>
+Unlike the jump instruction,
+the branch target <code>label</code> must be
+relatively close to the branch instruction,
+as is true with all branch instructions.
+The 32-bit address is computed using a 16 bit offset
+in the instruction and the current value of the PC.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 3:</h3>
+
+<form>
+<p>
+The extended assembler implements the <code>b</code> instruction
+using the <code>beq</code> instruction.
+Fill in the blanks to show what it does:
+</p>
+
+<pre class="code">
+b  label     ==     beq  <input type="text" size="5" name="T3"/> ,<input type="text" size="5" name="T4"/> ,offset
+</pre>
+
+<p>
+Offset is the 16-bit offset that is added to the PC
+to calculate <code>label</code> (if possible).
+</p>
+
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass24_02.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass24_04.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-24/ass24_03.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:55 GMT -->
+</html>

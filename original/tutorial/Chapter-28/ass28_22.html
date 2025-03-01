@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:41 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_22.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:56 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storage Classes</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_21.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_23.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-29.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-29.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+<code>a</code> and <code>b</code>: (1) Storage for
+them exists only while the subroutine is active 
+(while it has not yet returned control to its caller).
+(2) When it exists, the storage is on the run-time stack.
+</p>
+
+<p>
+<code>prompt1</code> and <code>prompt2</code>:
+(1) Storage for them exists while the program is in
+main storage.
+(2) Storage is in the data section of memory.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Storage Classes</h1>
+
+<a id="automatic_variables"> </a>
+<a id="static_variables"> </a>
+<a id="storage_classes"> </a>
+
+<img src="../Chapter-10/memoryLayout.gif" class="rightimage" alt="memory" >
+
+<div class="left">
+
+
+<p><span class="highlight">
+There
+are three places in memory where data may be placed:</span>
+</p>
+
+<ul>
+<li>the data section 
+(declared with <code>.data</code> in assembly language),</li>
+<li>the run-time stack,</li>
+<li>the heap.</li>
+</ul> 
+
+<p>
+A subroutine other than <code>main()</code>
+can have data in the <span class="highlight"><code>.data</code> section.</span>
+In high-level programming languages, such as "C",
+this type of storage is called <span class="highlight"><b>static</b>.</span>
+</p>
+
+<p>
+<span class="highlight">Variables whose storage is allocated on the run-time
+stack are (sometimes) called <b>automatic</b> variables.</span>
+This is because their storage is "automatically" pushed and
+popped as a subroutine is entered and exited.
+Usually these are subroutine parameters and local variables.
+</p>
+
+<p>
+<span class="highlight">A variable whose memory is located in the heap is called
+a <b>dynamic variable</b>.</span>
+The heap is where memory for objects is found
+(using the <code>new</code> operation in Java or C++).
+In C dynamic memory is allocated using the <code>malloc</code>
+operation (or similar).
+Chapter 33 of these notes discusses the heap.
+</p>
+
+<p>
+The <b>heap</b> is on top of the data segment.
+As dynamic variables are created it grows upward (towards the stack stack segment.)
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 22:</h3>
+<p>
+(Review:) What happens if the stack and heap get larger and larger?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_21.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_23.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_22.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:57 GMT -->
+</html>

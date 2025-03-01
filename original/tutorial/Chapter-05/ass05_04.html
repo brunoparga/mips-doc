@@ -1,0 +1,100 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 11:48:16 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:25 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wrong Type of Data</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass05_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap05wrong.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Of course. Pure ASCII files are rare, these days.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Wrong Type of Data</h1>
+<!-- ../Audio/chap05wrong.mp3 -->
+
+<div class="right">
+<img  src="dosTypeExe.gif" alt="DOS Type Command with executable file" >
+</div>
+
+<div class="left">
+<p>
+Most files contain information encoded by schemes  other than ASCII.
+<span class="highlight">Executable files (.exe) mostly contain machine instructions,</span>
+which, of course, are bit patterns.
+The TYPE command will not be successful in interpreting
+this information as character data.
+The picture shows what happens when TYPE is sent an executable file:
+</p>
+
+
+<p>
+<span class="highlight">Only a limited range of byte patterns correspond to characters.</span>
+The remaining patterns are sometimes called <b>unprintable characters</b>.
+Sometimes, depending on the application, the unprintable patterns
+correspond to special purpose characters or geometric shapes.
+</p>
+
+<p>
+Most positions in the above picture are blank because TYPE could not
+interpret the corresponding byte as a character.
+Some positions are filled with special-purpose characters
+when a byte accidentally corresponded to a special purpose character.
+But some positions look like they correspond to legal ASCII.
+</p>
+</div>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+<p>
+Is <u>some</u> of the information in the executable file
+encoded as ASCII? 
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass05_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:27 GMT -->
+</html>

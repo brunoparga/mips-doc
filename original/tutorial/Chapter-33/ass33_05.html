@@ -1,0 +1,138 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat May 29 09:44:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:43 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impractical Example</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass33_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap33-05.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes. But the SPIM service does not implement that.
+With SPIM you can request memory, but can't return it.
+</p>
+
+<p>
+So with SPIM, the heap will not develop holes.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Impractical Example</h1>
+<!-- ../Audio/chap33-05.mp3 -->
+
+<pre class="program">
+# MallocOne.asm
+#
+# Allocate one block of memory, put an integer into it,
+# print out the integer.
+
+        .text
+        .globl  main
+
+main:     
+        li      $v0,9             # <span class="highlight">(1) Allocate a block of memory</span>
+        li      $a0,4             # 4 bytes long
+        syscall                   # $v0 &lt;-- address
+        move    $s0,$v0           # (2) Make a safe copy
+        
+        li      $t0,77            # <span class="highlightgreen">(3) Store value 77</span>
+        sw      $t0,0($s0)        # <span class="highlightgreen">into the block</span>
+        
+        lw      $a0,0($s0)        # (4) Load from the block
+        li      $v0,1             # into $a0. 
+        syscall                   # (5) Print the integer
+
+        li      $v0,10            # Return to OS
+        syscall       
+
+## end of file
+</pre>
+
+<div class="left">
+<p>
+Here
+ is a program that illustrates memory allocation.
+Of course, 
+it is not a practical program 
+except for use as an
+example.
+</p>
+
+<p>
+The program: <span class="highlight">(1) asks SPIM for a block of 
+memory four bytes long.</span> It (2) makes a safe copy of
+the block's address in <code class="register">$s0</code>.  This program
+does not really need to do this, but it is good practice
+because <code class="register">$a0</code> might change.
+</p>
+</div>
+
+<div class="right">
+<p>
+Next, (3), an integer is stored in the block.
+The address of the block is determined at run time.
+You can't get to it using a symbolic address in the program.
+But at <b>run time</b> the address is in <code class="register">$s0</code>.
+<span class="highlightgreen">So <code>sw $t0,0($s0)</code> stores 32 bits
+into the block.</span>
+</p>
+
+<p>
+To illustrate that the first three steps worked as expected,
+the program next (4) loads register <code class="register">$a0</code> from
+the block of memory and (5) prints out that integer.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+<p>
+Does the programmer ever need to know the actual address of the block?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass33_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass33_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-33/ass33_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:44 GMT -->
+</html>

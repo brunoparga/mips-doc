@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node3.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:29 GMT -->
+<HEAD>
+<TITLE>SPIM Interface</TITLE>
+<META NAME="description" CONTENT="SPIM Interface">
+<META NAME="keywords" CONTENT="spim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="spim.css">
+
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html78"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html76"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html70"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html79"
+  HREF="node4.html">Terminal Interface</A>
+<B> Up:</B> <A NAME="tex2html77"
+  HREF="node1.html">SPIM</A>
+<B> Previous:</B> <A NAME="tex2html71"
+  HREF="node2.html">Simulation of a Virtual</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00012000000000000000">
+SPIM Interface</A>
+</H2>
+
+<P>
+SPIM provides a simple terminal and a X-window interface.  Both
+provide equivalent functionality, but the X interface is generally
+easier to use and more informative.
+
+<P>
+<TT>spim</TT>, the terminal version, and <TT>xspim</TT>, the X version, have
+the following command-line options:
+<DL>
+<DT></DT>
+<DD><TT>-bare</TT>
+<BR>
+Simulate a bare MIPS machine without
+pseudoinstructions or the additional addressing modes provided by the
+assembler.  Implies <TT>-quiet -delayed_branches -delayed_loads</TT>.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-asm</TT>
+<BR>
+Simulate the virtual MIPS machine
+provided by the assembler.  This is the default.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-delayed_branches</TT>
+<BR>
+Simulate the branch delay
+feature of bare MIPS machines; the instruction following a branch is
+always executed, even if the branch succeeded.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-delayed_loads</TT>
+<BR>
+Simulate the load delay
+feature of bare MIPS machines; a value loaded from memory is not
+available in the register until two instruction cycles after the load.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-pseudo</TT> <BR>
+Accept pseudoinstructions in assembly
+code.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-nopseudo</TT> <BR>
+Do not accept pseudoinstructions in
+assembly code.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-notrap</TT> <BR>
+Do not load the standard trap
+handler.  This trap handler has two functions that must be assumed by
+the user's program.  First, it handles traps.  When a trap occurs,
+SPIM jumps to location 0x80000080, which should contain code to
+service the exception.  Second, this file contains startup code that
+invokes the routine <TT>main</TT>.  Without the trap handler, execution
+begins at the instruction labeled <TT>__start</TT>.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-trap</TT>
+<BR>
+Load the standard trap handler.  This
+is the default.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-trap_file</TT>
+<BR>
+Load the trap handler in the file.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-noquiet</TT>
+<BR>
+Print a message when an exception
+occurs.  This is the default.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-quiet</TT>
+<BR>
+Do not print a message at an
+exception.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-nomapped_io</TT>
+<BR>
+Disable the memory-mapped IO
+facility (see Section&nbsp;<A HREF="node24.html#sec:IO"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="../../../usr/share/latex2html/icons/crossref.html"></A>).
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-mapped_io</TT>
+<BR>
+Enable the memory-mapped IO facility
+(see Section&nbsp;<A HREF="node24.html#sec:IO"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="../../../usr/share/latex2html/icons/crossref.html"></A>).  Programs that use SPIM syscalls (see
+Section&nbsp;<A HREF="node8.html#sec:scall"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="../../../usr/share/latex2html/icons/crossref.html"></A>) to read from the terminal should not also use
+memory-mapped IO.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-file</TT>
+<BR>
+Load and execute the assembly code in
+the file.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-sseg size</TT> Sets the initial size of memory segment
+<EM>seg</EM> to be <EM>size</EM> bytes.  The memory segments are named:
+<TT>text</TT>, <TT>data</TT>, <TT>stack</TT>, <TT>ktext</TT>, and <TT>kdata</TT>.
+For example, the pair of arguments <TT>-sdata 2000000</TT> starts the
+user data segment at 2,000,000 bytes.
+
+<P>
+</DD>
+<DT></DT>
+<DD><TT>-lseg size</TT> Sets the limit on how large memory segment
+<EM>seg</EM> can grow to be <EM>size</EM> bytes.  The memory segments
+that can grow are: <TT>data</TT>, <TT>stack</TT>, and <TT>kdata</TT>.
+</DD>
+</DL>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html80"
+  HREF="node4.html">Terminal Interface</A>
+<LI><A NAME="tex2html81"
+  HREF="node5.html">X-Window Interface</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html78"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html76"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html70"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html79"
+  HREF="node4.html">Terminal Interface</A>
+<B> Up:</B> <A NAME="tex2html77"
+  HREF="node1.html">SPIM</A>
+<B> Previous:</B> <A NAME="tex2html71"
+  HREF="node2.html">Simulation of a Virtual</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Ian Moor
+2009-03-11
+</ADDRESS>
+</BODY>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node3.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:30 GMT -->
+</HTML>

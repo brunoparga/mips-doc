@@ -1,0 +1,152 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Feb 09 12:35:36 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:27 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Converting Hex Representation into Binary Representation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass07_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap07merge131415.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+1011 0000.  Appending four zeros multiplies the number being represented by 2<sup>4</sup>.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Converting Hex Representation into Binary Representation</h1>
+<!-- ../Audio/chap07merge131415.mp3 -->
+
+<a id="converting_representations,_base_16_and_base_2"> </a>
+
+<div class="left">
+
+<p> 
+<span class="highlight">Convert a hexadecimal representation of an integer into
+an unsigned binary representation directly by replacing each
+hex digit with its 4-bit binary equivalent.</span>
+For example:
+</p>
+
+<pre class="code">
+   1    A    4    4    D      (Hex    Representation) 
+
+0001 1010 0100 0100 1101      (Binary Representation)  
+</pre>
+
+<p>
+Recall that:
+</p>
+
+<ul>
+<li>(In base two) Shifting left by four bits is equivalent to multiplication by sixteen.</li>
+<li>(In base sixteen) Shifting left by one digit is equivalent to multiplication by sixteen.</li>
+</ul>
+
+<p>
+To see how this works, look at this integer represented in base two
+and in base sixteen:
+</p>
+
+<pre class="code">base two           base sixteen
+
+1010        =      A
+</pre>
+
+<p>
+Now multiply each by sixteen:
+</p>
+
+<pre class="code">base two           base sixteen
+
+1010 0000   =      A0
+</pre>
+
+<p>
+Groups
+ of four bits (starting from the right) match powers of sixteen,
+so each
+group of four bits matches a digit of the hexadecimal representation.
+Let us rewrite the integer C6D in binary:
+</p>
+
+<pre class="code">
+C6D  =    C &#215; sixteen<sup>2</sup> +    6 &#215; sixteen<sup>1 </sup>  +    D &#215; sixteen<sup>0 </sup> 
+
+     =    C &#215; (2<sup>4</sup>)<sup>2</sup>    +    6 &#215; (2<sup>4</sup>)<sup>1</sup>      +    D &#215; (2<sup>4</sup>)<sup>0</sup>  
+
+     = 1100 &#215; (2<sup>4</sup>)<sup>2</sup>    + 0110 &#215; (2<sup>4</sup>)<sup>1</sup>      + 1101 &#215; (2<sup>4</sup>)<sup>0</sup>   
+
+     = 1100 &#215;  2<sup>8</sup>      + 0110 &#215;  2<sup>4</sup>        + 1101 &#215; 1  
+</pre>
+
+<p>
+Using the idea that each multiplication by two is equivalent to appending a zero to the right,
+this is:
+</p>
+
+<pre class="code">     = 1100 0000 0000  + 0110 0000         + 1101  
+
+C6D  = 1100 0110 1101
+</pre>
+
+<p>
+Each
+digit of hex can be converted into a 4-bit binary number,
+each place of a hex number stands for a power of 2<sup>4</sup>.
+It stands for a number of 4-bit left shifts.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+<p>
+What is the name of the binary <u>pattern</u> &nbsp; 0001 1010 0100 0100 1101 ?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass07_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:28 GMT -->
+</html>

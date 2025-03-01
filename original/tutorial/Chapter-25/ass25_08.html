@@ -1,0 +1,145 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 11:37:41 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:01 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finished Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass25_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap25-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap25-09.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+See below
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Finished Program</h1>
+<div class="left">
+
+<p>
+Here
+is the finished program.
+If you had plenty of registers available you
+would use them to hold the terms of the expressions,
+and not use the stack.
+But in a large program,
+with most registers already in use,
+you might do it this way.
+</p>
+
+<p><span class="highlight">
+Notice how each push is matched with a pop,
+and how the pops happen in
+the reverse order of the pushes.</span>
+</p>
+
+</div>
+<br style="clear:both"> 
+
+<pre class="program">
+# Evaluate the expression ab - 12a + 18b - 7
+#
+# Settings: Load delays OFF; Branch delays OFF,
+#           Trap file    ON; Pseudoinstructions ON   
+
+        .globl  main
+
+main:   
+        lw      $t0,a          # get a
+        lw      $t1,bb         # get b
+        mul     $t0,$t0,$t1    # a*b
+        subu    $sp,$sp,4      # <span class="highlight">push a*b onto stack</span>
+        sw      $t0,($sp)
+        
+        lw      $t0,a          # get a
+        li      $t1,-12        # 
+        mul     $t0,$t0,$t1    # -12a
+        subu    $sp,$sp,4      # <span class="highlightred">push -12*a onto stack</span>
+        sw      $t0,($sp)
+        
+        lw      $t0,bb         # get b
+        li      $t1,18         # 
+        mul     $t0,$t0,$t1    # 18b
+        subu    $sp,$sp,4      # <span class="highlightgreen">push 18*b onto stack</span>
+        sw      $t0,($sp)
+
+        li      $t1,-7         # init sum to -7
+        lw      $t0,<span style="color:blue"><b>($sp)</b></span>      # <span class="highlightgreen">pop 18*b</span>
+        addu    $sp,$sp,<span style="color:blue"><b>4</b></span>
+        addu    $t1,$t1,$t0    # 18b -7
+                
+        lw      $t0,($sp)      # <span class="highlightred">pop -12*a</span>
+        addu    $sp,$sp,4
+        addu    $t1,$t1,$t0    # -12a + 18b -7
+                
+        lw      $t0,($sp)      # <span class="highlight">pop a*b</span>
+        addu    $sp,$sp,4
+        addu    $t1,$t1,$t0    # ab - 12a + 18b -7
+         
+done:   li      $v0,1          # print sum
+        move    $a0,$t1
+        syscall
+        li      $v0,10         # exit
+        syscall   
+
+        .data
+a:      .word  0
+bb:     .word  10
+</pre>
+
+<p>
+&#160;
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+(Thought Question:) Is it possible to run out of memory if too many things
+are pushed onto the stack?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass25_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:02 GMT -->
+</html>

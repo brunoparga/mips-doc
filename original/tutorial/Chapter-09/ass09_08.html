@@ -1,0 +1,128 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Sep 17 18:05:33 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-09/ass09_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:42 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assembling the Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass09_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass09_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap09-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+Sure. You can correct errors with the text editor, save
+the file to the disk, and then re-load it into SPIM.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Assembling the Program</h1>
+<!-- ../Audio/chap09-08.mp3 -->
+ 
+
+<!-- LEFT -->
+<a id="SPIM_load_file"> </a>
+
+<img src="loadedSource.gif" class="centerimage" alt="Spim Options" width="900px" />
+
+<br style="clear:both"> 
+
+<div class="left">
+<p><span class="highlight">
+Loading
+ the source file into SPIM does two things:
+(1) The file is assembled into machine instructions,
+and (2) the instructions are loaded into SPIM's memory.</span>
+The <em>text display</em> shows this.
+</p>
+
+<p>
+The text display shows both the source file and the
+machine instructions it assembled into.
+The leftmost column are addresses in simulated memory.
+</p>
+
+<p>
+The 32-bit machine instructions are in
+the column just right of the address column.
+</p>
+</div>
+
+<div class="right">
+<p>
+To the right of the machine instructions
+are lines of assembly code that
+formed by translating the machine code
+back into assembly.
+<span class="highlight">This is called <b>disassembly</b>.</span>
+It is there for debugging purposes.
+(This is like translating an English sentence to French,
+then translating the French back into English.
+The second translation should match the original English.)
+</p>
+
+<p>
+Of course,
+in an actual computer
+would have only
+main storage and machine code 
+stored at each address.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+Inspect the text display (your own or the above picture).
+</p>
+<ol>
+<li>What machine instruction (bit pattern) did your
+    first instruction (<code>ori  $8,$0,0x2</code>) assemble into?</li>
+<li>At what address in memory was it loaded?</li>
+</ol>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass09_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass09_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-09/ass09_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:44 GMT -->
+</html>

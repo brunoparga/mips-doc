@@ -1,0 +1,143 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Jul 06 10:45:00 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:43 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2019"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Program Translation</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass01_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap01-08.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Program Translation</h1>
+<!-- ../Audio/chap01-08.mp3 -->
+
+<a id="program_translation"> </a>
+
+<div class="left">
+<p>
+The 
+assembly language statement says the same thing as the machine language
+instruction, but must be translated into a bit pattern before it can be executed.
+<span class="highlight">An assembly language <em>program</em> consists of assembly language statements,
+statements that define data, and some additional information that helps in the
+translation.</span>
+Here is a fragment of an assembly language program and its translation into
+bit patterns.
+</p>
+</div>
+ 
+<br style="clear:both"> 
+
+<pre class="program">
+machine instructions                             assembly statements
+
+0011 0100 0000 0001 0000 0000 0000 1001          ori  $1, $0, 9
+0000 0000 0100 0001 0000 0000 0001 1000          mult $2, $1
+0000 0000 0000 0000 0100 0000 0001 0010          mflo $8 
+0011 0100 0000 0001 0000 0000 0000 1001          ori  $1, $0, 5
+0000 0000 0100 0000 0000 0000 0100 1000          div  $8, $1
+</pre>
+
+<a id="FORTRAN"> </a>
+
+
+<div class="left">
+<p>
+Years ago,
+to run a program written in
+FORTRAN you  used a
+compiler to
+translate the program
+into assembly language.
+Then you  used an assembler 
+to translate
+the assembly language into
+machine language. 
+Finally, you  loaded the machine
+language into the computer's memory
+and executed your program.
+</p>
+
+<p>
+Modern compilers usually translate
+a source program directly into machine language
+which is contained in a file called an <b>object module</b>
+(more on this later).
+But for now let us think about translating
+FORTRAN into assembly language.
+</p>
+</div>
+
+<div class="right">
+<p>
+FORTRAN is a high level language.
+It is intended to run on all types of
+computers regardless of architecture.
+FORTRAN statements can be written without
+knowing the architecture of the computer,
+and can be run on any
+computer (after translation).
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+
+<p>
+Do you think that languages such as COBOL, C,
+and Pascal are translated
+like FORTRAN?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass01_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass01_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-01/ass01_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:44 GMT -->
+</html>

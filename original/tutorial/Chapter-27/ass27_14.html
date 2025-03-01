@@ -1,0 +1,157 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:25 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Epilog</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+
+<h3>Answer:</h3>
+<p>
+The return value (the maximum) is already in <code class="register">$v0</code>.
+So all the epilog needs to do is return to the caller. 
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Epilog</h1>
+ 
+<p>
+It is OK if the return value is already in <code class="register">$v0</code> when the
+epilog is reached.
+Here is the complete subroutine:
+</p>
+
+<pre class="program">
+## maxInt -- compute the maximum of two integer arguments
+##
+## Input:
+## $a0 -- a signed integer
+## $a1 -- a signed integer
+##
+## Returns:
+## $v0 -- maximum
+
+         .text
+         .globl maxInt
+
+maxInt:
+          # body
+          move   $v0,$a0          # max = $a0
+          bgt    $a0,$a1,endif    # if $a1 > $a0  
+          nop
+          move   $v0,$a1          #    max = $a1
+endif:                            # endif 
+          # epilog
+          jr     $ra              # return to caller
+          nop
+</pre>
+
+<p>
+<span class="highlight">This subroutine could be put in
+its own file, perhaps <code>maxInt.asm</code>, and separately 
+assembled.</span>
+Later on it could be used with programs we don't
+even know about, as long as they follow the
+Stack-based Linkage Convention.
+</p>
+
+<p>
+With QtSPIM, main and each subroutine can be placed 
+in a separate file and separately loaded.
+Use the "File" menu. 
+Use the "Reinitialize and Load File" menu choice for main, and
+use "Load File" with the subroutines.
+</p>
+
+<p>
+Here is a main that can be used with this subroutive.
+It has a prolog and epilog that follow the linkage convention.
+</p>
+
+<pre class="program">
+## maxIntMain
+##
+## Call maxInt to find the maximum of two hard-coded integers
+##
+         .text
+         .globl main
+
+main:
+          #prolog
+          sub     $sp,$sp,4       # push the return address
+          sw      $ra,($sp)
+          
+          # body
+          li     $a0,12           # A = 12
+          li     $a1,34           # B = 34  
+          jal    maxInt           # $v0 = max
+          nop
+          move   $s0,$v0          # $s0 = max
+          la     $a0,capt         # print caption
+          li     $v0,4
+          syscall 
+          move   $a0,$s0
+          li     $v0,1            # print max
+          syscall
+          
+          # epilog
+          lw      $ra,($sp)        # pop return address
+          add     $sp,$sp,4         
+          jr      $ra              # return to caller 
+          nop      
+          
+          .data
+capt:     .asciiz "Maximum: "
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+<p>
+Must the <code>nop</code> follow the <code>jr</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:26 GMT -->
+</html>

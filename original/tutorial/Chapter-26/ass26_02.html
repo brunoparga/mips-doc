@@ -1,0 +1,129 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Apr 24 17:49:38 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:57 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passing Control with a Jump Instruction</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass26_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap26-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+The <code>j</code> (jump) instruction or the <code>b</code> (branch) instruction.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Passing Control with a Jump Instruction</h1>
+<!-- ../Audio/chap26-02.mp3 -->
+
+
+<a id="caller,_subroutine"> </a>
+<a id="callee,_subroutine"> </a>
+
+ 
+<img src="subOnce.gif"  class="rightimage" alt="subroutine called once" />
+ 
+
+<div class="left">
+
+<p>
+<span class="highlight">At
+right is a sketch of what you can do with 
+the <code>j</code> instruction.</span>
+(The same could be done with the <code>b</code> instruction.)
+If the main routine needs to start up ("to call") 
+a subroutine <code>sub</code> it can jump to
+it with a <code>j</code> instruction.
+At the end of the subroutine, control can
+be returned with another <code>j</code> instruction.
+</p>
+
+<p>
+The subroutine returns to a statement in
+<code>main</code> labeled <code>ret</code>.
+The subroutine is
+called at just one point in <code>main</code> 
+and it returns to an address a few instructions after
+that point.
+</p>
+
+<p>
+<span class="highlight">The subroutine can only be used once</span>
+in the <code>main</code> program because it
+always returns to the same location.
+(You could write some tricky code to overcome
+this limitation.
+But it is much better to follow a subroutine linkage
+convention such as is about to be discussed.)
+</p>
+
+<p>
+A subroutine <b>call</b> is when a main routine (or other routine) passes control
+to a subroutine.
+The main routine is said to be the CALLER and the
+subroutine is said to be the CALLEE.
+</p>
+
+<p> 
+A  <b>return</b> from a subroutine is when a subroutine passes control
+back to its CALLER.
+When a CALLEE finishes execution
+it nearly always returns control to its CALLER.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<p>
+Is it normal that a subroutine can be used
+in only one place in a program?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass26_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass26_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-26/ass26_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:59 GMT -->
+</html>

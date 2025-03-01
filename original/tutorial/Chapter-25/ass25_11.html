@@ -1,0 +1,121 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Apr 13 11:37:41 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:29 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outline</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass25_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap25-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap25-13.mp3 -->
+
+<p>
+<code>lbu $t0,string</code>
+</p>
+
+<h3>Answer:</h3>
+<p>
+It loads one byte (located at symbolic address <code>string</code>) into
+the low order byte of register <code class="register">$t0</code>.
+The other bytes of <code class="register">$t0</code> are filled with zero.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Outline</h1>
+<div class="left">
+
+<p>
+Here is the outline of the program.
+The comments show the major sections of the program.
+</p>
+
+<p><span class="highlight">
+In designing a program,
+you should always decide on
+the major steps and on
+the order they should be performed.</span>
+It is helpful to document this
+in the program.
+</p>
+</div>
+<br style="clear:both">
+<pre>
+        .text
+        .globl  main
+main:  
+        # <input type="text" size="40">
+
+        # <input type="text" size="40">
+
+        # <input type="text" size="40">
+
+        # <input type="text" size="40">
+
+        .data
+str:    .space  128     # character buffer            
+</pre>
+
+<p>
+Not much of an outline. 
+Luckily, here are some phrases you can
+use to fill in the blanks: 
+</p>
+
+<ul>
+<li>print the reversed string</li>
+<li>push each character onto the stack</li>
+<li>input the string into a buffer</li>
+<li>pop chars from stack back into the buffer</li>
+</ul>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+Fill the blanks with the correct phrases. 
+(You can do this by using your mouse with copy and paste from the Edit menu of the browser.)
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass25_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass25_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-25/ass25_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:30 GMT -->
+</html>

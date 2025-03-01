@@ -1,0 +1,138 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Feb 09 12:35:36 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:28 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hex Digits from Right to Left</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass07_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap07-19.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+54 = 16 &#215; 3  with a remainder of 6.
+</p>
+<p>
+digit[ 0 ] = 54 mod 16  = 6, 
+</p>
+<p>
+number = 54 div 16 = 3
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Hex Digits from Right to Left</h1>
+<!-- ../Audio/chap07-19.mp3 -->
+
+
+
+<div class="right">
+<table>
+<tr>
+<th>Algorithm: Convert from base 10 to base B Representation</th>
+</tr>
+
+<tr>
+<td>
+<pre  style="margin-left:0.25cm;text-align:left;">
+place  = 0;
+number = number to be converted
+         
+while (number > 0 )
+{
+  digit[place] = number mod B ; 
+  number       = number div B ;
+  place        = place + 1 ;
+}            
+</pre>
+
+</td>
+</tr>
+</table>
+</div>
+
+<div class="left">
+<p>
+<span class="highlight">The
+ first execution of the loop body calculates the digit for place 0, 
+the rightmost digit.</span>
+The first execution calculates that:
+</p>
+
+<pre>
+54<sub class="base">10</sub> &nbsp; = &nbsp; 3 &#215; 16<sup>1</sup> + 6 &#215; 16<sup>0</sup>
+</pre>
+
+<p>
+The 6 becomes the rightmost digit and the 3 becomes <em>number</em> for
+the next iteration.
+</p>
+
+<p>
+<span class="highlight">The next iteration is for the next digit left.</span>
+The calculation is 3 mod 16 = 3 and number = 3 div 16 = 0.
+The 3 becomes the digit, and the 0 becomes <em>number</em>.
+</p>
+
+<p>
+Because <em>number</em> is now zero,
+ the algorithm is done,
+and the result is 54<sub class="base">10</sub> &nbsp; = &nbsp; 0x36
+</p>
+<p>
+If you are enthused about this
+you might wish to use mathematical induction to prove that the
+algorithm is correct.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+
+<p>
+Convert 247<sub class="base">10</sub> to hexadecimal.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass07_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass07_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/ass07_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:29 GMT -->
+</html>

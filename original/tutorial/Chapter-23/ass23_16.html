@@ -1,0 +1,157 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:17 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>End of Chapter</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-16.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-16.mp3 -->
+
+<pre class="code">
+li  $t2,-2
+li  $t1,4
+ror $t0,$t1,$t2
+</pre>
+
+<p>
+What does <code class="register">$t0</code> hold after the sequence has executed?
+</p>
+
+<h3>Answer:</h3>
+<p>
+<code class="register">$t1</code> starts out with this bit pattern:
+</p>
+
+<pre>
+0000 0000 0000 0000 0000 0000 0000 0100
+</pre>
+
+<p>
+Because <code class="register">$t2</code> holds a negative two,
+the bits are rotated two positions left:
+</p>
+
+<pre>
+0000 0000 0000 0000 0000 0000 0001 0000
+</pre>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>End of Chapter</h1>
+
+
+<p>
+You    
+have reached the end of this chapter.
+Unless your head is rotating,
+click on a subject to go to where it was discussed.
+</p>
+
+<ul>
+
+<li>
+<a href="ass23_02.html#not_(pseudoinstruction)" target="_blank">not (pseudoinstruction)</a>
+not
+pseudoinstruction
+</li>
+
+<li>
+<a href="ass23_03.html#immediate_operand,_implicit" target="_blank">immediate operand, implicit</a>
+Implicit
+immediate operands
+</li>
+
+<li>
+<a href="ass23_04.html#addu_(pseudoinstruction)" target="_blank">addu (pseudoinstruction)</a>
+addu
+pseudoinstruction
+</li>
+
+<li>
+<a href="ass23_05.html#subu_(pseudoinstruction)" target="_blank">subu (pseudoinstruction)</a>
+subu
+pseudoinstruction
+</li>
+
+<li>
+<a href="ass23_07.html#mul_(pseudoinstruction)" target="_blank">mul (pseudoinstruction)</a>
+mul
+pseudoinstruction
+</li>
+
+<li>
+<a href="ass23_08.html#div_(pseudoinstruction)" target="_blank">div (pseudoinstruction)</a>
+div
+pseudoinstruction
+</li>
+
+<li>
+<a href="ass23_09.html#remu_(pseudoinstruction)" target="_blank">remu (pseudoinstruction)</a>
+remu
+pseudoinstruction
+</li>
+
+<li>
+<a href="ass23_05.html#negu_(pseudoinstruction)" target="_blank">negu (pseudoinstruction)</a>
+negu
+pseudoinstruction
+</li>
+
+<li>
+<a href="ass23_09.html#abs_(pseudoinstruction)" target="_blank">abs (pseudoinstruction)</a>
+abs
+pseudoinstruction
+</li>
+
+<li>
+<a href="ass23_14.html#rotate" target="_blank">rotate</a>
+Bit rotation.
+</li>
+
+<li>
+<a href="ass23_15.html#rol_(pseudoinstruction)" target="_blank">rol (pseudoinstruction)</a>
+ Rotate
+pseudoinstructions.
+</li>
+
+</ul>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:17 GMT -->
+</html>

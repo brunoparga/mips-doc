@@ -1,0 +1,181 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:29 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two's Complement</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08merge2324.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre class="code">
+  0000 0110  =  6<sub>10</sub>
+  1111 1010  = -6<sub>10</sub>
+  &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;    &mdash;&mdash;&mdash;&mdash;
+  0000 0000     0<sub>10</sub>
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Two's Complement</h1>
+<!-- ../Audio/chap08merge2324.mp3 -->
+
+<a id="two's_complement"> </a>
+<p>
+<span class="highlight">This 
+representation scheme is
+called <b>two's complement</b>.</span>
+It is one of many ways 
+to represent both positive and negative integers
+with bit patterns.
+But it is now the nearly universal way of doing this.
+<span class="highlight">Integers are represented in a
+fixed number of bits.
+Both positive and negative integers can be
+represented.</span>
+</p>
+
+<p>
+"Two's complement" is the name for the entire scheme
+for representing integers, both positive and negative (and zero.)
+</p>
+
+<p>
+When the pattern that represents a positive integer
+is added  to the pattern
+that represents the negative of that integer 
+(using the binary addition algorithm),
+the result is zero.
+The carry out of the left column is discarded.
+</p>
+
+<p>
+Here
+is how to figure out
+which bit-pattern gives zero
+when added (using the binary addition algorithm)
+to another pattern.
+</p>
+
+<a id="negating_an_integer_(two's_complement)"> </a>
+
+ 
+<table>
+  <tr><th>How to Construct the Negative of an Integer in Two's Complement:</th></tr>
+
+  <tr>
+    <td  style="text-align:left">
+      <p>
+      Start with an N-bit representation of
+      an integer (either negative or positive). 
+      </p>
+
+      <p>
+      To calculate the N-bit representation of
+      the negative integer:
+      </p>
+
+      <ol>
+      <li>
+      <span class="highlight">Reflect  each bit of
+      the bit pattern (change 0 to 1, and 1 to 0).</span>
+      </li>
+      <li>
+      <span class="highlight">Add one.</span>
+      </li>
+      </ol>
+
+    </td>
+  </tr>
+</table>
+
+<p>
+<span class="highlight">
+This process is called
+<b>forming the two's complement</b> of N.</span>
+It  reverses the sign of either a negative or positive integer.
+Examples:
+</p>
+
+<pre class="code">
+A positive integer:   0000 0001   ( one )
+Reflect each bit:     1111 1110   
+Add one:              1111 1111   ( minus one )
+</pre>
+
+<br><br>
+<pre class="code">
+A negative integer:   1110 1001   ( negative twenty three )
+Reflect each bit:     0001 0110   
+Add one:              0001 0111   ( twenty three )
+</pre>
+
+<br><br>
+<pre class="code">
+A positive integer:   0001 0111   ( twenty three )
+Reflect each bit:     1110 1000   
+Add one:              1110 1001   ( negative twenty three )          
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 17:</h3>
+
+<form>
+<p>
+Fill in the blanks:
+</p>
+
+<pre class="code">
+The positive integer: 0000 0110     ( 6<sub>10</sub> )
+
+Reflect each bit:     <input type="text" size="15" name="reflect" />
+
+Add one:              <input type="text" size="15" name="addOne" />     ( -6<sub>10</sub> )
+</pre>
+
+</form>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_16.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_18.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_17.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:30 GMT -->
+</html>

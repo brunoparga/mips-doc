@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:01 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 07/03/2003</p>
+<hr />
+<h1> 
+Chapter 23 Programming Exercises
+</h1>
+
+<hr />
+ 
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine OFF, Accept Pseudo Instructions ON,
+Enable Branch Delays ON,
+Enable Load Delays ON, Enable Mapped IO OFF, Load Exception Handler ON.
+</p>
+
+<hr />
+
+<!-- tested 08/01/03 -->
+
+<h2>**Exercise 1  &#8212;  Prime Number Tester</h2>
+
+<p>
+Write a program that asks the user for a positive integer.
+The program then tests if the integer is prime and writes
+out its result.
+(See exercise 4 in chapter 19.)
+</p>
+
+<p>
+A number is prime if it cannot be divided evenly by
+any number other than 1 and itself.
+So you will need a counting loop that starts at two
+and divides the number for each value of the loop counter
+until the number is divided evenly or the limit is reached.
+</p>
+
+<p>
+For the upper limit of the loop use the number divided by two.
+(A better upper limit would be the square root of the number,
+see below.)
+</p>
+
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+
+<h2>**Exercise 2 &#8212; Integer Square Root</h2>
+
+<p>
+Write a program that 
+asks the user for an integer and then computes the square root of that integer.
+Use only integer arithmetic.
+The integer square root of N is the positive integer X
+who's square is exactly N,  or who's square is less than N 
+but as close to N as possible. Examples: 
+</p>
+
+<blockquote>
+<pre>
+<code>iSqrt(25) == 5</code> since <code>5*5 == 25.</code>
+<code>iSqrt(29) == 5</code> since <code>5*5 == 25</code> and <code>6*6 == 36</code>, so 6 is too big.
+</pre>
+
+<pre>
+<code>iSqrt(60) == 8</code> since <code>8*8 == 56</code> and <code>9*9 == 81</code>, so 9 is too big.
+</pre>
+
+
+<pre>
+<code>iSqrt(0) == 0</code>,  <code>iSqrt(1) == 1</code>, <code>iSqrt(2) == 1</code>.
+</pre>
+</blockquote>
+
+<p>
+The integer square root is undefined for negative integers.
+</p>
+
+<p>
+There are various fast ways of computing the integer square root
+(Newton's method is one).
+But for this program, use a counting loop that generates
+integers 0, 1, 2, 3, ... and their squares 0, 1, 4, 9, ...
+As soon as the square of an integer exceeds N, then the previous
+integer is the integer square root of N.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> 
+Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<h2>***Exercise 3 &#8212;  Lottery Odds</h2>
+
+<p>
+To win a lottery you must correctly pick <code>K</code> 
+out of <code>N</code>  numbers.
+For example, you might need to pick 6 numbers out of the numbers
+1 to 50.
+There are 
+</p>
+
+<pre>
+(50 * 49 * 48 * 47 * 46 * 45 )/(1 * 2 * 3 * 4 * 5 * 6)
+</pre>
+
+<p>
+ways of picking 6 out of 50 numbers.
+So your odds of winning are 1 in that number of ways.
+If you must pick 6 out of 50 numbers, your odds of
+winning are 1 in 15,890,700.
+In general, there are
+</p>
+
+<pre>
+N * (N-1) * (N-2) * (N-3) * (N-4) * ... * (N-K+1)
+-------------------------------------------------
+       1  *   2   *   3   *  4    * ... * K
+</pre>
+
+<p>
+ways of picking <code>K</code> out of <code>N</code> numbers.
+</p>
+
+<p>
+Write a program that 
+asks the user for integers <code>N</code> and <code>K</code>
+and writes out the odds of winning such a lottery.
+</p>
+
+<p>
+Test that the program works 
+for reasonable values of <code>N</code> and <code>K</code>.
+For many values of N and K, 32-bit arithmetic will overflow.
+For this program, just allow that to happen.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:01 GMT -->
+</html>
+

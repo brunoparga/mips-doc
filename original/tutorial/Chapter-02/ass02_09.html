@@ -1,0 +1,127 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 10:36:21 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-02/ass02_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:21 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imperfect Transmission</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass02_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass02_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap02-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Imperfect Transmission</h1>
+<!-- ../Audio/chap02-09.mp3 -->
+
+<script>
+var vacOn = false;
+function doVacuum()
+{
+  if ( !vacOn )
+  {
+    document.getElementById('playerVac').play();
+  }
+  else
+  {
+    document.getElementById('playerVac').pause();
+  }
+  vacOn = !vacOn;
+}
+</script>
+
+<audio id='playerVac' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/vacuum.mp3'></audio>
+
+<img src="vacuum.gif" alt="Vacuum Cleaner" class="rightimage" onclick='doVacuum()' style="background-color:#FAF5F5;">
+ 
+ 
+<img src="Figure2-3.gif" class="center" alt="noisy signal with threshold" >
+
+<a id="noise"> </a>
+
+<div class="left">
+<p>
+The
+ "ons" and "offs" of the previous signal are clear.
+But what if the signal is sent down a long wire
+and someone nearby turns on a vacuum cleaner?
+The whirling and sparking electric motor creates a great deal of electrical noise.
+The graph shows the signal at the other end of the wire.
+</p>
+
+<p>
+<span class="highlight">Even though the signal is noisy (at the analog level),
+the binary values are transmitted perfectly.</span>
+You (and the electronics) can still tell that
+at time  T1  the signal represents "off"
+and that at time  T2  the signal represents "on".
+The receiving end just needs to get the binary values.
+</p>
+</div>
+
+<div class="right">
+<p>
+Since only the "on" "off" information matters,
+the analog noise is irrelevant,
+and the original signal is received perfectly
+(so far as the binary information goes.)
+</p>
+</div> 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+If the signal were regarded as an analog signal,
+and exact values were important,
+would some information present in the first signal (before the noise)
+have been lost?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass02_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass02_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-02/ass02_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:24 GMT -->
+</html>

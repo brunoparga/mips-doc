@@ -1,0 +1,161 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Jun 03 18:01:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:05 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass35_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass35_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap35-19.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+  lw    $s0,first     # get a pointer to the first node
+</pre>
+
+<p>
+The field <code>first</code> contains the address of the
+first node (node).
+So you want to copy (load) the contents into the register.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Complete Program</h1>
+<!-- ../Audio/chap35-19.mp3 -->
+
+
+<pre class="program">
+# eightnodeList.asm
+#
+        .text
+        .globl  main
+
+main:    
+        # create the linked list
+        
+        # $s1 --- current node in creation loop
+        # $s2 --- loop counter
+        
+        # create the first node 
+        li      $v0,9             # allocate memory
+        li      $a0,8             # 8 bytes
+        syscall                   # $v0 &lt;-- address
+        move    $s1,$v0           # $s1 = &amp;(first node)
+        
+        # copy the pointer to first
+        sw      $s1,first
+        
+        # initialize the first node
+        li      $t0,1             # store 1
+        sw      $t0,0($s1)        # at displacement 0
+
+        # create the remaining nodes in a counting loop
+        li      $s2,2             # counter = 2
+        li      $s3,8             # upper limit
+        
+loop:   bgtu    $s2,$s3,done      # while (counter &lt;= limit )
+        
+        # create a node 
+        li      $v0,9             # allocate memory
+        li      $a0,8             # 8 bytes
+        syscall                   # $v0 &lt;-- address
+        
+        # link this node to the previous
+                                  # $s1 = &amp;(previous node)
+        sw      $v0,4($s1)        # copy address of the new node
+                                  # into the previous node
+        
+        # make the new node the current node
+        move    $s1,$v0
+        
+        # initialize the node
+        sw      $s2,0($s1)        # at displacement 0
+
+        addi    $s2,$s2,1         # counter++
+        b       loop
+        
+done:
+        # end the list
+        sw      $0,4($s1)         # put null in the link field
+                                  # of the current node, which
+                                  # is the last node.
+        
+        # print out the list
+        # $s0 --- current node in print loop
+                                          
+        lw     $s0,first          # get a pointer to the first node
+lp:     beqz   $s0,endlp          # while the pointer is not null
+        lw     $a0,0($s0)         #   get the data of this node
+        li     $v0,1              #   print it
+        syscall                   #
+        la     $a0,sep            #   print separator
+        li     $v0,4              #
+        syscall                   #
+        
+        lw     $s0,4($s0)         #   get the pointer to the next node
+        b      lp
+          
+endlp:   
+        li      $v0,10            # return to OS
+        syscall       
+
+       .data
+first: .word   0
+sep:   .asciiz "  "
+
+</pre>
+
+<p>
+Here
+ is the program, complete with a section for printing out the list.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 18:</h3>
+<p>
+You've run the program and it works exactly as expected.
+What do you do next?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass35_17.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass35_19.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-35/ass35_18.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:06 GMT -->
+</html>

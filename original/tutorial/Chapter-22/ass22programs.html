@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:00 GMT -->
+<head>
+<meta charset="utf-8">
+
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 07/03/2003</p>
+<hr />
+<h1> 
+Chapter 22 Programming Exercises
+</h1>
+
+<hr />
+ 
+<p>
+For these programming exercises,
+use only those instructions that have been
+discussed so far in these notes:
+</p>
+
+ 
+<table style="width:400px;  margin: 2em auto 2em  auto ; ">
+<tr>
+<th colspan="4">Basic Instructions</th>
+</tr>
+<tr>
+<td>add   </td><td>div    </td><td>mflo    </td><td>slt, slti</td>
+</tr>
+<tr>
+<td>addi  </td><td>divu   </td><td>mult    </td><td>sltu, sltiu</td>
+</tr>
+<tr>
+<td>addiu </td><td>j      </td><td>multu   </td><td>sra</td>
+</tr>
+<tr>
+<td>addu  </td><td>lb     </td><td>nor     </td><td>srl</td>
+</tr>
+<tr>
+<td>and   </td><td>lbu    </td><td>or      </td><td>sub</td>
+</tr>
+<tr>
+<td>andi  </td><td>lh     </td><td>ori     </td><td>subu</td>
+</tr>
+<tr>
+<td>beq   </td><td>lhu    </td><td>sb      </td><td>sw</td>
+</tr>
+<tr>
+<td>bgez  </td><td>lui    </td><td>sh      </td><td>xor</td>
+</tr>
+<tr>
+<td>bltz  </td><td>lw     </td><td>sll     </td><td>xori</td>
+</tr>
+<tr>
+<td>bne   </td><td>mfhi   </td><td>&#160;  </td><td>&#160;  </td>
+</tr>
+<tr>
+<th colspan="4">&#160;</th>
+</tr>
+<tr>
+<th colspan="4">PseudoInstructions</th>
+</tr>
+<tr>
+<td>la  </td><td>lw     </td><td>nop     </td><td>syscall</td>
+</tr>
+<tr>
+<td>li   </td><td>move   </td><td>sw  </td><td>&#160;  </td>
+</tr>
+</table>
+ 
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine OFF, <span style="color:red">Accept Pseudo Instructions ON</span>,
+Enable Branch Delays ON,
+Enable Load Delays ON, Enable Mapped IO OFF, <span style="color:red">Load Exception Handler ON.</span>
+</p>
+
+<p>
+Run the programs 
+by loading the exception handler (as explained in the chapter)
+and clicking <u>S</u>imulator <u>R</u>un. 
+End your program using service 10 of the exception handler.
+</p>
+
+<p>
+Use the <code>lw</code> and  <code>sw</code>
+with symbolic addresses for loading and storing registers.
+Use mnemonic register names and use registers in their
+conventional roles.
+</p>
+
+<p>
+Check that the option Enable Mapped IO is turned OFF.
+In the previous chapters, this was not important, but with the exception handler for QtSpim this option must be OFF.
+</p>
+
+<hr />
+
+<!-- tested 07/31/03 -->
+
+<h2>*Exercise 1 &#8212; Miles per Gallon</h2>
+
+<p>
+Write a program that repeatedly prompts the
+user for the number of miles traveled and
+the gallons of gasoline consumed,
+and then prints out the miles per gallon.
+Use integer math.
+Exit when the user enters 0 for the number of miles.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+
+<!-- tested 07/31/03 -->
+
+<h2>**Exercise 2 &#8212; Miles per Gallon, Fixed-Point Math</h2>
+
+<p>
+As in Exercise1, write a program that repeatedly prompts the
+user for the number of miles traveled and
+the gallons of gasoline consumed,
+and then prints out the miles per gallon.
+Exit when the user enters 0 for the number of miles.
+</p>
+
+<p>
+Use <b>fixed-point</b> arithmetic for this.
+Multiply input value of miles by 100.
+Divide miles by gallons to get miles per gallon.
+The answer will 100 times too large.
+So divide it by 100 to get whole miles per gallon
+in <code>hi</code> and hundredths in  <code>lo</code>.
+Print out lo followed by "." followed by hi to get
+an output that looks like: "32.45 mpg".
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<!-- tested 07/31/03 -->
+
+<h2>***Exercise 3 &#8212;  String to Integer</h2>
+
+<p>
+Write a program that asks the user for a
+string of digits that represent a positive integer.
+Read in the string using service number 8,
+the "read string" service.
+Now convert the string of digits into
+an integer by the following algorithm:
+</p>
+
+
+<pre class="code">
+value = 0;
+
+for each digit starting with the left-most:
+{
+  convert the digit into an integer D by subtracting 0x30
+  value = value*10 + D
+}
+</pre>
+
+<p>
+You might recognize this as Horner's method.
+After converting the integer,
+check if it is correct by
+writing it out on the simulated monitor using
+service 1.
+</p>
+
+<p>
+Notes: assume that the input is correct (that it
+contains only digits and can be converted to a 32-bit integer).
+Be sure to deal properly with the end-of-line character that
+is at the end of the user's input.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- tested 07/31/03 -->
+
+<h2>***Exercise 4 &#8212; Fahrenheit/Celsius Converter</h2>
+
+<p>
+Write a program that repeatedly asks the user for a scale
+F or a C (for "Fahrenheit" or "Celsius")
+on one line 
+followed by an integer temperature on the next line.
+It then converts the given temperature to the other scale.
+Use the formulas:
+</p>
+
+<pre class="code">
+F = (9/5)C + 32
+
+C = (5/9)(F - 32)
+</pre>
+
+<p>
+Exit the loop when the user types "Q".
+Assume that all input is correct.
+For example:
+</p>
+
+<pre class="code">
+Enter Scale      : F
+Enter Temperature: 32
+Celsius Temperature: 0C
+
+Enter Scale      : C
+Enter Temperature: 100
+Fahrenheit Temperature: 212F
+
+Enter Scale      : Q
+done
+</pre>
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part5"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:00 GMT -->
+</html>
+

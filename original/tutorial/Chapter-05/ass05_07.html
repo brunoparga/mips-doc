@@ -1,0 +1,129 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 11:48:16 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:47 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASCII Chart</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass05_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap05-05.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+Can the bit patterns 
+used to represent characters represent other
+things in other contexts?
+</p>
+<h3>Answer:</h3>
+<p>
+Yes.
+</p>
+
+<p>
+You need to know the context to know what 
+a particular pattern represents.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>ASCII Chart</h1>
+<!-- ../Audio/chap05-05.mp3 -->
+
+<div class="right">
+<table>
+<tr><th>Hex&nbsp; &nbsp;Char</th><th>Hex&nbsp; &nbsp;Char</th><th>Hex&nbsp; &nbsp;Char</th><th>Hex&nbsp; &nbsp;Char</th></tr>
+
+<tr><td>00&nbsp; &nbsp;nul</td>  <td>20&nbsp; &nbsp;sp   </td>  <td>40&nbsp; &nbsp;@    </td>  <td>60&nbsp; &nbsp;`    </td>  </tr>
+<tr><td>01&nbsp; &nbsp;soh</td>  <td>21&nbsp; &nbsp;!    </td>  <td>41&nbsp; &nbsp;A    </td>  <td>61&nbsp; &nbsp;a    </td>  </tr>
+<tr><td>02&nbsp; &nbsp;stx</td>  <td>22&nbsp; &nbsp;"    </td>  <td>42&nbsp; &nbsp;B    </td>  <td>62&nbsp; &nbsp;b    </td>  </tr>
+<tr><td>. . .             </td>  <td>. . .               </td>  <td>. . .               </td>  <td>. . .               </td>  </tr>
+<tr><td>0A&nbsp; &nbsp;lf </td>  <td>2A&nbsp; &nbsp;*    </td>  <td>4A&nbsp; &nbsp;J    </td>  <td>6A&nbsp; &nbsp;j    </td>  </tr>
+<tr><td>. . .             </td>  <td>. . .               </td>  <td>. . .               </td>  <td>. . .               </td>  </tr>
+<tr><td>1E&nbsp; &nbsp;rs </td>  <td>3E&nbsp; &nbsp;&gt; </td>  <td>5E&nbsp; &nbsp;^    </td>  <td>7E&nbsp; &nbsp;~    </td>  </tr>
+<tr><td>1F&nbsp; &nbsp;us </td>  <td>3F&nbsp; &nbsp;?    </td>  <td>5F&nbsp; &nbsp;_    </td>  <td>7F&nbsp; &nbsp;del  </td>  </tr>
+</table>
+</div>
+
+<a id="ASCII_chart"> </a>
+
+
+<a id="space_character"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">The chart shows some patterns used in ASCII to represent characters.</span>
+(See the appendix for a complete chart.)
+The first printable character is SP (space) and corresponds to the bit pattern
+<code>0010 0000</code> .
+</p>
+
+<p>
+<span class="highlight">Space is a character, just like any other.</span>
+Although not visible in the  shortened chart, 
+the upper case alphabetical characters
+appear in order A,B,C, ..., X, Y, Z with no gaps.
+There is a gap between upper case and lower case letters.
+The lower-case characters also appear in order a,b,c,...x, y, z.
+</p>
+
+<p>
+The last pattern is 0x7F which is 0111 1111.
+This is the DEL (delete) character.
+For a complete list of ASCII representations,
+see the appendix.
+</p>
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+How many of the total number of 8-bit patterns 
+correspond to a character,
+(including control characters)?
+(Hint: look at the pattern for DEL).
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass05_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:48 GMT -->
+</html>

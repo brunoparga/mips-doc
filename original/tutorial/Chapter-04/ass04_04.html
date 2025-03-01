@@ -1,0 +1,121 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 09:30:06 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-04/ass04_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:25 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Main Memory</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass04_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass04_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap04-05.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+No.  Potentially any byte of main memory
+can hold part of a program or part of some data.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Main Memory</h1>
+<!-- ../Audio/chap04-05.mp3 -->
+
+<div class="right">
+<table class="rightimage" style="padding:1em; border-style: dashed;">
+<tr><td style="border-style: none; text-align:right"><b>kilobyte:</b></td><td style="border-style: none; text-align:left">  2<sup>10</sup> = 1024 bytes </td></tr>
+<tr><td style="border-style: none; text-align:right"><b>megabyte:</b></td><td style="border-style: none; text-align:left">  2<sup>20</sup> = 1024 kilobytes </td></tr>
+<tr><td style="border-style: none; text-align:right"><b>gigabyte:</b></td><td style="border-style: none; text-align:left">  2<sup>30</sup> = 1024 megabytes </td></tr>
+<tr><td style="border-style: none; text-align:right"><b>terabyte:</b></td><td style="border-style: none; text-align:left">  2<sup>40</sup> = 1024 gigabytes </td></tr>
+</table>
+</div>
+
+<div class="left">
+<p>
+<span class="highlight">In practice, data and instructions are often placed in
+different sections of memory,</span> but this is a matter
+of software organization, not a hardware requirement.
+Also, most computers have special sections of memory that
+permanently hold programs (firmware stored in ROM),
+and other sections that are permanently used for special purposes.
+</p>
+
+<p>
+<span class="highlight">Main memory (also called <em>main storage</em>, or just <em>memory</em>)
+holds the bit patterns of machine instructions and the bit patterns of data.</span>
+Memory chips and the electronics that controls them are concerned only
+with saving bit patterns and returning them when requested.
+No distinction is made between bit patterns that are intended as instructions
+and bit patterns that are intended as data.
+The amount of memory on a system is often described
+using the terms in the table.
+</p>
+
+<a id="kilobyte"> </a>
+<a id="megabyte"> </a>
+<a id="gigabyte"> </a>
+<a id="terabyte"> </a>
+
+<p>
+These days
+the amount of main memory in a new desktop computer
+ranges from 8 gigabytes to 32 gigabytes.
+Hard disks and other secondary storage devices hold several terabytes.
+</p>
+
+<p>
+Recall that in some contexts, SI units are used and the
+prefixes <em>kilo, mega, giga,</em> and <em>tera</em> correspond
+to powers of 10, not of two.
+So <em>kilo</em> means <em>10<sup>3</sup></em> not <em>2<sup>10</sup></em>.
+</p>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+<p>
+What is (on most computers) the smallest addressable unit of memory?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass04_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass04_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-04/ass04_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:25 GMT -->
+</html>

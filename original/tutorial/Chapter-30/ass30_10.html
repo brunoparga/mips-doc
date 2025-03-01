@@ -1,0 +1,110 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Apr 28 18:51:09 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:51 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixed Number of Digits</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass30_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap30-14.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+How many digits are in each of the above expressions? <span style="color:blue">8</span>
+</p>
+<p>
+How many digits are in the mantissa? <span style="color:blue;">6</span>
+</p>
+<p>
+How many in the exponent? <span style="color:blue;">2</span>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Fixed Number of Digits</h1>
+<!-- ../Audio/chap30-14.mp3 -->
+
+
+<a id="precision,_as_digits_in_mantissa"> </a>
+<div class="left">
+
+<p>
+The
+question and its answer 
+is getting close to the idea of floating point.
+Each expression has eight digits.
+Two of the digits are used to "float" the decimal point.
+The remaining six show the digits of the number.
+</p>
+
+<p><span class="highlight">
+The number of digits in the mantissa is called
+the <b>precision</b> of the floating point number.</span>
+When we start talking about binary floating point,
+the precision will be the number of bits in the mantissa.
+With a 32-bit single-precision floating point 
+value the mantissa is 24 bits, 
+<span class="highlight">so single precision floats have 24 bits of precision.</span>
+</p>
+</div>
+
+<div class="right">
+<p><b>Caution:</b> <span class="highlight">sometimes in casual speech people say
+that single precision values have 32 bits of precision,
+but this is not actually correct.</span>
+</p>
+
+<p><b>Another Caution:</b> the mantissa uses 23 bits to
+represent its 24 bits of precision.
+This trick will be discussed shortly.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+How many possible mantissas can be represented in single precision?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass30_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass30_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-30/ass30_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:52 GMT -->
+</html>

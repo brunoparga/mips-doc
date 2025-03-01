@@ -1,0 +1,112 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Jun 15 16:33:14 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:26 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> cancel()  Method</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass36_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap36-16.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<ol>
+<li>Add an entry to the jump table of each object.</li>
+<li>Add the code for the method to the program.</li>
+</ol>
+
+<p>
+Since the layout of the object has changed,
+some other small changes also need to be made.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1><code>cancel()</code> Method</h1>
+<!-- ../Audio/chap36-16.mp3 -->
+
+<div class="left">
+
+<p><span class="highlight">
+Let
+ us add the
+<code>cancel()</code> 
+method to the objects.</span>
+This (somewhat silly)
+method replaces all the
+characters of an object's
+string with x's.
+</p>
+
+<p>
+Here is the new design for
+an object:
+</p>
+
+<pre>
+                                         # jump table:
+byte 0-3: address of print()             # first entry point
+byte 4-7: address of cancel()            # second entry point
+                                         # data:
+byte 4- : null terminated string         # as many bytes as needed
+</pre>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 16:</h3>
+
+<form>
+<p>
+Complete the declaration for <code>object1:</code>:
+</p>
+<pre>
+object1:
+          .word    <input type="text" size="12" name="T1" />          # entry point for print<br>
+          .word    <input type="text" size="12" name="T2" />          # entry point for cancel<br> 
+          .asciiz  <input type="text" size="12" name="T3" />          # string data<br> 
+</pre>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass36_15.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass36_17.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-36/ass36_16.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:10:27 GMT -->
+</html>

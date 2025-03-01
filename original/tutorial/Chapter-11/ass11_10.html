@@ -1,0 +1,131 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:24 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uses of Bitwise Logic</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-10.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+ 
+<h3>Answer:</h3>
+
+<pre>
+000000 <span class="blue"> 00100 00101 01010 </span>   000000 100001  
+
+addu     $4    $5      $10    unused   2nd ary
+     operand  operand  dest.           op code
+     reg.     reg.     reg.        
+</pre> 
+
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Uses of Bitwise Logic</h1>
+<!-- ../Audio/chap11-10.mp3 -->
+
+<div class="left">
+<p><span class="highlight">
+The
+first six bits of a machine
+instruction (the opcode) specify the machine
+operation.</span>
+(Sometimes a secondary opcode is needed).
+The opcode also determines how the rest
+of the instruction is laid out.
+A human needs to look at documentation to figure
+out the bit fields of an instruction and what they mean.
+The electronics MIPS processor is wired to do this.
+</p>
+
+<p>
+Recall (from the second chapter) the fourth advantage of binary:
+</p>
+<blockquote>
+<ol>
+<li> Simple; easy to build.</li>
+<li> Unambiguous signals (hence noise immunity).</li>
+<li>  Flawless copies can be made.</li>
+<li> <span class="blue">Anything that can be represented with
+     some sort of pattern can be represented 
+     with patterns of bits.</span>
+</li>
+</ol>
+</blockquote>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+Most computers have built-in integer arithmetic operations
+and built-in floating point operations.</span>
+But computers are used for much more than numbers!
+Bit patterns are used to represent very many things.
+Bitwise logic is needed 
+when computing with bit patterns in all
+their various uses.
+</p>
+
+<p>
+For example,
+a document created with 
+a word processor has font and formatting
+information embedded within it.
+The information is encoded with bit patterns
+in ways specific to each word processor family.
+A word processor program must use bitwise operations
+to process these codes.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 10:</h3>
+<p>
+What type of program reads in
+strings of symbols encoded in ascii and outputs bit
+patterns that encode data and machine operations?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_09.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_11.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_10.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:06:25 GMT -->
+</html>

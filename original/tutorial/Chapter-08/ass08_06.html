@@ -1,0 +1,126 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:03 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overflow Detection</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+32 bits.
+</p>
+
+<p>
+And the result is 32 bits.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Overflow Detection</h1>
+<!-- ../Audio/chap08-11.mp3 -->
+
+<a id="hexadecimal_addition"> </a>
+<a id="significant_column"> </a>
+<a id="high-order_bits"> </a>
+
+<p>
+Here 
+is an addition problem using 4-bit operands:
+</p>
+
+<pre class="code">
+<span class="red">1</span>111
+ 0111
+<u> 1001 </u>
+ 0000
+ 
+<span class="red">Overflow</span> happened
+</pre>
+
+<p>
+<span class="highlight">Two four-bit numbers are added,
+but the sum does not fit in four bits.</span>
+Overflow happened.
+The carry-out from the leftmost column is "1".
+</p>
+
+<p>
+If we were using five bits the sum would be
+<code>1 0000.</code>
+But with four bits there is no room
+for the leftmost <span class="red">1</span>.
+Because the carry out from the most significant
+column of the sum  is <span class="red">1</span>, 
+the 4-bit result is not valid.
+The leftmost column is called the <em>most significant</em> column
+because it corresponds to the highest power of two.
+The bits in the leftmost columns are called the <em>most significant bits</em>
+or the <em>high-order bits</em>.
+</p>
+
+<p>
+<span class="highlight">The electronic circuits of a processor can detect overflow
+by checking the carry-out of the leftmost column.</span>
+A program might branch to an error handling routine when overflow
+is detected.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 6:</h3>
+<p>
+Add these unsigned numbers, represented in eight bits.
+Determine if overflow occurs.
+</p>
+
+<pre class="code">
+ 0010 1100
+<u> 0101 0101 </u>
+ <input type="text" size="10" value="                  " name="answer" /> 
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_05.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_07.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_06.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:03:04 GMT -->
+</html>

@@ -1,0 +1,152 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:33 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Instructions Compared</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+       0 1 0 1 0  0 1 0 0 1  1 0 1 0  1 1 1 1  1 1 1 1  0 0 0 0
+001101 <span class="blue">_ _ _ _ _  _ _ _ _ _  _ _ _ _  _ _ _ _  _ _ _ _  _ _ _ _</span>
+
+ori     $10          $9         a         f        f        0 
+
+       operand      dest           immediate operand
+       reg.         reg.
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Machine Instructions Compared</h1>
+<!-- ../Audio/chap11-09.mp3 -->
+
+
+
+<p>
+Here again is the <code><b>ori</b></code> machine instruction:
+</p>
+ 
+<pre class="program">
+   3    4    0    8    0    f    a    5    -- machine instruction in hex
+
+<span class="blue">001101</span><span class="red">  00000</span><span class="blue"> 01000</span><span class="red"> 0000 1111 1010 0101</span>    -- fields of the instruction
+
+opcode  oper  dest  immediate operand      -- meaning of the fields
+        -and  reg.
+        reg.   
+
+ori     $0      $8     0    f    a    5
+
+</pre>
+
+<p><span class="highlight">
+The layout of this machine instruction is different from the
+<code><b>addu</b></code> instruction we looked at in chapter 10:</span>
+</p>
+
+<pre class="program">
+   0    1    0    9    5    0    2    1    -- machine instruction in hex
+
+<span class="blue">000000</span> <span class="red">01000</span> <span class="blue">01001</span> <span class="red">01010</span> <span class="blue">00000</span> <span class="red">100001</span>      -- fields of the instruction
+
+opcode oprnd oprnd dest  ----- 2ndary      -- meaning of the fields
+
+ALUop   $8    $9   $10           addu
+</pre>
+
+<a id="secondary_opcode"> </a>
+<a id="opcode,_secondary"> </a>
+<p>
+Both instructions are 32 bits wide (as are all MIPS32 instructions).
+<span class="highlight">The first six bits are the opcode</span>, which specifies an ALU operation.
+The <code><b>addu</b></code> instruction further specifies the operation
+in the <span class="highlight">last six bits, the <b>secondary opcode.</b></span>
+
+<p> 
+When the instruction is executed the two operands come from registers
+(<code class="register">$8</code>) and (<code class="register">$9</code>). 
+The result is put in a register (<code class="register">$10</code>, here.) 
+The <code><b>addu</b></code> instruction does not have an immediate operand.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+Here is an <code><b>addu</b></code> instruction in assembly language:
+</p>
+
+<pre>
+addu   $10, $4, $5
+</pre> 
+
+<p>
+Assemble the instruction into a machine instruction.
+Fill in the blanks 
+with bit patterns
+so one operand register is <code class="register">$4</code> , 
+the other operand register is <code class="register">$5</code> , 
+and the destination register is 
+<code class="register">$10</code>.
+</p>
+ <pre>
+000000  <input type="text" size="6">  <input type="text" size="6">  <input type="text" size="6">  00000 100001  
+        <span class="blue"> _ _ _ _ _  _ _ _ _ _  _ _ _ _ _    </span>
+
+addu     $4          $5        $10         unused 2nd ary
+        operand      operand    dest.             op code
+        reg.         reg.       reg.        
+</pre> 
+
+<p>
+Make sure that the machine instruction is 32 bits wide.
+Note that the registers are in a different order than in the
+assembly language instruction.
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:34 GMT -->
+</html>

@@ -1,0 +1,112 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Feb 20 17:09:32 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:34 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shift Right Arithmetic</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass14_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap14-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+1111 1111 1111 0000  <span style="font-size:200%">&#8594;</span>  0011 1111 1111 1100
+</pre>
+
+<p>
+Is the resulting pattern the correct representation for -16/4?
+<span class="red">No.</span> The result represents a large positive number,
+not -4
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Shift Right Arithmetic</h1>
+<!-- ../Audio/chap14-13.mp3 -->
+
+
+<a id="shift_right_arithmetic"> </a>
+<a id="arithmetic_shift_right"> </a>
+
+ 
+<img src="arithRight.gif"  class="center" alt="Right Shift" >
+
+<div class="left">
+<p>
+A right shift logical can not be used to divide a negative integer by two.
+The problem is that a shift right logical moves zeros into
+the high order bit.
+This is desirable in some situations, 
+but not for dividing negative integers
+where the high order bit is the "sign bit."
+
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">An <b>arithmetic</b> right shift replicates the sign bit
+as needed to fill bit positions.</span>
+The "sign bit" is the high order bit of the pattern.
+It can be a zero or a one.
+Whatever it is, it is replicated as needed to fill the positions
+that have been moved to the right.
+</p>
+
+<p>
+Of course, on MIPS, the full 32-bit pattern in a register is
+shifted and the sign bit is bit 31 of that pattern.
+</p>
+
+</div>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+
+<p>
+Is there a need for an <em>arithmetic shift left</em> instruction?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass14_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass14_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-14/ass14_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:36 GMT -->
+</html>

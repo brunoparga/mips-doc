@@ -1,0 +1,103 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_22.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:49 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sign of the Four Bits</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_21.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_23.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08merge3233.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>negative</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>The Sign of the Four Bits</h1>
+<!-- ../Audio/chap08merge3233.mp3 -->
+
+<p>
+Be sure that you understand this: 
+<span class="highlight">It is by happy coincidence that the
+high order bit of a two's complement integer is 0 for positive and 1 for negative.</span>
+But, to create the two's complement representation of the negative of a number
+you must "reflect, add one". 
+</p> 
+
+<p> 
+<span class="highlightred">Changing the sign bit by itself will not work.</span>
+</p>
+
+<p>
+<span class="highlight">To convert N bits of two's complement representation into
+decimal representation:</span>
+</p>
+
+<ol>
+<li>If the integer is negative, complement it to get the corresponding positive integer.</li>
+<li>Convert the (positive) integer to decimal (as usual).</li>
+<li>If the integer was originally negative, 
+put "-" in front of the decimal representation.</li>
+</ol>
+
+<p>
+The number represented by 1001 is negative 
+(since the "sign bit" is one), so complement:
+</p>
+
+<pre class="code"> 1001 <span style="font-size:200%">&#8594;</span>  0110 + 1 <span style="font-size:200%">&#8594;</span>  0111</pre>
+
+<p>
+Convert the result to decimal: &nbsp;<code>0111 = 7<sub>10</sub></code>.
+ &nbsp;Add a negative sign: &nbsp; -7<sub>10</sub>.
+ &nbsp;So (in 4-bit two's complement representation) 1001 represents -7<sub>10</sub>.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 22:</h3>
+<p>
+What is the decimal representation of this 8-bit two's complement integer:  1001 1111
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_21.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_23.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_22.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:50 GMT -->
+</html>

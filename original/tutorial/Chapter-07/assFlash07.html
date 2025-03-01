@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/assFlash07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:44 GMT -->
+<head>
+<title>Flashcards for Nibble Names</title>
+<meta charset="utf-8">
+<meta name="creation" content="2017,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/FLASHstyle.css" />
+
+
+<script type="text/javascript">
+
+  var questions = new Array();
+  var answers   = new Array();
+  var asked     = new Array();
+  var qNumber;
+
+  // The flash cards start here
+
+  // The flash cards start here
+   // The flash cards start here
+  questions[0] = "0000  ?"
+  answers  [0] = "0"
+
+  questions[1] = "0001  ?"
+  answers  [1] = "1 "
+
+  questions[2] = "0010  ?"
+  answers  [2] = "2"
+
+  questions[3] = "0011  ?"
+  answers  [3] = "3"
+
+  questions[4] = "0100  ?"
+  answers  [4] = "4"
+
+  questions[5] = "0101  ?"
+  answers  [5] = "5"
+
+  questions[6] = "0110  ?"
+  answers  [6] = "6"
+
+  questions[7] = "0111  ?"
+  answers  [7] = "7"
+
+  questions[8] = "1000  ?"
+  answers  [8] = "8"
+
+  questions[9] = "1001  ?"
+  answers  [9] = "9"
+
+  questions[10] = "1010  ?"
+  answers  [10] = "A"
+
+  questions[11] = "1011  ?"
+  answers  [11] = "B"
+
+  questions[12] = "1100  ?"
+  answers  [12] = "C"
+
+  questions[13] = "1101  ?"
+  answers  [13] = "D"
+
+  questions[14] = "1110  ?"
+  answers  [14] = "E"
+
+  questions[15] = "1111  ?"
+  answers  [15] = "F"
+
+  questions[16] = "0  ?"
+  answers  [16] = "0000 "
+
+  questions[17] = "1  ?"
+  answers  [17] = "0001"
+
+  questions[18] = "2  ?"
+  answers  [18] = "0010 "
+
+  questions[19] = "3  ?"
+  answers  [19] = "0011"
+
+  questions[20] = "4  ?"
+  answers  [20] = "0100"
+
+  questions[21] = "5  ?"
+  answers  [21] = "0101"
+
+  questions[22] = "6  ?"
+  answers  [22] = "0110"
+
+  questions[23] = "7  ?"
+  answers  [23] = "0111"
+
+  questions[24] = "8  ?"
+  answers  [24] = "1000"
+
+  questions[25] = "9  ?"
+  answers  [25] = "1001"
+
+  questions[26] = "A  ?"
+  answers  [26] = "1010"
+
+  questions[27] = "B  ?"
+  answers  [27] = "1011"
+
+  questions[28] = "C  ?"
+  answers  [28] = "1100"
+
+  questions[29] = "D  ?"
+  answers  [29] = "1101"
+
+  questions[30] = "E  ?"
+  answers  [30] = "1110"
+
+  questions[31] = "F  ?"
+  answers  [31] = "1111"
+
+
+  // If you are making your own flashcards, do not modify anything below this line.
+
+  
+// Initialize Variables
+var state    = 0 ; // state 0 is question, state 1 is answer, 
+                   // state 2 is grade,    state 7 is final
+                  
+var count =0, numRight =0, numWrong=0;
+var qNumber;
+
+for ( var j=0; j < asked.length; j++ ) asked[j] = 0;
+
+function questionClick()
+{
+  var txt;
+  var coin;
+  var allAsked = false;
+
+  if ( state == 0 )
+  {
+
+    coin = Math.floor( Math.random()*questions.length );
+    qNumber = coin;
+
+    // search for an unasked question
+    while ( asked[qNumber] == 1 && !allAsked ) 
+    {
+      qNumber = (qNumber+1)%questions.length;
+      if ( qNumber == coin ) allAsked = true;
+    }
+
+    if ( allAsked )
+    {
+      state = 7;
+      txt = "You have gone through all the flash cards\n" ;
+
+      txt +=  "Number of questions: " + count + "\n";
+      txt +=  "Number correct: " +  numRight + "\n";
+      
+      if ( count>0 )
+        txt +=  "Percent correct: " + Math.round( (numRight*100)/count ) + "% \n";
+          
+      document.getElementById("questionArea").innerHTML = txt ;
+    }
+
+    else
+    {
+      state = 1
+      count++;
+      
+      document.getElementById("Counter").value  = "" + count;
+
+      document.getElementById("questionArea").innerHTML  =   "\n\n" + questions[qNumber] ;
+      document.getElementById("answerArea").innerHTML  = " ";
+    }
+
+  }
+}
+
+function answerClick()
+{
+  if ( state == 1 )
+  {
+    state = 2
+    document.getElementById("answerArea").innerHTML =  "\n\n" + answers[qNumber]
+  }
+}
+
+function rightClick()
+{
+  if ( state == 2 )
+  {
+    state = 0
+    numRight++ ;
+    document.getElementById("Right").value = ""+ numRight ;
+    document.getElementById("Wrong").value = ""+ numWrong ;
+    asked[qNumber] = 1
+  }
+}
+
+function wrongClick()
+{
+  if ( state == 2 )
+  {
+    state = 0
+    numWrong++ ;
+    document.getElementById("Right").value = ""+ numRight ;
+    document.getElementById("Wrong").value = ""+ numWrong ;
+  }
+}
+
+function doneClick()
+{
+      state = 0;
+      txt = "You have seen "  + count + " flash cards\n" ;
+
+      txt +=  "Number correct: " +  numRight + "\n";
+      
+      if ( count>0 )
+        txt +=  "Percent correct: " + Math.round( (numRight*100)/count ) + "% \n";
+          
+      document.getElementById("questionArea").innerHTML = txt;
+}
+
+</script>
+</head>
+
+<body>
+ 
+<h1>Flash Cards For Nibble Names</h1>
+
+<p>
+A nibble is a 4-bit pattern.  These patterns have names.  It is useful to know them.
+The flash card on the left will show a pattern or a name.  Decide on the corresponding name or pattern
+and see if you are correct. 
+</p>
+
+<table style="margin-left: auto; margin-right: auto;">
+<tr><th>Pattern or Name</th><th>Corresponding Name or Pattern</th></tr>
+<tr> 
+
+<td>
+<textarea id="questionArea" style="text-align:center;" rows="5" cols="50">
+Instructions:
+
+Click on button 1 to see a card. 
+Mentally decide what is on the back of the card.
+Review the chapter if you are having trouble deciding.
+</textarea>
+</td>
+
+<td>
+<textarea id="answerArea" style="text-align:center;" rows="5" cols="50">
+Then click on button 2 to see the correct answer. 
+
+Then click on the "Right" or the "Wrong" button as appropriate.
+
+Repeat.
+</textarea>
+</td>
+</table>
+
+
+<p style="text-align:center">
+Questions so far
+&nbsp;&nbsp;
+<input type="text" id="Counter" size="5" value="">
+
+&nbsp;&nbsp;
+Number Right:
+&nbsp;&nbsp;
+<input type="text" id="Right" size="5" value="">
+
+&nbsp;&nbsp;
+Number Wrong:
+&nbsp;&nbsp;
+<input type="text" id="Wrong" size="5" value="">
+</p>
+
+<p style="text-align:center">
+
+<input type="button" 
+  id="questionButton" 
+  value="1. Ask Question" 
+  onClick="questionClick()">
+
+&nbsp;
+
+<input type="button" id="answerButton" 
+  value="2. Show Answer" 
+  onClick="answerClick()">
+
+&nbsp;
+
+<input type="button" id="rightButton" 
+  value="3. Right" 
+  onClick="rightClick()">
+
+OR
+
+<input type="button" id="wrongButton" 
+  value="3. Wrong" 
+  onClick="wrongClick()">
+ 
+&nbsp; &nbsp; &nbsp;
+
+<input type="button" id="doneButton" 
+  value="Finish" 
+  onClick="doneClick()">
+</p>
+
+<hr>
+<p>
+<b>Instructions:</b> &nbsp; 
+Click on button 1 to see a possible identifier. 
+Mentally decide if is is legal, or NOT.
+Click on button 2 to see the correct answer. 
+Then click on the "Right" or the "Wrong"
+button as appropriate.
+Repeat.
+</p>
+
+<p>
+Correctly answered questions are removed from the deck of flash cards.
+Incorrectly answered questions go back into the deck.
+The program stops when all questions have been answered correctly.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part03"> Back to Index  </a> 
+</p>
+ 
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-07/assFlash07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:58:44 GMT -->
+</html>

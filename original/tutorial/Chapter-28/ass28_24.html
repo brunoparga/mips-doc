@@ -1,0 +1,141 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Nov 27 16:17:41 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_24.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:13 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entry Point</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass28_23.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_25.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-31.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<!-- ../Audio/chap28-31.mp3 -->
+
+<h3>Answer:</h3>
+<p>
+<code>fact</code>
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Entry Point</h1>
+
+
+<pre class="program">
+#  int fact( int n )
+#  {
+#    if ( n&lt;=1)
+#      return 1;
+#    else
+#      return n*fact(n-1);
+#  }
+         .text
+         .globl  fact
+fact:
+                                  # <a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-32.mp3" target="audioPlayer">prolog</a>        
+         sub     $sp,$sp,4        #   1. Push return address
+         sw      $ra,($sp)
+         sub     $sp,$sp,4        #   2. Push caller's frame pointer
+         sw      $fp,($sp)
+         sub     $sp,$sp,4        #   3. Push register $s1
+         sw      $s1,($sp)
+         sub     $fp,$sp,0        #   4. $fp = $sp - space_for_variables (==0)
+         move    $sp,$fp          #   5. $sp = $fp
+         
+                                  # body of subroutine
+        . . . . . .
+                            
+epilog:                           # <a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-33.mp3" target="audioPlayer">epilog</a>
+                                  #   1. Return value is already in $v0        
+         add     $sp,$fp,0        #   2. $sp = $fp + space_for_variables (==0)
+         lw      $s1,($sp)        #   3. Pop register $s1
+         add     $sp,$sp,4        #          
+         lw      $fp,($sp)        #   4. Pop $fp
+         add     $sp,$sp,4        #           
+         lw      $ra,($sp)        #   5. Pop $ra
+         add     $sp,$sp,4        #            
+         jr      $ra              #   6. return to caller 
+</pre>
+
+<a id="global_symbol"> </a>
+<a id="external_symbol"> </a>
+<a id="entry_point"> </a>
+
+<div class="left">
+
+<p>
+On
+to the subroutine.
+<span class="highlight">The first address in this subroutine is called <code>fact</code>.</span>
+Of course, <code>fact</code> will correspond to a main storage address
+at run-time.
+That address is determined by the assembler,
+the linker, and the loader.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap28-34.mp3" target="audioPlayer" class="audio">T</a>he
+symbol <code>fact</code> is a global symbol
+(also called an external symbol) so that
+the assembler, linker, and loader can use that symbol
+to refer to the same place in memory.
+</p>
+</div>
+
+<div class="right">
+<p>
+<span class="highlight">A location such as <code>fact</code> that is a target of
+a subroutine call is called an <b>entry point</b>.</span>
+Sometimes a subroutine has several entry points,
+one for each of several related functions.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 24:</h3>
+<p>
+(Thought Question:)  Does a global symbol <em>always</em> correspond
+to an entry point? 
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass28_23.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass28_25.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-28/ass28_24.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:14 GMT -->
+</html>

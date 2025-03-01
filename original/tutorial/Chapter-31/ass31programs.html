@@ -1,0 +1,265 @@
+<!doctype html> 
+<!-- 05/31/2015  bpk  HTML5 validation -->
+<!-- 06/03/2016  bpk  added Zeno's series -->
+<!-- 08/07/2020  bpk  small changes -->
+
+<html lang="en">
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:10 GMT -->
+<head>
+<meta charset="utf-8">
+<title>Programming Exercises</title>
+
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p class="revisions">created 07/07/2003; revised 08/07/2020</p>
+<hr />
+
+<h1>Chapter 31 Programming Exercises</h1>
+
+<hr />
+
+<p>
+<b>NOTE:</b>
+If you have read the chapters on
+subroutine linkage,
+write each exercise as a
+main program calling a subroutine.
+Use either the stack-based linkage or the
+frame-based linkage convention.
+Otherwise write these as an ordinary main.
+<p>
+
+<p>
+In the <em>Settings</em> menu of SPIM set
+Bare Machine OFF, Accept Pseudo Instructions ON,
+Enable Branch Delays OFF,
+Enable Load Delays OFF, Enable Mapped IO OFF, Load Exception Handler ON.
+</p>
+ 
+<hr />
+
+<!-- written and tested -->
+
+<h2>Exercise 1 &#8212;  Arithmetic Expression</h2>
+
+<p>
+Write a program that computes  the
+value of the following arithmetic
+expression for values of x and y entered
+by the user:
+</p>
+
+<pre>
+5.4xy - 12.3y + 18.23x - 8.23
+</pre>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part7"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+<!-- tested -->
+
+<h2>*Exercise 2 &#8212;   Harmonic Series</h2>
+
+<p>
+Write a program that computes the sum of the first
+<code>n</code> terms of the harmonic series by using a loop:
+</p>
+
+<pre>
+1/1 + 1/2 + 1/3 + 1/4 + ... + 1/n
+</pre>
+
+<p>
+This sum gets bigger and bigger without limit
+as more terms are added in.
+Ask the user for the number of terms to sum,
+compute the sum and print it out.
+Of course, you will need to use floating point division.
+</p>
+
+<p>
+There are several ways that this program could be written.
+The sensible way is to use both an integer loop counter that is incremented by integer 1
+and a separate floating point divisor that is incremented by 1.0 in each loop iteration.
+</p>
+ 
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- tested -->
+
+<h2>*Exercise 3 &#8212;   Zeno's Series</h2>
+
+<p>
+Write a program that computes the sum of the first
+<code>n</code> terms of this series:
+</p>
+
+<pre>
+1/2 + 1/4 + 1/8 + 1/16 + ... + 1/2<sup>n</sup>
+</pre>
+
+<p>
+Unlike the previous series, this one converges.
+For large <code>n</code> the sum is very close to one.
+Ask the user for a number of terms to sum,
+compute the sum and print it out.
+</p>
+
+<p>
+As above, there are several ways that this program could be written.
+Try to find a sensible way to do it.
+</p>
+ 
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<!-- untested -->
+
+<h2>**Exercise 4 &#8212;  Web Page RGB Colors</h2>
+
+<p>
+Colors on a Web page are often coded as a
+24 bit integer as follows:
+</p>
+
+<pre>
+RRGGBB
+</pre>
+
+<p>
+In this, each R, G, or B is a hex digit 0..F.
+The R digits give the amount of red,
+the G digits give the amount of green,
+and the B digits give the amount of blue.
+Each amount is in the range 0..255 (the range of one byte).
+Here are some examples:
+</p>
+
+<table>
+<tr>
+<td>   FFFFFF  </td>
+<td>   7F7F7F  </td>
+<td>   FF0000  </td>
+<td>   00FF00  </td>
+<td>   0000FF  </td>
+<td>   FF00FF  </td>
+<td>   7F007F  </td>
+<td>   70A0F0  </td>
+<td>   FF7F7F  </td>
+</tr>
+<tr>
+<td style="background-color:#FFFFFF">&#160;</td>
+<td style="background-color:#7F7F7F">&#160;</td>
+<td style="background-color:#FF0000">&#160;</td>
+<td style="background-color:#00FF00">&#160;</td>
+<td style="background-color:#0000FF">&#160;</td>
+<td style="background-color:#FF00FF">&#160;</td>
+<td style="background-color:#7F007F">&#160;</td>
+<td style="background-color:#70A0F0">&#160;</td>
+<td style="background-color:#FF7F7F">&#160;</td>
+</tr>
+</table>
+ 
+
+<p>
+Another way that color is sometimes expressed
+is as three fractions 0.0 to 1.0  for each of red, green, and blue.
+For example,
+pure red is (1.0, 0.0, 0.0),
+medium gray is (0.5, 0.5, 0.5) and so on.
+</p>
+
+<p>
+Write a program that has a color number declared in the 
+data section and that writes out the amount of each color
+expressed as a decimal fraction.
+Put each color number in 32 bits, with the high order byte
+set to zeros:
+</p>
+
+<pre>
+          .data
+color:    .word  0x00FF0000     # pure red, (1.0, 0.0, 0.0)
+</pre>
+
+<p>
+For extra fun,
+write a program that prompts the user for a color number
+and then writes out the fraction of each component.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+ 
+<h2>****Exercise 5 &#8212;  Polynomial Evaluation (Horner's Method)</h2>
+
+<p>
+Write a program that computes 
+the value of a polynomial using Horner's method.
+The coefficients of the polynomial are
+stored in an array of single precision floating point values:
+</p>
+
+<pre>
+          .data
+n:        .word  5
+a:        .float 4.3, -12.4, 6.8, -0.45, 3.6
+</pre>
+
+<p>
+Write the program so that the size and the values in the array may be easily changed.
+Initialize a sum to zero
+and then loop n times.
+Each execution of the loop,
+with loop counter j,
+does the following:
+</p>
+
+<pre>
+sum = sum*x + a[j]
+</pre>
+
+<p>
+To test and debug this program,
+start with easy values for the coefficients.
+</p>
+
+<p>
+<a href="../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/index.html#part8"> Click here </a> to go back to the main menu.
+</p>
+
+<hr />
+
+
+<pre>
+   * == easy program
+  ** == moderately easy program
+ *** == harder program
+**** == project
+</pre>
+
+<hr />
+
+<b>End of Exercises</b>
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-31/ass31programs.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:10 GMT -->
+</html>
+

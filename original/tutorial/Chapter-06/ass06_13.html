@@ -1,0 +1,121 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Feb 02 20:06:40 EST 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-06/ass06_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:26 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Representing Numbers using Base Two</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass06_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass06_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap06-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<ol>
+<li> The base  is <span style="color:red">2</span>. </li>
+<li> There are <span style="color:red">2</span>  "digits": 
+     <span style="color:red">0</span>, <span style="color:red">1</span>. </li>
+<li> Positions correspond to integer powers of <span style="color:red">two</span>, 
+     starting with power <span style="color:red">0</span> at the rightmost digit,
+     and increasing right to left. </li>
+<li> The digit placed at a position shows how many times that
+     power of <span style="color:red">two</span> is included in the number.</li>
+</ol>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Representing Numbers using Base Two</h1>
+<!-- ../Audio/chap06-13.mp3 -->
+
+<a id="bit,_as_a_binary_digit"> </a>
+<a id="base_two"> </a>
+<a id="binary_representation"> </a>
+
+ 
+<table class="formatTable">
+<tr><td> 1011    </td><td> = </td><td> 1 &#215; (10)<sup>11</sup> </td><td> + </td><td> 0 &#215; (10)<sup>10</sup> </td><td> + </td><td> 1 &#215; (10)<sup>1</sup> </td><td> + </td><td> 1 &#215; (10)<sup>0</sup> </td> </tr>
+<tr><td> &nbsp;  </td><td> = </td><td> 1 &#215; 2<sup>3</sup> </td><td> + </td><td> 0 &#215; 2<sup>2</sup> </td><td> + </td><td> 1 &#215; 2<sup>1</sup> </td><td> + </td><td> 1 &#215; 2<sup>0</sup> </td> </tr>
+<tr><td> &nbsp;  </td><td> = </td><td> 1 &#215; 8 </td><td> + </td><td> 0 &#215; 4 </td><td> + </td><td> 1 &#215; 2 </td><td> + </td><td> 1 &#215; 1 </td> </tr>
+<tr><td> &nbsp;  </td><td> = </td><td> 8 </td><td> + </td><td> 0 </td><td> + </td><td>  2 </td><td> + </td><td>1 </td> </tr>
+<tr><td> &nbsp;  </td><td> = </td><td> 11</td><td> &nbsp; </td><td> &nbsp; </td><td> &nbsp; </td><td>  &nbsp; </td><td> &nbsp; </td><td>&nbsp; </td> </tr>
+</table>
+ 
+ 
+<div class="left">
+<p>
+<span class="highlight">From
+the rules for positional
+notation there are two digits in base two.</span>
+Usually "0" and "1" are chosen,
+and usually the word <b>bit</b> is used.
+"Bit" is an abbreviation of "binary digit".
+</p>
+
+<p>
+In this system the base, two, is written "10",
+the first power of two plus zero times the zero<sup>th</sup>
+power of two.
+Each place in a representation stands for a
+power of two.
+Often this is called the <b>binary</b> system.
+The table shows an example.
+</p>
+
+
+<p>
+The first line in the table is written entirely in base two, and
+shows what the string  "1011" means with positional notation.
+Both the base its powers are written in base two.
+The next line uses decimal notation for the base and its powers.
+The remaining lines use base ten arithmetic until finally the
+integer is expressed in base ten positional notation.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+<p>
+What is 0110 (binary representation) in base ten?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass06_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass06_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-06/ass06_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:27 GMT -->
+</html>

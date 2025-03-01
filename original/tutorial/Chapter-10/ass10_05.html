@@ -1,0 +1,153 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Mon Sep 19 21:41:21 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:15 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registers and the ALU</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass10_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap10merge0910.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+$0
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Registers and the ALU</h1>
+<!-- ../Audio/chap10merge0910.mp3 -->
+
+
+<a id="$0,_permanent_zero"> </a>
+<a id="ALU"> </a>
+<a id="arithmetic/logic_unit_(ALU)"> </a>
+
+
+<img src="aluRegisters.gif" class="rightimage" alt="Registers and the ALU" />
+
+
+<div class="left">
+
+<p>
+<span class="highlight">The bit pattern 0x00000000 occurs so frequently in machine language
+that register <code class="register">$0</code> is wired to permanently hold it.</span>
+That bit pattern represents the integer zero, a very common integer.
+It also represents a <b>null</b>, which is used to mark the end of
+character strings and often used in building data structures.
+</p>
+
+<p><span class="highlight">
+The 
+<b>arithmetic/logic unit (ALU)</b>
+of a processor performs integer arithmetic 
+and logical operations.</span>
+For example, one of its operations is to
+add two 32-bit integers.
+An integer used as input to an operation
+is called an <b>operand</b>.
+One operand for the ALU is always contained
+in a register.
+The other operand may be in a register or may be
+part of the machine instruction itself.
+The result of the operation is put into a
+general purpose register.
+</p>
+
+<a id="ALU_instructions"> </a>
+
+<p>
+<span class="highlight">Machine instructions that use the ALU 
+specify four things:</span>
+</p>
+
+<ol>
+<li>The operation to perform.</li>
+<li>The the first operand (contained in a register).</li>
+<li>The second operand (often contained in a register).</li>
+<li>The register that receives the result.</li>
+</ol>
+
+<p>
+The picture shows a 32-bit addition operation.
+The operands come from register <code class="register">$8</code> and from register <code class="register">$9</code>.
+The result is put in register <code class="register">$10</code>.
+Here is how that instruction is
+written as assembly language:
+</p>
+
+<pre class="code">
+addu    $10,$8,$9 
+</pre>
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 5:</h3>
+<p>
+Here is another instruction that involves the ALU:
+</p>
+
+<pre>
+subu    $25,$16,$17 
+</pre>
+
+<p>
+Identify the following:
+</p>
+
+<form>
+<ol style="line-height:2">
+<li height="15">The operation: <input type="text" size="15"> </li>
+<li>The location of one operand: <input type="text" size="15" > </li>
+<li>The location of the other operand: <input type="text" size="15" > </li>
+<li>The destination of the result: <input type="text" size="15" > </li>
+</ol>
+</form>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass10_04.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass10_06.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-10/ass10_05.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:02:17 GMT -->
+</html>

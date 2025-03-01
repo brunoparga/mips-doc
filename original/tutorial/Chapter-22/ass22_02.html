@@ -1,0 +1,137 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 27 19:53:59 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:53 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell  kjell-at-ieee-dot-org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>syscall</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass22_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap22-02.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+No.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>syscall</h1>
+<!-- ../Audio/chap22-02.mp3 -->
+
+<a id="syscall_(instruction)"> </a>
+
+<pre class="program">
+li  $v0,code      # Load $v0 with the "code" number of an OS service.
+
+.......           # Put parameters for the service in
+.......           # registers $a0, $a1 or $f12 (see below).
+
+syscall           # Invoke the operating system.
+
+                  # Return value (if any) is in $v0 or $f0 
+                  # 
+</pre>
+<br style="clear:both"> 
+
+<div class="left">
+<p>
+In even the simplest  computer,
+putting a character on the screen involves many
+instructions and a detailed knowledge of the video card.
+Let's leave this topic until later (perhaps years later).
+SPIM includes an "exception handler" that simulates a tiny
+operating system that can do input from the keyboard and output
+to the monitor.
+</p>
+
+<p><span class="highlight">
+Assembly language programs
+request operating system services
+using the <code>syscall</code> instruction.</span>
+The <code>syscall</code> 
+instruction transfers control to the operating system
+which then performs the requested service.
+Then control (usually) returns to the program.
+(This description leaves out many details).
+</p>
+
+<pre>
+syscall  # ask the operating system
+         # to perform a service
+         # specified in $v0
+</pre>
+
+<p>
+Different operating systems use this instruction in different ways.
+For the  SPIM exception handler it is used as above.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+The <code>syscall</code> instruction causes an exception,
+which transfers control to an exception handler.</span>
+An exception handler is a section of code, part of the operating system,
+that performs operating system services.
+Different services expect data in different registers, and
+not all services return values to the caller.
+</p>
+ 
+<p><span class="highlight">
+A system service works like a subroutine and may alter the
+temporary registers.
+Values in saved registers are preserved, however.</span>
+</p>
+</div>
+ 
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 2:</h3>
+
+<p>
+Is <code>syscall</code> a <em>basic instruction</em>
+or a <em>pseudoinstruction</em>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass22_01.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part5"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass22_03.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-22/ass22_02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 10:59:54 GMT -->
+</html>

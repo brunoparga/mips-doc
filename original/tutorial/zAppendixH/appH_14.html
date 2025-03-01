@@ -1,0 +1,99 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sun Apr 23 14:15:06 EDT 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:37 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Picking the High-Order Bit</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="appH_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<p>
+4
+</p>
+
+<p>
+2<sup>4</sup> == 16  &nbsp; &lt; &nbsp; 18 &nbsp; &lt; &nbsp;
+2<sup>5</sup> == 32
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Picking the High-Order Bit</h1>
+
+<p>
+From the above, it is easy to decide that 18, in binary, is 10010.
+</p>
+
+<p>
+The leftmost bit (the high order bit) of a binary representation of an integer
+corresponds to the highest power of two that "fits" into the integer.
+For example:
+</p>
+
+<table>
+<tr><th>Integer</th> <th>Too Big</th>  <th>Best Fit</th> <th>Too Small</th> <th>Leftmost Bit</th> </tr>
+
+<tr><td> 16 </td><td> 2<sup>5</sup>=32 </td><td> 2<sup>4</sup>=16 </td><td> 2<sup>3</sup>=8 </td><td> 1 _ _ _ _ </td></tr>
+
+<tr><td> 18 </td><td> 2<sup>5</sup>=32 </td><td> 2<sup>4</sup>=16 </td><td> 2<sup>3</sup>=8 </td><td> 1 _ _ _ _ </td></tr>
+
+<tr><td> 23 </td><td> 2<sup>5</sup>=32 </td><td> 2<sup>4</sup>=16 </td><td> 2<sup>3</sup>=8 </td><td> 1 _ _ _ _ </td></tr>
+
+<tr><td> 49 </td><td> 2<sup>6</sup>=64 </td><td> 2<sup>5</sup>=32 </td><td> 2<sup>4</sup>=16 </td><td> 1 _ _ _ _ _</td></tr>
+
+<tr><td> 52 </td><td> 2<sup>6</sup>=64 </td><td> 2<sup>5</sup>=32 </td><td> 2<sup>4</sup>=16 </td><td> 1 _ _ _ _ _</td></tr>
+
+<tr><td> 63 </td><td> 2<sup>6</sup>=64 </td><td> 2<sup>5</sup>=32 </td><td> 2<sup>4</sup>=16 </td><td> 1 _ _ _ _ _</td></tr>
+
+<tr><td> 64 </td><td> 2<sup>7</sup>=128 </td><td> 2<sup>6</sup>=64 </td><td> 2<sup>5</sup>=32 </td><td>1 _ _ _ _ _ _</td></tr>
+</table>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 14:</h3>
+<p>
+Represent 17 in binary.
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="appH_13.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part9"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="appH_15.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/zAppendixH/appH_14.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:38 GMT -->
+</html>

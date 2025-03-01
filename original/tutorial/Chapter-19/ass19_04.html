@@ -1,0 +1,143 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Oct 26 20:00:27 EDT 2022 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:43 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="https://creativecommons.org/licenses/by-nc/4.0/"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minimum Instruction Set</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass19_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap19merge060708.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<h3>Answer:</h3>
+<p>
+Of course. My  1.7 GHz processor quickly finds 33550336.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Minimum Instruction Set</h1>
+<!-- ../Audio/chap19merge060708.mp3 -->
+
+<div class="left">
+<p>
+But, 
+according to the definition of computing power,
+my very fast processor is no more powerful than the SWAC.
+</p>
+
+<p>
+Processors must control their peripheral devices,
+and send and receive
+information from them.
+They do this by reading and
+writing bit patterns on the system bus,
+and by reading and writing special
+memory addresses
+that are assigned to peripherals.
+So any processor that can read and write
+memory can also control hard disks
+and graphics boards.
+No special kind of processor "power" is needed for that.
+The multimedia instructions 
+that have been added to recent processor chips
+do not add extra computing power.
+Of course, they do add convenience and speed.
+</p>
+
+<p>
+What machine instructions must a
+processor absolutely have?
+</p>
+
+
+<a id="minimum_set_of_instructions"> </a>
+<blockquote><span class="highlight">
+<b>Important Fact:</b> 
+All processors that support  the 
+fundamental 
+machine instructions
+of bit manipulation,
+conditional branching, and
+memory access
+have the same computing power.</span>
+<blockquote>
+</blockquote>
+All processors have these instructions (and many more).
+All processors are equivalent in computing power
+(in the sense of the previous definition).
+</blockquote>
+</div>
+
+<div class="right">
+<p>
+Arithmetic
+ (both integer and floating point)
+can be done with bit manipulation instructions,
+so arithmetic instructions are not fundamental
+(but are almost always included in a processor).
+</p>
+
+<p><span class="highlight">
+Above a certain minimum set of instructions
+adding new instructions does not add to the computing power
+of a processor.</span>
+(To learn more about this topic, 
+take a course in 
+<em>Foundations of Computation</em> 
+or in
+<em>Mathematical Logic</em>).
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 4:</h3>
+
+<p>
+(Thought question:) Why do most processors have
+many more instructions than the minimum set needed
+for full computing power?
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass19_03.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part4"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass19_05.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-19/ass19_04.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:01:44 GMT -->
+</html>

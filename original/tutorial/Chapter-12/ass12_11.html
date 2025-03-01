@@ -1,0 +1,119 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 07:54:16 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:12 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee.org">
+<!-- <meta name="copyright" content="2009"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summary</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass12_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap12-11.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+FEED      1111 1110 1110 1101
+BECA      1011 1110 1100 1010
+&#8212;&#8212;&#8212;&#8212;      &#8212;&#8212;&#8212;&#8212; &#8212;&#8212;&#8212;&#8212; &#8212;&#8212;&#8212;&#8212; &#8212;&#8212;&#8212;&#8212;
+0110      0000 0001 0001 0000
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Summary</h1>
+<!-- ../Audio/chap12-11.mp3 -->
+
+<table  style="margin:  2em auto 2em  auto ;" >
+
+<tr><th> AND </th><th> OR </th><th>XOR</th><th>NOR</th></tr>
+<tr><td> <code>and  d,s,t              </code>  </td><td> <code>or  d,s,t               </code> </td>
+    <td> <code>xor  d,s,t              </code>  </td><td> <code>nor  d,s,t              </code> </td></tr>
+<tr><td> <code>$d &lt;&#8212; $s and $t</code>  </td><td> <code>$d &lt;&#8212;  $s or $t</code>  </td>
+    <td> <code>$d &lt;&#8212; $s xor $t</code>  </td><td> <code>$d &lt;&#8212;  $s nor $t</code>  </td></tr>
+</table>
+
+<p>
+<span class="highlight">The
+ table shows the register with register
+bitwise logic operations.</span>
+Register 
+<code>d</code>
+is the destination (where the result goes);
+the other two registers 
+<code>s</code>
+and
+<code>t</code>
+contain the operands.
+Here is a summary of the operations:
+</p>
+
+<table class="center">
+
+<tr><th> operand </th><th>0</th><th>0</th><th>1</th><th>1</th>  </tr> 
+<tr><th> operand </th><th>0</th><th>1</th><th>0</th><th>1</th>  </tr>
+<tr><td> AND  </td><td>0</td><td>0</td><td>0</td><td>1</td>  </tr>
+<tr><td> OR   </td><td>0</td><td>1</td><td>1</td><td>1</td>  </tr>
+<tr><td> XOR  </td><td>0</td><td>1</td><td>1</td><td>0</td>  </tr>
+<tr><td> NOR  </td><td>1</td><td>0</td><td>0</td><td>0</td>  </tr>
+</table>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+
+ 
+<p>
+Fill in the following:
+</p>
+
+<table>
+<tr><td> 0 NOR 0 = </td><td><input type="text" size="10"></td><td> NOT 0 =  </td><td><input type="text" size="10"></td></tr>
+<tr><td> 1 NOR 0 = </td><td><input type="text" size="10"></td><td> NOT 1 =  </td><td><input type="text" size="10"></td></tr>
+</table>
+
+<p>
+Now answer the question: NOT X &nbsp;=&nbsp; X <input type="text" size="10"> 0
+</p>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass12_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:13 GMT -->
+</html>

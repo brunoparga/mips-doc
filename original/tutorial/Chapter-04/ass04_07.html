@@ -1,0 +1,125 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 09:30:06 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-04/ass04_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:33 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cache Memory</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass04_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass04_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap04-09.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<p>
+Which is faster:
+physical memory or the hard disk?
+</p>
+<h3>Answer:</h3>
+<p>
+Physical memory.
+</p>
+
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Cache Memory</h1>
+<!-- ../Audio/chap04-09.mp3 -->
+
+<div class="left">
+<p>
+Disk
+ access is slow compared to RAM access.
+Potentially, using a combination of real memory and
+disk memory to implement the address space could
+greatly slow down program execution.
+However, with clever electronics and a good operating
+system, virtual memory is only slightly slower
+than physical memory.
+</p>
+
+<a id="cache_memory"> </a>
+<p>
+Computer systems also have
+<b>cache memory</b>.
+<span class="highlight">Cache memory is very fast RAM that is inside (or close to)
+the processor.
+It duplicates sections of
+main storage that are heavily used
+by the currently running programs.</span>
+The processor does not have to use the system bus to
+get or store data in cache memory.
+Access to cache memory is much
+faster than to normal main memory.
+</p>
+</div>
+
+<div class="right">
+<p>
+Like virtual memory, cache memory looks like ordinary memory to most programs.
+It is an electronic detail below the level of
+abstraction provided by assembly language.
+<span class="highlight">Hardware keeps cache up
+to date and in synch with main storage.
+Your programs are unaware that there is
+cache memory and virtual memory.</span>
+They just see "main memory".
+Application programs don't contain 
+instructions that say "store this
+in cache memory",
+or say "get this from virtual  memory".
+They only refer to the contents of
+main memory at a particular address.
+The hardware makes sure that the program
+gets or stores the correct byte,
+no matter where it really is.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 7:</h3>
+<p>
+Since memory looks like an array of bytes, is it
+necessary for each item of data in memory to be
+one byte long?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass04_06.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass04_08.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-04/ass04_07.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:00:34 GMT -->
+</html>

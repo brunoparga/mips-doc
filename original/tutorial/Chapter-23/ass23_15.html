@@ -1,0 +1,119 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue Nov 02 17:15:06 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:50 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell: kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotate Instructions</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass23_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap23-15.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+<!-- ../Audio/chap23-15.mp3 -->
+
+<p>
+Rotate right the following bit pattern by <b>two</b> bit positions:
+</p>
+<pre>10001100</pre>
+<h3>Answer:</h3>
+<pre>00100011</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Rotate Instructions</h1>
+
+
+<a id="rol_(pseudoinstruction)"> </a>
+<a id="ror_(pseudoinstruction)"> </a>
+
+<div class="left">
+<p><span class="highlight">
+The   
+rotate instructions are both
+pseudoinstructions.</span>
+Each one takes four basic instructions
+to implement.
+The shift amount is given in a register
+or as an immediate operand.
+</p>
+</div>
+
+<div class="right">
+<p><span class="highlight">
+Negative immediate operands are not allowed.</span>
+However, if the third operand is a register
+it may contain a negative integer.
+In that case the rotation is the opposite direction.
+</p>
+</div>
+
+<br style="clear:both"> 
+
+<pre class="code" style="border: 2px dotted green; padding:10px; background-color:white">
+
+rol d,s,t    # d &lt;&#8212;s rotated left by t
+             # (pseudoinstruction)
+ 
+ror d,s,t    # d &lt;&#8212; s  rotated right by t
+             # (pseudoinstruction)
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 15:</h3>
+
+
+<p>
+Inspect the following:
+</p>
+
+<pre class="code">
+li  $t2,-2
+li  $t1,4
+ror $t0,$t1,$t2
+</pre>
+
+<p>
+What does <code class="register">$t0</code> hold after the sequence has executed?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass23_14.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part6"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass23_16.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-23/ass23_15.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:09:51 GMT -->
+</html>

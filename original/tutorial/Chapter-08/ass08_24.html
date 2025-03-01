@@ -1,0 +1,148 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Sat Feb 04 17:13:11 EST 2023 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_24.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:09 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carry In == Carry Out</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass08_23.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_25.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap08-37.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<ul>
+<li>(correct result:) The carry into the left column is the SAME as the carry out.</li>
+</ul>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Carry In == Carry Out</h1>
+<!-- ../Audio/chap08-37.mp3 -->
+<p>
+<span class="highlight">
+With 
+two's complement representation
+the result of addition is correct if the carry into the
+high order column is the same as  the carry out of  the
+high order column.</span>
+The carry can be one or zero.
+Overflow is detected by comparing two bits, an
+easy thing to do with electronics.
+Here are some more examples:
+</p>
+
+<table>
+
+<tr><th colspan="4"> <br />Overflow Detection with Two's Complement Operands<br /><br /></th></tr>
+<tr>
+<th style="background-color:lightblue">No Overflow</th> <th style="background-color:lightblue">No Overflow </th> 
+<th style="background-color:pink">Overflow</th> <th style="background-color:pink">Overflow </th>
+</tr>
+
+<tr>
+<td>
+
+<pre style="text-align:left">
+
+11111 111
+ 0011 1111  ( 63<sub>10</sub>)
+<u> 1101 0101 </u> (-43<sub>10</sub>)
+ 0001 0100  ( 20<sub>10</sub>)
+
+</pre>
+</td>
+<td>
+
+<pre style="text-align:left">
+
+00000 011
+ 1100 0001  ( -63<sub>10</sub>)
+<u> 0010 1011 </u> (  43<sub>10</sub>)
+ 1110 1100  ( -20<sub>10</sub>)
+
+</pre>
+</td>
+<td>
+
+<pre style="text-align:left">
+
+01111 100
+ 0011 1111  (  63<sub>10</sub>)
+<u> 0110 0100 </u> ( 100<sub>10</sub>)
+ 1010 0011  ( -93<sub>10</sub>)
+
+</pre>
+</td>
+<td>
+
+<pre style="text-align:left">
+
+10000 000
+ 1100 0001  ( -63<sub>10</sub>)
+<u> 1001 1100 </u> (-100<sub>10</sub>)
+ 0101 1101  (  93<sub>10</sub>)
+
+</pre>
+</td>
+</tr>
+</table>
+
+<p>
+&#160;
+</p>
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 24:</h3>
+<p>
+Perform the binary addition algorithm on the following
+8-bit two's complement numbers.
+Is the result correct or not?
+</p>
+
+<pre class="code">
+ 1011 1101
+<u> 1110 0101 </u>
+ 
+</pre>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass08_23.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part2"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass08_25.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_24.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:12:10 GMT -->
+</html>

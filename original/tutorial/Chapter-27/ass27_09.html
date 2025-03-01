@@ -1,0 +1,120 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Fri Nov 26 19:54:45 EST 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:56 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2021"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Activation Chain</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass27_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap27-17.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+Yes. The chain does not need to unwind completely back to main before
+it starts growing again.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Linear Activation Chain</h1>
+<!-- ../Audio/chap27-17.mp3 -->
+
+
+<a id="activation_chain"> </a>
+
+<div class="left">
+<p>
+<span class="highlight">A particular subroutine (say A) may call several other subroutines in
+succession (say B, then X, then Y, then Z).
+But at any moment, it will have only one subroutine linked to it in
+the chain of activation.</span>
+The calls in most modern programming languages follow this stack-based
+behavior.
+The currently executing subroutine 
+is at the end of a linear chain of activations that link back to the
+operating system that first started &nbsp; <code>main</code>.
+</p>
+
+<p>
+The run-time stack has the same form as the chain of activation.
+The top of the stack is for the currently running subroutine.
+When that subroutine is finished 
+its stack data is popped.
+</p>
+</div>
+
+<div class="right">
+<blockquote>
+<p>
+Stacks are <span style="color:blue">Last In, First Out</span> data structures.
+</p>
+
+<p>
+Subroutines are activated in a <span style="color:blue">Last Called, First Finished</span>  order.
+</p>
+</blockquote>
+
+<p><span class="highlight">
+When a subroutine reaches its end, it returns to its caller,
+and the chain is shortened.
+Its caller might then call another subroutine, and the chain is
+lengthened again.</span>
+</p>
+
+<p>
+While a program that contains many subroutines is executing, the activation chain
+grows up and down like a yo-yo.
+Ultimately the chain is of length zero when the main routine returns
+control to the operating system.
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 9:</h3>
+<p>
+Does your brain feel like a yo-yo?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass27_08.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part7"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass27_10.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-27/ass27_09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:05:57 GMT -->
+</html>

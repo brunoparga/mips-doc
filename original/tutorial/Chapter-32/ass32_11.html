@@ -1,0 +1,108 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Tue May 04 10:31:43 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:38 GMT -->
+<head>
+<meta charset="utf-8">
+<!-- <meta name="copyright" content="2020: Creative Commons Attribution-NonCommercial 4.0 International License"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ending the Loop</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass32_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap32-15.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+See below.
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Ending the Loop</h1>
+<!-- ../Audio/chap32-15.mp3 -->
+
+<pre class="program">
+## x' = (1/2)(x + n/x)
+
+## $f0  ---  n
+## $f1  ---  1.0
+## $f2  ---  2.0
+## $f3  ---  x  : current approx.
+## $f4  ---  x' : next approx.
+## $f8  ---  temp
+## $f10 ---  small value
+
+loop:   
+        mov.s   $f4,$f0             #  x' = n
+        div.s   $f4,$f4,$f3         #  x' = n/x
+        add.s   $f4,$f3,$f4         #  x' = x + n/x
+        div.s   $f3,$f4,$f2         #  x = (1/2)(x + n/x)
+
+        # test if loop should end
+
+</pre>
+
+<div class="left">
+
+<p>
+After calculating a new approximation check  if
+the loop should end.
+This is more work than the actual calculation.
+</p>
+</div>
+
+<div class="right">
+<p> 
+<span class="highlight">We can't test if we have the <em>exact</em> answer,
+because that may never happen.</span>
+Instead   test if the current <code>x</code> is
+close to the square root of  <code>n</code> 
+</p>
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 11:</h3>
+<p>
+Say that  <code>x</code>  is very close to  <code>n<sup>0.5</sup></code>.
+What do you think will be the value of <code>n/(x*x)</code>?
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass32_10.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part8"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass32_12.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-32/ass32_11.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:07:39 GMT -->
+</html>

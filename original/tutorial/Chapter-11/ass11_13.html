@@ -1,0 +1,128 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 16:11:31 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:30 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell; kjell at ieee dot org">
+<!-- <meta name="copyright" content="2015"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Program</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass11_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap11-13.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+
+<pre>
+0000 1111 1010 0101       0FA5
+0011 0110 1000 1111       368F
+
+0011 1001 0010 1010       392A
+</pre>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>Example Program</h1>
+<!-- ../Audio/chap11-13.mp3 -->
+
+
+<p><span class="highlight">
+Here is a program that does all three bitwise operations between
+the same two patterns.</span>
+The destination register is different in each case.
+</p>
+
+<pre class="program">
+## Program to bitwise OR, AND, and XOR two patterns 
+        .text
+        .globl  main
+
+main:
+        ori     $15, $0,0x0FA5       # put bit pattern register into $15
+        ori      $8,$15,0x368F       # OR with second pattern
+        andi     $9,$15,0x368F       # AND with second pattern
+        xori    $10,$15,0x368F       # XOR with second pattern
+
+## End of file
+</pre>
+
+<p>
+Running it in SPIM (pushing F10 four times) results in the following:
+</p>
+
+ 
+<img src="andWork.gif" class="center"  style="max-width:95%;"  alt="SPIM display of program results" />
+<br style="clear:both"> 
+
+<div class="left">
+
+<p>
+The register display on the left shows the results of the three logic operations.
+Select "Hex" from the "Registers" menu to see register content displayed using hexadecimal pattern names.
+The registers always hold 32 bits (of course), 
+<span class="highlight">but the register display does not show leading zeros.</span>
+So the result of the <code>xori</code> operation given in the answer (see above) is displayed as
+</p> 
+
+<pre>
+392a
+</pre>
+
+<p>
+corresponding to what is really in the register
+</p>
+
+
+<pre>
+0000392a   hexadecimal for   0000 0000 0000 0000 0011 1001 0010 1010
+</pre>
+</div>
+ 
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 13:</h3>
+<p>
+What is the exclusive-OR of a bit pattern with itself?
+Try this with a few bit patterns written on a scrap of paper. 
+</p>
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass11_12.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass11_14.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-11/ass11_13.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:08:32 GMT -->
+</html>

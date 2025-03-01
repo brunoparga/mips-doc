@@ -1,0 +1,128 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Wed Jul 08 11:48:16 EDT 2020 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:38 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org">
+<!-- <meta name="copyright" content="2020"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASCII Sequences</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass05_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap05merge0607.mp3'></audio>
+<a><img src='../highLightIcon.gif' alt='highlighting' onclick='doHighlight()' style="display: block;float:right"></a>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<p>
+50 Percent, 128 out of 256
+</p>
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>ASCII Sequences</h1>
+<!-- ../Audio/chap05merge0607.mp3 -->
+
+<div class="left">
+<p>
+ASCII uses all 128 7-bit patterns.
+There are twice as many 8-bit patterns.
+Some computer makers use the 
+additional patterns to represent various shapes.
+Old  Windows PCs, for example,
+used these extra patterns to represent
+symbols and graphics characters.
+Some printers will not work with these additional patterns.
+</p>
+
+<a id="null_terminated_string"> </a>
+<a id=".asciiz"> </a>
+<p>
+<span class="highlight">Part of what an assembler does is to assemble the ASCII bit patterns</span>
+that you have asked to be placed in memory.
+Here is a section of an assembly language program:
+</p>
+
+<pre class="code">
+.asciiz      "ABC abc"
+</pre>
+ 
+<p>
+Here are the bit patterns that the assembler will produce
+in the object module:
+</p>
+
+<pre class="code">
+41 42 43 20 61 62 63 00
+</pre>
+
+<p>
+These bit patterns will be placed sequentially in memory,
+one pattern per byte.
+</p>
+</div>
+
+<div class="right"> 
+<p>
+<span class="highlight">The <code>.asciiz</code>  part of the source code asked the assembler to assemble
+the characters between the quote marks into ASCII bit patterns.</span>
+The first character, "A", corresponds to the bit pattern 0x41.
+The second character, "B", corresponds to the bit pattern 0x42.
+The fourth character, " " (space), corresponds to the bit pattern 0x20.
+The final bit pattern 0x00 (NUL) is used by the assembler to
+show the end of the string of characters.
+</p>
+
+</div>
+
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 8:</h3>
+<p>
+What will be the assembled patterns
+for this assembly code:
+</p>
+
+<pre class="code">
+.asciiz   "A B"
+</pre>
+
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass05_07.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part1"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass05_09.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-05/ass05_08.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:04:39 GMT -->
+</html>

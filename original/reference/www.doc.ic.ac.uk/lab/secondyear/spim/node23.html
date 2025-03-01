@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node23.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:47 GMT -->
+<HEAD>
+<TITLE>Calling Convention</TITLE>
+<META NAME="description" CONTENT="Calling Convention">
+<META NAME="keywords" CONTENT="spim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="spim.css">
+
+<LINK REL="next" HREF="node24.html">
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="spim.html">
+<LINK REL="next" HREF="node24.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html286"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html284"
+  HREF="spim.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html278"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html287"
+  HREF="node24.html">Input and Output</A>
+<B> Up:</B> <A NAME="tex2html285"
+  HREF="spim.html">SPIM S20: A MIPS</A>
+<B> Previous:</B> <A NAME="tex2html279"
+  HREF="node22.html">Memory Usage</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00040000000000000000">
+Calling Convention</A>
+</H1>
+
+<P>
+The calling convention described in this section is the one used by
+<EM>gcc</EM>, not the native MIPS compiler, which uses a more complex
+convention that is slightly faster.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:stack"></A><A NAME="969"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+Layout of a stack frame.  The frame pointer points just
+below the last argument passed on the stack.  The stack pointer points
+to the last word in the frame.</CAPTION>
+<TR><TD><IMG
+ WIDTH="494" HEIGHT="455" BORDER="0"
+ SRC="img20.png"
+ ALT="\begin{figure}\centerline{\psfig{figure=stack-frame.id,height=4in}}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+Figure&nbsp;<A HREF="#fig:stack"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="../../../usr/share/latex2html/icons/crossref.html"></A> shows a diagram of a stack frame.  A frame
+consists of the memory between the frame pointer (<TT>$fp</TT>), which
+points to the word immediately after the last argument passed on the
+stack, and the stack pointer (<TT>$sp</TT>), which points to the last
+word in the frame.  As typical of Unix systems, the stack grows
+down from higher memory addresses, so the frame pointer is above stack
+pointer.
+
+<P>
+The following steps are necessary to effect a call:
+
+<OL>
+<LI>Pass the arguments.  By convention, the first four arguments
+are passed in registers <TT>$a0</TT>-<TT>$a3</TT> (though simpler
+compilers may choose to ignore this convention and pass all arguments
+via the stack).  The remaining arguments are pushed on the stack.
+
+<P>
+</LI>
+<LI>Save the caller-saved registers.  This includes registers <TT>$t0</TT>-<TT>$t9</TT>, if they contain live values at the call site.
+
+<P>
+</LI>
+<LI>Execute a <TT>jal</TT> instruction.
+</LI>
+</OL>
+
+<P>
+Within the called routine, the following steps are necessary:
+
+<OL>
+<LI>Establish the stack frame by subtracting the frame size from
+the stack pointer.
+
+<P>
+</LI>
+<LI>Save the callee-saved registers in the frame.  Register <TT>$fp</TT> is always saved.  Register <TT>$ra</TT> needs to be saved if the
+routine itself makes calls.  Any of the registers <TT>$s0</TT>-<TT>$s7</TT> that are used by the callee need to be saved.
+
+<P>
+</LI>
+<LI>Establish the frame pointer by adding the stack frame size - 4
+to the address in <TT>$sp</TT>.
+</LI>
+</OL>
+
+<P>
+Finally, to return from a call, a function places the returned value
+into <TT>$v0</TT> and executes the following steps:
+
+<OL>
+<LI>Restore any callee-saved registers that were saved upon entry
+(including the frame pointer <TT>$fp</TT>).
+
+<P>
+</LI>
+<LI>Pop the stack frame by adding the frame size to <TT>$sp</TT>.
+
+<P>
+</LI>
+<LI>Return by jumping to the address in register <TT>$ra</TT>.
+</LI>
+</OL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html286"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="../../../usr/share/latex2html/icons/next.html"></A> 
+<A NAME="tex2html284"
+  HREF="spim.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../../../usr/share/latex2html/icons/up.html"></A> 
+<A NAME="tex2html278"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../../../usr/share/latex2html/icons/prev.html"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html287"
+  HREF="node24.html">Input and Output</A>
+<B> Up:</B> <A NAME="tex2html285"
+  HREF="spim.html">SPIM S20: A MIPS</A>
+<B> Previous:</B> <A NAME="tex2html279"
+  HREF="node22.html">Memory Usage</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Ian Moor
+2009-03-11
+</ADDRESS>
+</BODY>
+
+<!-- Mirrored from www.doc.ic.ac.uk/lab/secondyear/spim/node23.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 16:52:48 GMT -->
+</HTML>

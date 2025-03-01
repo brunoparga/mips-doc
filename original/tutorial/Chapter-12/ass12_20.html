@@ -1,0 +1,100 @@
+<!doctype html> 
+<html lang="en">
+
+<!-- LessonMaker.java, version June 3, 2018 on Thu Sep 23 07:54:16 EDT 2021 -->
+
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:26 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Bradley Kjell kjell at ieee.org">
+<!-- <meta name="copyright" content="2009"> -->
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORing in a Field</title>
+<link rel="stylesheet" href="../AssemblyStyleRev3.css">
+<script src="../CAIscripts.js"></script>
+</head>
+
+<body>
+
+
+<!-- TOP NAVIGATION DIVISION -->
+<div class="topnavigation">
+<a href="ass12_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+<a><img src='../audioIcon.gif' alt='hear noise' onclick='doAudio()'></a>
+<audio id='player' src='../../external.html?link=https://chortle.ccsu.edu/assemblytutorial/Audio/chap12-20.mp3'></audio>
+</div>
+
+<!-- ANSWER DIVISION -->
+<div class="answer">
+
+<h3>Answer:</h3>
+<pre>
+sll   $12,$12,21      # left shift s by 21 places
+or    $25,$25,$12     # move s into target register
+</pre> 
+<br class="clearfloats"> 
+</div>
+
+<!-- LESSON DIVISION -->
+<div class="lesson">
+<h1>ORing in a Field</h1>
+<!-- ../Audio/chap12-20.mp3 -->
+
+<div class="left">
+<p>
+
+The
+ low-order bit of the pattern for $s is in bit position
+0 (of register <code class="register">$12</code>). It must be moved to position 21 of
+the instruction.
+This is done by shifting left by 21 places.
+Next, the <code>or</code> copies it into 
+<code class="register">$25</code>, where the instruction
+being assembled.
+</p>
+
+<p>
+The <code>or</code> works like this:
+</p>
+
+<table>
+<tr> <td>&nbsp;               </td><td >31....26</td> <td >25...21</td>  <td >20...16</td> <td >15.............................0</td> </tr>
+<tr> <td>Register $12 (before shift)</td><td >000000</td> <td >00000</td>  <td >00000</td> <td >0000 0000 0000 1001</td> </tr>
+<tr> <td>Register $12 (shifted)</td><td >000000</td> <td >01001</td>  <td >00000</td> <td >0000 0000 0000 0000</td> </tr>
+<tr> <td>Register $25 (before or)</td><td >001101</td> <td >00000</td>  <td >00000</td> <td >0000 0000 0000 0000</td> </tr>
+<tr> <td>Register $25 (after or) </td><td >001101</td> <td >01001</td>  <td >00000</td> <td >0000 0000 0000 0000</td> </tr>
+</table>
+
+</div>
+
+<br class="clearfloats"> 
+</div> <!-- end LESSON -->
+
+<!-- QUESTION DIVISION -->
+<div class="question">
+<h3> QUESTION 20:</h3>
+<p>
+Would this instruction have worked as well?
+</p>
+
+<pre>
+or    $25,$0,$12     # move s into target register
+</pre> 
+<br class="clearfloats"> 
+</div> <!-- end QUESTION -->
+
+<!-- BOTTOM NAVIGATION DIVISION -->
+<div class="bottomnavigation">
+<a href="ass12_19.html"><img src="../backIcon.gif" alt="go to previous page"></a> &nbsp; 
+<a href="../index-2.html#part3"><img src="../homeIcon.gif" alt="go to home page"></a> &nbsp;
+<a href="ass12_21.html"><img src="../nextIcon.gif" alt="go to next page"></a>
+</div>
+
+</body>
+
+<!-- Mirrored from chortle.ccsu.edu/assemblytutorial/Chapter-12/ass12_20.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jul 2023 11:11:27 GMT -->
+</html>
